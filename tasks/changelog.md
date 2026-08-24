@@ -81,3 +81,10 @@ do Apps Script) e comportamento no aparelho da Alícia.
   o `{30,}` no padrão separa URL real dos placeholders da documentação.
 - `lerEventos_` passa a mapear pelo cabeçalho da planilha, não pela posição fixa:
   uma coluna movida à mão faria o dash ler o campo errado em silêncio.
+
+## 2026-08-24 — Correcao da barra de XP
+
+- **fix**: `.hud .xpfill` era um `<span>` inline, e em elemento inline `width` e
+  `height` nao se aplicam: a barra ficava 0x0. O numero de XP subia e a barra ao
+  lado ficava vazia em qualquer nivel, desde o prototipo. `display:block` resolve.
+  Verificado no navegador: 0%/50%/100% respondem (0 / 79 / 158 px num trilho de 160).

@@ -51,7 +51,9 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
   border-radius:14px;padding:10px 14px;margin-bottom:16px;flex-wrap:wrap;}
 .hud .lvl{font-family:'Fredoka',sans-serif;font-size:.9rem;color:var(--ink);white-space:nowrap;}
 .hud .xpbar{flex:1;min-width:120px;height:12px;background:#fff;border:1.5px solid var(--line);border-radius:999px;overflow:hidden;}
-.hud .xpfill{height:100%;width:0;background:linear-gradient(90deg,#57c9b1,var(--mint));transition:width .5s cubic-bezier(.3,1.4,.5,1);}
+/* display:block e obrigatorio: num <span> inline width/height nao se aplicam,
+   e a barra ficava 0x0 — invisivel em qualquer XP. */
+.hud .xpfill{display:block;height:100%;width:0;background:linear-gradient(90deg,#57c9b1,var(--mint));transition:width .5s cubic-bezier(.3,1.4,.5,1);}
 .hud .xpnum{font-family:'Fredoka',sans-serif;font-size:.85rem;color:var(--mint);white-space:nowrap;}
 .medals{display:flex;gap:4px;font-size:1.05rem;}
 .medals span{opacity:.22;filter:grayscale(1);transition:opacity .3s,filter .3s;}
