@@ -140,6 +140,9 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
 .stepdots i{width:26px;height:5px;border-radius:3px;background:var(--line);display:block;}
 .stepdots i.on{background:var(--mint);}
 .lesson-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:22px;}
+/* saída para o mapa: discreta de propósito, para ser porta e não convite */
+.navtop{margin:-4px 0 10px;}
+.navtop .btn{font-size:.82rem;padding:6px 13px;}
 /* modo foco: menos estímulo concorrente */
 body.focus{background-image:none;background-color:#fbfaf7;}
 body.focus .card{box-shadow:0 1px 3px rgba(23,50,74,.08);}
@@ -190,6 +193,7 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
 
   <!-- AULA -->
   <section id="lesson" class="card hidden">
+    <div class="navtop"><button class="btn ghost small" id="lessonExit">← Voltar ao mapa</button></div>
     <p class="eyebrow" id="lessonEyebrow">Missão</p>
     <h2 id="lessonTitle"></h2>
     <div class="stepdots" id="stepDots"></div>
@@ -204,6 +208,7 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
 
   <!-- QUIZ -->
   <section id="quiz" class="card hidden">
+    <div class="navtop"><button class="btn ghost small" id="quizExit">← Voltar ao mapa</button></div>
     <div class="qhead">
       <span class="tag" id="qTag"></span>
       <span class="dots" id="dots"></span>
@@ -709,6 +714,28 @@ function show(id){['map','lesson','quiz','moduleDone','final'].forEach(s=>el(s).
 /* uma missão abre quando a anterior da lista atual estiver concluída */
 function isOpen(i){return i===0 || !!S.done[missoes[i-1]?.missao_id];}
 
+/* ====== SAIR DE UMA MISSÃO PELA METADE ======
+   Uma missão só conta quando termina. Sair — pelo botão ou fechando a aba —
+   descarta a posição dentro dela: da próxima vez recomeça pela aula.
+
+   O que NÃO se desfaz, de propósito:
+   · o XP já ganho nas questões respondidas. Ela encarou, ela ganhou. Tirar de
+     volta é enquadramento de perda, o mesmo motivo pelo qual errar vale 20 e
+     não zero.
+   · as linhas de telemetria já emitidas. São fatos do que aconteceu; apagá-las
+     falsificaria o log. Se ela refizer a missão, as novas respostas geram
+     linhas novas, com posicao_na_sessao maior — duas tentativas de verdade. */
+function descartarParcial(){
+  S.modId=null; S.q=0; S.correctInMod=0; S.usedHint=false; S.screen='map';
+  chosen=null; attempts=0; stepsShown=0; relogio=null;
+}
+function sairDaMissao(pedirConfirmacao){
+  if(pedirConfirmacao && !confirm('Você vai recomeçar esta missão do início na próxima vez. O XP que já ganhou continua seu. Voltar ao mapa?')) return;
+  descartarParcial(); save(); drawMap();
+}
+el('lessonExit').onclick=()=>sairDaMissao(false);   // na aula não há o que perder
+el('quizExit').onclick=()=>sairDaMissao(true);      // nos desafios, o mesmo freio dos dois toques
+
 function drawMap(){
   el('modList').innerHTML=missoes.map((m,i)=>{
     const done=S.done[m.missao_id], open=isOpen(i);
@@ -914,6 +941,7 @@ function offerPause(modIdx){
   };
 }
 el('backToMap').onclick=()=>{
+  descartarParcial();save();          // missão concluída: não deixa resto de posição para trás
   if(missoes.every(x=>S.done[x.missao_id]))showFinal();else drawMap();};
 
 function showFinal(){
@@ -959,17 +987,16 @@ function confetti(n){
     if(S.modId){const k=missoes.findIndex(x=>x.missao_id===S.modId);if(k>=0)S.mod=k;else S.screen='map';}
     else if(S.screen!=='map')S.screen='map';
     if(missoes.every(x=>S.done[x.missao_id])){drawMap();return;}
-    if(S.screen==='quiz'&&missoes[S.mod]){
-      drawMap();
-      el('resumeNote').innerHTML=`Você parou na missão <b>${missoes[S.mod].titulo}</b>.`;
-      const b=document.createElement('button');b.className='btn small';b.style.marginTop='12px';
-      b.textContent='Continuar de onde parei';
-      b.onclick=()=>{S.correctInMod=S.correctInMod||0;renderQ();};
-      el('resumeNote').after(b);
+    /* Parou no meio de uma missão? O parcial é descartado — ela recomeça pela
+       aula. XP, medalhas e modo foco continuam sobrevivendo a fechar a aba;
+       o que não sobrevive é a posição dentro de uma missão inacabada. */
+    if((S.screen==='quiz'||S.screen==='lesson')&&missoes[S.mod]){
+      const parada=missoes[S.mod].titulo;
+      descartarParcial();save();drawMap();
+      el('resumeNote').innerHTML=`Você tinha começado <b>${parada}</b>. É só tocar nela para fazer do início.`;
       return;
     }
-    if(S.screen==='lesson'&&missoes[S.mod]){drawMap();
-      el('resumeNote').innerHTML=`Você estava lendo a missão <b>${missoes[S.mod].titulo}</b>. É só tocar nela para voltar.`;return;}
+    descartarParcial();
   }
   hud();applyFocus();drawMap();
 })();

@@ -33,9 +33,11 @@ Abrir `http://localhost:4173/2026-08-matematica-y5.html`.
 6. **Andaime** — 🧩 aparece na 3ª questão de gráficos e revela uma etapa por vez.
 7. **Escudo** — no 1º erro da missão a sequência não zera e aparece o aviso.
 8. **Modo foco** — desliga fundo quadriculado, sombras e confete.
-9. **Retomada** — fechar a aba no meio e reabrir: XP preservado e botão
-   "Continuar de onde parei" voltando na questão certa.
-10. **Envio** — com `SHEET_URL`, uma linha por questão na aba `Eventos`.
+9. **Sair pelo mapa** — "← Voltar ao mapa" na aula sai direto; nos desafios
+   pergunta antes. O XP já ganho continua; a missão recomeça pela aula.
+10. **Retomada** — fechar a aba no meio e reabrir: XP e medalhas preservados,
+    e a missão inacabada volta ao início ("É só tocar nela para fazer do início").
+11. **Envio** — com `SHEET_URL`, uma linha por questão na aba `Eventos`.
     Sem ela, "Copiar resultados" no fim gera TSV de 28 colunas.
 
 **Nunca deve aparecer**: qualquer cronômetro ou contagem de tempo na tela da aluna.
