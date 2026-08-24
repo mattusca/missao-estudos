@@ -538,41 +538,109 @@ function ferramentaInit(m){
 }
 
 /* ==================================================================
-   ENVIO DOS RESULTADOS PARA A PLANILHA (Google Sheets)
-   Cole abaixo a URL /exec do Apps Script. Enquanto estiver vazia,
-   nada é enviado: os resultados ficam guardados na fila local e
-   podem ser copiados no fim pelo botao "Copiar resultados".
+   TELEMETRIA — UMA LINHA POR QUESTÃO RESPONDIDA
+   Resumo não se desagrega; detalhe se agrega com fórmula. Por isso não
+   existe linha "por missão" nem "por prova": elas se calculam na planilha.
+
+   A URL do Apps Script é injetada por build.mjs a partir de SHEET_URL do
+   ambiente. Sem ela, nada é perdido: as linhas vão para a fila local e
+   saem pelo botão "Copiar resultados".
    ================================================================== */
-const SHEET_URL = '';           // <<<<<< COLE AQUI A URL DO APPS SCRIPT
+const SHEET_URL = '__SHEET_URL__';
+const TEM_URL   = !!SHEET_URL && !SHEET_URL.startsWith('__');
 const ALUNA     = PROVA.aluna || 'Alicia';
-/* A fila é por prova: duas provas publicadas na mesma origem não podem
-   disputar a mesma chave de localStorage. */
+/* Fila por prova: duas provas na mesma origem não disputam a chave. */
 const FILA      = `missao_fila_${PROVA.prova_id}_v2`;
-let linhas = [];                // tudo que foi gerado nesta sessao
+let linhas = [];                // o que foi gerado nesta aba
+
+/* Campos da seção 5 do CLAUDE.md, nesta ordem. É a mesma ordem do
+   cabeçalho de apps-script/enviar.gs — mudar aqui exige mudar lá. */
+const COLUNAS = ['evento_id','sessao_id','timestamp','aluna','materia','eixo','tema_id',
+  'subtema','questao_id','habilidade_bncc','escola','ano_aluna','nivel_conteudo','bimestre',
+  'contexto','resultado','usou_dica','usou_andaime','dificuldade','tipo_raciocinio',
+  'seg_ate_1o_toque','seg_total','saiu_da_tela','tempo_valido','retomada',
+  'posicao_na_sessao','modo_foco','dispositivo'];
 
 function lerFila(){try{return JSON.parse(localStorage.getItem(FILA)||'[]');}catch(e){return [];}}
 function salvarFila(f){try{localStorage.setItem(FILA,JSON.stringify(f));}catch(e){}}
 
 async function enviarLinha(row){
   linhas.push(row);
-  if(!SHEET_URL){salvarFila([...lerFila(),row]);return;}
+  if(!TEM_URL){salvarFila([...lerFila(),row]);return;}
   try{
     await fetch(SHEET_URL,{method:'POST',mode:'no-cors',
       headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(row)});
-  }catch(e){salvarFila([...lerFila(),row]);}   // sem internet? guarda e tenta na proxima vez
+  }catch(e){salvarFila([...lerFila(),row]);}   // sem internet? guarda e tenta na proxima abertura
 }
 async function esvaziarFila(){
-  if(!SHEET_URL)return;
+  if(!TEM_URL)return;
   const f=lerFila(); if(!f.length)return; salvarFila([]);
   for(const r of f){await enviarLinha(r);}
 }
 function copiarResultados(){
   const base=[...lerFila(),...linhas];
   if(!base.length)return alert('Nada para copiar ainda.');
-  const cols=['quando','aluna','tipo','missao','acertos','total','pct','medalha','dicas','partes','segundas','erros','minutos','xp','foco'];
-  const tsv=[cols.join('\t'),...base.map(r=>cols.map(c=>Array.isArray(r[c])?r[c].join(' | '):(r[c]??'')).join('\t'))].join('\n');
+  const tsv=[COLUNAS.join('\t'),...base.map(r=>COLUNAS.map(c=>{
+    const v=r[c]; return Array.isArray(v)?v.join(' | '):(typeof v==='boolean'?(v?'sim':'nao'):(v??''));
+  }).join('\t'))].join('\n');
   navigator.clipboard.writeText(tsv).then(()=>alert('Resultados copiados! Cole direto numa planilha.'),
     ()=>prompt('Copie o texto abaixo:',tsv));
+}
+
+/* ---------- relógio da questão ----------
+   Medido sempre, exibido nunca. Pressão de tempo derruba o desempenho em
+   vez de revelá-lo — nenhum destes números vai para a tela da aluna.
+   O que interessa é o tempo até o PRIMEIRO toque (leitura + decisão);
+   depois disso é ruído de digitação e hesitação motora. */
+const LIMITE_SEG = 180;         // acima disso o cronômetro virou almoço
+let relogio = null;
+function iniciarRelogio(){ relogio = {t0:Date.now(), primeiro:null, saiu:false}; }
+function marcarPrimeiroToque(){ if(relogio && relogio.primeiro===null) relogio.primeiro=Date.now(); }
+document.addEventListener('visibilitychange',()=>{ if(document.hidden && relogio) relogio.saiu=true; });
+
+function dispositivo(){
+  const l=Math.min(screen.width,screen.height);
+  const toque=matchMedia('(pointer:coarse)').matches;
+  if(!toque) return 'computador';
+  return l<600 ? 'celular' : 'tablet';
+}
+function novoId(){ return Math.random().toString(36).slice(2,10); }
+
+/* Uma sessão = uma passagem pela prova, mesmo que ela feche a aba no meio.
+   Fechar e voltar não vira sessão nova: vira `retomada = true` nas linhas
+   seguintes, que é a informação que realmente muda a leitura do dado. */
+function sessaoId(){
+  if(!S.sessao) { S.sessao = new Date().toISOString().slice(0,10)+'-'+novoId(); }
+  return S.sessao;
+}
+
+function registrarQuestao(m,q,resultado){
+  const fim=Date.now();
+  const r=relogio||{t0:fim,primeiro:null,saiu:false};
+  const segTotal=+((fim-r.t0)/1000).toFixed(1);
+  const segToque=r.primeiro!==null ? +((r.primeiro-r.t0)/1000).toFixed(1) : '';
+  S.posicao=(S.posicao||0)+1;
+  enviarLinha({
+    evento_id:`${sessaoId()}-${String(S.posicao).padStart(3,'0')}`,
+    sessao_id:sessaoId(),
+    timestamp:new Date(fim).toISOString(),
+    aluna:ALUNA,
+    materia:PROVA.materia, eixo:m.eixo, tema_id:m.tema_id, subtema:m.subtema,
+    questao_id:q.questao_id, habilidade_bncc:m.habilidade_bncc,
+    escola:PROVA.escola, ano_aluna:PROVA.ano_aluna, nivel_conteudo:PROVA.nivel_conteudo,
+    bimestre:PROVA.bimestre, contexto:PROVA.contexto,
+    resultado,
+    usou_dica:!!S.usedHint,
+    usou_andaime:stepsShown>0,
+    dificuldade:q.dificuldade, tipo_raciocinio:q.tipo_raciocinio,
+    seg_ate_1o_toque:segToque, seg_total:segTotal,
+    saiu_da_tela:r.saiu,
+    tempo_valido:!r.saiu && segTotal<=LIMITE_SEG,
+    retomada:!!S.retomou,
+    posicao_na_sessao:S.posicao,
+    modo_foco:!!S.focus,
+    dispositivo:dispositivo()
+  });
 }
 
 /* ============================ ESTADO E ARMAZENAMENTO ============================ */
@@ -690,7 +758,7 @@ function drawLessonStep(){
 }
 el('lessonNext').onclick=()=>{if(lessonStep<lessonSteps.length-1){lessonStep++;drawLessonStep();window.scrollTo({top:0,behavior:'smooth'});}};
 el('lessonBack').onclick=()=>{if(lessonStep>0){lessonStep--;drawLessonStep();window.scrollTo({top:0,behavior:'smooth'});}};
-el('toQuizBtn').onclick=()=>{S.screen='quiz';S.q=0;S.correctInMod=0;S.modStart=Date.now();S.modLog={dicas:0,partes:0,segundas:0,erros:[]};save();renderQ();};
+el('toQuizBtn').onclick=()=>{S.screen='quiz';S.q=0;S.correctInMod=0;save();renderQ();};
 
 let chosen=null, stepsShown=0, attempts=0;
 
@@ -716,11 +784,13 @@ function renderQ(){
   el('stepBtn').classList.toggle('hidden',!q.passos?.length);
   el('stepBtn').disabled=false;
   el('stepBtn').textContent='🧩 Quebrar em partes';
+  iniciarRelogio();
   show('quiz');
 }
 
 /* 1º toque escolhe, 2º confirma — evita o clique impulsivo */
 function select(i){
+  marcarPrimeiroToque();
   chosen=i;
   [...el('opts').children].forEach((b,j)=>b.classList.toggle('chosen',j===i));
   const c=el('confirmBtn');c.classList.remove('hidden');c.textContent=`Confirmar ${'ABCD'[i]}`;
@@ -730,8 +800,8 @@ el('confirmBtn').onclick=()=>{if(chosen!==null)answer(chosen);};
 /* andaime: revela uma etapa por vez */
 el('stepBtn').onclick=()=>{
   const p=missoes[S.mod].questoes[S.q].passos;if(!p?.length)return;
+  marcarPrimeiroToque();
   el('stepBox').className='stepbox show';
-  if(stepsShown===0&&S.modLog)S.modLog.partes++;
   stepsShown++;
   el('stepBox').innerHTML=p.slice(0,stepsShown).map((t,i)=>`<div class="stepline"><b>Passo ${i+1}</b> · ${t}</div>`).join('');
   el('stepBtn').textContent = stepsShown>=p.length?'Todas as partes à mostra':'🧩 Mostrar a próxima parte';
@@ -739,7 +809,7 @@ el('stepBtn').onclick=()=>{
 };
 
 el('hintBtn').onclick=()=>{
-  const q=missoes[S.mod].questoes[S.q];S.usedHint=true;if(S.modLog)S.modLog.dicas++;
+  const q=missoes[S.mod].questoes[S.q];S.usedHint=true;marcarPrimeiroToque();
   el('hintBox').className='hintbox show';el('hintBox').innerHTML=`<b>Dica:</b> ${q.dica}`;
   el('hintBtn').classList.add('hidden');};
 
@@ -752,7 +822,7 @@ function answer(choice){
 
   /* 2ª CHANCE: no primeiro erro não revelamos nada — ela tenta de novo */
   if(!ok && attempts===0){
-    attempts=1;chosen=null;if(S.modLog)S.modLog.segundas++;
+    attempts=1;chosen=null;
     [...el('opts').children].forEach((b,i)=>{
       b.classList.remove('chosen');
       if(i===choice){b.disabled=true;b.classList.add('wrong','dim');}
@@ -782,7 +852,6 @@ function answer(choice){
   }else{
     gained=20;S.xp+=gained;
     S.errors.push({mod:m.titulo,q:q.enunciado.replace(/<\/?mark>|<\/?b>|<\/?i>/g,''),ans:q.alternativas[q.correta],why:q.explicacao});
-    if(S.modLog)S.modLog.erros.push(`${m.titulo} · desafio ${S.q+1}`);
     let shieldMsg='';
     if(S.shield){S.shield=false;shieldMsg='<br><b>🛡️ Escudo usado:</b> sua sequência de acertos continua de pé.';}
     else S.streak=0;
@@ -790,6 +859,9 @@ function answer(choice){
     fb.innerHTML=`<strong>Ainda não — e agora você não erra mais essa</strong>Resposta certa: <b>${'ABCD'[q.correta]}) ${q.alternativas[q.correta]}</b><br>${q.explicacao}${shieldMsg}
       <span class="xpop">+${gained} XP por encarar o desafio até o fim</span>`;
   }
+  /* A linha sai aqui, no desfecho da questão — nunca no meio da 2ª chance,
+     senão a mesma questão viraria dois eventos. */
+  registrarQuestao(m,q, ok ? (attempts===1?'acerto_2a':'acerto_1a') : 'erro');
   hud();save();
   el('nextBtn').classList.remove('hidden');el('nextBtn').focus();
 }
@@ -800,22 +872,19 @@ el('nextBtn').onclick=()=>{
   else finishModule();};
 
 function finishModule(){
-  const m=missoes[S.mod],c=S.correctInMod||0;
-  const medal=c===3?'🥇':c===2?'🥈':'🥉';
+  const m=missoes[S.mod],c=S.correctInMod||0,n=m.questoes.length;
+  const medal=c===n?'🥇':c>=n-1?'🥈':'🥉';
   S.done[m.missao_id]=medal;
-  const bonus=c===3?150:c===2?90:60;S.xp+=bonus;
+  const bonus=c===n?150:c>=n-1?90:60;S.xp+=bonus;
   S.screen='map';save();hud();
   el('medalIcon').textContent=medal;
   el('doneTitle').textContent=`Missão "${m.titulo}" concluída!`;
-  el('doneMsg').textContent = c===3?'Três de três. Esse tema você domina — pode marcar como resolvido.'
-    : c===2?'Duas de três. Muito perto do topo: reveja a explicação da que escapou e refaça quando quiser.'
+  el('doneMsg').textContent = c===n?`${c} de ${n}. Esse tema você domina — pode marcar como resolvido.`
+    : c>=n-1?`${c} de ${n}. Muito perto do topo: reveja a explicação da que escapou e refaça quando quiser.`
     : 'Missão cumprida. O importante é que agora você viu onde estava a pegadinha — refazer depois vale ouro.';
   el('doneXp').textContent=`+${bonus} XP de bônus de missão · total ${S.xp} XP`;
-  const lg=S.modLog||{dicas:0,partes:0,segundas:0,erros:[]};
-  enviarLinha({quando:new Date().toISOString(),aluna:ALUNA,tipo:'missao',missao:m.titulo,
-    acertos:c,total:m.questoes.length,pct:Math.round(c/m.questoes.length*100),medalha:medal,
-    dicas:lg.dicas,partes:lg.partes,segundas:lg.segundas,erros:lg.erros,
-    minutos:S.modStart?+(((Date.now()-S.modStart)/60000).toFixed(1)):'',xp:S.xp,foco:S.focus?'sim':'nao'});
+  /* Nenhuma linha de resumo aqui: acertos, medalha e tempo por missão se
+     calculam na planilha a partir das linhas por questão. */
   offerPause(S.mod);
   if(!S.focus)confetti(c===3?40:20);
   show('moduleDone');
@@ -851,10 +920,7 @@ function showFinal(){
   el('finalReview').innerHTML = uniq.length
     ? `<h3>Vale reler antes da prova</h3>`+uniq.map(e=>`<div class="review-item"><b>${e.mod}</b><br>${e.q}<br><b>Resposta:</b> ${e.ans}<br>${e.why}</div>`).join('')
     : `<div class="lesson-box"><strong>Nenhum erro para revisar</strong> Você acertou tudo de primeira. Impressionante.</div>`;
-  const totalAcertos=Object.keys(S.done).length;
-  enviarLinha({quando:new Date().toISOString(),aluna:ALUNA,tipo:'jornada-completa',missao:'TODAS',
-    acertos:'',total:N_QUESTOES,pct:'',medalha:Object.values(S.done).join(' '),dicas:'',partes:'',segundas:'',
-    erros:uniq.map(e=>e.mod),minutos:'',xp:S.xp,foco:S.focus?'sim':'nao'});
+  /* Idem: sem linha "jornada-completa". Um resumo não se desagrega depois. */
   el('finalReview').insertAdjacentHTML('beforeend',
     '<div class="center" style="margin-top:14px"><button class="btn ghost small" id="copyBtn">📋 Copiar resultados</button></div>');
   el('copyBtn').onclick=copiarResultados;
@@ -879,9 +945,13 @@ function confetti(n){
 /* ---------- retomar de onde parou ---------- */
 (async()=>{
   rotulos();
+  /* A fila é drenada em toda abertura, inclusive quando ela está retomando.
+     Antes só esvaziava no começo do zero, e uma sessão retomada segurava as
+     linhas indefinidamente. */
+  esvaziarFila();
   const s=await store.load();
   if(s&&typeof s.xp==='number'){
-    S={...S,...s};hud();applyFocus();
+    S={...S,...s};S.retomou=true;hud();applyFocus();
     // retoma pelo missao_id, nunca pelo índice: a ordem das missões muda entre provas
     if(S.modId){const k=missoes.findIndex(x=>x.missao_id===S.modId);if(k>=0)S.mod=k;else S.screen='map';}
     else if(S.screen!=='map')S.screen='map';
@@ -898,7 +968,7 @@ function confetti(n){
     if(S.screen==='lesson'&&missoes[S.mod]){drawMap();
       el('resumeNote').innerHTML=`Você estava lendo a missão <b>${missoes[S.mod].titulo}</b>. É só tocar nela para voltar.`;return;}
   }
-  hud();applyFocus();drawMap();esvaziarFila();
+  hud();applyFocus();drawMap();
 })();
 </script>
 </body>

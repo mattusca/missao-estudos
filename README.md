@@ -28,4 +28,21 @@ Publicar: `docs/` via GitHub Pages (origem https:// é necessária para o envio 
 1. Nova planilha no Google Sheets > Extensões > Apps Script
 2. Colar `apps-script/enviar.gs`
 3. Implantar > App da Web > Executar como: eu > Acesso: qualquer pessoa
-4. Copiar a URL `/exec` e colar em `SHEET_URL` no motor
+4. Copiar a URL `/exec` e usá-la **no build**, não no código:
+
+```bash
+SHEET_URL="https://script.google.com/macros/s/SEU_ID/exec" node build.mjs 2026-08-matematica-y5
+```
+
+Sem `SHEET_URL`, o app não quebra: cada questão respondida vai para uma fila em
+`localStorage` e sai pelo botão "Copiar resultados" no fim, em TSV colável.
+
+⚠️ `docs/` é público no GitHub Pages. O HTML commitado é gerado **sem** a URL de
+propósito. Enquanto não existir a publicação por Action, gere o arquivo com a URL
+localmente e publique-o sem commitar.
+
+## Telemetria
+
+Uma linha por questão respondida — nunca por missão. Resumo não se desagrega;
+detalhe se agrega com fórmula. As 28 colunas estão em `COLUNAS` (`src/motor.html`)
+e espelhadas em `CAMPOS` (`apps-script/enviar.gs`); mexeu numa, mexa na outra.

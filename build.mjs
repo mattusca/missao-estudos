@@ -25,6 +25,12 @@ const erros = [];
 const ids = new Set();
 // ferramentas que este motor sabe desenhar, lidas do próprio motor
 const ferramentas = new Set([...motor.matchAll(/^tools\.(\w+)\s*=\s*\(/gm)].map(m => m[1]));
+
+// metadados que viram coluna na planilha: se faltar um, a linha nasce torta
+for (const campo of ['prova_id','titulo','materia','aluna','escola','ano_aluna','nivel_conteudo','bimestre','contexto'])
+  if (!prova[campo]) erros.push(`metadado obrigatório ausente: ${campo}`);
+if (prova.contexto && !['prova','revisao_espacada','treino_livre'].includes(prova.contexto))
+  erros.push(`contexto inválido: ${prova.contexto}`);
 for (const m of prova.missoes) {
   if (!catalogo.find(t => t.tema_id === m.tema_id))
     erros.push(`tema_id fora do catálogo: ${m.tema_id}`);
@@ -68,6 +74,17 @@ const payload = `<script id="prova-data" type="application/json">\n${JSON.string
 let out = motor.replace('</head>', payload + '\n</head>');
 out = out.replace(/<title>.*?<\/title>/, `<title>${prova.titulo}</title>`);
 
+// A URL do Apps Script é segredo de deploy, não de repositório.
+const sheetUrl = (process.env.SHEET_URL || '').trim();
+if (sheetUrl && !/^https:\/\/script\.google\.com\/.*\/exec$/.test(sheetUrl)) {
+  console.error(`SHEET_URL não parece uma URL /exec do Apps Script: ${sheetUrl}`);
+  process.exit(1);
+}
+if (!out.includes("'__SHEET_URL__'")) {
+  console.error('Não encontrei o marcador __SHEET_URL__ no motor.'); process.exit(1);
+}
+out = out.replace("'__SHEET_URL__'", JSON.stringify(sheetUrl));
+
 fs.mkdirSync('docs', { recursive: true });
 const dest = path.join('docs', provaId + '.html');
 fs.writeFileSync(dest, out);
@@ -75,3 +92,6 @@ fs.writeFileSync(dest, out);
 console.log(`OK  ${dest}`);
 console.log(`    ${prova.missoes.length} missões · ${total} questões · gabarito A/B/C/D = ${dist.join('/')}`);
 console.log(`    dificuldade média ${(prova.missoes.flatMap(m=>m.questoes).reduce((a,q)=>a+q.dificuldade,0)/total).toFixed(2)}`);
+console.log(sheetUrl
+  ? '    envio para a planilha: ATIVO'
+  : '    envio para a planilha: DESLIGADO (sem SHEET_URL) — fila local + botão "Copiar resultados"');
