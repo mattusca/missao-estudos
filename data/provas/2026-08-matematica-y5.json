@@ -1,0 +1,476 @@
+{
+  "prova_id": "2026-08-MAT-Y5",
+  "titulo": "Missão Matemática — revisão prova 24/08",
+  "materia": "Matemática",
+  "escola": "Pueri Domus",
+  "ano_aluna": "Y5",
+  "nivel_conteudo": "Y5",
+  "bimestre": "3",
+  "contexto": "prova",
+  "criado_em": "2026-08-24",
+  "origem": "Roteiro da professora (foto) + livro Unique/Conexia Year 5",
+  "missoes": [
+    {
+      "missao_id": "grafico",
+      "icone": "📊",
+      "titulo": "Ler gráficos",
+      "subtitulo": "Tirar informação de um desenho",
+      "eixo": "Probabilidade e Estatística",
+      "tema_id": "MAT.EST.GRAF",
+      "subtema": "Leitura e interpretação de gráficos",
+      "habilidade_bncc": "EF05MA25",
+      "ferramenta": "grafico",
+      "regra": null,
+      "aula": {
+        "corpo": "<p>Gráfico é uma tabela disfarçada de desenho. Antes de responder qualquer coisa, faça sempre estas três leituras:</p>\n  <div class=\"lesson-box\"><strong>1.</strong> O que está escrito embaixo de cada barra? (os grupos)<br>\n  <strong>2.</strong> O que a linha de números do lado esquerdo mede? (a quantidade)<br>\n  <strong>3.</strong> O que exatamente a pergunta quer: um valor, uma <i>diferença</i>, um total ou uma fração?</div>\n  <p>\"Quantos <b>a mais</b>\" é sempre <mark>subtração</mark> — nunca soma. Já \"que parte do total\" pede a fração daquele valor sobre a soma de todas as barras.</p>\n  <h3>Ferramenta 7 · Gráfico que responde</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Anote os valores das barras no rascunho antes de calcular. Erro mais comum não é a conta: é ler a barra errada.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.EST.GRAF.Q1",
+          "enunciado": "Quantos livros <mark>a mais</mark> Alicia leu em junho em comparação com maio?",
+          "figura": "{{GRAFICO_LIVROS}}",
+          "alternativas": [
+            "7",
+            "15",
+            "4",
+            "11"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Junho = 11 e maio = 4. 'Quantos a mais' pede subtração.",
+          "explicacao": "Junho = 11, maio = 4. A diferença é 11 − 4 = 7 livros."
+        },
+        {
+          "questao_id": "MAT.EST.GRAF.Q2",
+          "enunciado": "Se a meta era ler <mark>8 livros por mês</mark>, em quantos meses Alicia ficou <b>abaixo</b> da meta?",
+          "figura": "{{GRAFICO_LIVROS}}",
+          "alternativas": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Compare cada barra com o 8. Março tem 6… e maio?",
+          "explicacao": "Março (6) e maio (4) ficaram abaixo de 8. Abril (9), junho (11) e julho (10) passaram da meta. Portanto, 2 meses."
+        },
+        {
+          "questao_id": "MAT.EST.GRAF.Q3",
+          "enunciado": "Que <mark>fração do total</mark> de livros do período foi lida em julho?",
+          "figura": "{{GRAFICO_LIVROS}}",
+          "alternativas": [
+            "1/5",
+            "1/10",
+            "1/4",
+            "1/3"
+          ],
+          "correta": 2,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Some todas as barras para achar o total. Depois monte a fração julho/total e simplifique.",
+          "explicacao": "Total = 6 + 9 + 4 + 11 + 10 = 40 livros. Julho teve 10. Então 10/40, que simplificado é 1/4."
+        }
+      ]
+    },
+    {
+      "missao_id": "area",
+      "icone": "📐",
+      "titulo": "Área e perímetro",
+      "subtitulo": "A cerca e o piso",
+      "eixo": "Grandezas e Medidas",
+      "tema_id": "MAT.GEO.AREAPER",
+      "subtema": "Área e perímetro",
+      "habilidade_bncc": "EF05MA19",
+      "ferramenta": "area",
+      "regra": null,
+      "aula": {
+        "corpo": "<p>São duas medidas bem diferentes e é fácil trocar uma pela outra. Use esta imagem:</p>\n  <div class=\"lesson-box\"><strong>Perímetro</strong> é a <mark>cerca</mark> em volta do terreno: soma dos lados. Mede-se em cm, m…<br><br>\n  <strong>Área</strong> é o <mark>piso</mark> que preenche o terreno: base × altura. Mede-se em cm², m² (o \"²\" é a pista!).</div>\n  <h3>Ferramenta 6 · Retângulo que você comanda</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Questão clássica</strong> \"O perímetro é 26 cm e um lado é 9 cm.\" Dois lados de 9 já usam 18. Sobram 8 para os outros dois lados, ou seja, 4 cada. Aí a área sai fácil.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.GEO.AREAPER.Q1",
+          "enunciado": "Um retângulo tem <mark>perímetro de 26 cm</mark> e um dos lados mede 9 cm. Qual é a sua área?",
+          "figura": null,
+          "alternativas": [
+            "117 cm²",
+            "54 cm²",
+            "72 cm²",
+            "36 cm²"
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Dois lados de 9 cm somam 18. Quanto sobra do perímetro para os outros dois lados?",
+          "explicacao": "Dois lados de 9 cm = 18 cm. Sobram 26 − 18 = 8 cm para os outros dois, ou seja, 4 cm cada. Área = 9 × 4 = 36 cm²."
+        },
+        {
+          "questao_id": "MAT.GEO.AREAPER.Q2",
+          "enunciado": "Um quadrado tem <mark>área de 64 cm²</mark>. Qual é o seu perímetro?",
+          "figura": null,
+          "alternativas": [
+            "32 cm",
+            "64 cm",
+            "16 cm",
+            "256 cm"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "No quadrado todos os lados são iguais. Que número multiplicado por ele mesmo dá 64?",
+          "explicacao": "Se lado × lado = 64, o lado é 8 cm (8 × 8 = 64). Perímetro = 8 × 4 = 32 cm."
+        },
+        {
+          "questao_id": "MAT.GEO.AREAPER.Q3",
+          "enunciado": "A figura abaixo é um retângulo de 6 cm por 4 cm com um quadradinho de 2 cm de lado <mark>recortado</mark> do canto. Qual é a área que sobrou?",
+          "figura": "<figure class=\"chart\"><svg viewBox=\"0 0 260 150\" width=\"100%\" role=\"img\" aria-label=\"retângulo com canto recortado\">\n     <path d=\"M20 20 H200 V70 H150 V130 H20 Z\" fill=\"#e3f5f0\" stroke=\"#2fae94\" stroke-width=\"2.5\"/>\n     <path d=\"M150 70 H200 V20\" fill=\"none\" stroke=\"#f2604c\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/>\n     <text x=\"110\" y=\"14\" font-size=\"11\" text-anchor=\"middle\" fill=\"#4b6480\" font-family=\"Nunito\">6 cm</text>\n     <text x=\"10\" y=\"78\" font-size=\"11\" text-anchor=\"middle\" fill=\"#4b6480\" font-family=\"Nunito\">4</text>\n     <text x=\"178\" y=\"45\" font-size=\"10\" text-anchor=\"middle\" fill=\"#f2604c\" font-family=\"Nunito\">2×2</text>\n     </svg><figcaption>Retângulo 6 × 4 cm com um canto de 2 × 2 cm retirado</figcaption></figure>",
+          "alternativas": [
+            "24 cm²",
+            "20 cm²",
+            "28 cm²",
+            "16 cm²"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Calcule primeiro a área do retângulo inteiro. Depois tire a parte que foi recortada.",
+          "explicacao": "Retângulo inteiro: 6 × 4 = 24 cm². Quadradinho retirado: 2 × 2 = 4 cm². Sobrou 24 − 4 = 20 cm². Em figuras compostas, sempre pense em somar ou tirar retângulos."
+        }
+      ]
+    },
+    {
+      "missao_id": "prob",
+      "icone": "🎲",
+      "titulo": "Probabilidade",
+      "subtitulo": "Que chance eu tenho?",
+      "eixo": "Probabilidade e Estatística",
+      "tema_id": "MAT.PROB.SIMPLES",
+      "subtema": "Probabilidade simples",
+      "habilidade_bncc": "EF05MA22",
+      "ferramenta": "prob",
+      "regra": null,
+      "aula": {
+        "corpo": "<p>Probabilidade responde uma pergunta só: <mark>que chance uma coisa tem de acontecer?</mark> E existe uma única fórmula para tudo:</p>\n  <div class=\"lesson-box\" style=\"text-align:center;font-size:1.1rem\"><strong>quantos servem ÷ quantos existem no total</strong></div>\n  <p>Se numa sacola há 2 bolas verdes e 10 bolas no total, a chance de sair verde é <b>2/10</b>. Simplificando: 1/5. Em decimal: 0,2. Em porcentagem: 20%. <b>São as quatro formas de dizer a mesma coisa</b> — e a prova pode pedir qualquer uma delas.</p>\n  <p class=\"muted\">Duas armadilhas comuns: esquecer de somar <i>tudo</i> para achar o total, e ler \"maior que 4\" como se incluísse o 4 (não inclui!).</p>\n  <h3>Ferramenta 5 · Sacola de sorteio</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Duas fronteiras</strong> Se é <i>impossível</i>, a probabilidade é <b>0</b> (bola preta numa sacola sem bolas pretas). Se é <i>certeza</i>, é <b>1</b> ou 100%. Todo o resto fica entre esses dois.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.PROB.SIMPLES.Q1",
+          "enunciado": "Numa sacola há 3 bolas vermelhas, 5 azuis e 2 verdes. Retirando uma sem olhar, qual é a probabilidade de sair <mark>azul</mark>?",
+          "figura": null,
+          "alternativas": [
+            "1/5",
+            "5/8",
+            "1/2",
+            "2/5"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Primeiro o total: 3 + 5 + 2. Depois quantas são azuis.",
+          "explicacao": "Total = 3 + 5 + 2 = 10 bolas. Azuis = 5. Então 5/10, que simplificado é 1/2 (ou 50%)."
+        },
+        {
+          "questao_id": "MAT.PROB.SIMPLES.Q2",
+          "enunciado": "Ao lançar um dado comum de 6 faces, qual é a probabilidade de sair um número <mark>menor que 3</mark>?",
+          "figura": null,
+          "alternativas": [
+            "1/2",
+            "1/6",
+            "2/3",
+            "1/3"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Quais números do dado são menores que 3? Liste-os antes de fazer a conta.",
+          "explicacao": "Menores que 3 são apenas o 1 e o 2 — dois casos em 6. Logo 2/6 = 1/3. O próprio 3 não entra."
+        },
+        {
+          "questao_id": "MAT.PROB.SIMPLES.Q3",
+          "enunciado": "Uma roleta tem 10 setores iguais e 4 deles são azuis. A chance de parar no azul, em <mark>porcentagem</mark>, é:",
+          "figura": null,
+          "alternativas": [
+            "40%",
+            "4%",
+            "25%",
+            "14%"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "4/10 em decimal é quanto? Depois multiplique por 100 para virar porcentagem.",
+          "explicacao": "4/10 = 0,4. Multiplicando por 100: 40%."
+        }
+      ]
+    },
+    {
+      "missao_id": "contas",
+      "icone": "🧮",
+      "titulo": "Contas com vírgula",
+      "subtitulo": "Somar, subtrair, multiplicar e resolver problemas",
+      "eixo": "Números",
+      "tema_id": "MAT.NUM.OPDEC",
+      "subtema": "Operações com decimais e problemas",
+      "habilidade_bncc": "EF05MA08",
+      "ferramenta": "contas",
+      "regra": null,
+      "aula": {
+        "corpo": "<p>Aqui mora a pegadinha favorita das provas: <mark>somar e multiplicar seguem regras diferentes</mark>.</p>\n  <div class=\"lesson-box\"><strong>Somar e subtrair:</strong> alinhe a vírgula embaixo da vírgula e complete com zeros.<br><br>\n  <strong>Multiplicar:</strong> esqueça a vírgula, faça a conta normal, e no fim conte quantas casas decimais havia no total.</div>\n  <h3>Ferramenta 4 · Como armar cada conta</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Problema com duas etapas?</strong> Sublinhe o que a pergunta pede <i>no final</i>. Muita gente calcula certo o total e esquece de subtrair o troco.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.NUM.OPDEC.Q1",
+          "enunciado": "Quanto vale <mark>0,25 × 0,4</mark>?",
+          "figura": null,
+          "alternativas": [
+            "1,0",
+            "0,1",
+            "0,01",
+            "0,001"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "25 × 4 = 100. Agora conte: 2 casas em 0,25 + 1 casa em 0,4 = 3 casas no resultado.",
+          "explicacao": "25 × 4 = 100. Com 3 casas decimais: 0,100 — que é o mesmo que 0,1. Zeros no fim do decimal não mudam o valor."
+        },
+        {
+          "questao_id": "MAT.NUM.OPDEC.Q2",
+          "enunciado": "Quanto vale <mark>10 − 4,68</mark>?",
+          "figura": null,
+          "alternativas": [
+            "6,32",
+            "5,42",
+            "5,32",
+            "6,42"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Escreva 10 como 10,00 antes de armar. Aí a vírgula fica embaixo da vírgula.",
+          "explicacao": "10,00 − 4,68 = 5,32. O segredo é transformar 10 em 10,00 para alinhar direito."
+        },
+        {
+          "questao_id": "MAT.NUM.OPDEC.Q3",
+          "enunciado": "Alicia comprou 4 cadernos de R$ 8,75 e 3 canetas de R$ 3,50. Pagou com R$ 50,00. Qual foi o <mark>troco</mark>?",
+          "figura": null,
+          "alternativas": [
+            "R$ 14,50",
+            "R$ 5,50",
+            "R$ 45,50",
+            "R$ 4,50"
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "São três etapas: cadernos (4 × 8,75), canetas (3 × 3,50), soma dos dois e só então o troco.",
+          "explicacao": "Cadernos: 4 × 8,75 = 35,00. Canetas: 3 × 3,50 = 10,50. Total: 45,50. Troco: 50,00 − 45,50 = R$ 4,50."
+        }
+      ]
+    },
+    {
+      "missao_id": "virgula",
+      "icone": "⚡",
+      "titulo": "A dança da vírgula",
+      "subtitulo": "Multiplicar e dividir por 10, 100 e 1000",
+      "eixo": "Números",
+      "tema_id": "MAT.NUM.MUL10",
+      "subtema": "Multiplicação por 10, 100 e 1000",
+      "habilidade_bncc": "EF05MA07",
+      "ferramenta": "virgula",
+      "regra": null,
+      "aula": {
+        "corpo": "<p>Multiplicar por 10, 100 ou 1000 é a conta mais rápida da matemática — porque <mark>você nem precisa fazer conta</mark>. A vírgula é que se mexe.</p>\n  <div class=\"lesson-box\"><strong>× 10</strong> → 1 casa para a direita<br><strong>× 100</strong> → 2 casas para a direita<br><strong>× 1000</strong> → 3 casas para a direita<br><br>\n  Dividindo, a vírgula anda o mesmo tanto, só que para a <strong>esquerda</strong>. Conte os zeros e você conta as casas.</div>\n  <h3>Ferramenta 3 · Máquina da vírgula</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Faltou casa?</strong> Coloque zeros. 8,4 × 1000 vira 8400 — foram necessários dois zeros novos para a vírgula ter por onde andar.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.NUM.MUL10.Q1",
+          "enunciado": "Quanto vale <mark>0,0084 × 1000</mark>?",
+          "figura": null,
+          "alternativas": [
+            "8,4",
+            "84",
+            "0,84",
+            "840"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Três zeros = três casas para a direita: 0,0084 → 0,084 → 0,84 → ?",
+          "explicacao": "Andando 3 casas para a direita: 0,0084 → 0,084 → 0,84 → 8,4."
+        },
+        {
+          "questao_id": "MAT.NUM.MUL10.Q2",
+          "enunciado": "Qual número, <mark>multiplicado por 100</mark>, resulta em 4,7?",
+          "figura": null,
+          "alternativas": [
+            "0,47",
+            "0,047",
+            "470",
+            "47"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Aqui o caminho é ao contrário: em vez de avançar, a vírgula precisa voltar 2 casas.",
+          "explicacao": "Voltando 2 casas em 4,7: 0,47 → 0,047. Confere: 0,047 × 100 = 4,7."
+        },
+        {
+          "questao_id": "MAT.NUM.MUL10.Q3",
+          "enunciado": "Um número foi multiplicado por 10 e <b>depois</b> por 100. O resultado deu 350. Qual era o número?",
+          "figura": null,
+          "alternativas": [
+            "3,5",
+            "35",
+            "0,35",
+            "0,035"
+          ],
+          "correta": 2,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "× 10 e depois × 100 é o mesmo que × 1000. Agora desfaça: volte 3 casas.",
+          "explicacao": "Multiplicar por 10 e depois por 100 é multiplicar por 1000. Desfazendo, a vírgula volta 3 casas: 350 → 35,0 → 3,50 → 0,350 = 0,35."
+        }
+      ]
+    },
+    {
+      "missao_id": "fracao",
+      "icone": "🍕",
+      "titulo": "Fração vira decimal (e volta)",
+      "subtitulo": "Duas formas de escrever a mesma coisa",
+      "eixo": "Números",
+      "tema_id": "MAT.NUM.FRA",
+      "subtema": "Conversão fração ↔ decimal",
+      "habilidade_bncc": "EF05MA03",
+      "ferramenta": "fracao",
+      "regra": null,
+      "aula": {
+        "corpo": "<p>Fração e decimal são <mark>dois idiomas para o mesmo número</mark>. E existe um tradutor simples:</p>\n  <div class=\"lesson-box\"><strong>Fração → decimal:</strong> é só dividir o de cima pelo de baixo. 3/8 = 3 ÷ 8 = 0,375<br><br>\n  <strong>Decimal → fração:</strong> escreva sobre 10, 100 ou 1000 (uma casa = 10, duas = 100, três = 1000) e depois simplifique. 0,24 = 24/100 = 6/25</div>\n  <h3>Ferramenta 2 · Barra mágica</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Atenção nas irredutíveis</strong> 24/100, 12/50 e 6/25 valem o mesmo. Mas só 6/25 é <i>irredutível</i>: é a que não dá mais para simplificar.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.NUM.FRA.Q1",
+          "enunciado": "Transformando <mark>7/8</mark> em número decimal, obtemos:",
+          "figura": null,
+          "alternativas": [
+            "0,78",
+            "0,87",
+            "1,142",
+            "0,875"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "7 ÷ 8. Se 1/8 = 0,125, quanto são sete deles?",
+          "explicacao": "7 ÷ 8 = 0,875. Confere: 0,875 × 8 = 7. Outro caminho: 1/8 = 0,125, e 0,125 × 7 = 0,875."
+        },
+        {
+          "questao_id": "MAT.NUM.FRA.Q2",
+          "enunciado": "O número <mark>0,36</mark> escrito como fração <b>irredutível</b> é:",
+          "figura": null,
+          "alternativas": [
+            "9/25",
+            "36/100",
+            "18/50",
+            "3/6"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Duas casas decimais = sobre 100. Depois divida em cima e embaixo pelo mesmo número, até não dar mais.",
+          "explicacao": "0,36 = 36/100. Dividindo os dois por 4: 9/25. As opções 36/100 e 18/50 valem o mesmo, mas ainda dá para simplificar."
+        },
+        {
+          "questao_id": "MAT.NUM.FRA.Q3",
+          "enunciado": "Quem é <mark>maior</mark>: 3/5 ou 0,62?",
+          "figura": null,
+          "alternativas": [
+            "3/5",
+            "0,62",
+            "São iguais",
+            "Não dá para comparar"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Coloque os dois no mesmo idioma: quanto dá 3 ÷ 5?",
+          "explicacao": "3/5 = 3 ÷ 5 = 0,6. Comparando 0,60 com 0,62, o maior é 0,62. Para comparar fração com decimal, traduza sempre um para o formato do outro."
+        }
+      ]
+    },
+    {
+      "missao_id": "valor",
+      "icone": "🔢",
+      "titulo": "Decimais sob controle",
+      "subtitulo": "Valor posicional, leitura e comparação",
+      "eixo": "Números",
+      "tema_id": "MAT.NUM.DEC",
+      "subtema": "Valor posicional, leitura e comparação",
+      "habilidade_bncc": "EF05MA02",
+      "ferramenta": "valor",
+      "regra": null,
+      "aula": {
+        "corpo": "<p>Um número decimal é um número inteiro com <mark>pedacinhos a mais</mark>. Cada casa depois da vírgula tem um nome e um tamanho:</p>\n  <div class=\"lesson-box\"><strong>1ª casa = décimos</strong> (0,1 · um pedaço de 10)<br>\n  <strong>2ª casa = centésimos</strong> (0,01 · um pedaço de 100)<br>\n  <strong>3ª casa = milésimos</strong> (0,001 · um pedaço de 1000)</div>\n  <p>Por isso <b>0,7 é maior que 0,68</b>, mesmo tendo menos algarismos: 0,7 são <i>sete</i> décimos e 0,68 são só <i>seis</i> décimos e um pouquinho.</p>\n  <h3>Ferramenta 1 · Raio-X do número</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Guarde este truque</strong> Para comparar decimais, complete todos com zeros até ficarem do mesmo tamanho. Depois é só comparar como números inteiros.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.NUM.DEC.Q1",
+          "enunciado": "No número <mark>3,472</mark>, quanto vale o algarismo <b>7</b>?",
+          "figura": null,
+          "alternativas": [
+            "7 décimos (0,7)",
+            "7 milésimos (0,007)",
+            "7 centésimos (0,07)",
+            "7 unidades"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Conte as casas depois da vírgula: 4 é a 1ª, 7 é a 2ª. E a 2ª casa é a dos…",
+          "explicacao": "O 7 está na 2ª casa depois da vírgula, a dos centésimos. Então ele vale 0,07."
+        },
+        {
+          "questao_id": "MAT.NUM.DEC.Q2",
+          "enunciado": "Coloque em <mark>ordem decrescente</mark> (do maior para o menor):",
+          "figura": null,
+          "alternativas": [
+            "2,5 · 2,105 · 2,15 · 2,051",
+            "2,15 · 2,5 · 2,105 · 2,051",
+            "2,051 · 2,105 · 2,15 · 2,5",
+            "2,5 · 2,15 · 2,105 · 2,051"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Complete todos com 3 casas: 2,500 · 2,150 · 2,105 · 2,051. Agora compare.",
+          "explicacao": "Igualando as casas: 2,500 > 2,150 > 2,105 > 2,051. Cuidado: 2,105 parece grande por ter mais algarismos, mas tem só 1 décimo."
+        },
+        {
+          "questao_id": "MAT.NUM.DEC.Q3",
+          "enunciado": "Qual número está <mark>exatamente no meio</mark> entre 4,2 e 4,3?",
+          "figura": null,
+          "alternativas": [
+            "4,25",
+            "4,23",
+            "4,15",
+            "4,5"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Pense em 4,20 e 4,30. Qual número fica bem no meio de 20 e 30?",
+          "explicacao": "4,2 = 4,20 e 4,3 = 4,30. O meio entre 20 e 30 é 25, então a resposta é 4,25."
+        }
+      ]
+    }
+  ]
+}

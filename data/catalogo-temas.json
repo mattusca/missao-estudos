@@ -1,0 +1,72 @@
+[
+  {
+    "tema_id": "MAT.NUM.DEC",
+    "materia": "Matemática",
+    "eixo": "Números",
+    "tema": "Decimais sob controle",
+    "subtema": "Valor posicional, leitura e comparação",
+    "habilidade_bncc": "EF05MA02",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "MAT.NUM.FRA",
+    "materia": "Matemática",
+    "eixo": "Números",
+    "tema": "Fração vira decimal (e volta)",
+    "subtema": "Conversão fração ↔ decimal",
+    "habilidade_bncc": "EF05MA03",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "MAT.NUM.MUL10",
+    "materia": "Matemática",
+    "eixo": "Números",
+    "tema": "A dança da vírgula",
+    "subtema": "Multiplicação por 10, 100 e 1000",
+    "habilidade_bncc": "EF05MA07",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "MAT.NUM.OPDEC",
+    "materia": "Matemática",
+    "eixo": "Números",
+    "tema": "Contas com vírgula",
+    "subtema": "Operações com decimais e problemas",
+    "habilidade_bncc": "EF05MA08",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "MAT.PROB.SIMPLES",
+    "materia": "Matemática",
+    "eixo": "Probabilidade e Estatística",
+    "tema": "Probabilidade",
+    "subtema": "Probabilidade simples",
+    "habilidade_bncc": "EF05MA22",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "MAT.GEO.AREAPER",
+    "materia": "Matemática",
+    "eixo": "Grandezas e Medidas",
+    "tema": "Área e perímetro",
+    "subtema": "Área e perímetro",
+    "habilidade_bncc": "EF05MA19",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "MAT.EST.GRAF",
+    "materia": "Matemática",
+    "eixo": "Probabilidade e Estatística",
+    "tema": "Ler gráficos",
+    "subtema": "Leitura e interpretação de gráficos",
+    "habilidade_bncc": "EF05MA25",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  }
+]
