@@ -3,3 +3,6 @@ node_modules/
 Thumbs.db
 *.log
 .env
+
+# contexto clinico da aluna: nunca versionar (repo publico)
+CONTEXTO-PRIVADO.md
