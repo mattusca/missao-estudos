@@ -26,6 +26,19 @@ const ids = new Set();
 // ferramentas que este motor sabe desenhar, lidas do próprio motor
 const ferramentas = new Set([...motor.matchAll(/^tools\.(\w+)\s*=\s*\(/gm)].map(m => m[1]));
 
+/* Vocabulário morto do protótipo monolítico. Um nome desses sobrevivendo a uma
+   renomeação não dá erro: vira `undefined` silencioso. Foi assim que
+   `missoes[i-1].id` manteve as 7 missões trancadas depois da primeira.
+   Só olhamos acessos nas variáveis que carregam missão/questão — `.tool` e
+   `.lesson` também são nomes de classe CSS, e `.after()` é método do DOM. */
+const MORTOS = 'id|qs|opts|icon|subtitle|tool|lesson|after|why|dica_|a';
+const ALVOS = new RegExp(String.raw`(?:\b[mqx]|missoes\[[^\]]*\]|questoes\[[^\]]*\])\.(${MORTOS})\b`, 'g');
+for (const [n, linha] of motor.split('\n').entries()) {
+  if (/^\s*(\/\*|\*|\/\/)/.test(linha)) continue;                 // comentário não é código
+  for (const achado of linha.matchAll(ALVOS))
+    erros.push(`motor.html:${n + 1} usa campo extinto "${achado[0]}" (o vocabulário é o do JSON): ${linha.trim().slice(0, 60)}`);
+}
+
 // metadados que viram coluna na planilha: se faltar um, a linha nasce torta
 for (const campo of ['prova_id','titulo','materia','aluna','escola','ano_aluna','nivel_conteudo','bimestre','contexto'])
   if (!prova[campo]) erros.push(`metadado obrigatório ausente: ${campo}`);

@@ -707,7 +707,7 @@ function applyFocus(){
 function show(id){['map','lesson','quiz','moduleDone','final'].forEach(s=>el(s).classList.add('hidden'));el(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
 
 /* uma missão abre quando a anterior da lista atual estiver concluída */
-function isOpen(i){return i===0 || !!S.done[missoes[i-1].id];}
+function isOpen(i){return i===0 || !!S.done[missoes[i-1]?.missao_id];}
 
 function drawMap(){
   el('modList').innerHTML=missoes.map((m,i)=>{
