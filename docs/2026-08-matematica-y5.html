@@ -181,9 +181,9 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
 
   <!-- MAPA -->
   <section id="map" class="card">
-    <p class="eyebrow">Year 5 · Matemática</p>
-    <h1>Missão Matemática</h1>
-    <p class="muted" id="mapIntro">Sete missões. Em cada uma, primeiro você <strong>aprende com uma ferramenta que dá para mexer</strong>, e só depois responde 3 desafios. Complete uma para abrir a próxima e conquistar as medalhas.</p>
+    <p class="eyebrow" id="mapEyebrow"></p>
+    <h1 id="mapTitle"></h1>
+    <p class="muted" id="mapIntro"></p>
     <div class="mods" id="modList"></div>
     <div class="rowend"><span class="muted" id="resumeNote"></span><button class="btn ghost small hidden" id="resetBtn">Recomeçar tudo</button></div>
   </section>
@@ -243,7 +243,7 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
   <!-- FINAL -->
   <section id="final" class="card hidden">
     <p class="eyebrow">Jornada completa</p>
-    <h1>Você fechou as 7 missões! 🎉</h1>
+    <h1 id="finalTitle"></h1>
     <div class="big" id="finalXp"></div>
     <p class="muted" id="finalMsg"></p>
     <div id="finalReview"></div>
@@ -436,259 +436,109 @@ tools.area.init = () => {
   draw();
 };
 
-/* 7 · Leitor de gráfico */
-const GDATA=[["Mar",6],["Abr",9],["Mai",4],["Jun",11],["Jul",10]];
-function chartSVG(interactive){
-  const bars=GDATA.map(([d,v],i)=>{const x=48+i*54,hh=v*11;
-    return `<g ${interactive?`class="gbar" data-i="${i}" style="cursor:pointer"`:''}>
-      <rect x="${x}" y="${150-hh}" width="36" height="${hh}" rx="3" fill="${['#2fae94','#7a6cf0','#f2604c','#ffc857','#2fae94'][i]}"/>
-      <text x="${x+18}" y="${145-hh}" font-size="11" font-weight="700" text-anchor="middle" fill="#17324a" font-family="Nunito">${v}</text>
-      <text x="${x+18}" y="166" font-size="11" text-anchor="middle" fill="#4b6480" font-family="Nunito">${d}</text></g>`;}).join('');
-  return `<figure class="chart"><svg viewBox="0 0 330 180" width="100%" role="img" aria-label="Livros lidos por mês">
-    <line x1="32" y1="150" x2="322" y2="150" stroke="#17324a" stroke-width="1.5"/>
-    <line x1="32" y1="10" x2="32" y2="150" stroke="#17324a" stroke-width="1.5"/>
-    ${[0,3,6,9,12].map(v=>`<g><line x1="28" y1="${150-v*11}" x2="32" y2="${150-v*11}" stroke="#17324a"/><text x="24" y="${154-v*11}" font-size="10" text-anchor="end" fill="#4b6480" font-family="Nunito">${v}</text></g>`).join('')}
-    ${bars}</svg><figcaption>Livros lidos por Alicia em cada mês</figcaption></figure>`;
-}
-tools.grafico = () => `
+/* 7 · Leitor de gráfico
+   A série é a mesma que as questões desta missão usam (missao.dados), para que
+   ferramenta e enunciado nunca discordem sobre quantos livros ela leu em maio. */
+tools.grafico = () => {
+  const d = missoes[S.mod]?.dados;
+  if (!d?.serie?.length) { console.warn('missão de gráfico sem dados.serie'); return ''; }
+  return `
 <div class="tool">
   <p class="center" style="font-weight:700;margin-bottom:8px">Toque em duas barras para comparar</p>
-  ${chartSVG(true)}
+  <figure class="chart">${barrasSVG(d, true)}<figcaption>${d.titulo||''}</figcaption></figure>
   <div class="readout" id="grOut" style="font-size:1.1rem"><small>nenhuma barra selecionada</small>—</div>
   <p class="tool-hint">"Quantos a mais" = subtração. "Que parte do total" = fração daquele valor sobre a soma de todos.</p>
 </div>`;
+};
 tools.grafico.init = () => {
+  const d = missoes[S.mod]?.dados; if (!d?.serie?.length) return;
+  const serie = d.serie, un = d.rotulo_y || '';
   let sel=[];
   const out=document.getElementById('grOut');
   document.querySelectorAll('.gbar').forEach(g=>g.onclick=()=>{
     const i=+g.dataset.i; sel.push(i); if(sel.length>2)sel=[i];
     document.querySelectorAll('.gbar').forEach(x=>x.style.opacity=sel.includes(+x.dataset.i)?'1':'.35');
-    const tot=GDATA.reduce((a,b)=>a+b[1],0);
-    if(sel.length===1){const [d,v]=GDATA[sel[0]];
-      out.innerHTML=`<small>${d}</small>${v} livros — ${v}/${tot} do total`;}
-    else{const a=GDATA[sel[0]],b=GDATA[sel[1]],dif=Math.abs(a[1]-b[1]);
-      out.innerHTML=`<small>${a[0]} e ${b[0]}</small>diferença de <b>${dif}</b> livros<small>${Math.max(a[1],b[1])} − ${Math.min(a[1],b[1])} = ${dif}</small>`;}
+    const tot=serie.reduce((a,b)=>a+b[1],0);
+    if(sel.length===1){const [r,v]=serie[sel[0]];
+      out.innerHTML=`<small>${r}</small>${v} ${un} — ${v}/${tot} do total`;}
+    else{const a=serie[sel[0]],b=serie[sel[1]],dif=Math.abs(a[1]-b[1]);
+      out.innerHTML=`<small>${a[0]} e ${b[0]}</small>diferença de <b>${dif}</b> ${un}<small>${Math.max(a[1],b[1])} − ${Math.min(a[1],b[1])} = ${dif}</small>`;}
   });
 };
 
-/* ============================ MISSÕES ============================ */
-const modules = [
-{ id:'valor', icon:'🔢', title:'Decimais sob controle',
-  subtitle:'Valor posicional, leitura e comparação',
-  lesson:`<p>Um número decimal é um número inteiro com <mark>pedacinhos a mais</mark>. Cada casa depois da vírgula tem um nome e um tamanho:</p>
-  <div class="lesson-box"><strong>1ª casa = décimos</strong> (0,1 · um pedaço de 10)<br>
-  <strong>2ª casa = centésimos</strong> (0,01 · um pedaço de 100)<br>
-  <strong>3ª casa = milésimos</strong> (0,001 · um pedaço de 1000)</div>
-  <p>Por isso <b>0,7 é maior que 0,68</b>, mesmo tendo menos algarismos: 0,7 são <i>sete</i> décimos e 0,68 são só <i>seis</i> décimos e um pouquinho.</p>
-  <h3>Ferramenta 1 · Raio-X do número</h3>`,
-  tool:'valor',
-  after:`<div class="lesson-box"><strong>Guarde este truque</strong> Para comparar decimais, complete todos com zeros até ficarem do mesmo tamanho. Depois é só comparar como números inteiros.</div>`,
-  qs:[
-  {q:"No número <mark>3,472</mark>, quanto vale o algarismo <b>7</b>?",
-   opts:["7 décimos (0,7)","7 centésimos (0,07)","7 milésimos (0,007)","7 unidades"],a:1,
-   dica:"Conte as casas depois da vírgula: 4 é a 1ª, 7 é a 2ª. E a 2ª casa é a dos…",
-   why:"O 7 está na 2ª casa depois da vírgula, a dos centésimos. Então ele vale 0,07."},
-  {q:"Coloque em <mark>ordem decrescente</mark> (do maior para o menor):",
-   opts:["2,5 · 2,105 · 2,15 · 2,051","2,5 · 2,15 · 2,105 · 2,051","2,051 · 2,105 · 2,15 · 2,5","2,15 · 2,5 · 2,105 · 2,051"],a:1,
-   dica:"Complete todos com 3 casas: 2,500 · 2,150 · 2,105 · 2,051. Agora compare.",
-   why:"Igualando as casas: 2,500 > 2,150 > 2,105 > 2,051. Cuidado: 2,105 parece grande por ter mais algarismos, mas tem só 1 décimo."},
-  {q:"Qual número está <mark>exatamente no meio</mark> entre 4,2 e 4,3?",
-   opts:["4,23","4,25","4,15","4,5"],a:1,
-   dica:"Pense em 4,20 e 4,30. Qual número fica bem no meio de 20 e 30?",
-   why:"4,2 = 4,20 e 4,3 = 4,30. O meio entre 20 e 30 é 25, então a resposta é 4,25."}]},
+/* ============================ CONTEÚDO DA PROVA ============================
+   Nada de conteúdo mora aqui. Missões, regras, andaimes e figuras vêm do
+   <script id="prova-data">, que build.mjs injeta a partir de data/provas/.
+   Abrir src/motor.html direto no navegador falha de propósito: o motor sozinho
+   não é um app, é metade dele. */
+const PROVA = (() => {
+  const tag = document.getElementById('prova-data');
+  if (!tag) throw new Error('prova-data ausente — gere o arquivo com "node build.mjs <prova_id>".');
+  const p = JSON.parse(tag.textContent);
+  if (!p.missoes?.length) throw new Error('prova-data sem missões.');
+  return p;
+})();
+/* A ordem de aplicação é decidida na criação da prova (missões mais frágeis
+   primeiro, enquanto a atenção está melhor). O motor não reordena. */
+const missoes    = PROVA.missoes;
+const N_MISSOES  = missoes.length;
+const N_QUESTOES = missoes.reduce((a, m) => a + m.questoes.length, 0);
 
-{ id:'fracao', icon:'🍕', title:'Fração vira decimal (e volta)',
-  subtitle:'Duas formas de escrever a mesma coisa',
-  lesson:`<p>Fração e decimal são <mark>dois idiomas para o mesmo número</mark>. E existe um tradutor simples:</p>
-  <div class="lesson-box"><strong>Fração → decimal:</strong> é só dividir o de cima pelo de baixo. 3/8 = 3 ÷ 8 = 0,375<br><br>
-  <strong>Decimal → fração:</strong> escreva sobre 10, 100 ou 1000 (uma casa = 10, duas = 100, três = 1000) e depois simplifique. 0,24 = 24/100 = 6/25</div>
-  <h3>Ferramenta 2 · Barra mágica</h3>`,
-  tool:'fracao',
-  after:`<div class="lesson-box"><strong>Atenção nas irredutíveis</strong> 24/100, 12/50 e 6/25 valem o mesmo. Mas só 6/25 é <i>irredutível</i>: é a que não dá mais para simplificar.</div>`,
-  qs:[
-  {q:"Transformando <mark>7/8</mark> em número decimal, obtemos:",
-   opts:["0,78","0,875","1,142","0,87"],a:1,
-   dica:"7 ÷ 8. Se 1/8 = 0,125, quanto são sete deles?",
-   why:"7 ÷ 8 = 0,875. Confere: 0,875 × 8 = 7. Outro caminho: 1/8 = 0,125, e 0,125 × 7 = 0,875."},
-  {q:"O número <mark>0,36</mark> escrito como fração <b>irredutível</b> é:",
-   opts:["36/100","9/25","18/50","3/6"],a:1,
-   dica:"Duas casas decimais = sobre 100. Depois divida em cima e embaixo pelo mesmo número, até não dar mais.",
-   why:"0,36 = 36/100. Dividindo os dois por 4: 9/25. As opções 36/100 e 18/50 valem o mesmo, mas ainda dá para simplificar."},
-  {q:"Quem é <mark>maior</mark>: 3/5 ou 0,62?",
-   opts:["3/5","0,62","São iguais","Não dá para comparar"],a:1,
-   dica:"Coloque os dois no mesmo idioma: quanto dá 3 ÷ 5?",
-   why:"3/5 = 3 ÷ 5 = 0,6. Comparando 0,60 com 0,62, o maior é 0,62. Para comparar fração com decimal, traduza sempre um para o formato do outro."}]},
+/* ============================ FIGURAS ============================
+   O JSON é dono do conteúdo, o motor é dono da moldura. */
+function barrasSVG(d, interativo){
+  const serie = d.serie, n = serie.length;
+  const topo = Math.max(3, Math.ceil(Math.max(...serie.map(p => p[1])) / 3) * 3);
+  const base = 150, x0 = 32;
+  const passo = (330 - x0 - 10) / n, bw = Math.min(36, passo * .66), esc = (base - 14) / topo;
+  const tick = Math.max(1, Math.round(topo / 4));
+  const cores = ['#2fae94','#7a6cf0','#f2604c','#ffc857'];
+  let eixoY = '';
+  for (let v = 0; v <= topo; v += tick)
+    eixoY += `<g><line x1="28" y1="${base-v*esc}" x2="32" y2="${base-v*esc}" stroke="#17324a"/>`+
+      `<text x="24" y="${base+4-v*esc}" font-size="10" text-anchor="end" fill="#4b6480" font-family="Nunito">${v}</text></g>`;
+  const barras = serie.map(([rot, v], i) => {
+    const x = x0 + 8 + i*passo + (passo-bw)/2, h = v*esc;
+    return `<g ${interativo ? `class="gbar" data-i="${i}" style="cursor:pointer"` : ''}>
+      <rect x="${x}" y="${base-h}" width="${bw}" height="${h}" rx="3" fill="${cores[i%4]}"/>
+      <text x="${x+bw/2}" y="${base-h-5}" font-size="11" font-weight="700" text-anchor="middle" fill="#17324a" font-family="Nunito">${v}</text>
+      <text x="${x+bw/2}" y="${base+16}" font-size="11" text-anchor="middle" fill="#4b6480" font-family="Nunito">${rot}</text></g>`;
+  }).join('');
+  return `<svg viewBox="0 0 330 180" width="100%" role="img" aria-label="${d.titulo||'gráfico de barras'}">
+    <line x1="${x0}" y1="${base}" x2="322" y2="${base}" stroke="#17324a" stroke-width="1.5"/>
+    <line x1="${x0}" y1="10" x2="${x0}" y2="${base}" stroke="#17324a" stroke-width="1.5"/>
+    ${eixoY}${barras}</svg>`;
+}
+function figuraHTML(fig, missao){
+  if (!fig) return '';
+  if (fig.tipo === 'svg')
+    return `<figure class="chart">${fig.conteudo}${fig.legenda ? `<figcaption>${fig.legenda}</figcaption>` : ''}</figure>`;
+  if (fig.tipo === 'barras') {
+    const d = fig.fonte === 'missao' ? missao?.dados : fig;
+    if (!d?.serie?.length) { console.warn('figura barras sem série', missao?.missao_id); return ''; }
+    return `<figure class="chart">${barrasSVG(d, false)}<figcaption>${d.titulo||''}</figcaption></figure>`;
+  }
+  console.warn('tipo de figura desconhecido:', fig.tipo);
+  return '';
+}
 
-{ id:'virgula', icon:'⚡', title:'A dança da vírgula',
-  subtitle:'Multiplicar e dividir por 10, 100 e 1000',
-  lesson:`<p>Multiplicar por 10, 100 ou 1000 é a conta mais rápida da matemática — porque <mark>você nem precisa fazer conta</mark>. A vírgula é que se mexe.</p>
-  <div class="lesson-box"><strong>× 10</strong> → 1 casa para a direita<br><strong>× 100</strong> → 2 casas para a direita<br><strong>× 1000</strong> → 3 casas para a direita<br><br>
-  Dividindo, a vírgula anda o mesmo tanto, só que para a <strong>esquerda</strong>. Conte os zeros e você conta as casas.</div>
-  <h3>Ferramenta 3 · Máquina da vírgula</h3>`,
-  tool:'virgula',
-  after:`<div class="lesson-box"><strong>Faltou casa?</strong> Coloque zeros. 8,4 × 1000 vira 8400 — foram necessários dois zeros novos para a vírgula ter por onde andar.</div>`,
-  qs:[
-  {q:"Quanto vale <mark>0,0084 × 1000</mark>?",
-   opts:["0,84","84","8,4","840"],a:2,
-   dica:"Três zeros = três casas para a direita: 0,0084 → 0,084 → 0,84 → ?",
-   why:"Andando 3 casas para a direita: 0,0084 → 0,084 → 0,84 → 8,4."},
-  {q:"Qual número, <mark>multiplicado por 100</mark>, resulta em 4,7?",
-   opts:["0,047","0,47","470","47"],a:0,
-   dica:"Aqui o caminho é ao contrário: em vez de avançar, a vírgula precisa voltar 2 casas.",
-   why:"Voltando 2 casas em 4,7: 0,47 → 0,047. Confere: 0,047 × 100 = 4,7."},
-  {q:"Um número foi multiplicado por 10 e <b>depois</b> por 100. O resultado deu 350. Qual era o número?",
-   opts:["3,5","35","0,35","0,035"],a:2,
-   dica:"× 10 e depois × 100 é o mesmo que × 1000. Agora desfaça: volte 3 casas.",
-   why:"Multiplicar por 10 e depois por 100 é multiplicar por 1000. Desfazendo, a vírgula volta 3 casas: 350 → 35,0 → 3,50 → 0,350 = 0,35."}]},
-
-{ id:'contas', icon:'🧮', title:'Contas com vírgula',
-  subtitle:'Somar, subtrair, multiplicar e resolver problemas',
-  lesson:`<p>Aqui mora a pegadinha favorita das provas: <mark>somar e multiplicar seguem regras diferentes</mark>.</p>
-  <div class="lesson-box"><strong>Somar e subtrair:</strong> alinhe a vírgula embaixo da vírgula e complete com zeros.<br><br>
-  <strong>Multiplicar:</strong> esqueça a vírgula, faça a conta normal, e no fim conte quantas casas decimais havia no total.</div>
-  <h3>Ferramenta 4 · Como armar cada conta</h3>`,
-  tool:'contas',
-  after:`<div class="lesson-box"><strong>Problema com duas etapas?</strong> Sublinhe o que a pergunta pede <i>no final</i>. Muita gente calcula certo o total e esquece de subtrair o troco.</div>`,
-  qs:[
-  {q:"Quanto vale <mark>0,25 × 0,4</mark>?",
-   opts:["1,0","0,1","0,01","0,001"],a:1,
-   dica:"25 × 4 = 100. Agora conte: 2 casas em 0,25 + 1 casa em 0,4 = 3 casas no resultado.",
-   why:"25 × 4 = 100. Com 3 casas decimais: 0,100 — que é o mesmo que 0,1. Zeros no fim do decimal não mudam o valor."},
-  {q:"Quanto vale <mark>10 − 4,68</mark>?",
-   opts:["6,32","5,42","5,32","6,42"],a:2,
-   dica:"Escreva 10 como 10,00 antes de armar. Aí a vírgula fica embaixo da vírgula.",
-   why:"10,00 − 4,68 = 5,32. O segredo é transformar 10 em 10,00 para alinhar direito."},
-  {q:"Alicia comprou 4 cadernos de R$ 8,75 e 3 canetas de R$ 3,50. Pagou com R$ 50,00. Qual foi o <mark>troco</mark>?",
-   opts:["R$ 4,50","R$ 5,50","R$ 45,50","R$ 14,50"],a:0,
-   dica:"São três etapas: cadernos (4 × 8,75), canetas (3 × 3,50), soma dos dois e só então o troco.",
-   why:"Cadernos: 4 × 8,75 = 35,00. Canetas: 3 × 3,50 = 10,50. Total: 45,50. Troco: 50,00 − 45,50 = R$ 4,50."}]},
-
-{ id:'prob', icon:'🎲', title:'Probabilidade',
-  subtitle:'Que chance eu tenho?',
-  lesson:`<p>Probabilidade responde uma pergunta só: <mark>que chance uma coisa tem de acontecer?</mark> E existe uma única fórmula para tudo:</p>
-  <div class="lesson-box" style="text-align:center;font-size:1.1rem"><strong>quantos servem ÷ quantos existem no total</strong></div>
-  <p>Se numa sacola há 2 bolas verdes e 10 bolas no total, a chance de sair verde é <b>2/10</b>. Simplificando: 1/5. Em decimal: 0,2. Em porcentagem: 20%. <b>São as quatro formas de dizer a mesma coisa</b> — e a prova pode pedir qualquer uma delas.</p>
-  <p class="muted">Duas armadilhas comuns: esquecer de somar <i>tudo</i> para achar o total, e ler "maior que 4" como se incluísse o 4 (não inclui!).</p>
-  <h3>Ferramenta 5 · Sacola de sorteio</h3>`,
-  tool:'prob',
-  after:`<div class="lesson-box"><strong>Duas fronteiras</strong> Se é <i>impossível</i>, a probabilidade é <b>0</b> (bola preta numa sacola sem bolas pretas). Se é <i>certeza</i>, é <b>1</b> ou 100%. Todo o resto fica entre esses dois.</div>`,
-  qs:[
-  {q:"Numa sacola há 3 bolas vermelhas, 5 azuis e 2 verdes. Retirando uma sem olhar, qual é a probabilidade de sair <mark>azul</mark>?",
-   opts:["1/5","1/2","5/8","2/5"],a:1,
-   dica:"Primeiro o total: 3 + 5 + 2. Depois quantas são azuis.",
-   why:"Total = 3 + 5 + 2 = 10 bolas. Azuis = 5. Então 5/10, que simplificado é 1/2 (ou 50%)."},
-  {q:"Ao lançar um dado comum de 6 faces, qual é a probabilidade de sair um número <mark>menor que 3</mark>?",
-   opts:["1/2","1/6","1/3","2/3"],a:2,
-   dica:"Quais números do dado são menores que 3? Liste-os antes de fazer a conta.",
-   why:"Menores que 3 são apenas o 1 e o 2 — dois casos em 6. Logo 2/6 = 1/3. O próprio 3 não entra."},
-  {q:"Uma roleta tem 10 setores iguais e 4 deles são azuis. A chance de parar no azul, em <mark>porcentagem</mark>, é:",
-   opts:["4%","40%","25%","14%"],a:1,
-   dica:"4/10 em decimal é quanto? Depois multiplique por 100 para virar porcentagem.",
-   why:"4/10 = 0,4. Multiplicando por 100: 40%."}]},
-
-{ id:'area', icon:'📐', title:'Área e perímetro',
-  subtitle:'A cerca e o piso',
-  lesson:`<p>São duas medidas bem diferentes e é fácil trocar uma pela outra. Use esta imagem:</p>
-  <div class="lesson-box"><strong>Perímetro</strong> é a <mark>cerca</mark> em volta do terreno: soma dos lados. Mede-se em cm, m…<br><br>
-  <strong>Área</strong> é o <mark>piso</mark> que preenche o terreno: base × altura. Mede-se em cm², m² (o "²" é a pista!).</div>
-  <h3>Ferramenta 6 · Retângulo que você comanda</h3>`,
-  tool:'area',
-  after:`<div class="lesson-box"><strong>Questão clássica</strong> "O perímetro é 26 cm e um lado é 9 cm." Dois lados de 9 já usam 18. Sobram 8 para os outros dois lados, ou seja, 4 cada. Aí a área sai fácil.</div>`,
-  qs:[
-  {q:"Um retângulo tem <mark>perímetro de 26 cm</mark> e um dos lados mede 9 cm. Qual é a sua área?",
-   opts:["117 cm²","36 cm²","72 cm²","54 cm²"],a:1,
-   dica:"Dois lados de 9 cm somam 18. Quanto sobra do perímetro para os outros dois lados?",
-   why:"Dois lados de 9 cm = 18 cm. Sobram 26 − 18 = 8 cm para os outros dois, ou seja, 4 cm cada. Área = 9 × 4 = 36 cm²."},
-  {q:"Um quadrado tem <mark>área de 64 cm²</mark>. Qual é o seu perímetro?",
-   opts:["16 cm","64 cm","32 cm","256 cm"],a:2,
-   dica:"No quadrado todos os lados são iguais. Que número multiplicado por ele mesmo dá 64?",
-   why:"Se lado × lado = 64, o lado é 8 cm (8 × 8 = 64). Perímetro = 8 × 4 = 32 cm."},
-  {q:"A figura abaixo é um retângulo de 6 cm por 4 cm com um quadradinho de 2 cm de lado <mark>recortado</mark> do canto. Qual é a área que sobrou?",
-   figure:`<figure class="chart"><svg viewBox="0 0 260 150" width="100%" role="img" aria-label="retângulo com canto recortado">
-     <path d="M20 20 H200 V70 H150 V130 H20 Z" fill="#e3f5f0" stroke="#2fae94" stroke-width="2.5"/>
-     <path d="M150 70 H200 V20" fill="none" stroke="#f2604c" stroke-width="2" stroke-dasharray="5 4"/>
-     <text x="110" y="14" font-size="11" text-anchor="middle" fill="#4b6480" font-family="Nunito">6 cm</text>
-     <text x="10" y="78" font-size="11" text-anchor="middle" fill="#4b6480" font-family="Nunito">4</text>
-     <text x="178" y="45" font-size="10" text-anchor="middle" fill="#f2604c" font-family="Nunito">2×2</text>
-     </svg><figcaption>Retângulo 6 × 4 cm com um canto de 2 × 2 cm retirado</figcaption></figure>`,
-   opts:["24 cm²","28 cm²","20 cm²","16 cm²"],a:2,
-   dica:"Calcule primeiro a área do retângulo inteiro. Depois tire a parte que foi recortada.",
-   why:"Retângulo inteiro: 6 × 4 = 24 cm². Quadradinho retirado: 2 × 2 = 4 cm². Sobrou 24 − 4 = 20 cm². Em figuras compostas, sempre pense em somar ou tirar retângulos."}]},
-
-{ id:'grafico', icon:'📊', title:'Ler gráficos',
-  subtitle:'Tirar informação de um desenho',
-  lesson:`<p>Gráfico é uma tabela disfarçada de desenho. Antes de responder qualquer coisa, faça sempre estas três leituras:</p>
-  <div class="lesson-box"><strong>1.</strong> O que está escrito embaixo de cada barra? (os grupos)<br>
-  <strong>2.</strong> O que a linha de números do lado esquerdo mede? (a quantidade)<br>
-  <strong>3.</strong> O que exatamente a pergunta quer: um valor, uma <i>diferença</i>, um total ou uma fração?</div>
-  <p>"Quantos <b>a mais</b>" é sempre <mark>subtração</mark> — nunca soma. Já "que parte do total" pede a fração daquele valor sobre a soma de todas as barras.</p>
-  <h3>Ferramenta 7 · Gráfico que responde</h3>`,
-  tool:'grafico',
-  after:`<div class="lesson-box"><strong>Dica de prova</strong> Anote os valores das barras no rascunho antes de calcular. Erro mais comum não é a conta: é ler a barra errada.</div>`,
-  qs:[
-  {q:"Quantos livros <mark>a mais</mark> Alicia leu em junho em comparação com maio?",
-   figure:chartSVG(false),opts:["7","15","4","11"],a:0,
-   dica:"Junho = 11 e maio = 4. 'Quantos a mais' pede subtração.",
-   why:"Junho = 11, maio = 4. A diferença é 11 − 4 = 7 livros."},
-  {q:"Se a meta era ler <mark>8 livros por mês</mark>, em quantos meses Alicia ficou <b>abaixo</b> da meta?",
-   figure:chartSVG(false),opts:["1","3","2","4"],a:2,
-   dica:"Compare cada barra com o 8. Março tem 6… e maio?",
-   why:"Março (6) e maio (4) ficaram abaixo de 8. Abril (9), junho (11) e julho (10) passaram da meta. Portanto, 2 meses."},
-  {q:"Que <mark>fração do total</mark> de livros do período foi lida em julho?",
-   figure:chartSVG(false),opts:["1/5","1/10","1/3","1/4"],a:3,
-   dica:"Some todas as barras para achar o total. Depois monte a fração julho/total e simplifique.",
-   why:"Total = 6 + 9 + 4 + 11 + 10 = 40 livros. Julho teve 10. Então 10/40, que simplificado é 1/4."}]}
-];
-
-/* Ordem invertida: as missões finais passam a vir primeiro, porque os
-   primeiros temas já foram os mais praticados. */
-modules.reverse();
-
-/* ====== REGRA SEMPRE VISÍVEL DURANTE OS DESAFIOS ======
-   Tira da memória a informação que ela não precisa segurar de cabeça. */
-const REGRAS = {
- valor:`1ª casa = <b>décimos</b> · 2ª = <b>centésimos</b> · 3ª = <b>milésimos</b><br>
-        Para comparar, <b>complete todos com zeros</b> até ficarem do mesmo tamanho.`,
- fracao:`<b>Fração → decimal:</b> divida o de cima pelo de baixo.<br>
-        <b>Decimal → fração:</b> 1 casa = /10 · 2 casas = /100 · 3 casas = /1000, depois simplifique.`,
- virgula:`<b>× 10 · 100 · 1000</b> → vírgula anda 1 · 2 · 3 casas para a <b>direita</b>.<br>
-        Dividir faz o contrário: vírgula para a <b>esquerda</b>. Conte os zeros = conte as casas.`,
- contas:`<b>Somar / subtrair:</b> vírgula embaixo de vírgula, complete com zeros.<br>
-        <b>Multiplicar:</b> faça a conta sem vírgula e depois conte as casas dos dois números juntos.`,
- prob:`Probabilidade = <b>quantos servem ÷ quantos existem no total</b>.<br>
-        A mesma resposta pode aparecer como fração, decimal ou %. Impossível = 0 · certeza = 1.`,
- area:`<b>Perímetro</b> = a cerca (soma dos lados) → cm<br>
-        <b>Área</b> = o piso (base × altura) → cm²`,
- grafico:`"Quantos <b>a mais</b>" = subtração.<br>"Que <b>parte do total</b>" = aquele valor ÷ soma de todas as barras.`
-};
-
-/* ====== ANDAIME: quebra as questões de várias etapas em uma pergunta de cada vez ====== */
-const PASSOS = {
- 'valor-2':["Escreva os dois números com o mesmo número de casas: 4,2 = 4,<b>20</b> e 4,3 = 4,<b>30</b>.",
-            "Agora esqueça a vírgula: qual número fica bem no meio entre 20 e 30?",
-            "Volte a vírgula para o lugar: 4,<b>25</b>."],
- 'fracao-2':["Traduza a fração: 3 ÷ 5 = ?",
-             "Escreva os dois com 2 casas para comparar: 0,60 e 0,62.",
-             "Qual dos dois é o maior?"],
- 'virgula-2':["× 10 e depois × 100 é o mesmo que multiplicar por quanto?",
-              "Se o resultado foi 350, para achar o número original a vírgula tem que <b>voltar</b> quantas casas?",
-              "Ande as 3 casas para a esquerda em 350."],
- 'contas-2':["1ª parte: quanto custaram os 4 cadernos? (4 × 8,75)",
-             "2ª parte: quanto custaram as 3 canetas? (3 × 3,50)",
-             "3ª parte: some os dois valores para achar o total da compra.",
-             "4ª parte: o troco é 50,00 menos esse total."],
- 'area-0':["Dois lados medem 9 cm cada. Quanto eles somam juntos?",
-           "O perímetro todo é 26. Quanto sobra para os outros dois lados?",
-           "Divida essa sobra por 2 para achar cada lado.",
-           "Agora a área: 9 × esse lado."],
- 'area-2':["Calcule a área do retângulo inteiro, como se nada tivesse sido cortado: 6 × 4.",
-           "Calcule a área do quadradinho que foi retirado: 2 × 2.",
-           "Tire o segundo do primeiro."],
- 'grafico-2':["Some todas as barras para achar o total de livros.",
-              "Quantos livros foram lidos em julho?",
-              "Monte a fração julho ÷ total e simplifique."]
-};
-
+/* Guarda: uma prova nova pode pedir uma ferramenta que este motor não tem.
+   Isso já é barrado no build; aqui é a rede embaixo, para a aula não morrer. */
+function ferramentaHTML(m){
+  if (!m.ferramenta) return '';
+  const t = tools[m.ferramenta];
+  if (typeof t !== 'function') {
+    console.warn('ferramenta desconhecida neste motor:', m.ferramenta, '- missão', m.missao_id);
+    return '<div class="tool"><p class="center muted">A parte de mexer desta missão não abriu. Pode seguir para os desafios — a explicação acima já dá conta.</p></div>';
+  }
+  return t();
+}
+function ferramentaInit(m){
+  const t = m.ferramenta && tools[m.ferramenta];
+  if (typeof t === 'function' && typeof t.init === 'function') {
+    try { t.init(); } catch (e) { console.warn('falha ao iniciar a ferramenta', m.ferramenta, e); }
+  }
+}
 
 /* ==================================================================
    ENVIO DOS RESULTADOS PARA A PLANILHA (Google Sheets)
@@ -697,8 +547,10 @@ const PASSOS = {
    podem ser copiados no fim pelo botao "Copiar resultados".
    ================================================================== */
 const SHEET_URL = '';           // <<<<<< COLE AQUI A URL DO APPS SCRIPT
-const ALUNA     = 'Alicia';
-const FILA      = 'missao_alicia_fila_v1';
+const ALUNA     = PROVA.aluna || 'Alicia';
+/* A fila é por prova: duas provas publicadas na mesma origem não podem
+   disputar a mesma chave de localStorage. */
+const FILA      = `missao_fila_${PROVA.prova_id}_v2`;
 let linhas = [];                // tudo que foi gerado nesta sessao
 
 function lerFila(){try{return JSON.parse(localStorage.getItem(FILA)||'[]');}catch(e){return [];}}
@@ -727,7 +579,9 @@ function copiarResultados(){
 }
 
 /* ============================ ESTADO E ARMAZENAMENTO ============================ */
-const KEY='missao_alicia_mat_v1';
+/* Progresso é por prova, não por aluna: senão a revisão de português herdaria
+   as medalhas da de matemática. */
+const KEY=`missao_progresso_${PROVA.prova_id}_v2`;
 let mem=null;
 const store={
   async save(s){const raw=JSON.stringify(s);
@@ -743,6 +597,21 @@ const store={
 
 let S={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false,errors:[],unlocked:1,focus:false,shield:true};
 const el=id=>document.getElementById(id);
+
+/* Rótulos de tela vêm dos metadados da prova — nenhum número de missão
+   ou de questão escrito à mão. */
+const NUM=['nenhuma','uma','duas','três','quatro','cinco','seis','sete','oito','nove','dez'];
+function rotulos(){
+  const porMissao=[...new Set(missoes.map(m=>m.questoes.length))];
+  const desafios=porMissao.length===1?`${porMissao[0]} desafios`:'alguns desafios';
+  el('mapEyebrow').textContent=`${PROVA.ano_aluna} · ${PROVA.materia}`;
+  el('mapTitle').textContent=PROVA.titulo;
+  el('mapIntro').innerHTML=`${(NUM[N_MISSOES]||N_MISSOES).replace(/^./,c=>c.toUpperCase())} missões. `+
+    `Em cada uma, primeiro você <strong>aprende com uma ferramenta que dá para mexer</strong>, e só depois responde ${desafios}. `+
+    `Complete uma para abrir a próxima e conquistar as medalhas.`;
+  el('finalTitle').textContent=`Você fechou as ${N_MISSOES} missões! 🎉`;
+  document.title=PROVA.titulo;
+}
 const LEVELS=[[0,'Aprendiz'],[300,'Exploradora'],[700,'Investigadora'],[1200,'Estrategista'],[1800,'Mestra dos Números']];
 
 function save(){store.save(S);}
@@ -753,7 +622,7 @@ function hud(){
   el('lvlLabel').textContent=`Nível ${l+1} · ${LEVELS[l][1]}`;
   el('xpFill').style.width=Math.min(100,((S.xp-base)/(next-base))*100)+'%';
   el('xpNum').textContent=`${S.xp} XP`;
-  el('medals').innerHTML=modules.map(m=>`<span class="${S.done[m.id]?'on':''}">${S.done[m.id]||'🏅'}</span>`).join('');
+  el('medals').innerHTML=missoes.map(m=>`<span class="${S.done[m.missao_id]?'on':''}">${S.done[m.missao_id]||'🏅'}</span>`).join('');
   el('shieldIcon').classList.toggle('hidden',!S.shield);
   const st=el('streak');
   if(S.streak>=2){st.classList.remove('hidden');st.textContent=`🔥 ${S.streak} seguidas`;}else st.classList.add('hidden');
@@ -770,17 +639,17 @@ function applyFocus(){
 function show(id){['map','lesson','quiz','moduleDone','final'].forEach(s=>el(s).classList.add('hidden'));el(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
 
 /* uma missão abre quando a anterior da lista atual estiver concluída */
-function isOpen(i){return i===0 || !!S.done[modules[i-1].id];}
+function isOpen(i){return i===0 || !!S.done[missoes[i-1].id];}
 
 function drawMap(){
-  el('modList').innerHTML=modules.map((m,i)=>{
-    const done=S.done[m.id], open=isOpen(i);
+  el('modList').innerHTML=missoes.map((m,i)=>{
+    const done=S.done[m.missao_id], open=isOpen(i);
     return `<button class="mod ${done?'done':''}" data-i="${i}" ${open?'':'disabled'}>
-      <span class="ic">${open?m.icon:'🔒'}</span>
-      <span><span class="tt">${i+1}. ${m.title}</span><br><span class="st">${open?m.subtitle:'Complete a missão anterior para abrir'}</span></span>
+      <span class="ic">${open?m.icone:'🔒'}</span>
+      <span><span class="tt">${i+1}. ${m.titulo}</span><br><span class="st">${open?m.subtitulo:'Complete a missão anterior para abrir'}</span></span>
       <span class="badge">${done||''}</span></button>`;}).join('');
   document.querySelectorAll('.mod').forEach(b=>b.onclick=()=>openModule(+b.dataset.i));
-  const allDone=modules.every(m=>S.done[m.id]);
+  const allDone=missoes.every(m=>S.done[m.missao_id]);
   el('resetBtn').classList.toggle('hidden',S.xp===0);
   el('resumeNote').textContent = allDone ? 'Todas as missões concluídas! Você pode refazer qualquer uma.' :
     (S.xp>0?'Seu progresso fica salvo automaticamente.':'');
@@ -789,34 +658,34 @@ function drawMap(){
 
 /* Quebra o texto da aula em passos: um bloco por tela, o penúltimo com a ferramenta. */
 function buildSteps(m){
-  const pre=m.lesson.split('<h3>')[0], head=m.lesson.includes('<h3>')?'<h3>'+m.lesson.split('<h3>')[1]:'';
+  const pre=m.aula.corpo.split('<h3>')[0], head=m.aula.corpo.includes('<h3>')?'<h3>'+m.aula.corpo.split('<h3>')[1]:'';
   const blocks=pre.match(/<p[\s\S]*?<\/p>|<div class="lesson-box">[\s\S]*?<\/div>/g)||[pre];
   const steps=[];
   for(let i=0;i<blocks.length;i++){
     if(blocks[i].startsWith('<p')&&blocks[i+1]&&blocks[i+1].startsWith('<div')){steps.push(blocks[i]+blocks[i+1]);i++;}
     else steps.push(blocks[i]);
   }
-  steps.push(head+(m.tool?tools[m.tool]():''));
-  if(m.after)steps.push(m.after);
+  steps.push(head+ferramentaHTML(m));
+  if(m.aula.fechamento)steps.push(m.aula.fechamento);
   return steps;
 }
 let lessonSteps=[],lessonStep=0;
 
 function openModule(i){
-  S.mod=i;S.modId=modules[i].id;S.q=0;S.screen='lesson';S.usedHint=false;S.shield=true;save();
-  const m=modules[i];
-  el('lessonEyebrow').textContent=`Missão ${i+1} de 7`;
-  el('lessonTitle').textContent=m.title;
+  S.mod=i;S.modId=missoes[i].missao_id;S.q=0;S.screen='lesson';S.usedHint=false;S.shield=true;save();
+  const m=missoes[i];
+  el('lessonEyebrow').textContent=`Missão ${i+1} de ${N_MISSOES}`;
+  el('lessonTitle').textContent=m.titulo;
   lessonSteps=buildSteps(m);lessonStep=0;
   drawLessonStep();
   show('lesson');
 }
 
 function drawLessonStep(){
-  const m=modules[S.mod];
+  const m=missoes[S.mod];
   el('lessonBody').innerHTML=lessonSteps[lessonStep];
   el('stepDots').innerHTML=lessonSteps.map((_,i)=>`<i class="${i<=lessonStep?'on':''}"></i>`).join('');
-  if(lessonSteps[lessonStep].includes('class="tool"')&&m.tool&&tools[m.tool].init)tools[m.tool].init();
+  if(lessonSteps[lessonStep].includes('class="tool"'))ferramentaInit(m);
   const last=lessonStep===lessonSteps.length-1;
   el('lessonBack').classList.toggle('hidden',lessonStep===0);
   el('lessonNext').classList.toggle('hidden',last);
@@ -829,26 +698,26 @@ el('toQuizBtn').onclick=()=>{S.screen='quiz';S.q=0;S.correctInMod=0;S.modStart=D
 let chosen=null, stepsShown=0, attempts=0;
 
 function renderQ(){
-  const m=modules[S.mod],q=m.qs[S.q];
+  const m=missoes[S.mod],q=m.questoes[S.q];
   S.usedHint=false;chosen=null;stepsShown=0;attempts=0;
-  el('qTag').textContent=m.title;
-  el('ruleText').innerHTML=REGRAS[m.id]||'';
-  el('dots').innerHTML=m.qs.map((_,i)=>`<i class="${i<S.q?'on':i===S.q?'now':''}"></i>`).join('');
-  el('qText').innerHTML=`<span class="muted" style="font-size:.9rem;font-weight:600">Desafio ${S.q+1} de ${m.qs.length}</span><br>${q.q}`;
-  el('qFigure').innerHTML=q.figure||'';
+  el('qTag').textContent=m.titulo;
+  el('ruleText').innerHTML=m.regra||'';
+  el('dots').innerHTML=m.questoes.map((_,i)=>`<i class="${i<S.q?'on':i===S.q?'now':''}"></i>`).join('');
+  el('qText').innerHTML=`<span class="muted" style="font-size:.9rem;font-weight:600">Desafio ${S.q+1} de ${m.questoes.length}</span><br>${q.enunciado}`;
+  el('qFigure').innerHTML=figuraHTML(q.figura,m);
   const box=el('opts');box.innerHTML='';
-  q.opts.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';
+  q.alternativas.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';
     b.innerHTML=`<span class="letter">${'ABCD'[i]}</span><span>${t}</span>`;b.onclick=()=>select(i);box.appendChild(b);});
   el('feedback').className='feedback';el('feedback').innerHTML='';
   el('hintBox').className='hintbox';el('hintBox').innerHTML='';
   el('hintBtn').classList.remove('hidden');
   el('nextBtn').classList.add('hidden');
   el('confirmBtn').classList.add('hidden');
-  el('nextBtn').textContent=S.q===m.qs.length-1?'Finalizar missão':'Próximo desafio';
-  // andaime, só nas questões de várias etapas
-  const key=`${m.id}-${S.q}`;
+  el('nextBtn').textContent=S.q===m.questoes.length-1?'Finalizar missão':'Próximo desafio';
+  // andaime, só nas questões que declararam passos
   el('stepBox').className='stepbox';el('stepBox').innerHTML='';
-  el('stepBtn').classList.toggle('hidden',!PASSOS[key]);
+  el('stepBtn').classList.toggle('hidden',!q.passos?.length);
+  el('stepBtn').disabled=false;
   el('stepBtn').textContent='🧩 Quebrar em partes';
   show('quiz');
 }
@@ -863,7 +732,7 @@ el('confirmBtn').onclick=()=>{if(chosen!==null)answer(chosen);};
 
 /* andaime: revela uma etapa por vez */
 el('stepBtn').onclick=()=>{
-  const key=`${modules[S.mod].id}-${S.q}`,p=PASSOS[key];if(!p)return;
+  const p=missoes[S.mod].questoes[S.q].passos;if(!p?.length)return;
   el('stepBox').className='stepbox show';
   if(stepsShown===0&&S.modLog)S.modLog.partes++;
   stepsShown++;
@@ -873,14 +742,14 @@ el('stepBtn').onclick=()=>{
 };
 
 el('hintBtn').onclick=()=>{
-  const q=modules[S.mod].qs[S.q];S.usedHint=true;if(S.modLog)S.modLog.dicas++;
+  const q=missoes[S.mod].questoes[S.q];S.usedHint=true;if(S.modLog)S.modLog.dicas++;
   el('hintBox').className='hintbox show';el('hintBox').innerHTML=`<b>Dica:</b> ${q.dica}`;
   el('hintBtn').classList.add('hidden');};
 
 const PRAISE=['Boa! 🎯','Isso aí! ✨','Mandou bem! 🚀','Exatamente! 💚','Perfeito! ⭐','Você pegou o jeito! 🔥'];
 
 function answer(choice){
-  const m=modules[S.mod],q=m.qs[S.q],ok=choice===q.a;
+  const m=missoes[S.mod],q=m.questoes[S.q],ok=choice===q.correta;
   const fb=el('feedback');
   el('confirmBtn').classList.add('hidden');
 
@@ -893,12 +762,12 @@ function answer(choice){
     });
     fb.className='feedback no show';
     fb.innerHTML=`<strong>Não foi essa — mas você ainda tem uma tentativa 💪</strong>
-      Eliminei a alternativa ${'ABCD'[choice]}. Releia o enunciado devagar${PASSOS[`${m.id}-${S.q}`]?' ou use o 🧩 para quebrar em partes':''} e escolha de novo.`;
+      Eliminei a alternativa ${'ABCD'[choice]}. Releia o enunciado devagar${q.passos?.length?' ou use o 🧩 para quebrar em partes':''} e escolha de novo.`;
     return;
   }
 
   [...el('opts').children].forEach((b,i)=>{b.disabled=true;b.classList.remove('chosen');
-    if(i===q.a)b.classList.add('correct');else if(i===choice)b.classList.add('wrong');else b.classList.add('dim');});
+    if(i===q.correta)b.classList.add('correct');else if(i===choice)b.classList.add('wrong');else b.classList.add('dim');});
   el('hintBtn').classList.add('hidden');
   el('stepBtn').classList.add('hidden');
   el('stepBtn').disabled=false;
@@ -910,18 +779,18 @@ function answer(choice){
     const bonus=S.streak>=3?30:0;gained+=bonus;
     S.xp+=gained;
     fb.className='feedback ok show';
-    fb.innerHTML=`<strong>${attempts===1?'Isso! Acertou na segunda 👏':PRAISE[Math.floor(Math.random()*PRAISE.length)]}</strong>${q.why}
+    fb.innerHTML=`<strong>${attempts===1?'Isso! Acertou na segunda 👏':PRAISE[Math.floor(Math.random()*PRAISE.length)]}</strong>${q.explicacao}
       <span class="xpop">+${gained} XP${bonus?` (incluindo +${bonus} de sequência 🔥)`:''}${S.usedHint&&attempts===0?' · usar dica é estratégia, não vergonha':''}</span>`;
     if(!S.focus&&(S.streak===3||S.streak===6))confetti(14);
   }else{
     gained=20;S.xp+=gained;
-    S.errors.push({mod:m.title,q:q.q.replace(/<\/?mark>|<\/?b>|<\/?i>/g,''),ans:q.opts[q.a],why:q.why});
-    if(S.modLog)S.modLog.erros.push(`${m.title} · desafio ${S.q+1}`);
+    S.errors.push({mod:m.titulo,q:q.enunciado.replace(/<\/?mark>|<\/?b>|<\/?i>/g,''),ans:q.alternativas[q.correta],why:q.explicacao});
+    if(S.modLog)S.modLog.erros.push(`${m.titulo} · desafio ${S.q+1}`);
     let shieldMsg='';
     if(S.shield){S.shield=false;shieldMsg='<br><b>🛡️ Escudo usado:</b> sua sequência de acertos continua de pé.';}
     else S.streak=0;
     fb.className='feedback no show';
-    fb.innerHTML=`<strong>Ainda não — e agora você não erra mais essa</strong>Resposta certa: <b>${'ABCD'[q.a]}) ${q.opts[q.a]}</b><br>${q.why}${shieldMsg}
+    fb.innerHTML=`<strong>Ainda não — e agora você não erra mais essa</strong>Resposta certa: <b>${'ABCD'[q.correta]}) ${q.alternativas[q.correta]}</b><br>${q.explicacao}${shieldMsg}
       <span class="xpop">+${gained} XP por encarar o desafio até o fim</span>`;
   }
   hud();save();
@@ -929,25 +798,25 @@ function answer(choice){
 }
 
 el('nextBtn').onclick=()=>{
-  const m=modules[S.mod];
-  if(S.q<m.qs.length-1){S.q++;save();renderQ();}
+  const m=missoes[S.mod];
+  if(S.q<m.questoes.length-1){S.q++;save();renderQ();}
   else finishModule();};
 
 function finishModule(){
-  const m=modules[S.mod],c=S.correctInMod||0;
+  const m=missoes[S.mod],c=S.correctInMod||0;
   const medal=c===3?'🥇':c===2?'🥈':'🥉';
-  S.done[m.id]=medal;
+  S.done[m.missao_id]=medal;
   const bonus=c===3?150:c===2?90:60;S.xp+=bonus;
   S.screen='map';save();hud();
   el('medalIcon').textContent=medal;
-  el('doneTitle').textContent=`Missão "${m.title}" concluída!`;
+  el('doneTitle').textContent=`Missão "${m.titulo}" concluída!`;
   el('doneMsg').textContent = c===3?'Três de três. Esse tema você domina — pode marcar como resolvido.'
     : c===2?'Duas de três. Muito perto do topo: reveja a explicação da que escapou e refaça quando quiser.'
     : 'Missão cumprida. O importante é que agora você viu onde estava a pegadinha — refazer depois vale ouro.';
   el('doneXp').textContent=`+${bonus} XP de bônus de missão · total ${S.xp} XP`;
   const lg=S.modLog||{dicas:0,partes:0,segundas:0,erros:[]};
-  enviarLinha({quando:new Date().toISOString(),aluna:ALUNA,tipo:'missao',missao:m.title,
-    acertos:c,total:m.qs.length,pct:Math.round(c/m.qs.length*100),medalha:medal,
+  enviarLinha({quando:new Date().toISOString(),aluna:ALUNA,tipo:'missao',missao:m.titulo,
+    acertos:c,total:m.questoes.length,pct:Math.round(c/m.questoes.length*100),medalha:medal,
     dicas:lg.dicas,partes:lg.partes,segundas:lg.segundas,erros:lg.erros,
     minutos:S.modStart?+(((Date.now()-S.modStart)/60000).toFixed(1)):'',xp:S.xp,foco:S.focus?'sim':'nao'});
   offerPause(S.mod);
@@ -976,18 +845,18 @@ function offerPause(modIdx){
   };
 }
 el('backToMap').onclick=()=>{
-  if(modules.every(x=>S.done[x.id]))showFinal();else drawMap();};
+  if(missoes.every(x=>S.done[x.missao_id]))showFinal();else drawMap();};
 
 function showFinal(){
   el('finalXp').textContent=`${S.xp} XP`;
-  el('finalMsg').textContent=`Nível ${levelOf(S.xp)+1} · ${LEVELS[levelOf(S.xp)][1]} · maior sequência de acertos: ${S.best}. Você atravessou os 7 temas da prova, com ferramenta e explicação em cada um.`;
+  el('finalMsg').textContent=`Nível ${levelOf(S.xp)+1} · ${LEVELS[levelOf(S.xp)][1]} · maior sequência de acertos: ${S.best}. Você atravessou os ${N_MISSOES} temas da prova, com ferramenta e explicação em cada um.`;
   const uniq=[];S.errors.forEach(e=>{if(!uniq.find(u=>u.q===e.q))uniq.push(e);});
   el('finalReview').innerHTML = uniq.length
     ? `<h3>Vale reler antes da prova</h3>`+uniq.map(e=>`<div class="review-item"><b>${e.mod}</b><br>${e.q}<br><b>Resposta:</b> ${e.ans}<br>${e.why}</div>`).join('')
     : `<div class="lesson-box"><strong>Nenhum erro para revisar</strong> Você acertou tudo de primeira. Impressionante.</div>`;
   const totalAcertos=Object.keys(S.done).length;
   enviarLinha({quando:new Date().toISOString(),aluna:ALUNA,tipo:'jornada-completa',missao:'TODAS',
-    acertos:'',total:21,pct:'',medalha:Object.values(S.done).join(' '),dicas:'',partes:'',segundas:'',
+    acertos:'',total:N_QUESTOES,pct:'',medalha:Object.values(S.done).join(' '),dicas:'',partes:'',segundas:'',
     erros:uniq.map(e=>e.mod),minutos:'',xp:S.xp,foco:S.focus?'sim':'nao'});
   el('finalReview').insertAdjacentHTML('beforeend',
     '<div class="center" style="margin-top:14px"><button class="btn ghost small" id="copyBtn">📋 Copiar resultados</button></div>');
@@ -1012,24 +881,25 @@ function confetti(n){
 
 /* ---------- retomar de onde parou ---------- */
 (async()=>{
+  rotulos();
   const s=await store.load();
   if(s&&typeof s.xp==='number'){
     S={...S,...s};hud();applyFocus();
-    // progresso salvo antes da inversão: reencontra a missão pelo id
-    if(S.modId){const k=modules.findIndex(x=>x.id===S.modId);if(k>=0)S.mod=k;else S.screen='map';}
+    // retoma pelo missao_id, nunca pelo índice: a ordem das missões muda entre provas
+    if(S.modId){const k=missoes.findIndex(x=>x.missao_id===S.modId);if(k>=0)S.mod=k;else S.screen='map';}
     else if(S.screen!=='map')S.screen='map';
-    if(modules.every(x=>S.done[x.id])){drawMap();return;}
-    if(S.screen==='quiz'&&modules[S.mod]){
+    if(missoes.every(x=>S.done[x.missao_id])){drawMap();return;}
+    if(S.screen==='quiz'&&missoes[S.mod]){
       drawMap();
-      el('resumeNote').innerHTML=`Você parou na missão <b>${modules[S.mod].title}</b>.`;
+      el('resumeNote').innerHTML=`Você parou na missão <b>${missoes[S.mod].titulo}</b>.`;
       const b=document.createElement('button');b.className='btn small';b.style.marginTop='12px';
       b.textContent='Continuar de onde parei';
       b.onclick=()=>{S.correctInMod=S.correctInMod||0;renderQ();};
       el('resumeNote').after(b);
       return;
     }
-    if(S.screen==='lesson'&&modules[S.mod]){drawMap();
-      el('resumeNote').innerHTML=`Você estava lendo a missão <b>${modules[S.mod].title}</b>. É só tocar nela para voltar.`;return;}
+    if(S.screen==='lesson'&&missoes[S.mod]){drawMap();
+      el('resumeNote').innerHTML=`Você estava lendo a missão <b>${missoes[S.mod].titulo}</b>. É só tocar nela para voltar.`;return;}
   }
   hud();applyFocus();drawMap();esvaziarFila();
 })();

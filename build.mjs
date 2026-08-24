@@ -23,10 +23,14 @@ const motor   = fs.readFileSync('src/motor.html', 'utf8');
 // --- validações que evitam publicar uma prova quebrada ---
 const erros = [];
 const ids = new Set();
+// ferramentas que este motor sabe desenhar, lidas do próprio motor
+const ferramentas = new Set([...motor.matchAll(/^tools\.(\w+)\s*=\s*\(/gm)].map(m => m[1]));
 for (const m of prova.missoes) {
   if (!catalogo.find(t => t.tema_id === m.tema_id))
     erros.push(`tema_id fora do catálogo: ${m.tema_id}`);
   if (!m.ferramenta) erros.push(`missão sem ferramenta manipulável: ${m.missao_id}`);
+  else if (!ferramentas.has(m.ferramenta))
+    erros.push(`ferramenta "${m.ferramenta}" não existe no motor (tem: ${[...ferramentas].join(', ')})`);
   // o cartão de regra é acomodação, não enfeite: sem texto ele some da tela
   if (!m.regra || !String(m.regra).trim())
     erros.push(`missão sem regra para o cartão fixo: ${m.missao_id}`);
