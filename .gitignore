@@ -6,3 +6,7 @@ Thumbs.db
 
 # contexto clinico da aluna: nunca versionar (repo publico)
 CONTEXTO-PRIVADO.md
+
+# saida de build: o GitHub Actions gera e publica no Pages (.github/workflows/publicar.yml).
+# fora do versionamento para a SHEET_URL nunca voltar ao repositorio por aqui.
+docs/

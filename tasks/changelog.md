@@ -72,3 +72,12 @@ do Apps Script) e comportamento no aparelho da Alícia.
   Uma aluna por vez; `(teste)` filtrado no servidor e no cliente.
 - `scripts/preview-dash.mjs`: preview com dados sintéticos (4 estados do card +
   linha de teste a filtrar), verificado no navegador. Saída no temp, nunca em docs/.
+- **ci**: `.github/workflows/publicar.yml` — build de todas as provas com a
+  `SHEET_URL` vinda de secret e publicação no Pages. Fonte do Pages migrada de
+  "branch main /docs" para "GitHub Actions". Publicar passou a ser dar push.
+- `docs/` saiu do versionamento (`.gitignore`): era a única via pela qual a URL
+  do Apps Script voltaria a um repositório público. Um passo do Action aborta a
+  publicação se uma URL real de implantação aparecer em arquivo versionado —
+  o `{30,}` no padrão separa URL real dos placeholders da documentação.
+- `lerEventos_` passa a mapear pelo cabeçalho da planilha, não pela posição fixa:
+  uma coluna movida à mão faria o dash ler o campo errado em silêncio.

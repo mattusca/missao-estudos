@@ -5,14 +5,15 @@
 - [ ] Implantar `apps-script/enviar.gs` + `dashboard.html` (DUAS implantações,
       ver instruções no topo do enviar.gs) e pegar as duas URLs `/exec`.
 - [ ] Compartilhar a planilha com a Fernanda (leitor) e testar o dash na conta dela.
-- [ ] Gerar com `SHEET_URL=... node build.mjs 2026-08-matematica-y5` e confirmar
-      que uma questão respondida vira uma linha na aba `Eventos`.
+- [ ] `gh secret set SHEET_URL` com a URL `/exec` da telemetria e dar um push
+      (ou `gh workflow run publicar.yml`) para republicar com o envio ligado.
+- [ ] Confirmar que uma questão respondida vira uma linha na aba `Eventos`.
 - [ ] Confirmar a deduplicação: responder offline, voltar online, reabrir,
       e checar que a fila subiu sem duplicar linha.
 
 ## Depois do teste manual passar
-- [ ] GitHub Action: build com `SHEET_URL` de secret + publicação no Pages,
-      para a URL não voltar ao repositório via `docs/`.
+- [x] GitHub Action: build com `SHEET_URL` de secret + publicação no Pages.
+      `docs/` saiu do versionamento — era a via pela qual a URL voltaria ao repo.
 - [ ] Parametrizar as ferramentas restantes (hoje só `grafico` lê `missao.dados`).
       `valor` embute `3,472`, `prob` a sacola 3/5/2, `contas` os exemplos numéricos.
 - [ ] Conferir os códigos BNCC com a professora (`bncc_conferida: false`).

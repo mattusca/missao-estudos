@@ -65,13 +65,20 @@ data/provas/<prova_id>.json   conteúdo de uma prova (missões + questões)
 src/motor.html                motor: XP, storage, envio, navegação
 src/ferramentas/              widgets interativos reutilizáveis
 build.mjs                     injeta o JSON no motor -> docs/<prova_id>.html
-docs/                         saída publicada (GitHub Pages)
+docs/                         saída de build — NÃO versionada (ver abaixo)
+.github/workflows/publicar.yml  build com o secret SHEET_URL + publicação no Pages
 apps-script/enviar.gs         endpoint que grava na planilha + doGet do dashboard
 apps-script/dashboard.html    dashboard dos pais (servido pelo Apps Script, nunca pelo Pages)
 scripts/preview-dash.mjs      preview do dashboard com dados sintéticos
 ```
 
 Fonte da verdade é sempre o JSON. **Nunca editar o HTML de `docs/` à mão** — ele é gerado.
+
+**Publicar é dar push.** O Action gera todas as provas de `data/provas/` com a
+`SHEET_URL` do secret e publica em <https://mattusca.github.io/missao-estudos/>.
+`docs/` está no `.gitignore` de propósito: é a única via pela qual a URL do Apps
+Script voltaria para um repositório público. Um passo do Action aborta a publicação
+se uma URL real de implantação aparecer em arquivo versionado.
 
 ---
 
@@ -191,10 +198,10 @@ Preview local: `node scripts/preview-dash.mjs [pasta] --servir` (saída nunca em
 
 - [ ] Códigos BNCC do `catalogo-temas.json` estão marcados `bncc_conferida: false` —
       **conferir com a professora** antes de usar em conversa com a escola.
-- [ ] Implantar o Apps Script e gerar o HTML com `SHEET_URL` no ambiente.
-      Enquanto isso, o app roda em fila local + botão "Copiar resultados".
-- [ ] `docs/` é público no Pages: publicar o build com a URL exige uma GitHub Action
-      que faça o build com o segredo, senão a URL volta para o repositório.
+- [ ] Implantar o Apps Script (duas implantações) e pôr a URL `/exec` da telemetria
+      no secret `SHEET_URL` do repositório. Enquanto isso, o app roda em fila local
+      + botão "Copiar resultados", e o dashboard não tem de onde ler.
+- [x] Publicação por GitHub Action com o segredo — feito; `docs/` saiu do versionamento.
 - [ ] Ferramentas ainda vivem no motor e ainda embutem conteúdo de prova
       (`3,472` em `valor`, a sacola 3/5/2 em `prob`, os exemplos de `contas`).
       Só `grafico` já lê os dados da missão. Parametrizar as outras.
