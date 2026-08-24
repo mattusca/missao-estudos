@@ -4,7 +4,8 @@
   "materia": "Language Arts",
   "alunas": [
     "Alicia",
-    "Marco (teste)"
+    "Marco (teste)",
+    "Fernanda (teste)"
   ],
   "escola": "PD",
   "ano_aluna": "Y5",
@@ -85,27 +86,63 @@
             "a": "The test was very hard.",
             "b": "almost everyone passed it.",
             "opcoes": [
-              { "palavra": "However,", "sentido": "contraste — o resultado foi o contrário do esperado", "ok": true },
-              { "palavra": "Therefore,", "sentido": "consequência — mas 'ser difícil' não causa 'todos passarem'", "ok": false },
-              { "palavra": "For instance,", "sentido": "exemplo — a segunda parte não é exemplo da primeira", "ok": false }
+              {
+                "palavra": "However,",
+                "sentido": "contraste — o resultado foi o contrário do esperado",
+                "ok": true
+              },
+              {
+                "palavra": "Therefore,",
+                "sentido": "consequência — mas 'ser difícil' não causa 'todos passarem'",
+                "ok": false
+              },
+              {
+                "palavra": "For instance,",
+                "sentido": "exemplo — a segunda parte não é exemplo da primeira",
+                "ok": false
+              }
             ]
           },
           {
             "a": "She practised every single day.",
             "b": "she won the competition.",
             "opcoes": [
-              { "palavra": "Therefore,", "sentido": "consequência — treinar todo dia levou à vitória", "ok": true },
-              { "palavra": "However,", "sentido": "contraste — mas as duas partes combinam, não brigam", "ok": false },
-              { "palavra": "On the other hand,", "sentido": "contraste — mesma coisa: aqui não há oposição", "ok": false }
+              {
+                "palavra": "Therefore,",
+                "sentido": "consequência — treinar todo dia levou à vitória",
+                "ok": true
+              },
+              {
+                "palavra": "However,",
+                "sentido": "contraste — mas as duas partes combinam, não brigam",
+                "ok": false
+              },
+              {
+                "palavra": "On the other hand,",
+                "sentido": "contraste — mesma coisa: aqui não há oposição",
+                "ok": false
+              }
             ]
           },
           {
             "a": "He plays the guitar",
             "b": "the piano and the drums.",
             "opcoes": [
-              { "palavra": "as well as", "sentido": "soma — acrescenta mais instrumentos", "ok": true },
-              { "palavra": "however", "sentido": "contraste — não há oposição entre instrumentos", "ok": false },
-              { "palavra": "therefore", "sentido": "consequência — tocar violão não causa tocar piano", "ok": false }
+              {
+                "palavra": "as well as",
+                "sentido": "soma — acrescenta mais instrumentos",
+                "ok": true
+              },
+              {
+                "palavra": "however",
+                "sentido": "contraste — não há oposição entre instrumentos",
+                "ok": false
+              },
+              {
+                "palavra": "therefore",
+                "sentido": "consequência — tocar violão não causa tocar piano",
+                "ok": false
+              }
             ]
           }
         ]
@@ -186,12 +223,30 @@
         "instrucao": "Toque em cada frase e veja qual é o trabalho dela no texto",
         "texto": "The Atacama Desert in Chile is the driest place on Earth. | Some parts of it have not seen rain for over four hundred years. | Because the air is so dry and clear, scientists build powerful telescopes there. | At night, they can see stars that are almost invisible from other places. | Surprisingly, a few animals still survive in this harsh land. | Foxes and lizards find water in the thick fog that rolls in from the ocean.",
         "alvos": [
-          { "frase": "The Atacama Desert in Chile", "papel": "apresentar o assunto — é a ideia principal" },
-          { "frase": "Some parts of it have not", "papel": "dar um dado que prova a ideia principal" },
-          { "frase": "Because the air is so dry", "papel": "explicar uma consequência da seca" },
-          { "frase": "At night, they can see", "papel": "dar um detalhe sobre os telescópios" },
-          { "frase": "Surprisingly, a few animals", "papel": "introduzir uma ideia nova, que contrasta" },
-          { "frase": "Foxes and lizards find water", "papel": "dar o exemplo que fecha a ideia nova" }
+          {
+            "frase": "The Atacama Desert in Chile",
+            "papel": "apresentar o assunto — é a ideia principal"
+          },
+          {
+            "frase": "Some parts of it have not",
+            "papel": "dar um dado que prova a ideia principal"
+          },
+          {
+            "frase": "Because the air is so dry",
+            "papel": "explicar uma consequência da seca"
+          },
+          {
+            "frase": "At night, they can see",
+            "papel": "dar um detalhe sobre os telescópios"
+          },
+          {
+            "frase": "Surprisingly, a few animals",
+            "papel": "introduzir uma ideia nova, que contrasta"
+          },
+          {
+            "frase": "Foxes and lizards find water",
+            "papel": "dar o exemplo que fecha a ideia nova"
+          }
         ]
       }
     },
@@ -376,11 +431,71 @@
       "dados": {
         "instrucao": "Toque na palavra para vê-la virar comparativo e superlativo",
         "palavras": [
-          { "formas": ["tall", "taller", "the tallest"], "rotulos": ["normal", "comparativo", "superlativo"], "nota": "1 sílaba → -er / -est" },
-          { "formas": ["happy", "happier", "the happiest"], "rotulos": ["normal", "comparativo", "superlativo"], "nota": "termina em -y → o y vira i" },
-          { "formas": ["difficult", "more difficult", "the most difficult"], "rotulos": ["normal", "comparativo", "superlativo"], "nota": "3+ sílabas → more / the most" },
-          { "formas": ["good", "better", "the best"], "rotulos": ["normal", "comparativo", "superlativo"], "nota": "irregular — só decorando" },
-          { "formas": ["bad", "worse", "the worst"], "rotulos": ["normal", "comparativo", "superlativo"], "nota": "irregular — só decorando" }
+          {
+            "formas": [
+              "tall",
+              "taller",
+              "the tallest"
+            ],
+            "rotulos": [
+              "normal",
+              "comparativo",
+              "superlativo"
+            ],
+            "nota": "1 sílaba → -er / -est"
+          },
+          {
+            "formas": [
+              "happy",
+              "happier",
+              "the happiest"
+            ],
+            "rotulos": [
+              "normal",
+              "comparativo",
+              "superlativo"
+            ],
+            "nota": "termina em -y → o y vira i"
+          },
+          {
+            "formas": [
+              "difficult",
+              "more difficult",
+              "the most difficult"
+            ],
+            "rotulos": [
+              "normal",
+              "comparativo",
+              "superlativo"
+            ],
+            "nota": "3+ sílabas → more / the most"
+          },
+          {
+            "formas": [
+              "good",
+              "better",
+              "the best"
+            ],
+            "rotulos": [
+              "normal",
+              "comparativo",
+              "superlativo"
+            ],
+            "nota": "irregular — só decorando"
+          },
+          {
+            "formas": [
+              "bad",
+              "worse",
+              "the worst"
+            ],
+            "rotulos": [
+              "normal",
+              "comparativo",
+              "superlativo"
+            ],
+            "nota": "irregular — só decorando"
+          }
         ]
       }
     },
@@ -453,18 +568,50 @@
         "instrucao": "Toque nas palavras na ordem certa para montar a frase",
         "itens": [
           {
-            "fichas": ["They", "were", "playing", "in the garden"],
-            "ordem": ["They", "were", "playing", "in the garden"],
+            "fichas": [
+              "They",
+              "were",
+              "playing",
+              "in the garden"
+            ],
+            "ordem": [
+              "They",
+              "were",
+              "playing",
+              "in the garden"
+            ],
             "porque": "was/were + -ing = ação em andamento no passado"
           },
           {
-            "fichas": ["She", "is", "reading", "a new book"],
-            "ordem": ["She", "is", "reading", "a new book"],
+            "fichas": [
+              "She",
+              "is",
+              "reading",
+              "a new book"
+            ],
+            "ordem": [
+              "She",
+              "is",
+              "reading",
+              "a new book"
+            ],
             "porque": "is + -ing = acontecendo agora"
           },
           {
-            "fichas": ["We", "were", "watching", "TV", "when he arrived"],
-            "ordem": ["We", "were", "watching", "TV", "when he arrived"],
+            "fichas": [
+              "We",
+              "were",
+              "watching",
+              "TV",
+              "when he arrived"
+            ],
+            "ordem": [
+              "We",
+              "were",
+              "watching",
+              "TV",
+              "when he arrived"
+            ],
             "porque": "a ação longa fica no Continuous; a curta, no Past Simple"
           }
         ]
@@ -539,18 +686,50 @@
         "instrucao": "Toque nas palavras na ordem certa para montar a frase",
         "itens": [
           {
-            "fichas": ["You", "should", "drink", "more water"],
-            "ordem": ["You", "should", "drink", "more water"],
+            "fichas": [
+              "You",
+              "should",
+              "drink",
+              "more water"
+            ],
+            "ordem": [
+              "You",
+              "should",
+              "drink",
+              "more water"
+            ],
             "porque": "conselho — e o verbo vem sem 'to' depois de should"
           },
           {
-            "fichas": ["We", "have to", "wear", "a uniform", "at school"],
-            "ordem": ["We", "have to", "wear", "a uniform", "at school"],
+            "fichas": [
+              "We",
+              "have to",
+              "wear",
+              "a uniform",
+              "at school"
+            ],
+            "ordem": [
+              "We",
+              "have to",
+              "wear",
+              "a uniform",
+              "at school"
+            ],
             "porque": "regra da escola = obrigação externa"
           },
           {
-            "fichas": ["Drivers", "must", "stop", "at the red light"],
-            "ordem": ["Drivers", "must", "stop", "at the red light"],
+            "fichas": [
+              "Drivers",
+              "must",
+              "stop",
+              "at the red light"
+            ],
+            "ordem": [
+              "Drivers",
+              "must",
+              "stop",
+              "at the red light"
+            ],
             "porque": "obrigação forte, sem 'to' depois de must"
           }
         ]
@@ -624,12 +803,72 @@
       "dados": {
         "instrucao": "Toque na palavra para vê-la virar plural",
         "palavras": [
-          { "formas": ["child", "children"], "rotulos": ["singular", "plural"], "nota": "muda por dentro" },
-          { "formas": ["foot", "feet"], "rotulos": ["singular", "plural"], "nota": "muda por dentro" },
-          { "formas": ["tooth", "teeth"], "rotulos": ["singular", "plural"], "nota": "muda por dentro" },
-          { "formas": ["knife", "knives"], "rotulos": ["singular", "plural"], "nota": "-fe vira -ves" },
-          { "formas": ["city", "cities"], "rotulos": ["singular", "plural"], "nota": "-y vira -ies" },
-          { "formas": ["sheep", "sheep"], "rotulos": ["singular", "plural"], "nota": "não muda nada" }
+          {
+            "formas": [
+              "child",
+              "children"
+            ],
+            "rotulos": [
+              "singular",
+              "plural"
+            ],
+            "nota": "muda por dentro"
+          },
+          {
+            "formas": [
+              "foot",
+              "feet"
+            ],
+            "rotulos": [
+              "singular",
+              "plural"
+            ],
+            "nota": "muda por dentro"
+          },
+          {
+            "formas": [
+              "tooth",
+              "teeth"
+            ],
+            "rotulos": [
+              "singular",
+              "plural"
+            ],
+            "nota": "muda por dentro"
+          },
+          {
+            "formas": [
+              "knife",
+              "knives"
+            ],
+            "rotulos": [
+              "singular",
+              "plural"
+            ],
+            "nota": "-fe vira -ves"
+          },
+          {
+            "formas": [
+              "city",
+              "cities"
+            ],
+            "rotulos": [
+              "singular",
+              "plural"
+            ],
+            "nota": "-y vira -ies"
+          },
+          {
+            "formas": [
+              "sheep",
+              "sheep"
+            ],
+            "rotulos": [
+              "singular",
+              "plural"
+            ],
+            "nota": "não muda nada"
+          }
         ]
       }
     }
