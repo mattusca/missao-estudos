@@ -1,0 +1,64 @@
+name: Publicar no GitHub Pages
+
+# Por que existe: o HTML publicado precisa carregar a URL do Apps Script para
+# gravar na planilha, e essa URL não pode viver no repositório (que é público).
+# Aqui ela entra como secret, só no momento do build, dentro do runner.
+# Sem o secret o build não quebra: o app cai em fila local + "Copiar resultados".
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Uma publicação por vez; se dois pushes se atropelarem, vale o último.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Rede de segurança: se a URL do Apps Script algum dia for commitada,
+      # a publicação para aqui em vez de espalhar. O {30,} é o que separa uma
+      # URL real dos placeholders da documentação (`.../exec`, `SEU_ID`):
+      # id de implantação do Google tem ~57 caracteres.
+      - name: A URL do Apps Script não pode estar versionada
+        run: |
+          if git grep -nIE 'script\.google\.com/macros/s/[A-Za-z0-9_-]{30,}' -- .; then
+            echo "::error::URL do Apps Script encontrada em arquivo versionado. Ela só pode entrar via secret."
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Gerar as provas
+        env:
+          SHEET_URL: ${{ secrets.SHEET_URL }}
+        run: |
+          for f in data/provas/*.json; do
+            node build.mjs "$(basename "$f" .json)"
+          done
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

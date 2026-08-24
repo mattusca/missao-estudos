@@ -149,14 +149,24 @@ function lerEventos_() {
 
   var USADOS = ['aluna', 'materia', 'tema_id', 'subtema', 'sessao_id', 'timestamp',
                 'resultado', 'usou_dica', 'usou_andaime', 'dificuldade', 'contexto'];
-  var linhas = sh.getRange(2, 1, sh.getLastRow() - 1, CAMPOS.length).getValues();
 
-  return linhas
-    .filter(function (l) { return l[CAMPOS.indexOf('aluna')] && !/\(teste\)/i.test(l[CAMPOS.indexOf('aluna')]); })
+  /* Mapeia pelo CABEÇALHO, não pela posição em CAMPOS: assim uma coluna movida
+     à mão na planilha, ou uma coluna nova no meio, não faz o dash ler o campo
+     errado em silêncio — que é o modo de falha caro aqui. */
+  var largura = sh.getLastColumn();
+  var col = {};
+  sh.getRange(1, 1, 1, largura).getValues()[0].forEach(function (rotulo, i) {
+    var j = CABECALHO.indexOf(rotulo);
+    if (j >= 0) col[CAMPOS[j]] = i;
+  });
+  if (col.aluna === undefined) return [];   // cabeçalho irreconhecível
+
+  return sh.getRange(2, 1, sh.getLastRow() - 1, largura).getValues()
+    .filter(function (l) { return l[col.aluna] && !/\(teste\)/i.test(l[col.aluna]); })
     .map(function (l) {
       var ev = {};
       USADOS.forEach(function (c) {
-        var v = l[CAMPOS.indexOf(c)];
+        var v = col[c] === undefined ? '' : l[col[c]];
         ev[c] = (v instanceof Date) ? v.toISOString() : v;
       });
       return ev;
