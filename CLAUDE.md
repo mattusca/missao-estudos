@@ -66,7 +66,9 @@ src/motor.html                motor: XP, storage, envio, navegação
 src/ferramentas/              widgets interativos reutilizáveis
 build.mjs                     injeta o JSON no motor -> docs/<prova_id>.html
 docs/                         saída publicada (GitHub Pages)
-apps-script/enviar.gs         endpoint que grava na planilha
+apps-script/enviar.gs         endpoint que grava na planilha + doGet do dashboard
+apps-script/dashboard.html    dashboard dos pais (servido pelo Apps Script, nunca pelo Pages)
+scripts/preview-dash.mjs      preview do dashboard com dados sintéticos
 ```
 
 Fonte da verdade é sempre o JSON. **Nunca editar o HTML de `docs/` à mão** — ele é gerado.
@@ -141,6 +143,18 @@ Marcar `tempo_valido = false` se houve saída de tela (Page Visibility API) ou s
 
 Envio: `fetch` com `mode:'no-cors'` para o Apps Script. Falha ou ausência de URL → fila em
 `localStorage`, reenviada na próxima abertura. Sempre existe fallback manual de cópia.
+
+### Dashboard dos pais
+`apps-script/dashboard.html`, servido pelo `doGet` do mesmo projeto Apps Script em uma
+**segunda implantação** ("como usuário que acessa" + conta Google). O acesso é o
+compartilhamento da planilha — nada de senha no código, nada de e-mail no repo.
+**Nunca publicar no `docs/`**: junta nome e desempenho das meninas, e Pages é público.
+
+Regras do dash: uma aluna por vez (nunca as duas no mesmo eixo); a métrica é acerto
+sem apoio (seção 2), nunca XP/placar; com <10 eventos ou <3 sessões o card diz
+"ainda não sei" em vez de número; linhas de aluna com `(teste)` são filtradas no
+servidor E no cliente; o rodapé lembra que nenhum número é comentado com as meninas.
+Preview local: `node scripts/preview-dash.mjs [pasta] --servir` (saída nunca em `docs/`).
 
 ---
 

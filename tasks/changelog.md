@@ -59,3 +59,16 @@ do Apps Script) e comportamento no aparelho da Alícia.
 - Planilha criada no Drive: "Missão Estudos — log de questões", em
   01. Família & Pessoas › 04. Alícia › Educação. Nome neutro porque a recomendação é
   **uma base para as duas filhas**, separadas pela coluna `aluna`.
+
+## 2026-08-24 — Publicação e dashboard dos pais
+
+- Repo público em github.com/mattusca/missao-estudos; Pages servindo `docs/` com
+  `noindex` + robots.txt. Histórico reescrito ANTES do push para remover o
+  contexto clínico do CLAUDE.md → `CONTEXTO-PRIVADO.md` (gitignorado).
+- **feat**: dashboard de acompanhamento (`apps-script/dashboard.html`), servido
+  pelo Apps Script em segunda implantação; acesso = compartilhamento da planilha.
+  Por tema: acerto sem apoio com estado "ainda não sei" (<10 eventos ou <3
+  sessões), evolução por sessão, barras por dificuldade, contagem de apoios.
+  Uma aluna por vez; `(teste)` filtrado no servidor e no cliente.
+- `scripts/preview-dash.mjs`: preview com dados sintéticos (4 estados do card +
+  linha de teste a filtrar), verificado no navegador. Saída no temp, nunca em docs/.

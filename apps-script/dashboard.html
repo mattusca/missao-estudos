@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Missão Estudos — acompanhamento</title>
+<!--
+  Dashboard dos pais. Servido pelo doGet de enviar.gs (implantação "como usuário
+  que acessa"): o acesso é controlado pelo compartilhamento da planilha, não por
+  senha no código. Toda a agregação acontece AQUI, no cliente — o servidor só
+  injeta as linhas cruas no <script id="dash-data">. Isso permite testar este
+  arquivo com dados sintéticos, sem Apps Script (scripts/preview-dash.mjs).
+
+  Regras que este arquivo obedece (não são estética):
+  - Uma aluna por vez. Nunca as duas no mesmo eixo — cada uma se compara com
+    ela mesma, não com a irmã.
+  - A métrica é ACERTO SEM APOIO (1ª tentativa, sem dica, sem andaime) — a
+    mesma da seção 2 do CLAUDE.md. Placar bruto e XP não entram aqui.
+  - Com menos de 10 eventos ou 3 sessões num tema, o número NÃO aparece:
+    o card diz "ainda não sei". Incerteza é componente, não rodapé.
+  - Nada desta página é comentado com as meninas. O rodapé lembra isso.
+-->
+<style>
+  :root{
+    --tinta:#17324a; --tinta2:#5b7186; --verde:#2fae94; --ambar:#c98a1b;
+    --terra:#c96f5a; --cinza:#8fa1b0; --borda:#e2e9ef; --fundo:#f7fafb; --card:#ffffff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{
+    font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    background:var(--fundo); color:var(--tinta); line-height:1.5;
+    padding:28px 18px 60px; max-width:860px; margin:0 auto;
+  }
+  header h1{font-size:1.35rem; letter-spacing:-.01em}
+  header p{color:var(--tinta2); font-size:.9rem; margin-top:2px}
+
+  .abas{display:flex; gap:8px; margin:22px 0 6px; flex-wrap:wrap}
+  .aba{
+    border:1px solid var(--borda); background:var(--card); color:var(--tinta2);
+    padding:8px 20px; border-radius:999px; font-size:.95rem; font-weight:600;
+    cursor:pointer; transition:border-color .15s,color .15s;
+  }
+  .aba[aria-selected="true"]{border-color:var(--verde); color:var(--tinta); background:#eefaf6}
+
+  .resumo{color:var(--tinta2); font-size:.85rem; margin:10px 0 20px}
+  .resumo b{color:var(--tinta); font-weight:600}
+
+  .grade{display:grid; grid-template-columns:1fr; gap:14px}
+  @media(min-width:700px){ .grade{grid-template-columns:1fr 1fr} }
+
+  .tema{
+    background:var(--card); border:1px solid var(--borda); border-radius:14px;
+    padding:18px 20px 16px; border-top:3px solid var(--cinza);
+  }
+  .tema.firme{border-top-color:var(--verde)}
+  .tema.atencao{border-top-color:var(--ambar)}
+  .tema.fragil{border-top-color:var(--terra)}
+  .tema h3{font-size:1.02rem; font-weight:650}
+  .tema .mat{font-size:.75rem; color:var(--tinta2); text-transform:uppercase; letter-spacing:.06em}
+
+  .num{
+    font-size:2.1rem; font-weight:700; font-variant-numeric:tabular-nums;
+    letter-spacing:-.02em; margin-top:8px;
+  }
+  .firme  .num{color:var(--verde)}
+  .atencao .num{color:var(--ambar)}
+  .fragil .num{color:var(--terra)}
+  .num small{font-size:.85rem; font-weight:500; color:var(--tinta2); letter-spacing:0}
+
+  .naosei{margin-top:10px; padding:10px 12px; background:var(--fundo); border-radius:10px}
+  .naosei b{font-size:.95rem}
+  .naosei span{display:block; font-size:.82rem; color:var(--tinta2); font-variant-numeric:tabular-nums}
+
+  .meta{font-size:.8rem; color:var(--tinta2); margin-top:2px; font-variant-numeric:tabular-nums}
+
+  .bloco{margin-top:14px}
+  .bloco h4{font-size:.72rem; color:var(--tinta2); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; font-weight:600}
+  .spark{width:100%; height:52px; display:block}
+
+  .nivel{display:flex; align-items:center; gap:8px; margin:4px 0; font-size:.82rem}
+  .nivel .rot{width:56px; color:var(--tinta2); flex:none}
+  .nivel .trilho{flex:1; height:8px; background:var(--fundo); border-radius:4px; overflow:hidden}
+  .nivel .barra{height:100%; background:var(--verde); border-radius:4px}
+  .nivel .val{width:86px; text-align:right; color:var(--tinta2); font-variant-numeric:tabular-nums; flex:none}
+
+  .apoios{margin-top:12px; font-size:.82rem; color:var(--tinta2)}
+  .apoios b{color:var(--tinta); font-weight:600}
+
+  .vazio{
+    background:var(--card); border:1px dashed var(--borda); border-radius:14px;
+    padding:44px 28px; text-align:center; color:var(--tinta2); margin-top:14px;
+  }
+  .vazio b{display:block; color:var(--tinta); font-size:1.05rem; margin-bottom:6px}
+
+  footer{
+    margin-top:36px; padding-top:16px; border-top:1px solid var(--borda);
+    font-size:.8rem; color:var(--tinta2);
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Missão Estudos</h1>
+  <p>Acompanhamento por tema · uso interno dos pais</p>
+</header>
+
+<div class="abas" id="abas" role="tablist"></div>
+<p class="resumo" id="resumo"></p>
+<div id="conteudo"></div>
+
+<footer>
+  Página dos pais, para decidir o próximo passo — <b>nenhum número daqui é comentado
+  com as meninas</b>. A métrica é acerto sem apoio (1ª tentativa, sem dica e sem
+  andaime); XP e medalhas são motivação do jogo, não medida de aprendizado.
+  Temas com poucos dados dizem "ainda não sei" de propósito.
+</footer>
+
+<script id="dash-data" type="application/json"><?!= dadosJson ?></script>
+<script>
+(() => {
+  'use strict';
+
+  /* ---------- dados ---------- */
+  let eventos = [];
+  try {
+    eventos = JSON.parse(document.getElementById('dash-data').textContent);
+  } catch (e) {
+    document.getElementById('conteudo').innerHTML =
+      '<div class="vazio"><b>Sem dados</b>Este arquivo precisa ser servido pelo Apps Script ou gerado por scripts/preview-dash.mjs.</div>';
+    return;
+  }
+
+  const sim = v => v === true || v === 'sim' || v === 'true' || v === 'TRUE';
+  // linhas de teste de adulto não entram: respondem rápido e acertam demais
+  eventos = eventos.filter(e => e.aluna && !/\(teste\)/i.test(e.aluna));
+
+  const LIMIAR = { eventos: 10, sessoes: 3 };  // seção 2 do CLAUDE.md
+
+  const alunas = [...new Set(eventos.map(e => e.aluna))].sort();
+
+  /* ---------- agregação ---------- */
+  function pct(parte, todo) { return todo ? Math.round(100 * parte / todo) : 0; }
+  function semApoio(e) { return e.resultado === 'acerto_1a' && !sim(e.usou_dica) && !sim(e.usou_andaime); }
+  function dataBr(ts) {
+    const d = new Date(ts);
+    return isNaN(d) ? '' : `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}`;
+  }
+
+  function porTema(evs) {
+    const temas = new Map();
+    for (const e of evs) {
+      if (!temas.has(e.tema_id)) temas.set(e.tema_id, []);
+      temas.get(e.tema_id).push(e);
+    }
+    return [...temas.entries()].map(([tema_id, lista]) => {
+      const sessoes = new Map();               // sessao_id -> {inicio, n, ok}
+      for (const e of lista) {
+        const s = sessoes.get(e.sessao_id) || { inicio: e.timestamp, n: 0, ok: 0 };
+        if (e.timestamp < s.inicio) s.inicio = e.timestamp;
+        s.n++; if (semApoio(e)) s.ok++;
+        sessoes.set(e.sessao_id, s);
+      }
+      const serie = [...sessoes.values()]
+        .sort((a, b) => String(a.inicio).localeCompare(String(b.inicio)))
+        .map(s => ({ data: dataBr(s.inicio), pct: pct(s.ok, s.n), n: s.n }));
+
+      const niveis = [1, 2, 3].map(d => {
+        const doNivel = lista.filter(e => Number(e.dificuldade) === d);
+        return { d, n: doNivel.length, pct: pct(doNivel.filter(semApoio).length, doNivel.length) };
+      });
+
+      const n = lista.length, ok = lista.filter(semApoio).length;
+      return {
+        tema_id,
+        subtema: lista[0].subtema || tema_id,
+        materia: lista[0].materia || '',
+        n, nSessoes: sessoes.size,
+        pct: pct(ok, n),
+        suficiente: n >= LIMIAR.eventos && sessoes.size >= LIMIAR.sessoes,
+        serie, niveis,
+        dicas: lista.filter(e => sim(e.usou_dica)).length,
+        andaimes: lista.filter(e => sim(e.usou_andaime)).length,
+      };
+    });
+  }
+
+  function faixa(t) {
+    if (!t.suficiente) return 'indefinido';
+    return t.pct >= 85 ? 'firme' : t.pct >= 60 ? 'atencao' : 'fragil';
+  }
+
+  /* ---------- desenho ---------- */
+  const esc = s => String(s).replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+
+  function sparkline(serie) {
+    // % sem apoio por sessão. Poucos pontos são o normal — desenha o que houver.
+    const W = 220, H = 48, PAD = 8;
+    const x = i => serie.length === 1 ? W / 2 : PAD + i * (W - 2 * PAD) / (serie.length - 1);
+    const y = p => H - PAD - (p / 100) * (H - 2 * PAD);
+    const pontos = serie.map((s, i) => `${x(i)},${y(s.pct)}`).join(' ');
+    return `<svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="evolução por sessão">
+      <line x1="${PAD}" y1="${y(85)}" x2="${W-PAD}" y2="${y(85)}" stroke="#dcebe6" stroke-dasharray="3 3"/>
+      ${serie.length > 1 ? `<polyline points="${pontos}" fill="none" stroke="var(--verde)" stroke-width="2" stroke-linejoin="round"/>` : ''}
+      ${serie.map((s, i) =>
+        `<circle cx="${x(i)}" cy="${y(s.pct)}" r="3" fill="var(--verde)"><title>${esc(s.data)} — ${s.pct}% (${s.n} questões)</title></circle>`).join('')}
+      ${serie.map((s, i) =>
+        `<text x="${x(i)}" y="${H-1}" font-size="7" fill="var(--cinza)" text-anchor="middle">${esc(s.data)}</text>`).join('')}
+    </svg>`;
+  }
+
+  function cardTema(t) {
+    const f = faixa(t);
+    const cabecalho = `
+      <div class="mat">${esc(t.materia)} · ${esc(t.tema_id)}</div>
+      <h3>${esc(t.subtema)}</h3>`;
+
+    const medida = t.suficiente
+      ? `<div class="num">${t.pct}%<small> sem apoio</small></div>
+         <div class="meta">${t.n} questões em ${t.nSessoes} sessões</div>`
+      : `<div class="naosei"><b>Ainda não sei dizer</b>
+           <span>${Math.min(t.n, LIMIAR.eventos)}/${LIMIAR.eventos} questões · ${Math.min(t.nSessoes, LIMIAR.sessoes)}/${LIMIAR.sessoes} sessões</span>
+         </div>`;
+
+    const niveis = t.niveis.filter(nv => nv.n > 0).map(nv => `
+      <div class="nivel">
+        <span class="rot">Nível ${nv.d}</span>
+        <span class="trilho"><span class="barra" style="width:${nv.pct}%"></span></span>
+        <span class="val">${nv.pct}% · ${nv.n}q</span>
+      </div>`).join('');
+
+    return `<article class="tema ${f}">
+      ${cabecalho}
+      ${medida}
+      <div class="bloco"><h4>Evolução por sessão</h4>${sparkline(t.serie)}</div>
+      <div class="bloco"><h4>Por dificuldade</h4>${niveis || '<div class="meta">sem questões ainda</div>'}</div>
+      <div class="apoios">Apoios usados: <b>${t.dicas}×</b> dica · <b>${t.andaimes}×</b> andaime</div>
+    </article>`;
+  }
+
+  function desenhar(aluna) {
+    const evs = eventos.filter(e => e.aluna === aluna);
+    const temas = porTema(evs);
+
+    // frágil primeiro (é a lista de ação); sem dados suficientes vai pro fim
+    temas.sort((a, b) => (a.suficiente !== b.suficiente) ? (a.suficiente ? -1 : 1)
+      : a.suficiente ? a.pct - b.pct : b.n - a.n);
+
+    const sessoes = new Set(evs.map(e => e.sessao_id)).size;
+    const ultima = evs.map(e => e.timestamp).sort().at(-1);
+    document.getElementById('resumo').innerHTML =
+      `<b>${esc(aluna)}</b> · ${sessoes === 1 ? '1 sessão' : sessoes + ' sessões'} · ` +
+      `última em <b>${dataBr(ultima)}</b> · ` +
+      `${temas.length === 1 ? '1 tema' : temas.length + ' temas'}` +
+      (temas.length > 1 ? ' — do mais frágil ao mais firme' : '');
+
+    document.getElementById('conteudo').innerHTML =
+      `<div class="grade">${temas.map(cardTema).join('')}</div>`;
+  }
+
+  /* ---------- abas ---------- */
+  const abas = document.getElementById('abas');
+  function selecionar(aluna) {
+    [...abas.children].forEach(b => b.setAttribute('aria-selected', b.textContent === aluna));
+    desenhar(aluna);
+  }
+  for (const a of alunas) {
+    const b = document.createElement('button');
+    b.className = 'aba'; b.textContent = a; b.setAttribute('role', 'tab');
+    b.onclick = () => selecionar(a);
+    abas.appendChild(b);
+  }
+
+  if (!alunas.length) {
+    document.getElementById('resumo').textContent = '';
+    document.getElementById('conteudo').innerHTML =
+      '<div class="vazio"><b>Nenhuma sessão registrada ainda</b>' +
+      'Quando uma missão for concluída no app, as linhas aparecem aqui automaticamente. ' +
+      'Sessões de teste de adulto não entram na conta.</div>';
+  } else {
+    selecionar(alunas[0]);
+  }
+})();
+</script>
+</body>
+</html>

@@ -2,7 +2,9 @@
 
 ## Antes de considerar o circuito fechado
 - [ ] Marco: rodar o roteiro de teste manual (abaixo) no aparelho da Alícia.
-- [ ] Implantar `apps-script/enviar.gs` e pegar a URL `/exec`.
+- [ ] Implantar `apps-script/enviar.gs` + `dashboard.html` (DUAS implantações,
+      ver instruções no topo do enviar.gs) e pegar as duas URLs `/exec`.
+- [ ] Compartilhar a planilha com a Fernanda (leitor) e testar o dash na conta dela.
 - [ ] Gerar com `SHEET_URL=... node build.mjs 2026-08-matematica-y5` e confirmar
       que uma questão respondida vira uma linha na aba `Eventos`.
 - [ ] Confirmar a deduplicação: responder offline, voltar online, reabrir,
@@ -14,6 +16,13 @@
 - [ ] Parametrizar as ferramentas restantes (hoje só `grafico` lê `missao.dados`).
       `valor` embute `3,472`, `prob` a sacola 3/5/2, `contas` os exemplos numéricos.
 - [ ] Conferir os códigos BNCC com a professora (`bncc_conferida: false`).
+
+## Dashboard — quando houver volume real de dados
+- [ ] Retenção: mesmo `questao_id` reaparecendo semanas depois (fixou ou evaporou).
+- [ ] QA de questões: todo mundo erra = mal escrita; 100% na 3ª aparição = aposentar.
+- [ ] Decidir os campos `resposta_1a`/`resposta_2a` (qual distrator foi marcado) e a
+      aba `provas_reais` (nota da escola como variável de resultado). São mudança de
+      schema — baratas agora, irrecuperáveis depois. Decisão separada do dash.
 
 ## Roteiro de teste manual
 
