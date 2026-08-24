@@ -164,6 +164,11 @@ Envio: `fetch` com `mode:'no-cors'` para o Apps Script. Falha ou ausência de UR
 
 - [ ] Códigos BNCC do `catalogo-temas.json` estão marcados `bncc_conferida: false` —
       **conferir com a professora** antes de usar em conversa com a escola.
-- [ ] Motor ainda é monolítico (`src/motor.html`); separar as ferramentas em módulos.
-- [ ] Telemetria por questão ainda não implementada (hoje é por missão).
-- [ ] Colar a URL do Apps Script em `SHEET_URL`.
+- [ ] Implantar o Apps Script e gerar o HTML com `SHEET_URL` no ambiente.
+      Enquanto isso, o app roda em fila local + botão "Copiar resultados".
+- [ ] `docs/` é público no Pages: publicar o build com a URL exige uma GitHub Action
+      que faça o build com o segredo, senão a URL volta para o repositório.
+- [ ] Ferramentas ainda vivem no motor e ainda embutem conteúdo de prova
+      (`3,472` em `valor`, a sacola 3/5/2 em `prob`, os exemplos de `contas`).
+      Só `grafico` já lê os dados da missão. Parametrizar as outras.
+- [x] Telemetria por questão — feito, 28 campos, uma linha por questão respondida.
