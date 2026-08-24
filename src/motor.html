@@ -75,6 +75,13 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
 /* aula */
 .lesson-box{background:var(--violet-soft);border-left:5px solid var(--violet);border-radius:12px;padding:14px 16px;margin:14px 0;}
 .lesson-box strong{font-family:'Fredoka',sans-serif;}
+/* O texto rola DENTRO da faixa em vez de empurrar as alternativas para fora da
+   tela. Sem esse teto, no celular a 1ª alternativa nascia abaixo da dobra: ela
+   teria de rolar até o fim para escolher e voltar ao topo para reler — que é
+   exatamente a carga de memória que o cartão fixo existe para tirar. */
+.rtexto{margin-top:8px;padding-top:8px;border-top:1.5px dashed var(--line);font-weight:600;line-height:1.55;
+  max-height:26vh;overflow-y:auto;}
+@media(max-width:560px){ .rtexto{max-height:17vh;font-size:.95rem;} }
 .tool{background:#fff;border:1.5px dashed var(--mint);border-radius:14px;padding:16px 14px;margin:14px 0;}
 .tool-hint{font-size:.85rem;color:var(--ink-soft);text-align:center;margin:10px 0 0;}
 .ctrls{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0;}
@@ -486,6 +493,162 @@ tools.grafico.init = () => {
   });
 };
 
+/* ==================== FERRAMENTAS DE LÍNGUA ====================
+   Genéricas de propósito: nenhuma sabe qual é a prova. Todas leem
+   `missoes[S.mod].dados`, como o `grafico`. Servem para inglês e para
+   português — a próxima prova de língua não deve precisar tocar aqui. */
+
+/* 8 · Conector: troca a palavra do meio e o sentido muda junto.
+   dados.pares: [{a, b, opcoes:[{palavra, sentido, ok}]}] */
+tools.conector = () => {
+  const d = missoes[S.mod]?.dados;
+  if (!d?.pares?.length) { console.warn('missão de conector sem dados.pares'); return ''; }
+  return `
+<div class="tool">
+  <p class="center" style="font-weight:700;margin-bottom:10px">Toque num conector e veja o sentido da frase mudar</p>
+  <div class="readout" id="cnFrase" style="font-size:1.1rem;line-height:1.5"></div>
+  <div class="ctrls" id="cnOpts"></div>
+  <div class="readout" id="cnOut" style="font-size:1rem"><small>escolha um conector acima</small>—</div>
+  <div class="center"><button class="chip" id="cnNext">Outra frase →</button></div>
+  <p class="tool-hint">O conector não enfeita a frase: ele diz que relação existe entre as duas partes.</p>
+</div>`;
+};
+tools.conector.init = () => {
+  const d = missoes[S.mod]?.dados; if (!d?.pares?.length) return;
+  let i = 0;
+  const frase = document.getElementById('cnFrase'), opts = document.getElementById('cnOpts'), out = document.getElementById('cnOut');
+  function desenhar(){
+    const p = d.pares[i];
+    frase.innerHTML = `${p.a} <b id="cnSlot" style="color:var(--violet)">_____</b> ${p.b}`;
+    out.innerHTML = '<small>escolha um conector acima</small>—';
+    opts.innerHTML = '';
+    p.opcoes.forEach(o=>{
+      const b=document.createElement('button'); b.className='chip'; b.textContent=o.palavra;
+      b.onclick=()=>{
+        [...opts.children].forEach(c=>c.classList.remove('active')); b.classList.add('active');
+        document.getElementById('cnSlot').textContent = o.palavra;
+        out.innerHTML = `<small>${o.ok ? '✅ faz sentido' : '⚠️ soa estranho aqui'}</small>${o.sentido}`;
+      };
+      opts.appendChild(b);
+    });
+  }
+  desenhar();
+  document.getElementById('cnNext').onclick=()=>{ i=(i+1)%d.pares.length; desenhar(); };
+};
+
+/* 9 · Destacar: toca partes de um texto para classificá-las.
+   dados.texto (frases separadas por |) e dados.alvos: [{frase, papel}] */
+tools.destacar = () => {
+  const d = missoes[S.mod]?.dados;
+  if (!d?.texto) { console.warn('missão de destacar sem dados.texto'); return ''; }
+  return `
+<div class="tool">
+  <p class="center" style="font-weight:700;margin-bottom:10px">${d.instrucao || 'Toque em cada frase para ver a função dela no texto'}</p>
+  <div id="dsTexto" style="line-height:1.9;font-size:1.02rem"></div>
+  <div class="readout" id="dsOut" style="font-size:1rem"><small>toque numa frase acima</small>—</div>
+  <p class="tool-hint">Todo texto tem frases com trabalhos diferentes. Achar o trabalho de cada uma é meio caminho da interpretação.</p>
+</div>`;
+};
+tools.destacar.init = () => {
+  const d = missoes[S.mod]?.dados; if (!d?.texto) return;
+  const box = document.getElementById('dsTexto'), out = document.getElementById('dsOut');
+  d.texto.split('|').map(s=>s.trim()).filter(Boolean).forEach(frase=>{
+    const s=document.createElement('span');
+    s.textContent = frase + ' ';
+    s.style.cssText='cursor:pointer;border-radius:6px;padding:2px 3px;transition:background .15s';
+    s.onclick=()=>{
+      [...box.children].forEach(c=>c.style.background='');
+      s.style.background='var(--mint-soft)';
+      const alvo=(d.alvos||[]).find(a=>frase.startsWith(a.frase.slice(0,18)));
+      out.innerHTML = alvo ? `<small>esta frase serve para</small>${alvo.papel}`
+                           : '<small>esta frase</small>dá um detalhe de apoio';
+    };
+    box.appendChild(s);
+  });
+};
+
+/* 10 · Montar: fichas fora de ordem que ela reordena tocando.
+   Serve em duas granularidades — palavras (gramática) e frases (narrativa).
+   dados.itens: [{fichas:[...], ordem:[...], porque}] */
+tools.montar = () => {
+  const d = missoes[S.mod]?.dados;
+  if (!d?.itens?.length) { console.warn('missão de montar sem dados.itens'); return ''; }
+  return `
+<div class="tool">
+  <p class="center" style="font-weight:700;margin-bottom:10px">${d.instrucao || 'Toque nas fichas na ordem certa'}</p>
+  <div class="ctrls" id="mtBanco"></div>
+  <div class="readout" id="mtLinha" style="font-size:1.05rem;min-height:2.2em;line-height:1.4"><small>sua frase aparece aqui</small>—</div>
+  <div class="center">
+    <button class="chip" id="mtLimpar">Recomeçar</button>
+    <button class="chip" id="mtNext">Outra →</button>
+  </div>
+  <p class="tool-hint">Errar a ordem aqui não custa nada — é para isso que a ferramenta existe.</p>
+</div>`;
+};
+tools.montar.init = () => {
+  const d = missoes[S.mod]?.dados; if (!d?.itens?.length) return;
+  let i=0, escolhidas=[];
+  const banco=document.getElementById('mtBanco'), linha=document.getElementById('mtLinha');
+  function pinta(){
+    const it=d.itens[i];
+    if(!escolhidas.length){ linha.innerHTML='<small>sua frase aparece aqui</small>—'; return; }
+    const certoAteAqui = escolhidas.every((f,n)=>f===it.ordem[n]);
+    const completa = escolhidas.length===it.ordem.length;
+    linha.innerHTML = escolhidas.join(' ') +
+      (completa && certoAteAqui ? `<small>✅ ${it.porque||'é isso!'}</small>`
+       : certoAteAqui ? '<small>por enquanto, tudo certo…</small>'
+       : '<small>⚠️ essa ordem não soa bem — toque em Recomeçar</small>');
+  }
+  function desenhar(){
+    escolhidas=[]; banco.innerHTML='';
+    /* Embaralhar não é enfeite: fichas na ordem certa resolvem sozinhas da
+       esquerda para a direita, e a ferramenta deixa de ensinar qualquer coisa.
+       Se o sorteio cair na ordem correta, gira uma casa e sorteia de novo. */
+    const it=d.itens[i];
+    let baralho=[...it.fichas];
+    for(let n=baralho.length-1;n>0;n--){const j=Math.floor(Math.random()*(n+1));[baralho[n],baralho[j]]=[baralho[j],baralho[n]];}
+    if(baralho.every((f,n)=>f===it.ordem[n])) baralho.push(baralho.shift());
+    baralho.forEach(f=>{
+      const b=document.createElement('button'); b.className='chip'; b.textContent=f;
+      b.onclick=()=>{ if(b.classList.contains('active'))return;
+        b.classList.add('active'); escolhidas.push(f); pinta(); };
+      banco.appendChild(b);
+    });
+    pinta();
+  }
+  desenhar();
+  document.getElementById('mtLimpar').onclick=desenhar;
+  document.getElementById('mtNext').onclick=()=>{ i=(i+1)%d.itens.length; desenhar(); };
+};
+
+/* 11 · Transformar: toca a palavra e ela cicla entre as formas.
+   dados.palavras: [{formas:[...], rotulos:[...], nota}] */
+tools.transformar = () => {
+  const d = missoes[S.mod]?.dados;
+  if (!d?.palavras?.length) { console.warn('missão de transformar sem dados.palavras'); return ''; }
+  return `
+<div class="tool">
+  <p class="center" style="font-weight:700;margin-bottom:10px">${d.instrucao || 'Toque na palavra para ver ela mudar de forma'}</p>
+  <div class="ctrls" id="trBanco"></div>
+  <div class="readout" id="trOut" style="font-size:1.4rem"><small>toque numa palavra acima</small>—</div>
+  <p class="tool-hint">Repare quais mudam só o final e quais viram outra palavra inteira. São dois grupos diferentes.</p>
+</div>`;
+};
+tools.transformar.init = () => {
+  const d = missoes[S.mod]?.dados; if (!d?.palavras?.length) return;
+  const banco=document.getElementById('trBanco'), out=document.getElementById('trOut');
+  d.palavras.forEach(p=>{
+    let n=0;
+    const b=document.createElement('button'); b.className='chip'; b.textContent=p.formas[0];
+    b.onclick=()=>{
+      [...banco.children].forEach(c=>c.classList.remove('active')); b.classList.add('active');
+      n=(n+1)%p.formas.length; b.textContent=p.formas[n];
+      out.innerHTML=`<small>${p.rotulos?.[n]||''}</small>${p.formas[n]}` + (p.nota?`<small>${p.nota}</small>`:'');
+    };
+    banco.appendChild(b);
+  });
+};
+
 /* ============================ CONTEÚDO DA PROVA ============================
    Nada de conteúdo mora aqui. Missões, regras, andaimes e figuras vêm do
    <script id="prova-data">, que build.mjs injeta a partir de data/provas/.
@@ -852,7 +1015,11 @@ function renderQ(){
   const m=missoes[S.mod],q=m.questoes[S.q];
   S.usedHint=false;chosen=null;stepsShown=0;attempts=0;
   el('qTag').textContent=m.titulo;
-  el('ruleText').innerHTML=m.regra||'';
+  /* O texto de leitura fica visível DURANTE as questões — é exatamente o que o
+     cartão fixo serve para fazer. Ele mora só em `dados.texto`, e não também na
+     `regra`, pelo mesmo motivo da série do gráfico: dois lugares divergem. */
+  el('ruleText').innerHTML=(m.regra||'') +
+    (m.dados?.texto ? `<div class="rtexto">${m.dados.texto.split('|').map(s=>s.trim()).filter(Boolean).join(' ')}</div>` : '');
   el('dots').innerHTML=m.questoes.map((_,i)=>`<i class="${i<S.q?'on':i===S.q?'now':''}"></i>`).join('');
   el('qText').innerHTML=`<span class="muted" style="font-size:.9rem;font-weight:600">Desafio ${S.q+1} de ${m.questoes.length}</span><br>${q.enunciado}`;
   el('qFigure').innerHTML=figuraHTML(q.figura,m);

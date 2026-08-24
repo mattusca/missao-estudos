@@ -88,3 +88,45 @@ do Apps Script) e comportamento no aparelho da Alícia.
   `height` nao se aplicam: a barra ficava 0x0. O numero de XP subia e a barra ao
   lado ficava vazia em qualquer nivel, desde o prototipo. `display:block` resolve.
   Verificado no navegador: 0%/50%/100% respondem (0 / 79 / 158 px num trilho de 160).
+
+## 2026-08-24 — Prova de Language Arts Y5
+
+Segunda prova do sistema, primeira fora de matemática. Base: roteiro da
+professora, prova em 26/08.
+
+**Motor** — 4 ferramentas de língua, genéricas e parametrizadas por `missao.dados`
+como o `grafico`. A próxima prova de língua não deve precisar tocar no motor.
+- `conector` — troca a palavra do meio e o sentido muda junto.
+- `destacar` — toca frases do texto e vê a função de cada uma.
+- `montar` — fichas embaralhadas para ordenar. Duas granularidades: palavras
+  (gramática) e frases inteiras (sequência narrativa).
+- `transformar` — toca a palavra e ela cicla entre as formas.
+- Cartão de regra passa a renderizar `dados.texto` abaixo da regra. O texto de
+  leitura vive num lugar só, pelo mesmo motivo da série do gráfico.
+
+**Corrigido durante o teste**
+- `montar` entregava as fichas na ordem correta: resolvia sozinho da esquerda
+  para a direita e não ensinava nada. Agora embaralha, e regira se o sorteio
+  cair na ordem certa.
+- No celular o texto de leitura empurrava a 1ª alternativa para baixo da dobra
+  (y=776 numa tela de 812) — ela teria de rolar até o fim para escolher e voltar
+  ao topo para reler, que é a carga que o cartão fixo existe para tirar. Teto de
+  altura com rolagem interna: 53% → 37% da tela. No tablet cabe tudo numa tela.
+
+**Conteúdo** — 7 missões, 21 questões, gabarito 5/5/6/5, dificuldade média 1.81.
+Enunciados em inglês, andaime em português: o apoio existe para tirar carga, e em
+L2 viraria mais uma coisa a decodificar. `Writing: Narrative` não cabe em múltipla
+escolha e virou *narrative craft* — sequência, abertura, show vs tell.
+
+**Privacidade** — `escola` passa de "Pueri Domus" para o código `"PD"`. O nome
+estava no JSON versionado e na página publicada, ao lado do primeiro nome e do ano.
+Ressalva: o histórico do Git já o contém desde o primeiro push.
+
+**Verificado no navegador** — as 4 ferramentas respondendo ao toque; gate do mapa
+destravando só a missão seguinte (testado pelo mapa, não por `openModule`); dois
+toques; 2ª tentativa sem revelar gabarito; escudo; andaime um passo por toque;
+modo foco; retomada com XP, medalhas, foco e identidade; jornada completa com 21
+linhas de 28 colunas, `bncc: null` e `escola: PD`.
+
+**BNCC** — Língua Inglesa só existe na BNCC a partir do 6º ano. Os 7 temas `ING.*`
+entram com `habilidade_bncc: null`, não com código inventado.

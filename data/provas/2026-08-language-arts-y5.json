@@ -1,0 +1,637 @@
+{
+  "prova_id": "2026-08-LA-Y5",
+  "titulo": "Missão Language Arts — revisão prova 26/08",
+  "materia": "Language Arts",
+  "alunas": [
+    "Alicia",
+    "Marco (teste)"
+  ],
+  "escola": "PD",
+  "ano_aluna": "Y5",
+  "nivel_conteudo": "Y5",
+  "bimestre": "3",
+  "contexto": "prova",
+  "criado_em": "2026-08-24",
+  "origem": "Roteiro da professora (foto) + Cornerstone",
+  "missoes": [
+    {
+      "missao_id": "conectores",
+      "icone": "🔗",
+      "titulo": "Ligar ideias",
+      "subtitulo": "As palavras que costuram o texto",
+      "eixo": "Escrita",
+      "tema_id": "ING.ESC.CONECT",
+      "subtema": "Transitional words: however, therefore, in addition to, as well as",
+      "habilidade_bncc": null,
+      "ferramenta": "conector",
+      "regra": "<b>however</b> / <b>on the other hand</b> → contraste<br><b>therefore</b> → consequência<br><b>in addition to</b> / <b>as well as</b> / <b>also</b> → soma<br><b>for instance</b> → exemplo",
+      "aula": {
+        "corpo": "<p>Conector não é enfeite. Ele é a placa que avisa o leitor o que vem pela frente — e é por isso que trocar o conector muda o sentido da frase inteira.</p>\n  <div class=\"lesson-box\"><strong>São quatro famílias.</strong> Se você souber a família, acerta mesmo sem decorar a lista:<br><b>1. Contraste</b> — however, on the other hand<br><b>2. Consequência</b> — therefore<br><b>3. Soma</b> — in addition to, as well as, also<br><b>4. Exemplo</b> — for instance</div>\n  <p>O truque: leia as <mark>duas partes</mark> da frase e pergunte \"a segunda parte briga com a primeira, vem por causa dela, soma nela, ou dá um exemplo dela?\". A resposta é a família.</p>\n  <h3>Hora de mexer · O conector muda tudo</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> <b>However</b> quase sempre vem no começo da segunda frase, com vírgula depois. Se a frase pede algo no meio, provavelmente é outro conector.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "ING.ESC.CONECT.Q1",
+          "enunciado": "It was raining heavily. _____, we decided to stay at home.",
+          "figura": null,
+          "alternativas": [
+            "Therefore",
+            "However",
+            "For instance",
+            "On the other hand"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "A segunda parte acontece POR CAUSA da primeira. Isso é consequência.",
+          "explicacao": "Estava chovendo forte, então ficaram em casa. A segunda parte é a consequência da primeira — família \"therefore\"."
+        },
+        {
+          "questao_id": "ING.ESC.CONECT.Q2",
+          "enunciado": "Lucas is very good at maths. _____, he finds writing quite difficult.",
+          "figura": null,
+          "alternativas": [
+            "In addition to",
+            "Therefore",
+            "As well as",
+            "However"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Ser bom em matemática e ter dificuldade em escrever: as duas partes brigam entre si.",
+          "explicacao": "A segunda parte contraria a primeira, então é contraste: <b>However</b>. \"Therefore\" seria consequência, e ser bom em matemática não causa dificuldade em escrever."
+        },
+        {
+          "questao_id": "ING.ESC.CONECT.Q3",
+          "enunciado": "Our school offers many clubs, _____ chess, robotics and drama.",
+          "figura": null,
+          "alternativas": [
+            "therefore",
+            "however",
+            "for instance",
+            "on the other hand"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Xadrez, robótica e teatro são três exemplos de \"many clubs\".",
+          "explicacao": "A segunda parte lista exemplos da primeira — família \"for instance\"."
+        }
+      ],
+      "dados": {
+        "pares": [
+          {
+            "a": "The test was very hard.",
+            "b": "almost everyone passed it.",
+            "opcoes": [
+              { "palavra": "However,", "sentido": "contraste — o resultado foi o contrário do esperado", "ok": true },
+              { "palavra": "Therefore,", "sentido": "consequência — mas 'ser difícil' não causa 'todos passarem'", "ok": false },
+              { "palavra": "For instance,", "sentido": "exemplo — a segunda parte não é exemplo da primeira", "ok": false }
+            ]
+          },
+          {
+            "a": "She practised every single day.",
+            "b": "she won the competition.",
+            "opcoes": [
+              { "palavra": "Therefore,", "sentido": "consequência — treinar todo dia levou à vitória", "ok": true },
+              { "palavra": "However,", "sentido": "contraste — mas as duas partes combinam, não brigam", "ok": false },
+              { "palavra": "On the other hand,", "sentido": "contraste — mesma coisa: aqui não há oposição", "ok": false }
+            ]
+          },
+          {
+            "a": "He plays the guitar",
+            "b": "the piano and the drums.",
+            "opcoes": [
+              { "palavra": "as well as", "sentido": "soma — acrescenta mais instrumentos", "ok": true },
+              { "palavra": "however", "sentido": "contraste — não há oposição entre instrumentos", "ok": false },
+              { "palavra": "therefore", "sentido": "consequência — tocar violão não causa tocar piano", "ok": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "missao_id": "leitura",
+      "icone": "📖",
+      "titulo": "Ler para responder",
+      "subtitulo": "Achar a resposta dentro do texto",
+      "eixo": "Leitura",
+      "tema_id": "ING.LEI.INTERP",
+      "subtema": "Reading comprehension: ideia principal, detalhe e inferência",
+      "habilidade_bncc": null,
+      "ferramenta": "destacar",
+      "regra": "Leia a <b>pergunta primeiro</b>. Só depois volte ao texto e procure o pedaço que responde. O texto fica aqui embaixo o tempo todo — não precisa decorar.",
+      "aula": {
+        "corpo": "<p>Ninguém precisa guardar um texto inteiro na cabeça. A prova deixa o texto ali na frente — o que ela mede é se você sabe <mark>onde procurar</mark>.</p>\n  <div class=\"lesson-box\"><strong>Três tipos de pergunta, três lugares para procurar:</strong><br><b>Ideia principal</b> — do que o texto todo trata? Costuma estar na primeira ou na última frase.<br><b>Detalhe</b> — a resposta está escrita com todas as letras. É só achar.<br><b>Inferência</b> — a resposta NÃO está escrita. Você junta duas pistas do texto.</div>\n  <p>A ordem certa é sempre a mesma: ler a pergunta, decidir o tipo, e só então voltar ao texto. Quem relê o texto inteiro antes de saber o que procura, lê duas vezes e cansa no meio.</p>\n  <h3>Hora de mexer · Cada frase tem um trabalho</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se duas alternativas parecem certas, uma delas costuma ser verdadeira <i>mas não responder a pergunta</i>. Releia a pergunta, não o texto.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "ING.LEI.INTERP.Q1",
+          "enunciado": "What is the <mark>main idea</mark> of the text?",
+          "figura": null,
+          "alternativas": [
+            "Foxes and lizards are the most common animals in Chile.",
+            "The Atacama is an extremely dry place where science and life are still possible.",
+            "Telescopes only work properly when the sky is cloudy.",
+            "It has not rained anywhere in Chile for four hundred years."
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Ideia principal cobre o texto TODO, não só uma frase dele.",
+          "explicacao": "O texto fala da seca extrema, dos telescópios e dos animais. Só a alternativa B cobre tudo isso. As outras são detalhes soltos ou informações distorcidas."
+        },
+        {
+          "questao_id": "ING.LEI.INTERP.Q2",
+          "enunciado": "Why do scientists build telescopes in the Atacama?",
+          "figura": null,
+          "alternativas": [
+            "Because the dry, clear air lets them see the stars better.",
+            "Because foxes and lizards live there.",
+            "Because it rains only at night.",
+            "Because the desert is close to the ocean."
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pergunta de detalhe: a resposta está escrita no texto. Procure a frase que começa com \"Because\".",
+          "explicacao": "O texto diz: \"Because the air is so dry and clear, scientists build powerful telescopes there.\" A resposta estava escrita com todas as letras."
+        },
+        {
+          "questao_id": "ING.LEI.INTERP.Q3",
+          "enunciado": "The word <mark>Surprisingly</mark> in the text shows that the writer thinks…",
+          "figura": null,
+          "alternativas": [
+            "the desert is a dangerous place for scientists.",
+            "the fog comes from the ocean every night.",
+            "four hundred years is a very long time.",
+            "it is unexpected that animals can live there."
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Ache no texto a frase que começa com \"Surprisingly\".",
+            "Veja o que vem logo depois dela: alguns animais sobrevivem ali.",
+            "Agora junte com o começo do texto: é o lugar mais seco da Terra.",
+            "Por que sobreviver ali seria surpreendente? Essa é a resposta."
+          ],
+          "dica": "\"Surprisingly\" avisa que o que vem a seguir é inesperado. Inesperado por quê?",
+          "explicacao": "O texto já disse que é o lugar mais seco da Terra. Por isso o autor acha surpreendente que animais consigam viver ali. Isso é inferência: a resposta não está escrita, você junta duas pistas."
+        }
+      ],
+      "dados": {
+        "instrucao": "Toque em cada frase e veja qual é o trabalho dela no texto",
+        "texto": "The Atacama Desert in Chile is the driest place on Earth. | Some parts of it have not seen rain for over four hundred years. | Because the air is so dry and clear, scientists build powerful telescopes there. | At night, they can see stars that are almost invisible from other places. | Surprisingly, a few animals still survive in this harsh land. | Foxes and lizards find water in the thick fog that rolls in from the ocean.",
+        "alvos": [
+          { "frase": "The Atacama Desert in Chile", "papel": "apresentar o assunto — é a ideia principal" },
+          { "frase": "Some parts of it have not", "papel": "dar um dado que prova a ideia principal" },
+          { "frase": "Because the air is so dry", "papel": "explicar uma consequência da seca" },
+          { "frase": "At night, they can see", "papel": "dar um detalhe sobre os telescópios" },
+          { "frase": "Surprisingly, a few animals", "papel": "introduzir uma ideia nova, que contrasta" },
+          { "frase": "Foxes and lizards find water", "papel": "dar o exemplo que fecha a ideia nova" }
+        ]
+      }
+    },
+    {
+      "missao_id": "narrativa",
+      "icone": "✍️",
+      "titulo": "Construir uma história",
+      "subtitulo": "Ordem, começo e mostrar em vez de contar",
+      "eixo": "Escrita",
+      "tema_id": "ING.ESC.NARR",
+      "subtema": "Writing narrative: sequência, abertura e show vs tell",
+      "habilidade_bncc": null,
+      "ferramenta": "montar",
+      "regra": "Ordem da narrativa: <b>situação → problema → ponto alto → desfecho</b>.<br>E vale mais <b>mostrar</b> (\"her hands were shaking\") do que <b>contar</b> (\"she was nervous\").",
+      "aula": {
+        "corpo": "<p>História não é uma lista de coisas que aconteceram. É uma coisa acontecendo <mark>por causa</mark> da anterior — e essa corrente tem uma ordem que o leitor espera.</p>\n  <div class=\"lesson-box\"><strong>Os quatro degraus</strong><br><b>1. Situação</b> — como as coisas estavam antes<br><b>2. Problema</b> — o que quebrou a calma<br><b>3. Ponto alto</b> — o momento de maior tensão<br><b>4. Desfecho</b> — como ficou no fim</div>\n  <p>E tem o truque que mais melhora uma redação: <b>show, don't tell</b>. Em vez de dizer que a personagem estava com medo, mostre o que o medo fez com ela. \"She was scared\" conta. \"She could hear her own heartbeat\" mostra — e o leitor sente junto.</p>\n  <h3>Hora de mexer · Colocar a história em ordem</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Comece pela ação, não pela apresentação. \"Maya was ten years old\" é ficha de cadastro. \"Maya was pulling a dusty box from under her bed\" já é história.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "ING.ESC.NARR.Q1",
+          "enunciado": "Which sentence is the best <mark>opening</mark> for a narrative?",
+          "figura": null,
+          "alternativas": [
+            "This is a story about a girl and an old map.",
+            "Maya was pulling a dusty box from under her bed when something fell out.",
+            "First, I will tell you what happened to Maya.",
+            "Maya was a girl. She was ten years old."
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Qual delas já coloca alguma coisa ACONTECENDO?",
+          "explicacao": "As outras três anunciam a história ou apresentam a personagem. A alternativa B já começa com ação e ainda deixa um gancho: o que caiu?"
+        },
+        {
+          "questao_id": "ING.ESC.NARR.Q2",
+          "enunciado": "Which sentence <mark>shows</mark> instead of <mark>tells</mark>?",
+          "figura": null,
+          "alternativas": [
+            "She was very nervous.",
+            "She felt nervous about the box.",
+            "Her hands were shaking and she could not find the keyhole.",
+            "Being nervous, she opened the box."
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Três alternativas usam a palavra \"nervous\". A que mostra não precisa dela.",
+          "explicacao": "\"Her hands were shaking\" mostra o nervosismo pelo que ele causa no corpo. As outras três apenas nomeiam o sentimento."
+        },
+        {
+          "questao_id": "ING.ESC.NARR.Q3",
+          "enunciado": "Read the four events:<br><b>A.</b> She heard a noise in the attic.<br><b>B.</b> Ana could not sleep that night.<br><b>C.</b> She climbed the stairs with a torch.<br><b>D.</b> It was only the neighbour's cat.<br>Which order tells the story correctly?",
+          "figura": null,
+          "alternativas": [
+            "B → A → C → D",
+            "A → B → C → D",
+            "B → C → A → D",
+            "A → C → B → D"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Qual frase mostra a situação inicial, antes de qualquer coisa acontecer?",
+            "Depois da situação, o que quebra a calma? Esse é o problema.",
+            "O que ela faz por causa do problema? Essa é a ação.",
+            "O que resolve tudo no final? Esse é o desfecho."
+          ],
+          "dica": "Comece pela situação: o que já estava acontecendo antes do barulho?",
+          "explicacao": "B é a situação (ela não conseguia dormir), A é o problema (o barulho), C é a ação (subir a escada) e D é o desfecho (era o gato). Situação → problema → ponto alto → desfecho."
+        }
+      ],
+      "dados": {
+        "instrucao": "Toque nas frases na ordem em que a história acontece",
+        "itens": [
+          {
+            "fichas": [
+              "Maya found an old map under her bed.",
+              "She followed it to the end of the garden.",
+              "A rusty box was buried under the oak tree.",
+              "Inside, her grandfather's letters were waiting."
+            ],
+            "ordem": [
+              "Maya found an old map under her bed.",
+              "She followed it to the end of the garden.",
+              "A rusty box was buried under the oak tree.",
+              "Inside, her grandfather's letters were waiting."
+            ],
+            "porque": "situação → ação → ponto alto → desfecho"
+          },
+          {
+            "fichas": [
+              "The sky turned grey while we were walking home.",
+              "Heavy rain started without any warning.",
+              "We ran into an old bus stop to hide.",
+              "Ten minutes later, the sun was shining again."
+            ],
+            "ordem": [
+              "The sky turned grey while we were walking home.",
+              "Heavy rain started without any warning.",
+              "We ran into an old bus stop to hide.",
+              "Ten minutes later, the sun was shining again."
+            ],
+            "porque": "repare que o desfecho fecha o que o problema abriu"
+          }
+        ]
+      }
+    },
+    {
+      "missao_id": "comparativos",
+      "icone": "📏",
+      "titulo": "Comparar e destacar",
+      "subtitulo": "-er, -est, more, most — e os que fogem",
+      "eixo": "Conhecimentos Linguísticos",
+      "tema_id": "ING.CLI.COMPSUP",
+      "subtema": "Comparative and superlative adjectives",
+      "habilidade_bncc": null,
+      "ferramenta": "transformar",
+      "regra": "Palavra <b>curta</b>: tall → tall<b>er</b> → the tall<b>est</b><br>Palavra <b>longa</b>: <b>more</b> famous → the <b>most</b> famous<br><b>Irregulares</b>: good → better → the best · bad → worse → the worst",
+      "aula": {
+        "corpo": "<p>Comparativo compara <mark>duas</mark> coisas. Superlativo destaca <mark>uma entre todas</mark>. Confundir os dois é o erro mais comum — e o mais fácil de evitar.</p>\n  <div class=\"lesson-box\"><strong>Conte as sílabas do adjetivo:</strong><br><b>1 sílaba</b> (tall, big, fast) → -er / -est<br><b>2 sílabas terminadas em -y</b> (happy, heavy) → troca o y por i: happier / happiest<br><b>3 ou mais</b> (interesting, difficult) → more / the most</div>\n  <p>E existem os teimosos, que não seguem regra nenhuma e precisam ser decorados mesmo: <b>good → better → the best</b>, <b>bad → worse → the worst</b>, <b>far → further → the furthest</b>. São poucos — e caem sempre.</p>\n  <h3>Hora de mexer · A palavra muda de forma</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se a frase tem <b>than</b>, é comparativo. Se tem <b>the</b> e algo como \"of all\" ou \"in the class\", é superlativo.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "ING.CLI.COMPSUP.Q1",
+          "enunciado": "This box is _____ than that one. <i>(heavy)</i>",
+          "figura": null,
+          "alternativas": [
+            "more heavy",
+            "heavier",
+            "heaviest",
+            "the most heavy"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Tem \"than\" na frase, então é comparativo. E \"heavy\" tem 2 sílabas terminadas em -y.",
+          "explicacao": "\"Heavy\" termina em -y: troca o y por i e acrescenta -er → <b>heavier</b>. O \"than\" confirma que é comparativo, não superlativo."
+        },
+        {
+          "questao_id": "ING.CLI.COMPSUP.Q2",
+          "enunciado": "Of all the students in the class, Pedro is _____ swimmer. <i>(good)</i>",
+          "figura": null,
+          "alternativas": [
+            "the better",
+            "the goodest",
+            "the best",
+            "more good"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "\"Of all the students\" = um entre todos: superlativo. E \"good\" é irregular.",
+          "explicacao": "\"Of all\" pede superlativo, e good é irregular: good → better → <b>the best</b>. \"Goodest\" e \"more good\" não existem."
+        },
+        {
+          "questao_id": "ING.CLI.COMPSUP.Q3",
+          "enunciado": "Which sentence is <mark>correct</mark>?",
+          "figura": null,
+          "alternativas": [
+            "This film is interestinger than the book.",
+            "This film is the more interesting than the book.",
+            "This film is most interesting than the book.",
+            "This film is more interesting than the book."
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Conte as sílabas de \"interesting\": in-te-res-ting. Quantas?",
+            "Palavra longa não usa -er. Usa \"more\" ou \"most\".",
+            "A frase tem \"than\"? Então compara DUAS coisas: é comparativo.",
+            "Comparativo de palavra longa é \"more\", sem \"the\"."
+          ],
+          "dica": "\"Interesting\" tem 4 sílabas. Palavra longa nunca ganha -er.",
+          "explicacao": "\"Interesting\" é longa, então usa <b>more</b> (nunca \"interestinger\"). Como há \"than\", é comparativo — e comparativo não leva \"the\" nem \"most\"."
+        }
+      ],
+      "dados": {
+        "instrucao": "Toque na palavra para vê-la virar comparativo e superlativo",
+        "palavras": [
+          { "formas": ["tall", "taller", "the tallest"], "rotulos": ["normal", "comparativo", "superlativo"], "nota": "1 sílaba → -er / -est" },
+          { "formas": ["happy", "happier", "the happiest"], "rotulos": ["normal", "comparativo", "superlativo"], "nota": "termina em -y → o y vira i" },
+          { "formas": ["difficult", "more difficult", "the most difficult"], "rotulos": ["normal", "comparativo", "superlativo"], "nota": "3+ sílabas → more / the most" },
+          { "formas": ["good", "better", "the best"], "rotulos": ["normal", "comparativo", "superlativo"], "nota": "irregular — só decorando" },
+          { "formas": ["bad", "worse", "the worst"], "rotulos": ["normal", "comparativo", "superlativo"], "nota": "irregular — só decorando" }
+        ]
+      }
+    },
+    {
+      "missao_id": "continuous",
+      "icone": "⏳",
+      "titulo": "Ação em andamento",
+      "subtitulo": "am/is/are e was/were + -ing",
+      "eixo": "Conhecimentos Linguísticos",
+      "tema_id": "ING.CLI.CONT",
+      "subtema": "Present and Past Continuous",
+      "habilidade_bncc": null,
+      "ferramenta": "montar",
+      "regra": "<b>Agora</b>: am / is / are + verbo-<b>ing</b><br><b>Antes</b>: was / were + verbo-<b>ing</b><br>O <b>-ing</b> nunca sai. O que muda é só o verbo <i>to be</i>.",
+      "aula": {
+        "corpo": "<p>O Continuous serve para uma coisa só: mostrar que a ação estava <mark>em andamento</mark>, não terminada. É um filme rodando, não uma foto do fim.</p>\n  <div class=\"lesson-box\"><strong>A fórmula é sempre a mesma, em duas versões:</strong><br><b>Present Continuous</b> — I <b>am</b> / he <b>is</b> / they <b>are</b> + play<b>ing</b><br><b>Past Continuous</b> — I <b>was</b> / they <b>were</b> + play<b>ing</b><br>Só o <i>to be</i> muda de tempo. O -ing fica sempre.</div>\n  <p>Onde o Past Continuous mais aparece na prova: quando uma ação longa é <b>interrompida</b> por outra curta. \"I <b>was doing</b> my homework when the lights <b>went out</b>\" — a longa fica no Continuous, a curta no Past Simple.</p>\n  <h3>Hora de mexer · Montar a frase</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Palavras como <b>now</b>, <b>look!</b> e <b>at the moment</b> puxam Present Continuous. <b>While</b> e <b>when</b> costumam puxar Past Continuous.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "ING.CLI.CONT.Q1",
+          "enunciado": "Look! The baby _____ . <i>(sleep)</i>",
+          "figura": null,
+          "alternativas": [
+            "sleeps",
+            "is sleeping",
+            "was sleeping",
+            "sleeping"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "\"Look!\" avisa que está acontecendo agora, neste instante.",
+          "explicacao": "\"Look!\" indica agora → Present Continuous: <b>is</b> + sleep<b>ing</b>. \"Sleeps\" seria rotina, e \"sleeping\" sozinho não tem o verbo to be."
+        },
+        {
+          "questao_id": "ING.CLI.CONT.Q2",
+          "enunciado": "While I _____ my homework, the lights went out. <i>(do)</i>",
+          "figura": null,
+          "alternativas": [
+            "was doing",
+            "am doing",
+            "did",
+            "do"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Uma ação longa foi interrompida por uma curta. A longa fica no Continuous.",
+          "explicacao": "A lição de casa era a ação longa em andamento, interrompida pela queda de luz: <b>was doing</b>. O \"while\" é a pista."
+        },
+        {
+          "questao_id": "ING.CLI.CONT.Q3",
+          "enunciado": "Which sentence is in the <mark>Past Continuous</mark>?",
+          "figura": null,
+          "alternativas": [
+            "They played football yesterday.",
+            "They are playing football now.",
+            "They were playing football when it started to rain.",
+            "They have played football before."
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Procure was/were seguido de um verbo terminado em -ing.",
+          "explicacao": "Past Continuous = was/were + -ing. Só a alternativa C tem <b>were playing</b>. A B é Present Continuous, a A é Past Simple e a D é Present Perfect."
+        }
+      ],
+      "dados": {
+        "instrucao": "Toque nas palavras na ordem certa para montar a frase",
+        "itens": [
+          {
+            "fichas": ["They", "were", "playing", "in the garden"],
+            "ordem": ["They", "were", "playing", "in the garden"],
+            "porque": "was/were + -ing = ação em andamento no passado"
+          },
+          {
+            "fichas": ["She", "is", "reading", "a new book"],
+            "ordem": ["She", "is", "reading", "a new book"],
+            "porque": "is + -ing = acontecendo agora"
+          },
+          {
+            "fichas": ["We", "were", "watching", "TV", "when he arrived"],
+            "ordem": ["We", "were", "watching", "TV", "when he arrived"],
+            "porque": "a ação longa fica no Continuous; a curta, no Past Simple"
+          }
+        ]
+      }
+    },
+    {
+      "missao_id": "modais",
+      "icone": "⚖️",
+      "titulo": "Grau de obrigação",
+      "subtitulo": "should, have to, must",
+      "eixo": "Conhecimentos Linguísticos",
+      "tema_id": "ING.CLI.MODAL",
+      "subtema": "Modals of necessity: should, have to, must",
+      "habilidade_bncc": null,
+      "ferramenta": "montar",
+      "regra": "<b>should</b> = conselho (é bom fazer)<br><b>have to</b> = obrigação que vem de fora (lei, regra, horário)<br><b>must</b> = obrigação forte, quase sempre de quem fala<br>Depois deles, o verbo fica <b>sem to</b>: you should <i>go</i>.",
+      "aula": {
+        "corpo": "<p>Os três falam de necessidade, mas em <mark>intensidades diferentes</mark>. Escolher errado não deixa a frase agramatical — deixa ela grosseira ou fraca demais.</p>\n  <div class=\"lesson-box\"><strong>Do mais leve para o mais pesado</strong><br><b>should</b> — conselho. \"You should rest.\" (é bom, mas você decide)<br><b>have to</b> — obrigação externa. \"I have to wear a uniform.\" (a escola manda)<br><b>must</b> — obrigação forte. \"You must stop.\" (quem fala está impondo)</div>\n  <p>Detalhe que cai em prova: depois de <b>should</b> e <b>must</b> o verbo vem <mark>sem to</mark> — \"you must go\", nunca \"you must to go\". Já <b>have to</b> já carrega o \"to\" dentro dele.</p>\n  <h3>Hora de mexer · Montar a frase</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se a frase menciona lei, regra da escola ou horário, quase sempre é <b>have to</b>. Se é alguém dando um palpite gentil, é <b>should</b>.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "ING.CLI.MODAL.Q1",
+          "enunciado": "You look really tired. You _____ go to bed earlier.",
+          "figura": null,
+          "alternativas": [
+            "must",
+            "have to",
+            "are having to",
+            "should"
+          ],
+          "correta": 3,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Quem fala está dando um conselho gentil, não uma ordem.",
+          "explicacao": "É um conselho: <b>should</b>. \"Must\" soaria como ordem, e \"have to\" indicaria uma regra externa — que aqui não existe."
+        },
+        {
+          "questao_id": "ING.CLI.MODAL.Q2",
+          "enunciado": "In Brazil, children _____ wear a seatbelt in the car. It is the law.",
+          "figura": null,
+          "alternativas": [
+            "should",
+            "could",
+            "have to",
+            "might"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "\"It is the law\" entrega: a obrigação vem de fora.",
+          "explicacao": "Lei é obrigação externa → <b>have to</b>. \"Should\" seria só um conselho, fraco demais para uma lei."
+        },
+        {
+          "questao_id": "ING.CLI.MODAL.Q3",
+          "enunciado": "Which sentence gives <mark>advice</mark>, not an obligation?",
+          "figura": null,
+          "alternativas": [
+            "You should try the chocolate cake — it is delicious.",
+            "You must finish this before Friday.",
+            "You have to bring your ID card.",
+            "Students have to wear the uniform every day."
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Conselho é o que você pode recusar sem quebrar regra nenhuma.",
+          "explicacao": "Só a alternativa A é sugestão — ninguém é obrigado a comer bolo. As outras três são obrigações, com <b>must</b> ou <b>have to</b>."
+        }
+      ],
+      "dados": {
+        "instrucao": "Toque nas palavras na ordem certa para montar a frase",
+        "itens": [
+          {
+            "fichas": ["You", "should", "drink", "more water"],
+            "ordem": ["You", "should", "drink", "more water"],
+            "porque": "conselho — e o verbo vem sem 'to' depois de should"
+          },
+          {
+            "fichas": ["We", "have to", "wear", "a uniform", "at school"],
+            "ordem": ["We", "have to", "wear", "a uniform", "at school"],
+            "porque": "regra da escola = obrigação externa"
+          },
+          {
+            "fichas": ["Drivers", "must", "stop", "at the red light"],
+            "ordem": ["Drivers", "must", "stop", "at the red light"],
+            "porque": "obrigação forte, sem 'to' depois de must"
+          }
+        ]
+      }
+    },
+    {
+      "missao_id": "plurais",
+      "icone": "🔤",
+      "titulo": "Plurais fora da regra",
+      "subtitulo": "Os que não ganham só um -s",
+      "eixo": "Conhecimentos Linguísticos",
+      "tema_id": "ING.CLI.PLUIRR",
+      "subtema": "Irregular plurals",
+      "habilidade_bncc": null,
+      "ferramenta": "transformar",
+      "regra": "Mudam <b>por dentro</b>: man → men · foot → feet · tooth → teeth<br>Trocam o <b>final</b>: knife → knives · city → cities<br><b>Não mudam</b>: sheep → sheep · fish → fish",
+      "aula": {
+        "corpo": "<p>A maioria dos plurais em inglês só ganha <b>-s</b>. Os irregulares são poucos — e justamente por isso caem sempre. Vale reconhecer os <mark>três grupos</mark>, em vez de decorar uma lista solta.</p>\n  <div class=\"lesson-box\"><strong>Grupo 1 — mudam por dentro</strong><br>man → men · woman → women · foot → feet · tooth → teeth · mouse → mice · child → children<br><strong>Grupo 2 — trocam o final</strong><br>knife → kni<b>ves</b> · leaf → lea<b>ves</b> · city → cit<b>ies</b><br><strong>Grupo 3 — não mudam nada</strong><br>sheep → sheep · fish → fish · deer → deer</div>\n  <p>O erro mais comum é aplicar a regra normal onde ela não vale: escrever <i>childs</i>, <i>tooths</i> ou <i>sheeps</i>. Se a palavra está num dos três grupos, o -s simples está errado.</p>\n  <h3>Hora de mexer · Singular vira plural</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Palavras terminadas em <b>-f</b> ou <b>-fe</b> quase sempre viram <b>-ves</b>: knife → knives, leaf → leaves, wolf → wolves.</div>"
+      },
+      "questoes": [
+        {
+          "questao_id": "ING.CLI.PLUIRR.Q1",
+          "enunciado": "There are three _____ in the kitchen drawer. <i>(knife)</i>",
+          "figura": null,
+          "alternativas": [
+            "knifes",
+            "knives",
+            "knifs",
+            "knive"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Palavra terminada em -fe troca o final por -ves.",
+          "explicacao": "Knife termina em -fe, então o plural troca o final: <b>knives</b>. \"Knifes\" aplica a regra normal, que aqui não vale."
+        },
+        {
+          "questao_id": "ING.CLI.PLUIRR.Q2",
+          "enunciado": "The farmer counted twenty _____ in the field. <i>(sheep)</i>",
+          "figura": null,
+          "alternativas": [
+            "sheeps",
+            "sheepes",
+            "sheepen",
+            "sheep"
+          ],
+          "correta": 3,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Alguns animais têm plural igual ao singular.",
+          "explicacao": "Sheep é do grupo que não muda: um sheep, vinte <b>sheep</b>. O número na frente já mostra que é plural."
+        },
+        {
+          "questao_id": "ING.CLI.PLUIRR.Q3",
+          "enunciado": "Which plural is <mark>wrong</mark>?",
+          "figura": null,
+          "alternativas": [
+            "children",
+            "mice",
+            "tooths",
+            "women"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Cuidado: a pergunta quer o ERRADO, não o certo.",
+          "explicacao": "O plural de tooth é <b>teeth</b>, não \"tooths\" — é do grupo que muda por dentro. Children, mice e women estão corretos."
+        }
+      ],
+      "dados": {
+        "instrucao": "Toque na palavra para vê-la virar plural",
+        "palavras": [
+          { "formas": ["child", "children"], "rotulos": ["singular", "plural"], "nota": "muda por dentro" },
+          { "formas": ["foot", "feet"], "rotulos": ["singular", "plural"], "nota": "muda por dentro" },
+          { "formas": ["tooth", "teeth"], "rotulos": ["singular", "plural"], "nota": "muda por dentro" },
+          { "formas": ["knife", "knives"], "rotulos": ["singular", "plural"], "nota": "-fe vira -ves" },
+          { "formas": ["city", "cities"], "rotulos": ["singular", "plural"], "nota": "-y vira -ies" },
+          { "formas": ["sheep", "sheep"], "rotulos": ["singular", "plural"], "nota": "não muda nada" }
+        ]
+      }
+    }
+  ]
+}

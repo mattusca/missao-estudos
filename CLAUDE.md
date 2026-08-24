@@ -88,7 +88,13 @@ se uma URL real de implantação aparecer em arquivo versionado.
 Alinhados aos eixos da BNCC, para comparar entre anos escolares.
 `MAT.NUM.DEC` · `MAT.NUM.FRA` · `MAT.NUM.MUL10` · `MAT.NUM.OPDEC` ·
 `MAT.GEO.AREAPER` · `MAT.PROB.SIMPLES` · `MAT.EST.GRAF`
+`ING.CLI.PLUIRR` · `ING.CLI.MODAL` · `ING.CLI.CONT` · `ING.CLI.COMPSUP` ·
+`ING.ESC.CONECT` · `ING.ESC.NARR` · `ING.LEI.INTERP`
 Futuros: `POR.LEI.INTERP`, `CIE.VID.ECOSS`.
+
+**BNCC de Língua Inglesa só existe a partir do 6º ano.** Os temas `ING.*` de Y5 ficam
+com `habilidade_bncc: null` — campo vazio é honesto, código inventado vira conversa
+errada com a escola.
 
 **Regra dura:** `tema_id` nunca codifica dificuldade nem ano escolar. Se codificar, o tema
 deixa de ser comparável quando reaparece numa série seguinte.
@@ -202,7 +208,10 @@ Preview local: `node scripts/preview-dash.mjs [pasta] --servir` (saída nunca em
       no secret `SHEET_URL` do repositório. Enquanto isso, o app roda em fila local
       + botão "Copiar resultados", e o dashboard não tem de onde ler.
 - [x] Publicação por GitHub Action com o segredo — feito; `docs/` saiu do versionamento.
-- [ ] Ferramentas ainda vivem no motor e ainda embutem conteúdo de prova
+- [ ] Ferramentas de língua (`conector`, `destacar`, `montar`, `transformar`) já
+      nascem parametrizadas por `missao.dados`: a próxima prova de língua não deve
+      precisar tocar no motor. Se precisar, o dado é que faltou generalidade.
+- [ ] Ferramentas de matemática ainda vivem no motor e ainda embutem conteúdo de prova
       (`3,472` em `valor`, a sacola 3/5/2 em `prob`, os exemplos de `contas`).
       Só `grafico` já lê os dados da missão. Parametrizar as outras.
 - [x] Telemetria por questão — feito, 28 campos, uma linha por questão respondida.

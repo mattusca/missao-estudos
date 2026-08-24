@@ -68,5 +68,75 @@
     "habilidade_bncc": "EF05MA25",
     "nivel_conteudo": "Y5",
     "bncc_conferida": false
+  },
+  {
+    "tema_id": "ING.ESC.CONECT",
+    "materia": "Language Arts",
+    "eixo": "Escrita",
+    "tema": "Conectores que ligam ideias",
+    "subtema": "Transitional words: however, therefore, in addition to, as well as",
+    "habilidade_bncc": null,
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "ING.LEI.INTERP",
+    "materia": "Language Arts",
+    "eixo": "Leitura",
+    "tema": "Compreensao de texto",
+    "subtema": "Reading comprehension: ideia principal, detalhe e inferencia",
+    "habilidade_bncc": null,
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "ING.ESC.NARR",
+    "materia": "Language Arts",
+    "eixo": "Escrita",
+    "tema": "Como se constroi uma narrativa",
+    "subtema": "Writing narrative: sequencia, abertura, show vs tell",
+    "habilidade_bncc": null,
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "ING.CLI.COMPSUP",
+    "materia": "Language Arts",
+    "eixo": "Conhecimentos Linguisticos",
+    "tema": "Comparar e destacar",
+    "subtema": "Comparative and superlative adjectives",
+    "habilidade_bncc": null,
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "ING.CLI.CONT",
+    "materia": "Language Arts",
+    "eixo": "Conhecimentos Linguisticos",
+    "tema": "Acao em andamento",
+    "subtema": "Present and Past Continuous",
+    "habilidade_bncc": null,
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "ING.CLI.MODAL",
+    "materia": "Language Arts",
+    "eixo": "Conhecimentos Linguisticos",
+    "tema": "Grau de obrigacao",
+    "subtema": "Modals of necessity: should, have to, must",
+    "habilidade_bncc": null,
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "ING.CLI.PLUIRR",
+    "materia": "Language Arts",
+    "eixo": "Conhecimentos Linguisticos",
+    "tema": "Plurais que fogem da regra",
+    "subtema": "Irregular plurals",
+    "habilidade_bncc": null,
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
   }
 ]

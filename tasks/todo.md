@@ -1,5 +1,12 @@
 # Pendências
 
+## Prova de Language Arts (26/08)
+- [ ] Marco: testar a prova antes de a Alícia usar (25/08).
+      https://mattusca.github.io/missao-estudos/2026-08-language-arts-y5.html
+      **Escolher "Marco (teste)" na tela de identidade** — teste de adulto gravado
+      no nome dela envenena a calibragem.
+- [ ] Conferir com o roteiro se algum tópico ficou de fora ou fora de foco.
+
 ## Antes de considerar o circuito fechado
 - [ ] Marco: rodar o roteiro de teste manual (abaixo) no aparelho da Alícia.
 - [ ] Implantar `apps-script/enviar.gs` + `dashboard.html` (DUAS implantações,
