@@ -140,6 +140,10 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
 .stepdots i{width:26px;height:5px;border-radius:3px;background:var(--line);display:block;}
 .stepdots i.on{background:var(--mint);}
 .lesson-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:22px;}
+/* quem está estudando: informação de rodapé, não elemento de jogo */
+.quemlinha{font-size:.85rem;color:var(--ink-soft);margin:16px 0 0;display:flex;
+  align-items:center;gap:8px;flex-wrap:wrap;}
+.quemlinha .btn{font-size:.75rem;padding:4px 11px;}
 /* saída para o mapa: discreta de propósito, para ser porta e não convite */
 .navtop{margin:-4px 0 10px;}
 .navtop .btn{font-size:.82rem;padding:6px 13px;}
@@ -185,7 +189,16 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
     <h1 id="mapTitle"></h1>
     <p class="muted" id="mapIntro"></p>
     <div class="mods" id="modList"></div>
+    <p class="quemlinha" id="quemLinha"></p>
     <div class="rowend"><span class="muted" id="resumeNote"></span><button class="btn ghost small hidden" id="resetBtn">Recomeçar tudo</button></div>
+  </section>
+
+  <!-- QUEM ESTÁ ESTUDANDO -->
+  <section id="quemEstuda" class="card hidden">
+    <p class="eyebrow" id="quemEyebrow"></p>
+    <h1>Quem está estudando?</h1>
+    <p class="muted">Fica guardado neste aparelho — você só escolhe uma vez.</p>
+    <div class="mods" id="listaAlunas"></div>
   </section>
 
   <!-- AULA -->
@@ -553,7 +566,23 @@ function ferramentaInit(m){
    ================================================================== */
 const SHEET_URL = '__SHEET_URL__';
 const TEM_URL   = !!SHEET_URL && !SHEET_URL.startsWith('__');
-const ALUNA     = PROVA.aluna || 'Alicia';
+/* ---------- quem está estudando ----------
+   A coluna `aluna` decide de quem é o dado. Errar isso não é detalhe estético:
+   um adulto testando responde rápido demais e acerta demais, e essas duas
+   coisas são exatamente as métricas da tabela de calibragem. Um teste gravado
+   como se fosse ela envenena a decisão da próxima prova.
+
+   A escolha é por APARELHO, não por prova: o tablet dela é dela em toda prova
+   futura. Por isso a chave não leva o prova_id. */
+const ALUNAS    = (Array.isArray(PROVA.alunas) && PROVA.alunas.length) ? PROVA.alunas : ['Aluna'];
+const KEY_ALUNA = 'missao_aluna_v1';
+let alunaMem    = '';
+function lerAluna(){ try{ return localStorage.getItem(KEY_ALUNA)||alunaMem; }catch(e){ return alunaMem; } }
+function gravarAluna(n){ alunaMem=n; try{ localStorage.setItem(KEY_ALUNA,n); }catch(e){} }
+/* Nome guardado que não está nesta prova (prova de outra filha, nome renomeado)
+   volta a perguntar, em vez de gravar linha no nome errado. */
+function alunaEscolhida(){ const a=lerAluna(); return !!a && ALUNAS.includes(a); }
+function alunaAtual(){ return alunaEscolhida() ? lerAluna() : ALUNAS[0]; }
 /* Fila por prova: duas provas na mesma origem não disputam a chave. */
 const FILA      = `missao_fila_${PROVA.prova_id}_v2`;
 let linhas = [];                // o que foi gerado nesta aba
@@ -583,7 +612,15 @@ async function esvaziarFila(){
   for(const r of f){await enviarLinha(r);}
 }
 function copiarResultados(){
-  const base=[...lerFila(),...linhas];
+  /* Sem SHEET_URL cada linha vai para os dois lugares: a fila do localStorage
+     e a lista desta aba. Sem deduplicar, tudo que foi respondido depois da
+     última recarga sairia em dobro. A chave é o evento_id. */
+  const vistos=new Set(), base=[];
+  for(const r of [...lerFila(),...linhas]){
+    const k=r.evento_id||JSON.stringify(r);
+    if(vistos.has(k))continue;
+    vistos.add(k); base.push(r);
+  }
   if(!base.length)return alert('Nada para copiar ainda.');
   const tsv=[COLUNAS.join('\t'),...base.map(r=>COLUNAS.map(c=>{
     const v=r[c]; return Array.isArray(v)?v.join(' | '):(typeof v==='boolean'?(v?'sim':'nao'):(v??''));
@@ -629,7 +666,7 @@ function registrarQuestao(m,q,resultado){
     evento_id:`${sessaoId()}-${String(S.posicao).padStart(3,'0')}`,
     sessao_id:sessaoId(),
     timestamp:new Date(fim).toISOString(),
-    aluna:ALUNA,
+    aluna:alunaAtual(),
     materia:PROVA.materia, eixo:m.eixo, tema_id:m.tema_id, subtema:m.subtema,
     questao_id:q.questao_id, habilidade_bncc:m.habilidade_bncc,
     escola:PROVA.escola, ano_aluna:PROVA.ano_aluna, nivel_conteudo:PROVA.nivel_conteudo,
@@ -706,7 +743,20 @@ function applyFocus(){
   el('focusBtn').textContent=S.focus?'🎯 Foco ligado':'🎯 Modo foco';
 }
 
-function show(id){['map','lesson','quiz','moduleDone','final'].forEach(s=>el(s).classList.add('hidden'));el(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+function show(id){['map','quemEstuda','lesson','quiz','moduleDone','final'].forEach(s=>el(s).classList.add('hidden'));el(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+
+/* Tela de escolha: só aparece quando ninguém foi escolhido neste aparelho,
+   ou quando o nome guardado não serve para esta prova. Depois disso ela some
+   para sempre e vira uma linha de rodapé no mapa. */
+function pedirAluna(depois){
+  el('quemEyebrow').textContent=`${PROVA.ano_aluna} · ${PROVA.materia}`;
+  el('listaAlunas').innerHTML=ALUNAS.map((n,i)=>
+    `<button class="mod" data-n="${i}"><span class="ic">${/teste/i.test(n)?'🧪':'👋'}</span>
+      <span><span class="tt">${n}</span></span></button>`).join('');
+  document.querySelectorAll('#listaAlunas .mod').forEach(b=>
+    b.onclick=()=>{gravarAluna(ALUNAS[+b.dataset.n]);depois();});
+  show('quemEstuda');
+}
 
 /* uma missão abre quando a anterior da lista atual estiver concluída */
 function isOpen(i){return i===0 || !!S.done[missoes[i-1]?.missao_id];}
@@ -740,11 +790,15 @@ function drawMap(){
       <span class="ic">${open?m.icone:'🔒'}</span>
       <span><span class="tt">${i+1}. ${m.titulo}</span><br><span class="st">${open?m.subtitulo:'Complete a missão anterior para abrir'}</span></span>
       <span class="badge">${done||''}</span></button>`;}).join('');
-  document.querySelectorAll('.mod').forEach(b=>b.onclick=()=>openModule(+b.dataset.i));
+  // escopado ao mapa: a tela de escolha de aluna também usa .mod
+  document.querySelectorAll('#modList .mod').forEach(b=>b.onclick=()=>openModule(+b.dataset.i));
   const allDone=missoes.every(m=>S.done[m.missao_id]);
   el('resetBtn').classList.toggle('hidden',S.xp===0);
   el('resumeNote').textContent = allDone ? 'Todas as missões concluídas! Você pode refazer qualquer uma.' :
     (S.xp>0?'Seu progresso fica salvo automaticamente.':'');
+  el('quemLinha').innerHTML=`Estudando como <b>${alunaAtual()}</b>`+
+    `<button class="btn ghost small" id="trocarAluna">trocar</button>`;
+  el('trocarAluna').onclick=()=>pedirAluna(()=>drawMap());
   show('map');
 }
 
@@ -973,16 +1027,28 @@ function confetti(n){
 /* ---------- retomar de onde parou ---------- */
 (async()=>{
   rotulos();
+  const s=await store.load();
+  let carregado=false;
+  if(s&&typeof s.xp==='number'){
+    S={...S,...s};S.retomou=true;
+    // retoma pelo missao_id, nunca pelo índice: a ordem das missões muda entre provas
+    if(S.modId){const k=missoes.findIndex(x=>x.missao_id===S.modId);if(k>=0)S.mod=k;else S.screen='map';}
+    else if(S.screen!=='map')S.screen='map';
+    carregado=true;
+  }
+  hud();applyFocus();
+  /* Identificar quem está estudando vem antes de qualquer coisa: uma linha
+     gravada no nome errado é pior que linha nenhuma. */
+  if(!alunaEscolhida()){ pedirAluna(()=>{esvaziarFila();entrarNoMapa(carregado);}); return; }
   /* A fila é drenada em toda abertura, inclusive quando ela está retomando.
      Antes só esvaziava no começo do zero, e uma sessão retomada segurava as
      linhas indefinidamente. */
   esvaziarFila();
-  const s=await store.load();
-  if(s&&typeof s.xp==='number'){
-    S={...S,...s};S.retomou=true;hud();applyFocus();
-    // retoma pelo missao_id, nunca pelo índice: a ordem das missões muda entre provas
-    if(S.modId){const k=missoes.findIndex(x=>x.missao_id===S.modId);if(k>=0)S.mod=k;else S.screen='map';}
-    else if(S.screen!=='map')S.screen='map';
+  entrarNoMapa(carregado);
+})();
+
+function entrarNoMapa(carregado){
+  if(carregado){
     if(missoes.every(x=>S.done[x.missao_id])){drawMap();return;}
     /* Parou no meio de uma missão? O parcial é descartado — ela recomeça pela
        aula. XP, medalhas e modo foco continuam sobrevivendo a fechar a aba;
@@ -995,8 +1061,8 @@ function confetti(n){
     }
     descartarParcial();
   }
-  hud();applyFocus();drawMap();
-})();
+  drawMap();
+}
 </script>
 </body>
 </html>

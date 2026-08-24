@@ -40,8 +40,13 @@ for (const [n, linha] of motor.split('\n').entries()) {
 }
 
 // metadados que viram coluna na planilha: se faltar um, a linha nasce torta
-for (const campo of ['prova_id','titulo','materia','aluna','escola','ano_aluna','nivel_conteudo','bimestre','contexto'])
+for (const campo of ['prova_id','titulo','materia','escola','ano_aluna','nivel_conteudo','bimestre','contexto'])
   if (!prova[campo]) erros.push(`metadado obrigatório ausente: ${campo}`);
+// quem pode estar usando este artefato — vira a coluna `aluna` de cada linha
+if (!Array.isArray(prova.alunas) || !prova.alunas.length)
+  erros.push('`alunas` precisa ser uma lista com ao menos um nome');
+else if (new Set(prova.alunas).size !== prova.alunas.length)
+  erros.push('`alunas` tem nome repetido — viraria duas pessoas diferentes no log');
 if (prova.contexto && !['prova','revisao_espacada','treino_livre'].includes(prova.contexto))
   erros.push(`contexto inválido: ${prova.contexto}`);
 for (const m of prova.missoes) {

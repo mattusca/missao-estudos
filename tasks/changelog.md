@@ -44,3 +44,18 @@ jornada completa com as 28 colunas batendo com as do Apps Script.
 
 **Não verificado por mim**: gravação real na planilha (depende da implantação
 do Apps Script) e comportamento no aparelho da Alícia.
+
+## 2026-08-24 — Correções e identidade do usuário
+
+- **fix**: `isOpen()` lia `missoes[i-1].id`, campo extinto na etapa 1. Nenhuma missão
+  destravava depois da primeira. `build.mjs` passa a recusar vocabulário extinto.
+- **fix**: "Copiar resultados" duplicava tudo que foi respondido depois da última
+  recarga — cada linha vive na fila E na lista da aba. Agora deduplica por `evento_id`.
+  O envio à planilha nunca teve esse problema.
+- **feat**: sair da missão pelo mapa, descartando o parcial. XP e telemetria ficam.
+- **feat**: `prova.alunas` (lista) substitui `prova.aluna`. O motor pergunta uma vez
+  por aparelho quem está estudando e grava na coluna `aluna`. Motivo: teste de adulto
+  gravado no nome dela envenena a calibragem — responde rápido demais e acerta demais.
+- Planilha criada no Drive: "Missão Estudos — log de questões", em
+  01. Família & Pessoas › 04. Alícia › Educação. Nome neutro porque a recomendação é
+  **uma base para as duas filhas**, separadas pela coluna `aluna`.

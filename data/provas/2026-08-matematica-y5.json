@@ -2,7 +2,10 @@
   "prova_id": "2026-08-MAT-Y5",
   "titulo": "Missão Matemática — revisão prova 24/08",
   "materia": "Matemática",
-  "aluna": "Alicia",
+  "alunas": [
+    "Alicia",
+    "Marco (teste)"
+  ],
   "escola": "Pueri Domus",
   "ano_aluna": "Y5",
   "nivel_conteudo": "Y5",

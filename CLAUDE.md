@@ -87,6 +87,15 @@ deixa de ser comparável quando reaparece numa série seguinte.
 `questao_id` = `<tema_id>.Q<n>` e é **estável entre provas**. É ele que permite medir retenção
 quando a mesma questão reaparece semanas depois.
 
+### Quem está estudando
+`prova.alunas` é uma lista (`["Alicia", "Marco (teste)"]`). O motor pergunta uma vez
+por aparelho, guarda em `localStorage` (chave sem `prova_id`: o tablet dela é dela em
+toda prova) e grava o escolhido na coluna `aluna` de cada linha.
+
+**Toda prova precisa de uma opção de teste.** Adulto testando responde rápido demais e
+acerta demais — as duas métricas da tabela da seção 2. Teste gravado no nome dela
+envenena a calibragem da prova seguinte.
+
 ### Campos de contexto
 - `ano_aluna` (em que ano ela está) e `nivel_conteudo` (para que ano o conteúdo foi feito)
   são **campos separados**. Iguais hoje; deixam de ser quando ela revisar Y5 já no Y6.
@@ -141,8 +150,12 @@ Envio: `fetch` com `mode:'no-cors'` para o Apps Script. Falha ou ausência de UR
   fallback de sistema.
 - **Persistência em cascata:** `window.storage` → `localStorage` → memória. Nunca assumir que
   uma delas existe.
-- **Retomada obrigatória.** Toda alteração de estado precisa sobreviver a fechar a aba.
-  Gravar `modId` (nome), não índice — a ordem das missões muda.
+- **Retomada obrigatória.** XP, medalhas, sequência e modo foco precisam sobreviver a
+  fechar a aba. Gravar `modId` (nome), não índice — a ordem das missões muda.
+  **Exceção deliberada:** a posição dentro de uma missão inacabada não sobrevive. Uma
+  missão só conta quando termina; sair pela metade (pelo botão ou fechando a aba) faz
+  ela recomeçar pela aula. O XP já ganho fica, e as linhas já emitidas nunca são
+  apagadas — são fatos do que aconteceu.
 - Hospedar em origem `https://` (GitHub Pages). `file://` bloqueia o envio à planilha.
 - O Drive **não serve HTML como página**: serve para insumos (fotos dos roteiros) e saídas
   (exports da planilha), não para hospedagem nem para o repositório Git.
