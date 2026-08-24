@@ -27,12 +27,27 @@ for (const m of prova.missoes) {
   if (!catalogo.find(t => t.tema_id === m.tema_id))
     erros.push(`tema_id fora do catálogo: ${m.tema_id}`);
   if (!m.ferramenta) erros.push(`missão sem ferramenta manipulável: ${m.missao_id}`);
+  // o cartão de regra é acomodação, não enfeite: sem texto ele some da tela
+  if (!m.regra || !String(m.regra).trim())
+    erros.push(`missão sem regra para o cartão fixo: ${m.missao_id}`);
   for (const q of m.questoes) {
     if (ids.has(q.questao_id)) erros.push(`questao_id duplicado: ${q.questao_id}`);
     ids.add(q.questao_id);
     if (q.correta == null || !q.alternativas[q.correta]) erros.push(`gabarito inválido: ${q.questao_id}`);
     if (!q.dica || !q.explicacao) erros.push(`sem dica ou explicação: ${q.questao_id}`);
     if (![1,2,3].includes(q.dificuldade)) erros.push(`dificuldade fora de 1-3: ${q.questao_id}`);
+    if (q.passos != null && (!Array.isArray(q.passos) || !q.passos.length))
+      erros.push(`passos vazios ou malformados: ${q.questao_id}`);
+    if (q.figura != null) {
+      const f = q.figura;
+      if (typeof f !== 'object') erros.push(`figura deve ser objeto tipado: ${q.questao_id}`);
+      else if (f.tipo === 'barras' && f.fonte === 'missao' && !m.dados?.serie?.length)
+        erros.push(`figura barras sem missao.dados.serie: ${q.questao_id}`);
+      else if (f.tipo === 'svg' && !f.conteudo)
+        erros.push(`figura svg sem conteúdo: ${q.questao_id}`);
+      else if (!['barras','svg'].includes(f.tipo))
+        erros.push(`tipo de figura desconhecido "${f.tipo}": ${q.questao_id}`);
+    }
   }
 }
 // gabarito não pode ter padrão decorável

@@ -98,6 +98,22 @@ Declarada na criação (1–3), nunca inferida do desempenho — senão não é 
 evolução, apenas que as questões ficaram fáceis.
 `tipo_raciocinio`: `procedimental` | `conceitual` | `multi-etapa` | `interpretacao`.
 
+### Campos de acomodação — obrigatórios, o build recusa sem eles
+- `missao.regra` (**obrigatório**): o texto do cartão de regra fixo. Aceita HTML simples.
+  Vazio = cartão vazio na tela, e cartão vazio conta como acomodação removida.
+- `questao.passos` (opcional): array de strings, uma etapa por item, para o andaime
+  "quebrar em partes". Vive **na questão**, ancorado no `questao_id` — nunca numa tabela
+  externa indexada por posição, porque a ordem das questões muda entre provas.
+
+### Figuras
+`questao.figura` é `null` ou um objeto tipado. O motor é dono da moldura (`<figure>`,
+legenda); o JSON é dono do conteúdo.
+- `{tipo:'barras', fonte:'missao'}` — renderiza `missao.dados.serie` como gráfico de barras.
+  A série vive **na missão**, não na questão: a ferramenta manipulável e as questões daquela
+  missão leem o mesmo array, então não há como um número mudar num lugar e não no outro.
+- `{tipo:'svg', conteudo:'<svg…>', legenda:'…'}` — desenho avulso, para figuras que nenhum
+  renderizador genérico resolveria (ex.: retângulo com canto recortado).
+
 ---
 
 ## 5. Telemetria — uma linha por questão
