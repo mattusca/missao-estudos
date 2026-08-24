@@ -130,3 +130,21 @@ linhas de 28 colunas, `bncc: null` e `escola: PD`.
 
 **BNCC** — Língua Inglesa só existe na BNCC a partir do 6º ano. Os 7 temas `ING.*`
 entram com `habilidade_bncc: null`, não com código inventado.
+
+## 2026-08-24 — Identidade primeiro, progresso por pessoa
+
+- **feat**: "Quem está estudando?" passa a ser a primeira tela de toda sessão, não
+  só da estreia do aparelho. Com Marco e Fernanda testando no mesmo tablet da
+  Alícia, perguntar uma vez gravaria linha no nome errado. O último nome escolhido
+  vem marcado ("última vez"), então o caminho de sempre continua custando um toque.
+- **fix**: progresso era por prova e por APARELHO — `missao_progresso_<prova>_v2`.
+  Os três dividiam o mesmo XP, medalhas e mapa. Um teste de adulto entregaria à
+  Alícia o jogo já ganho: 7 medalhas e o mapa inteiro aberto antes de ela começar.
+  A chave passa a incluir a pessoa e virou função, porque só pode ser resolvida
+  depois da escolha. Trocar de pessoa recarrega o estado dela, não só redesenha o mapa.
+- **fix**: o HUD aparecia sobre a tela de escolha mostrando "Nível 1 · 0 XP" —
+  placar de ninguém, que ainda mudava sozinho quando o progresso carregava.
+
+**Verificado no navegador** — Marco joga a missão 1 (480 XP, 1 medalha); Alícia abre
+e encontra 0 XP, nenhuma medalha e 6 de 7 travadas; voltando ao Marco, os 480 XP e a
+missão 2 aberta reaparecem. Duas chaves separadas no localStorage. Nas duas provas.

@@ -103,9 +103,15 @@ deixa de ser comparável quando reaparece numa série seguinte.
 quando a mesma questão reaparece semanas depois.
 
 ### Quem está estudando
-`prova.alunas` é uma lista (`["Alicia", "Marco (teste)"]`). O motor pergunta uma vez
-por aparelho, guarda em `localStorage` (chave sem `prova_id`: o tablet dela é dela em
-toda prova) e grava o escolhido na coluna `aluna` de cada linha.
+`prova.alunas` é uma lista (`["Alicia", "Marco (teste)", "Fernanda (teste)"]`).
+A tela "Quem está estudando?" é a **primeira de toda sessão**, não só da estreia do
+aparelho: o tablet é dividido entre ela e quem testa. O último nome vem marcado, para
+o caminho de sempre custar um toque. O escolhido vai para a coluna `aluna` de cada linha.
+
+**O progresso é por prova E por pessoa** — `missao_progresso_<prova_id>_<aluna>_v2`.
+Sem isso, um teste de adulto entrega à Alícia um mapa já fechado, com todas as medalhas
+e o XP cheio: o jogo ganho antes de ela começar. O HUD (nível, XP, medalhas) fica
+escondido enquanto ninguém foi escolhido — é o placar de uma pessoa, não do aparelho.
 
 **Toda prova precisa de uma opção de teste.** Adulto testando responde rápido demais e
 acerta demais — as duas métricas da tabela da seção 2. Teste gravado no nome dela

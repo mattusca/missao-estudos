@@ -82,6 +82,8 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
 .rtexto{margin-top:8px;padding-top:8px;border-top:1.5px dashed var(--line);font-weight:600;line-height:1.55;
   max-height:26vh;overflow-y:auto;}
 @media(max-width:560px){ .rtexto{max-height:17vh;font-size:.95rem;} }
+#listaAlunas .mod.ultimo{border-color:var(--mint);}
+.ultimoTag{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--mint);text-transform:uppercase;letter-spacing:.05em;}
 .tool{background:#fff;border:1.5px dashed var(--mint);border-radius:14px;padding:16px 14px;margin:14px 0;}
 .tool-hint{font-size:.85rem;color:var(--ink-soft);text-align:center;margin:10px 0 0;}
 .ctrls{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0;}
@@ -209,7 +211,7 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
   <section id="quemEstuda" class="card hidden">
     <p class="eyebrow" id="quemEyebrow"></p>
     <h1>Quem está estudando?</h1>
-    <p class="muted">Fica guardado neste aparelho — você só escolhe uma vez.</p>
+    <p class="muted">Cada uma tem o seu progresso. Toque no seu nome para continuar de onde parou.</p>
     <div class="mods" id="listaAlunas"></div>
   </section>
 
@@ -854,20 +856,24 @@ function registrarQuestao(m,q,resultado){
 }
 
 /* ============================ ESTADO E ARMAZENAMENTO ============================ */
-/* Progresso é por prova, não por aluna: senão a revisão de português herdaria
-   as medalhas da de matemática. */
-const KEY=`missao_progresso_${PROVA.prova_id}_v2`;
-let mem=null;
+/* Progresso é por prova E por pessoa.
+   Por prova, senão a revisão de português herdaria as medalhas da de matemática.
+   Por pessoa porque o tablet é compartilhado: sem isso, um teste de adulto
+   entrega à Alícia um mapa já fechado, com todas as medalhas e o XP cheio — o
+   jogo ganho antes de ela começar. Por isso a chave só existe depois que
+   alguém foi escolhido, e é função, não constante. */
+const KEY=()=>`missao_progresso_${PROVA.prova_id}_${alunaAtual()}_v2`;
+let mem={};
 const store={
-  async save(s){const raw=JSON.stringify(s);
-    try{if(window.storage?.set){await window.storage.set(KEY,raw);return;}}catch(e){}
-    try{localStorage.setItem(KEY,raw);return;}catch(e){} mem=raw;},
-  async load(){
-    try{if(window.storage?.get){const r=await window.storage.get(KEY);if(r?.value)return JSON.parse(r.value);}}catch(e){}
-    try{const r=localStorage.getItem(KEY);if(r)return JSON.parse(r);}catch(e){}
-    try{return mem?JSON.parse(mem):null;}catch(e){return null;}},
-  async clear(){try{if(window.storage?.delete)await window.storage.delete(KEY);}catch(e){}
-    try{localStorage.removeItem(KEY);}catch(e){} mem=null;}
+  async save(s){const raw=JSON.stringify(s),k=KEY();
+    try{if(window.storage?.set){await window.storage.set(k,raw);return;}}catch(e){}
+    try{localStorage.setItem(k,raw);return;}catch(e){} mem[k]=raw;},
+  async load(){const k=KEY();
+    try{if(window.storage?.get){const r=await window.storage.get(k);if(r?.value)return JSON.parse(r.value);}}catch(e){}
+    try{const r=localStorage.getItem(k);if(r)return JSON.parse(r);}catch(e){}
+    try{return mem[k]?JSON.parse(mem[k]):null;}catch(e){return null;}},
+  async clear(){const k=KEY();try{if(window.storage?.delete)await window.storage.delete(k);}catch(e){}
+    try{localStorage.removeItem(k);}catch(e){} delete mem[k];}
 };
 
 let S={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false,errors:[],unlocked:1,focus:false,shield:true};
@@ -911,16 +917,23 @@ function applyFocus(){
   el('focusBtn').textContent=S.focus?'🎯 Foco ligado':'🎯 Modo foco';
 }
 
-function show(id){['map','quemEstuda','lesson','quiz','moduleDone','final'].forEach(s=>el(s).classList.add('hidden'));el(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+function show(id){['map','quemEstuda','lesson','quiz','moduleDone','final'].forEach(s=>el(s).classList.add('hidden'));el(id).classList.remove('hidden');
+  /* O HUD some enquanto ninguém foi escolhido: XP, nível e medalhas pertencem a
+     uma pessoa, e mostrar "Nível 1 · 0 XP" antes da escolha exibe o placar de
+     ninguém — que ainda por cima muda sozinho assim que o progresso carrega. */
+  el('hud').classList.toggle('hidden', id==='quemEstuda');
+  window.scrollTo({top:0,behavior:'smooth'});}
 
-/* Tela de escolha: só aparece quando ninguém foi escolhido neste aparelho,
-   ou quando o nome guardado não serve para esta prova. Depois disso ela some
-   para sempre e vira uma linha de rodapé no mapa. */
+/* Primeira tela de toda sessão. O tablet é dividido entre a Alícia e quem
+   testa, então perguntar uma vez só gravaria linha no nome errado e entregaria
+   a ela o progresso de outra pessoa. O último nome escolhido vem marcado, para
+   o caminho de sempre custar um toque. */
 function pedirAluna(depois){
+  const ultimo=lerAluna();
   el('quemEyebrow').textContent=`${PROVA.ano_aluna} · ${PROVA.materia}`;
   el('listaAlunas').innerHTML=ALUNAS.map((n,i)=>
-    `<button class="mod" data-n="${i}"><span class="ic">${/teste/i.test(n)?'🧪':'👋'}</span>
-      <span><span class="tt">${n}</span></span></button>`).join('');
+    `<button class="mod${n===ultimo?' ultimo':''}" data-n="${i}"><span class="ic">${/teste/i.test(n)?'🧪':'👋'}</span>
+      <span><span class="tt">${n}</span></span>${n===ultimo?'<span class="ultimoTag">última vez</span>':''}</button>`).join('');
   document.querySelectorAll('#listaAlunas .mod').forEach(b=>
     b.onclick=()=>{gravarAluna(ALUNAS[+b.dataset.n]);depois();});
   show('quemEstuda');
@@ -966,7 +979,7 @@ function drawMap(){
     (S.xp>0?'Seu progresso fica salvo automaticamente.':'');
   el('quemLinha').innerHTML=`Estudando como <b>${alunaAtual()}</b>`+
     `<button class="btn ghost small" id="trocarAluna">trocar</button>`;
-  el('trocarAluna').onclick=()=>pedirAluna(()=>drawMap());
+  el('trocarAluna').onclick=()=>pedirAluna(carregarEEntrar);
   show('map');
 }
 
@@ -1197,8 +1210,11 @@ function confetti(n){
 }
 
 /* ---------- retomar de onde parou ---------- */
-(async()=>{
-  rotulos();
+const PADRAO={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false,errors:[],unlocked:1,focus:false,shield:true};
+
+/* Carrega o progresso DA PESSOA escolhida e entra no mapa. */
+async function carregarEEntrar(){
+  S={...PADRAO};
   const s=await store.load();
   let carregado=false;
   if(s&&typeof s.xp==='number'){
@@ -1209,14 +1225,22 @@ function confetti(n){
     carregado=true;
   }
   hud();applyFocus();
-  /* Identificar quem está estudando vem antes de qualquer coisa: uma linha
-     gravada no nome errado é pior que linha nenhuma. */
-  if(!alunaEscolhida()){ pedirAluna(()=>{esvaziarFila();entrarNoMapa(carregado);}); return; }
   /* A fila é drenada em toda abertura, inclusive quando ela está retomando.
      Antes só esvaziava no começo do zero, e uma sessão retomada segurava as
      linhas indefinidamente. */
   esvaziarFila();
   entrarNoMapa(carregado);
+}
+
+(async()=>{
+  rotulos();
+  applyFocus();
+  /* Quem está estudando é SEMPRE a primeira tela, não só na estreia do
+     aparelho: o tablet é dividido entre a Alícia e quem testa. Perguntar uma
+     vez só significaria gravar linha no nome errado — e, pior, entregar a ela
+     o progresso de outra pessoa. O progresso só pode ser lido depois daqui,
+     porque a chave depende de quem respondeu. */
+  pedirAluna(carregarEEntrar);
 })();
 
 function entrarNoMapa(carregado){
