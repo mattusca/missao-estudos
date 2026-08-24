@@ -107,6 +107,24 @@ fs.mkdirSync('docs', { recursive: true });
 const dest = path.join('docs', provaId + '.html');
 fs.writeFileSync(dest, out);
 
+/* O Pages serve isto abertamente e a página fala o nome de uma criança.
+   Quem tem o link acessa; buscador não indexa. Gerado aqui e não mantido à mão
+   porque docs/ é saída de build, não pasta de trabalho. */
+fs.writeFileSync(path.join('docs', 'robots.txt'), 'User-agent: *\nDisallow: /\n');
+
+/* Índice das provas geradas, para a raiz do Pages não ser um 404. */
+const publicadas = fs.readdirSync('docs').filter(f => f.endsWith('.html') && f !== 'index.html').sort();
+fs.writeFileSync(path.join('docs', 'index.html'),
+  `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Missão Estudos</title>
+<style>body{font-family:system-ui,sans-serif;max-width:640px;margin:60px auto;padding:0 20px;color:#17324a;line-height:1.6}
+a{color:#2fae94}li{margin:6px 0}</style></head><body>
+<h1>Missão Estudos</h1><p>Revisões publicadas:</p><ul>
+${publicadas.map(f => `<li><a href="${f}">${f.replace('.html', '')}</a></li>`).join('\n')}
+</ul></body></html>\n`);
+
 console.log(`OK  ${dest}`);
 console.log(`    ${prova.missoes.length} missões · ${total} questões · gabarito A/B/C/D = ${dist.join('/')}`);
 console.log(`    dificuldade média ${(prova.missoes.flatMap(m=>m.questoes).reduce((a,q)=>a+q.dificuldade,0)/total).toFixed(2)}`);
