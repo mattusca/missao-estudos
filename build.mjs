@@ -49,30 +49,144 @@ else if (new Set(prova.alunas).size !== prova.alunas.length)
   erros.push('`alunas` tem nome repetido — viraria duas pessoas diferentes no log');
 if (prova.contexto && !['prova','revisao_espacada','treino_livre'].includes(prova.contexto))
   erros.push(`contexto inválido: ${prova.contexto}`);
+/* ---------- banco emprestado de outra prova ----------
+   `banco_de` faz a revisão APONTAR para o banco da prova original em vez de
+   copiar as questões para dentro do JSON dela. Duas cópias divergem, e a que
+   estiver errada é sempre a que a aluna vê; assim, melhorar uma questão no
+   banco original propaga para a revisão no próximo build.
+
+   O carimbo de tema/eixo/subtema/BNCC vem da MISSÃO DE ORIGEM e viaja com a
+   questão: fora do bloco dela, é o único jeito de a linha da planilha continuar
+   dizendo a verdade sobre o que foi praticado. */
+const bancoOrigem = new Map();   // bastidor do resumo, fora do JSON injetado
+const porProvaId = f => {
+  const caminho = 'data/provas/' + f + '.json';
+  if (fs.existsSync(caminho)) return caminho;
+  for (const arq of fs.readdirSync('data/provas')) {
+    try { if (JSON.parse(fs.readFileSync('data/provas/' + arq, 'utf8')).prova_id === f) return 'data/provas/' + arq; }
+    catch (e) { /* prova quebrada é problema do build dela */ }
+  }
+  return null;
+};
 for (const m of prova.missoes) {
-  if (!catalogo.find(t => t.tema_id === m.tema_id))
+  if (m.banco_de == null) continue;
+  const ref = m.banco_de;
+  if (!ref.prova || !Array.isArray(ref.temas) || !ref.temas.length) {
+    erros.push(`banco_de malformado em ${m.missao_id}: precisa de "prova" e de uma lista "temas"`);
+    continue;
+  }
+  const caminho = porProvaId(ref.prova);
+  if (!caminho) {
+    erros.push(`banco_de em ${m.missao_id}: não achei a prova "${ref.prova}" (nem como arquivo nem como prova_id em data/provas)`);
+    continue;
+  }
+  const origem = JSON.parse(fs.readFileSync(caminho, 'utf8'));
+  const emprestadas = [];
+  for (const tema of ref.temas) {
+    const mo = (origem.missoes || []).find(x => x.tema_id === tema);
+    if (!mo) {
+      erros.push(`banco_de em ${m.missao_id}: a prova "${ref.prova}" não tem missão do tema ${tema}`);
+      continue;
+    }
+    if (!mo.questoes?.length) {
+      erros.push(`banco_de em ${m.missao_id}: a missão ${mo.missao_id} de "${ref.prova}" está sem questões`);
+      continue;
+    }
+    for (const q of mo.questoes)
+      emprestadas.push({ ...q, tema_id: mo.tema_id, eixo: mo.eixo, subtema: mo.subtema,
+                         habilidade_bncc: mo.habilidade_bncc ?? null });
+  }
+  m.questoes = [...(m.questoes || []), ...emprestadas];
+  bancoOrigem.set(m.missao_id, { prova: origem.prova_id || ref.prova, questoes: emprestadas.length });
+}
+
+for (const m of prova.missoes) {
+  if (!Array.isArray(m.questoes) || !m.questoes.length) {
+    erros.push(`missão sem questões: ${m.missao_id}`);
+    continue;
+  }
+  /* Missão intercalada é dispensada de ferramenta, aula e `regra` no singular.
+     Ela não tem aula de propósito — revisão é prática de recuperação, e
+     reensinar antes de recuperar anula o efeito —, e o cartão fixo dela é a
+     cola em `regras`, com o texto de todos os temas do pool. Missão normal
+     continua exigindo as três. */
+  const inter = !!m.intercalada;
+  const temasDoPool = [...new Set(m.questoes.map(q => q.tema_id))];
+
+  if (m.tema_id != null && !catalogo.find(t => t.tema_id === m.tema_id))
     erros.push(`tema_id fora do catálogo: ${m.tema_id}`);
-  if (!m.ferramenta) erros.push(`missão sem ferramenta manipulável: ${m.missao_id}`);
-  else if (!ferramentas.has(m.ferramenta))
-    erros.push(`ferramenta "${m.ferramenta}" não existe no motor (tem: ${[...ferramentas].join(', ')})`);
-  // o cartão de regra é acomodação, não enfeite: sem texto ele some da tela
-  if (!m.regra || !String(m.regra).trim())
-    erros.push(`missão sem regra para o cartão fixo: ${m.missao_id}`);
+
+  if (!inter) {
+    if (m.tema_id == null) erros.push(`missão sem tema_id: ${m.missao_id}`);
+    if (!m.ferramenta) erros.push(`missão sem ferramenta manipulável: ${m.missao_id}`);
+    else if (!ferramentas.has(m.ferramenta))
+      erros.push(`ferramenta "${m.ferramenta}" não existe no motor (tem: ${[...ferramentas].join(', ')})`);
+    if (!m.aula?.corpo || !String(m.aula.corpo).trim())
+      erros.push(`missão sem aula.corpo — é dele que sai a aula fatiada: ${m.missao_id}`);
+    // o cartão de regra é acomodação, não enfeite: sem texto ele some da tela
+    if (!m.regra || !String(m.regra).trim())
+      erros.push(`missão sem regra para o cartão fixo: ${m.missao_id}`);
+  } else {
+    /* Sem a regra de um dos temas do pool, ela cai numa questão daquele tema
+       sem ter onde consultar: a carga volta para a memória de trabalho, que é
+       exatamente o que o cartão fixo existe para aliviar. */
+    if (temasDoPool.some(t => t == null))
+      erros.push(`missão intercalada com questão sem tema_id: ${m.missao_id} — a linha da planilha não saberia o que foi praticado`);
+    for (const t of temasDoPool.filter(Boolean))
+      if (!catalogo.find(c => c.tema_id === t))
+        erros.push(`tema_id fora do catálogo em ${m.missao_id}: ${t}`);
+    if (!Array.isArray(m.regras) || !m.regras.length)
+      erros.push(`missão intercalada sem "regras": ${m.missao_id} — a cola é o que fica no lugar da aula`);
+    else {
+      for (const r of m.regras)
+        if (!r.rotulo || !String(r.texto || '').trim())
+          erros.push(`regra da cola sem rótulo ou texto em ${m.missao_id}: ${r.tema_id || '(sem tema_id)'}`);
+      const cobertos = new Set(m.regras.map(r => r.tema_id));
+      for (const t of temasDoPool.filter(Boolean))
+        if (!cobertos.has(t))
+          erros.push(`a cola de ${m.missao_id} não cobre o tema ${t}`);
+    }
+  }
   /* Banco de questões: o sorteio declara a distribuição de dificuldade, e o
      banco precisa ter com que atendê-la. Sem esta checagem o motor cai no
      fallback e aplica uma questão fora do nível pedido — em silêncio, que é o
      pior jeito de a dificuldade declarada deixar de ser verdade. */
   if (m.sorteio != null) {
-    const plano = m.sorteio.dificuldades;
-    if (!Array.isArray(plano) || !plano.length)
-      erros.push(`sorteio sem lista "dificuldades": ${m.missao_id}`);
-    else if (plano.some(d => ![1,2,3].includes(d)))
-      erros.push(`sorteio com dificuldade fora de 1-3: ${m.missao_id}`);
-    else for (const d of new Set(plano)) {
-      const pedidas = plano.filter(x => x === d).length;
-      const temNoBanco = m.questoes.filter(q => q.dificuldade === d).length;
-      if (temNoBanco < pedidas)
-        erros.push(`banco insuficiente em ${m.missao_id}: o sorteio pede ${pedidas} de dificuldade ${d} e o banco tem ${temNoBanco}`);
+    if (m.sorteio.por_tema != null && m.sorteio.dificuldades != null)
+      erros.push(`sorteio com "por_tema" e "dificuldades" juntos em ${m.missao_id}: o motor obedece só ao primeiro — escolha um`);
+    if (m.sorteio.por_tema != null) {
+      /* Aqui a conta é POR TEMA: o motor roda a lista inteira dentro de cada
+         tema. Um tema sem questão do nível pedido cai no fallback e aplica
+         outra dificuldade — em silêncio, que é o pior jeito de a dificuldade
+         declarada deixar de ser verdade. */
+      const plano = m.sorteio.por_tema;
+      if (!Array.isArray(plano) || !plano.length)
+        erros.push(`sorteio "por_tema" vazio: ${m.missao_id}`);
+      else if (plano.some(d => ![1,2,3].includes(d)))
+        erros.push(`sorteio "por_tema" com dificuldade fora de 1-3: ${m.missao_id}`);
+      else {
+        const temas = temasDoPool.filter(Boolean);
+        if (!temas.length)
+          erros.push(`sorteio "por_tema" num banco em que nenhuma questão tem tema_id: ${m.missao_id}`);
+        for (const t of temas) for (const d of new Set(plano)) {
+          const pedidas = plano.filter(x => x === d).length;
+          const temNoBanco = m.questoes.filter(q => q.tema_id === t && q.dificuldade === d).length;
+          if (temNoBanco < pedidas)
+            erros.push(`banco insuficiente em ${m.missao_id}: o tema ${t} precisa de ${pedidas} questão(ões) de dificuldade ${d} e tem ${temNoBanco}`);
+        }
+      }
+    } else {
+      const plano = m.sorteio.dificuldades;
+      if (!Array.isArray(plano) || !plano.length)
+        erros.push(`sorteio sem lista "dificuldades": ${m.missao_id}`);
+      else if (plano.some(d => ![1,2,3].includes(d)))
+        erros.push(`sorteio com dificuldade fora de 1-3: ${m.missao_id}`);
+      else for (const d of new Set(plano)) {
+        const pedidas = plano.filter(x => x === d).length;
+        const temNoBanco = m.questoes.filter(q => q.dificuldade === d).length;
+        if (temNoBanco < pedidas)
+          erros.push(`banco insuficiente em ${m.missao_id}: o sorteio pede ${pedidas} de dificuldade ${d} e o banco tem ${temNoBanco}`);
+      }
     }
   }
   for (const q of m.questoes) {
@@ -101,7 +215,9 @@ for (const m of prova.missoes) {
    embaralha as demais a cada abertura, então balancear aquelas à mão não
    significa nada. A checagem passou a olhar só as questões protegidas por
    `alternativas_fixas`, e só quando há amostra para a conta valer. */
-const fixas = prova.missoes.flatMap(m => m.questoes.filter(q => q.alternativas_fixas));
+// (m.questoes || []): uma missão cujo banco_de não resolveu chega aqui vazia, e um
+// TypeError no lugar da lista de erros esconde justamente o erro que a explica.
+const fixas = prova.missoes.flatMap(m => (m.questoes || []).filter(q => q.alternativas_fixas));
 if (fixas.length >= 5) {
   const dist = [0,0,0,0];
   fixas.forEach(q => dist[q.correta]++);
@@ -162,8 +278,21 @@ ${publicadas.map(f => `<li><a href="${f}">${f.replace('.html', '')}</a></li>`).j
 
 console.log(`OK  ${dest}`);
 const banco = prova.missoes.flatMap(m => m.questoes);
-const aplicadas = prova.missoes.reduce((a, m) => a + (m.sorteio?.dificuldades?.length || m.questoes.length), 0);
-console.log(`    ${prova.missoes.length} missões · ${aplicadas} questões por sessão, sorteadas de um banco de ${banco.length}`);
+/* Mesma conta do motor (`tamanhoMissao`): na intercalada o plano vale por tema,
+   então são temas × tamanho da lista. Somar só a lista contaria 2 onde a
+   sessão aplica 12 — e um resumo que mente é pior que resumo nenhum. */
+const porSessao = m => m.sorteio?.por_tema?.length
+  ? new Set(m.questoes.map(q => q.tema_id).filter(t => t != null)).size * m.sorteio.por_tema.length
+  : (m.sorteio?.dificuldades?.length || m.questoes.length);
+const aplicadas = prova.missoes.reduce((a, m) => a + porSessao(m), 0);
+console.log(`    ${prova.missoes.length} ${prova.missoes.length===1?"missão":"missões"} · ${aplicadas} questões por sessão, sorteadas de um banco de ${banco.length}`);
+for (const m of prova.missoes) {
+  if (!m.intercalada) continue;
+  const o = bancoOrigem.get(m.missao_id);
+  const temas = [...new Set(m.questoes.map(q => q.tema_id).filter(Boolean))];
+  console.log(`    intercalada "${m.missao_id}": sem aula, ${porSessao(m)} questões de ${temas.length} temas embaralhados` +
+    `, cola com ${(m.regras || []).length} regras` + (o ? ` · banco emprestado de ${o.prova} (${o.questoes} questões)` : ''));
+}
 console.log(`    dificuldade média do banco ${(banco.reduce((a,q)=>a+q.dificuldade,0)/banco.length).toFixed(2)}`);
 console.log(`    alternativas embaralhadas em ${banco.filter(q=>!q.alternativas_fixas).length} de ${banco.length} questões`);
 console.log(sheetUrl

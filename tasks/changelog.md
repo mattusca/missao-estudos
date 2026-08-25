@@ -1,5 +1,82 @@
 # Changelog
 
+## 2026-08-25 (noite) — Prática intercalada, portão da aula e retenção
+
+Escopo fechado a partir de pesquisa, não de palpite. Três itens que estavam na lista
+foram **cortados** por não terem lastro — e um deles tinha pesquisa contra (ver
+"Descartados" em `tasks/todo.md`).
+
+**Motor — missão intercalada** (`missao.intercalada`)
+- `sorteio.por_tema: [1,2]` roda o plano de dificuldade **dentro de cada tema**.
+  Seis temas × 2 = doze questões.
+- Permutação garante que duas questões consecutivas nunca sejam do mesmo tema. Guloso
+  por maior grupo restante, com desempate sorteado — o determinístico ciclava na mesma
+  ordem de temas e a segunda metade repetia a primeira, decorável.
+- A ordem **dentro** do grupo também é sorteada. Sem isso o intercalar tirava sempre o
+  primeiro item de cada tema e a missão virava rampa: as seis fáceis, depois as seis
+  difíceis, toda vez. Previsível, e jogava o fracasso todo para o fim — que é onde o log
+  dela de 25/08 já mostrava queda. Medido depois da correção: dificuldade média plana em
+  ~1,50 nas doze posições.
+- `missao.regras` vira a **cola**: todas as regras dos temas envolvidos, nenhuma
+  destacada. O cartão fixo e a intercalação brigam — se a cola anuncia o tema, a
+  discriminação já está feita. A saída foi enunciar o critério de decisão sem o item
+  lexical: as quatro famílias de conector estão lá, que *however* é contraste não está.
+- **Telemetria passa a ler `q.tema_id ?? m.tema_id`** (idem eixo, subtema, bncc). Sem
+  isso as doze linhas mentiriam o mesmo tema e a retenção mediria lixo.
+- Missão intercalada não tem aula nem ferramenta: revisão é prática de recuperação, e
+  reensinar antes de recuperar anula o efeito.
+
+**Motor — portão da aula**
+- Na tela da ferramenta, avançar exige um toque no widget. Veio de medida: no log de
+  25/08 a aula ficou com 20% do tempo da sessão — 3,1 s por tela, em 28 telas.
+- Detecção por seletor **mais** varredura de `onclick`: `destacar` e `grafico` ligam
+  clique em `<span>` e em `<g>` de SVG, que nenhum seletor CSS pega. Ferramenta sem
+  controle **não** trava — senão a aluna fica presa.
+- Sem temporizador, e `Voltar ao mapa` continua livre estando travado.
+
+**Build**
+- Resolve `banco_de: {prova, temas}` em tempo de build, carimbando o contexto em cada
+  questão. A revisão não copia questão: a fonte da verdade continua num lugar só.
+- Recusa cola incompleta, `por_tema` sem banco que o atenda, `por_tema` junto com
+  `dificuldades`, questão intercalada sem tema, e tema fora do catálogo.
+- Balanceamento de gabarito só nas `alternativas_fixas` — o motor embaralha o resto.
+
+**Dashboard — retenção**
+- Painel "O que ficou de um dia para o outro" e linha por tema: das questões que ela
+  reencontrou em **outra sessão e em outro dia**, quantas voltaram certas de primeira.
+- Quadro Virou / Manteve / Escorregou / Ainda não. "Virou" é o sinal que vale mais:
+  não resolveu sozinha antes, resolveu sozinha no reencontro.
+- Limiar próprio de 5 reencontros, somado aos 10 eventos e 3 sessões da seção 2. Abaixo
+  disso o card diz "ainda não sei dizer" com a contagem, nunca um número.
+- Reencontro no mesmo dia é ignorado (mínimo de 20 h e `sessao_id` diferente). Sem essa
+  regra, repetir a missão quatro horas depois marcaria 100% de retenção.
+
+**Conteúdo**
+- Language Arts: 42 → **52** questões. Toda missão passa a ter ≥2 em cada nível.
+- Matemática: 21 → **42** questões, com `sorteio` derivado das dificuldades que a prova
+  já aplicava.
+- Novo `data/provas/2026-08-revisao-la-y5.json`: revisão intercalada de 12 questões
+  sobre 6 temas, ~5 min, `contexto: revisao_espacada`. Feita para ser repetida **três
+  vezes** entre uma prova e outra — o critério é 3 recuperações espaçadas, e mais
+  questões numa sessão só não rende.
+
+**Privacidade** — o nome da escola ainda estava cravado em `scripts/extrair.mjs` e era
+repetido no changelog ao explicar a própria remoção. Os dois foram limpos. O histórico
+do Git continua com ele desde o primeiro push.
+
+**Auditoria** — suíte que extrai as funções reais do **HTML publicado** (não do fonte,
+não de cópia). Achados corrigidos nesta rodada: rampa de dificuldade, plural do resumo do
+build, "Esse tema você domina" numa missão de seis temas, preview do dashboard sem
+`questao_id` (a tela nova era inauditável), e o nome da escola. Verificado no navegador:
+identidade → mapa → quiz direto, cola com 6 regras, zero adjacências de tema, 12 linhas
+com 6 temas distintos, 14 ferramentas travando e destravando com um toque, modo foco sem
+confete, e retomada descartando a posição sem apagar linha já emitida.
+
+**Reserva** — 8 questões de nível 3 em Language Arts existem e **não saem hoje**: o plano
+das missões não pede nível 3. É headroom deliberado para a próxima calibragem, e a
+auditoria imprime isso a cada rodada para não virar conteúdo esquecido.
+
+
 ## 2026-08-25 — Banco de questões e alternativas embaralhadas
 
 A Alícia fechou a prova de Language Arts (21/21, 7 missões, uma sessão). O log
@@ -166,7 +243,7 @@ Enunciados em inglês, andaime em português: o apoio existe para tirar carga, e
 L2 viraria mais uma coisa a decodificar. `Writing: Narrative` não cabe em múltipla
 escolha e virou *narrative craft* — sequência, abertura, show vs tell.
 
-**Privacidade** — `escola` passa de "Pueri Domus" para o código `"PD"`. O nome
+**Privacidade** — `escola` passa do nome da escola para o código `"PD"`. O nome
 estava no JSON versionado e na página publicada, ao lado do primeiro nome e do ano.
 Ressalva: o histórico do Git já o contém desde o primeiro push.
 

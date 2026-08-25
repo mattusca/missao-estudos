@@ -32,7 +32,7 @@ const prova = {
   prova_id:'2026-08-MAT-Y5',
   titulo:'Missão Matemática — revisão prova 24/08',
   materia:'Matemática',
-  escola:'Pueri Domus',
+  escola:'PD',   // código, nunca o nome: repositório público, ao lado do 1º nome e do ano
   ano_aluna:'Y5',
   nivel_conteudo:'Y5',
   bimestre:'3',

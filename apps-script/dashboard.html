@@ -19,6 +19,10 @@
     mesma da seção 2 do CLAUDE.md. Placar bruto e XP não entram aqui.
   - Com menos de 10 eventos ou 3 sessões num tema, o número NÃO aparece:
     o card diz "ainda não sei". Incerteza é componente, não rodapé.
+  - RETENÇÃO: desempenho no dia do estudo é índice ruim de aprendizagem — as
+    condições que enchem o placar da sessão (bloco, massa, previsível) são as
+    que menos deixam resíduo. O que a mesma questão faz DIAS DEPOIS é o sinal.
+    O questao_id é estável entre provas exatamente para isso.
   - Nada desta página é comentado com as meninas. O rodapé lembra isso.
 -->
 <style>
@@ -87,6 +91,31 @@
   .apoios{margin-top:12px; font-size:.82rem; color:var(--tinta2)}
   .apoios b{color:var(--tinta); font-weight:600}
 
+  /* retenção — painel de topo e linha dentro do card do tema */
+  .retencao{
+    background:var(--card); border:1px solid var(--borda); border-radius:14px;
+    padding:18px 20px 16px; border-top:3px solid var(--cinza); margin-bottom:14px;
+  }
+  .retencao.firme{border-top-color:var(--verde)}
+  .retencao.atencao{border-top-color:var(--ambar)}
+  .retencao.fragil{border-top-color:var(--terra)}
+  .retencao h2{font-size:1.02rem; font-weight:650}
+  .retencao .porque{font-size:.86rem; color:var(--tinta2); margin-top:4px; max-width:62ch}
+
+  .nivel.q .rot{width:108px}
+  .barra.manteve{background:#9ad9cc}
+  .barra.escorregou{background:var(--ambar)}
+  .barra.aindanao{background:var(--terra)}
+
+  .destaque{
+    margin-top:12px; padding:10px 12px; background:#eefaf6; border-radius:10px;
+    font-size:.84rem; color:var(--tinta2);
+  }
+  .destaque b{color:var(--tinta); font-weight:650}
+
+  .retlinha{font-size:.84rem; color:var(--tinta2); font-variant-numeric:tabular-nums}
+  .retlinha b{color:var(--tinta); font-weight:600}
+
   .vazio{
     background:var(--card); border:1px dashed var(--borda); border-radius:14px;
     padding:44px 28px; text-align:center; color:var(--tinta2); margin-top:14px;
@@ -113,6 +142,8 @@
   Página dos pais, para decidir o próximo passo — <b>nenhum número daqui é comentado
   com as meninas</b>. A métrica é acerto sem apoio (1ª tentativa, sem dica e sem
   andaime); XP e medalhas são motivação do jogo, não medida de aprendizado.
+  Retenção só conta questões que voltaram em outro dia — o que ela acerta na hora
+  costuma dizer menos do que o que ela ainda acerta uma semana depois.
   Temas com poucos dados dizem "ainda não sei" de propósito.
 </footer>
 
@@ -135,7 +166,18 @@
   // linhas de teste de adulto não entram: respondem rápido e acertam demais
   eventos = eventos.filter(e => e.aluna && !/\(teste\)/i.test(e.aluna));
 
-  const LIMIAR = { eventos: 10, sessoes: 3 };  // seção 2 do CLAUDE.md
+  const LIMIAR = {
+    eventos: 10, sessoes: 3,   // seção 2 do CLAUDE.md
+    // Limiar próprio da retenção: nº mínimo de questões reencontradas.
+    // 5 é o menor número em que UMA questão vale ≤20 pontos percentuais. Com 4
+    // ou menos, uma única questão mexe o número em 25pp ou mais — isso não é
+    // medida, é ruído com aparência de porcentagem.
+    reencontros: 5,
+    // Intervalo mínimo entre os dois encontros. Reencontro no mesmo dia mede
+    // memória de curto prazo, não retenção. 20h em vez de 24h cravadas porque
+    // "tarde de um dia → manhã do dia seguinte" já é uma noite de sono no meio.
+    horasEntreEncontros: 20,
+  };
 
   const alunas = [...new Set(eventos.map(e => e.aluna))].sort();
 
@@ -145,6 +187,67 @@
   function dataBr(ts) {
     const d = new Date(ts);
     return isNaN(d) ? '' : `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}`;
+  }
+
+  function mediana(xs) {
+    if (!xs.length) return 0;
+    const s = [...xs].sort((a, b) => a - b);
+    const m = s.length >> 1;
+    return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+  }
+
+  /* ---------- retenção ----------
+     Pares (primeira vez × reencontro) da MESMA questao_id. Só conta quando o
+     reencontro está em outra sessao_id E separado por pelo menos ~1 dia; a
+     mesma questão de novo na mesma tarde não prova nada sobre o que ficou.
+     Quando a questão aparece três vezes, o par é a primeira contra o primeiro
+     reencontro válido: é o intervalo mais honesto que existe nos dados. */
+  function paresRetencao(evs) {
+    const porQuestao = new Map();
+    for (const e of evs) {
+      if (!e.questao_id || !isFinite(Date.parse(e.timestamp))) continue;
+      if (!porQuestao.has(e.questao_id)) porQuestao.set(e.questao_id, []);
+      porQuestao.get(e.questao_id).push(e);
+    }
+    const pares = [];
+    for (const [questao_id, lista] of porQuestao) {
+      lista.sort((a, b) => String(a.timestamp).localeCompare(String(b.timestamp)));
+      const primeira = lista[0];
+      const t0 = Date.parse(primeira.timestamp);
+      const volta = lista.slice(1).find(e => e.sessao_id !== primeira.sessao_id &&
+        (Date.parse(e.timestamp) - t0) >= LIMIAR.horasEntreEncontros * 3600e3);
+      if (!volta) continue;
+      pares.push({
+        questao_id,
+        subtema: primeira.subtema || primeira.tema_id,
+        dias: (Date.parse(volta.timestamp) - t0) / 864e5,
+        limpaAntes: semApoio(primeira),
+        limpaDepois: semApoio(volta),
+      });
+    }
+    return pares;
+  }
+
+  function retencao(evs) {
+    const pares = paresRetencao(evs);
+    const nSessoes = new Set(evs.map(e => e.sessao_id)).size;
+    const quad = {
+      // o caso que mais interessa: não sabia sozinha, voltou sabendo
+      virou:      pares.filter(p => !p.limpaAntes &&  p.limpaDepois),
+      manteve:    pares.filter(p =>  p.limpaAntes &&  p.limpaDepois),
+      escorregou: pares.filter(p =>  p.limpaAntes && !p.limpaDepois),
+      aindaNao:   pares.filter(p => !p.limpaAntes && !p.limpaDepois),
+    };
+    const fixou = quad.virou.length + quad.manteve.length;
+    return {
+      n: pares.length, fixou, quad,
+      pct: pct(fixou, pares.length),
+      dias: mediana(pares.map(p => p.dias)),
+      nEventos: evs.length, nSessoes,
+      // os dois limiares da seção 2 valem aqui também, mais o da retenção
+      suficiente: evs.length >= LIMIAR.eventos && nSessoes >= LIMIAR.sessoes
+        && pares.length >= LIMIAR.reencontros,
+    };
   }
 
   function porTema(evs) {
@@ -179,6 +282,7 @@
         pct: pct(ok, n),
         suficiente: n >= LIMIAR.eventos && sessoes.size >= LIMIAR.sessoes,
         serie, niveis,
+        ret: retencao(lista),
         dicas: lista.filter(e => sim(e.usou_dica)).length,
         andaimes: lista.filter(e => sim(e.usou_andaime)).length,
       };
@@ -209,6 +313,51 @@
     </svg>`;
   }
 
+  function plural(n, um, muitos) { return n === 1 ? `1 ${um}` : `${n} ${muitos}`; }
+  function diasTexto(d) { const n = Math.max(1, Math.round(d)); return plural(n, 'dia', 'dias'); }
+
+  function faltaRetencao(r) {
+    return `<div class="naosei"><b>Ainda não sei dizer</b>
+      <span>${Math.min(r.nEventos, LIMIAR.eventos)}/${LIMIAR.eventos} questões ·
+        ${Math.min(r.nSessoes, LIMIAR.sessoes)}/${LIMIAR.sessoes} sessões ·
+        ${Math.min(r.n, LIMIAR.reencontros)}/${LIMIAR.reencontros} questões repetidas em outro dia</span>
+    </div>`;
+  }
+
+  function linhaQuad(rot, lista, total, cls) {
+    return `<div class="nivel q">
+      <span class="rot">${rot}</span>
+      <span class="trilho"><span class="barra ${cls}" style="width:${pct(lista.length, total)}%"></span></span>
+      <span class="val">${lista.length} de ${total}</span>
+    </div>`;
+  }
+
+  function painelRetencao(r) {
+    const f = faixa(r);
+    const corpo = r.suficiente
+      ? `<div class="num">${r.pct}%<small> voltaram certas de primeira, sem apoio</small></div>
+         <div class="meta">${plural(r.n, 'questão repetida', 'questões repetidas')} ·
+           mediana de ${diasTexto(r.dias)} entre um encontro e o outro</div>
+         <div class="bloco">
+           ${linhaQuad('Virou', r.quad.virou, r.n, '')}
+           ${linhaQuad('Manteve', r.quad.manteve, r.n, 'manteve')}
+           ${linhaQuad('Escorregou', r.quad.escorregou, r.n, 'escorregou')}
+           ${linhaQuad('Ainda não', r.quad.aindaNao, r.n, 'aindanao')}
+         </div>
+         <div class="destaque"><b>Virou</b> é o número que vale mais: ${plural(r.quad.virou.length, 'questão que ela', 'questões que ela')}
+           não resolveu sozinha da primeira vez e resolveu sozinha no reencontro.
+           <b>Escorregou</b> é o contrário — saiu certo no dia e não sobreviveu ao intervalo.</div>`
+      : faltaRetencao(r);
+
+    return `<section class="retencao ${f}">
+      <h2>O que ficou de um dia para o outro</h2>
+      <p class="porque">Acertar no dia em que acabou de estudar é fácil. O que mostra que aprendeu
+        é a mesma questão voltar dias depois e ela resolver sozinha — por isso este número
+        vale mais que o acerto da sessão.</p>
+      ${corpo}
+    </section>`;
+  }
+
   function cardTema(t) {
     const f = faixa(t);
     const cabecalho = `
@@ -229,11 +378,22 @@
         <span class="val">${nv.pct}% · ${nv.n}q</span>
       </div>`).join('');
 
+    const r = t.ret;
+    const retBloco = r.suficiente
+      ? `<div class="retlinha"><b>${r.fixou} de ${r.n}</b> questões repetidas voltaram certas de primeira,
+           sem apoio · mediana de ${diasTexto(r.dias)} de intervalo` +
+        (r.quad.virou.length
+          ? ` · <b>${r.quad.virou.length}</b> ${r.quad.virou.length === 1 ? 'virou' : 'viraram'}: precisava de apoio antes, agora não precisa`
+          : '') +
+        `</div>`
+      : faltaRetencao(r);
+
     return `<article class="tema ${f}">
       ${cabecalho}
       ${medida}
       <div class="bloco"><h4>Evolução por sessão</h4>${sparkline(t.serie)}</div>
       <div class="bloco"><h4>Por dificuldade</h4>${niveis || '<div class="meta">sem questões ainda</div>'}</div>
+      <div class="bloco"><h4>Retenção neste tema</h4>${retBloco}</div>
       <div class="apoios">Apoios usados: <b>${t.dicas}×</b> dica · <b>${t.andaimes}×</b> andaime</div>
     </article>`;
   }
@@ -255,6 +415,7 @@
       (temas.length > 1 ? ' — do mais frágil ao mais firme' : '');
 
     document.getElementById('conteudo').innerHTML =
+      painelRetencao(retencao(evs)) +
       `<div class="grade">${temas.map(cardTema).join('')}</div>`;
   }
 

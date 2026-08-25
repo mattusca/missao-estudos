@@ -143,6 +143,42 @@ O build recusa a prova se o banco não tiver questões suficientes de cada níve
 Sem essa checagem o motor cairia no fallback e aplicaria uma questão fora do nível
 declarado sem avisar ninguém.
 
+### Missão intercalada — só em revisão, nunca na prova
+`missao.intercalada: true` faz uma missão misturar questões de **vários temas**, garantindo
+que duas consecutivas nunca sejam do mesmo. É prática intercalada, e é a mudança com a
+evidência mais forte de todo o projeto: num ensaio randomizado com 54 turmas (Rohrer et al.,
+2020), intercalado bateu bloqueado por **61% contra 38%** num teste-surpresa um mês depois,
+d = 0,83. O mecanismo é ela ter de **escolher a estratégia** em vez de recebê-la pronta no
+cabeçalho do bloco.
+
+```
+missao.intercalada: true
+missao.sorteio.por_tema: [1,2]    para CADA tema do pool, uma questão de cada nível
+missao.banco_de: {prova, temas}   o build copia as questões daquela prova
+missao.regras: [{tema_id, rotulo, texto}]   a "cola" — todas as regras juntas
+questao.tema_id / eixo / subtema / habilidade_bncc   carimbados pelo build
+```
+
+**Bloco na prova, intercalado na revisão — nessa ordem.** Intercalar sem base bloqueada vira
+dificuldade *indesejável* para quem tem pouco conhecimento prévio (Hwang, 2025): aprende no
+curto prazo e não consolida a regra. Por isso `contexto: prova` continua com missão de tema
+único, e só `revisao_espacada` intercala, sobre temas que ela **já viu**.
+
+**A cola é a acomodação do cartão fixo sobrevivendo à intercalação.** As duas brigam: se o
+cartão anunciar de que tema é a questão, a discriminação já está feita e o ganho evapora.
+Tirar o cartão também não é opção — ele existe para não carregar nada na memória de trabalho.
+A saída é enunciar o **critério de decisão** de todos os temas ao mesmo tempo, sem apontar
+qual se aplica agora. Regra prática ao escrever: se a cola resolve a questão, ela está errada.
+
+**Missão intercalada não tem aula nem ferramenta.** Revisão é prática de recuperação, e
+reensinar antes de recuperar anula o efeito. O build dispensa `aula`, `ferramenta` e `regra`
+(ela tem `regras`, no plural) — e **só** nesse caso.
+
+**Tamanho:** a revisão nasce curta de propósito — ~12 questões, uns 5 minutos — para ser feita
+**três vezes** entre uma prova e outra. O critério é 3 recuperações corretas *espaçadas*
+(Rawson & Dunlosky); exigir mais numa sessão só não rende. Em crianças, praticar 1 min quatro
+vezes bate praticar 4 min de uma vez. Mais ocasiões, não mais questões.
+
 ### Ordem das alternativas
 O motor **embaralha as alternativas a cada abertura** e remapeia o gabarito. Isso mata a
 memorização de posição quando ela refaz uma missão — que é justamente o que a repetição
@@ -231,11 +267,19 @@ Preview local: `node scripts/preview-dash.mjs [pasta] --servir` (saída nunca em
 2. Mapear cada tópico a um `tema_id` do catálogo; criar entrada nova se não existir.
 3. Consultar o log antes de definir dificuldade — aplicar a tabela da seção 2.
 4. Balancear o gabarito só nas questões `alternativas_fixas` — o motor embaralha o resto.
-5. Toda missão precisa de: regra curta, aula fatiada, **uma ferramenta manipulável** e um
-   banco com pelo menos o dobro do que o `sorteio` aplica. Banco do tamanho exato do
+5. Toda missão de prova precisa de: regra curta, aula fatiada, **uma ferramenta manipulável**
+   e um banco com pelo menos o dobro do que o `sorteio` aplica. Banco do tamanho exato do
    sorteio não é banco: sorteia sempre as mesmas.
-6. Ordenar as missões começando pelos temas mais frágeis (atenção é melhor no início).
-7. Rodar `node build.mjs <prova_id>` e testar a retomada antes de publicar.
+   Missão **intercalada** é a única exceção — não tem aula nem ferramenta, e traz `regras`.
+6. A aula não pode ser atravessada a toques: na tela da ferramenta, avançar exige uma
+   interação com o widget. Veio de medida, não de palpite — no log de 25/08 a aula ficou
+   com 20% do tempo da sessão, 3,1 s por tela. Nunca use temporizador para isso.
+7. Ordenar as missões começando pelos temas mais frágeis (atenção é melhor no início).
+   **Não automatizar isso.** A evidência de fadiga por posição é de 15 anos e a de ancoragem
+   na autoavaliação é de adultos; nenhuma transfere com segurança para 10 anos. Pior: começar
+   difícil ancora a impressão dela e essa impressão **não se corrige** conforme a prova
+   afrouxa — caro demais para quem o projeto inteiro protege de virar veredito de placar.
+8. Rodar `node build.mjs <prova_id>` e testar a retomada antes de publicar.
 
 ## 8. Pendências conhecidas
 

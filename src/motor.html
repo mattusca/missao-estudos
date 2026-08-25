@@ -82,6 +82,15 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
 .rtexto{margin-top:8px;padding-top:8px;border-top:1.5px dashed var(--line);font-weight:600;line-height:1.55;
   max-height:26vh;overflow-y:auto;}
 @media(max-width:560px){ .rtexto{max-height:17vh;font-size:.95rem;} }
+/* A cola da missão intercalada: as regras de TODOS os temas juntas e nenhuma em
+   destaque. Marcar qual serve para a questão da vez entregaria a escolha da
+   estratégia — que é exatamente o que a intercalação treina. Mesmo teto de
+   altura do .rtexto, e pelo mesmo motivo: sem ele a lista inteira empurraria a
+   1ª alternativa para fora da dobra no celular. */
+.cola{max-height:26vh;overflow-y:auto;}
+.cola .cregra{margin:0 0 10px;line-height:1.55;}
+.cola .cregra b{font-family:'Fredoka',sans-serif;color:var(--violet);display:block;font-size:.92rem;}
+@media(max-width:560px){ .cola{max-height:19vh;font-size:.95rem;} }
 #listaAlunas .mod.ultimo{border-color:var(--mint);}
 .ultimoTag{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--mint);text-transform:uppercase;letter-spacing:.05em;}
 .tool{background:#fff;border:1.5px dashed var(--mint);border-radius:14px;padding:16px 14px;margin:14px 0;}
@@ -154,6 +163,10 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
 .stepdots i{width:26px;height:5px;border-radius:3px;background:var(--line);display:block;}
 .stepdots i.on{background:var(--mint);}
 .lesson-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:22px;}
+/* Botão travado pelo portão da aula: some a cor de ação e entra o motivo. Fica
+   com cara de convite, não de bloqueio — nada aqui repreende. */
+.lesson-nav .btn:disabled{background:var(--mint-soft);color:#2a6b5c;box-shadow:none;
+  cursor:default;font-size:.9rem;font-weight:600;}
 /* quem está estudando: informação de rodapé, não elemento de jogo */
 .quemlinha{font-size:.85rem;color:var(--ink-soft);margin:16px 0 0;display:flex;
   align-items:center;gap:8px;flex-wrap:wrap;}
@@ -238,7 +251,7 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
       <span class="dots" id="dots"></span>
     </div>
     <details class="rulecard" id="ruleCard" open>
-      <summary>📌 A regra desta missão</summary>
+      <summary id="ruleSummary">📌 A regra desta missão</summary>
       <div class="rtext" id="ruleText"></div>
     </details>
     <div class="question" id="qText"></div>
@@ -669,7 +682,11 @@ const missoes    = PROVA.missoes;
 const N_MISSOES  = missoes.length;
 /* Quantas questões uma missão APLICA. Com banco de questões o JSON declara a
    distribuição de dificuldade do sorteio, e o banco é maior que a aplicação. */
-const tamanhoMissao = m => m.sorteio?.dificuldades?.length || m.questoes.length;
+/* Na missão intercalada o plano vale por TEMA: são tantas questões quantos
+   temas houver no banco, vezes o tamanho da lista de dificuldades. */
+const tamanhoMissao = m => m.sorteio?.por_tema?.length
+  ? new Set(m.questoes.map(q => q.tema_id).filter(t => t != null)).size * m.sorteio.por_tema.length
+  : (m.sorteio?.dificuldades?.length || m.questoes.length);
 const N_QUESTOES = missoes.reduce((a, m) => a + tamanhoMissao(m), 0);
 
 /* ============================ FIGURAS ============================
@@ -865,8 +882,14 @@ function registrarQuestao(m,q,resultado){
     sessao_id:sid,
     timestamp:new Date(fim).toISOString(),
     aluna:alunaAtual(),
-    materia:PROVA.materia, eixo:m.eixo, tema_id:m.tema_id, subtema:m.subtema,
-    questao_id:q.questao_id, habilidade_bncc:m.habilidade_bncc,
+    /* Numa missão intercalada não existe "o tema da missão": cada questão
+       carrega o seu. Ler da missão aqui faria a linha da planilha mentir sobre
+       o que foi praticado — e é essa linha que decide a calibragem da prova
+       seguinte. Missão normal não tem esses campos na questão e continua caindo
+       nos da missão, exatamente como antes. */
+    materia:PROVA.materia,
+    eixo:q.eixo ?? m.eixo, tema_id:q.tema_id ?? m.tema_id, subtema:q.subtema ?? m.subtema,
+    questao_id:q.questao_id, habilidade_bncc:q.habilidade_bncc ?? m.habilidade_bncc ?? null,
     escola:PROVA.escola, ano_aluna:PROVA.ano_aluna, nivel_conteudo:PROVA.nivel_conteudo,
     bimestre:PROVA.bimestre, contexto:PROVA.contexto,
     resultado,
@@ -915,10 +938,16 @@ function rotulos(){
   const desafios=porMissao.length===1?`${porMissao[0]} desafios`:'alguns desafios';
   el('mapEyebrow').textContent=`${PROVA.ano_aluna} · ${PROVA.materia}`;
   el('mapTitle').textContent=PROVA.titulo;
-  el('mapIntro').innerHTML=`${(NUM[N_MISSOES]||N_MISSOES).replace(/^./,c=>c.toUpperCase())} missões. `+
-    `Em cada uma, primeiro você <strong>aprende com uma ferramenta que dá para mexer</strong>, e só depois responde ${desafios}. `+
-    `Complete uma para abrir a próxima e conquistar as medalhas.`;
-  el('finalTitle').textContent=`Você fechou as ${N_MISSOES} missões! 🎉`;
+  // prometer aula numa prova que só tem missão intercalada seria promessa falsa
+  const comAula=missoes.some(m=>!m.intercalada);
+  // prova de missão única já existe (a revisão intercalada), e "Uma missões" não
+  const uma=N_MISSOES===1;
+  el('mapIntro').innerHTML=`${uma?'Uma missão':(NUM[N_MISSOES]||N_MISSOES).replace(/^./,c=>c.toUpperCase())+' missões'}. `+
+    (comAula
+      ? `Em cada uma, primeiro você <strong>aprende com uma ferramenta que dá para mexer</strong>, e só depois responde ${desafios}. `
+      : `Em cada uma, a <strong>cola com as regras fica no topo da tela</strong> o tempo todo — é consultar e responder ${desafios}. `)+
+    (uma?'Termine para conquistar a medalha.':'Complete uma para abrir a próxima e conquistar as medalhas.');
+  el('finalTitle').textContent=uma?'Você fechou a missão! 🎉':`Você fechou as ${N_MISSOES} missões! 🎉`;
   document.title=PROVA.titulo;
 }
 const LEVELS=[[0,'Aprendiz'],[300,'Exploradora'],[700,'Investigadora'],[1200,'Estrategista'],[1800,'Mestra dos Números']];
@@ -1027,9 +1056,15 @@ function buildSteps(m){
 let lessonSteps=[],lessonStep=0;
 
 function openModule(i){
-  S.mod=i;S.modId=missoes[i].missao_id;S.q=0;S.screen='lesson';S.usedHint=false;S.shield=true;save();
   const m=missoes[i];
+  S.mod=i;S.modId=m.missao_id;S.q=0;S.usedHint=false;S.shield=true;
   qsAtivas=sortearQuestoes(m).map(prepararQuestao);
+  /* Missão intercalada entra direto nos desafios. Revisão é prática de
+     recuperação: reensinar antes de recuperar anula o efeito, e uma aula aqui
+     ainda entregaria de bandeja qual estratégia usar. A cola do cartão fixo
+     fica no lugar dela — consultável, sem apontar qual regra é a da vez. */
+  if(m.intercalada){S.screen='quiz';S.correctInMod=0;save();renderQ();return;}
+  S.screen='lesson';save();
   el('lessonEyebrow').textContent=`Missão ${i+1} de ${N_MISSOES}`;
   el('lessonTitle').textContent=m.titulo;
   lessonSteps=buildSteps(m);lessonStep=0;
@@ -1041,11 +1076,62 @@ function drawLessonStep(){
   const m=missoes[S.mod];
   el('lessonBody').innerHTML=lessonSteps[lessonStep];
   el('stepDots').innerHTML=lessonSteps.map((_,i)=>`<i class="${i<=lessonStep?'on':''}"></i>`).join('');
-  if(lessonSteps[lessonStep].includes('class="tool"'))ferramentaInit(m);
+  const temFerramenta=lessonSteps[lessonStep].includes('class="tool"');
+  if(temFerramenta)ferramentaInit(m);
   const last=lessonStep===lessonSteps.length-1;
   el('lessonBack').classList.toggle('hidden',lessonStep===0);
   el('lessonNext').classList.toggle('hidden',last);
   el('toQuizBtn').classList.toggle('hidden',!last);
+  armarPortao(temFerramenta);
+}
+
+/* ====== PORTÃO DA AULA ======
+   Medido no log: a aula ficou com 20% do tempo da sessão, 3,1 s por tela em 28
+   telas — ela toca "próximo" antes de ler. Na tela da ferramenta, avançar só
+   destrava depois de UM toque nela.
+
+   É freio, não teste: da mesma família da confirmação em dois toques. Não
+   importa onde ela tocou nem se acertou — importa que a mão parou ali uma vez.
+   Nunca por tempo: cronômetro é proibido (seção 1 do CLAUDE.md) e esperar tem
+   custo afetivo próprio. Sair para o mapa continua livre: o portão segura o
+   avanço, nunca a saída.
+
+   E, se a ferramenta não desenhou nada em que dê para tocar, o portão não arma:
+   ficar presa numa tela sem saída é pior que ler pouco. */
+const SEL_INTERATIVO='button,input,select,textarea,a[href],[role="button"]';
+/* Duas ferramentas ligam o clique em <span> (destacar) ou em <g> do SVG
+   (grafico) — nenhum seletor genérico pega isso, então a varredura olha
+   também o onclick de cada nó. */
+function ehControle(n){
+  return !!(n&&n.nodeType===1&&(typeof n.onclick==='function'||(n.matches&&n.matches(SEL_INTERATIVO))));
+}
+function temControles(box){
+  return !!box.querySelector(SEL_INTERATIVO)||[...box.querySelectorAll('*')].some(ehControle);
+}
+let portaoAberto=true;
+function armarPortao(temFerramenta){
+  const box=temFerramenta?el('lessonBody').querySelector('.tool'):null;
+  portaoAberto=!(box&&temControles(box));
+  pintarPortao();
+  if(portaoAberto)return;
+  const liberar=e=>{
+    for(let n=e.target;n&&n!==box;n=n.parentNode) if(ehControle(n)){
+      portaoAberto=true;pintarPortao();
+      box.removeEventListener('click',liberar,true);
+      box.removeEventListener('change',liberar,true);
+      return;
+    }
+  };
+  // captura: destrava mesmo se a ferramenta parar a propagação do clique
+  box.addEventListener('click',liberar,true);
+  box.addEventListener('change',liberar,true);
+}
+function pintarPortao(){
+  [el('lessonNext'),el('toQuizBtn')].forEach(b=>{
+    if(!b.dataset.rotulo)b.dataset.rotulo=b.textContent;   // guarda o rótulo de verdade
+    b.disabled=!portaoAberto;
+    b.textContent=portaoAberto?b.dataset.rotulo:'Experimente a ferramenta acima ↑';
+  });
 }
 el('lessonNext').onclick=()=>{if(lessonStep<lessonSteps.length-1){lessonStep++;drawLessonStep();window.scrollTo({top:0,behavior:'smooth'});}};
 el('lessonBack').onclick=()=>{if(lessonStep>0){lessonStep--;drawLessonStep();window.scrollTo({top:0,behavior:'smooth'});}};
@@ -1069,21 +1155,65 @@ function baralhar(a){
   return r;
 }
 
-function sortearQuestoes(m){
-  const plano=m.sorteio?.dificuldades;
-  if(!plano?.length) return m.questoes.slice();
+function sortearPlano(banco,plano){
   const usados=new Set(), saida=[];
   for(const d of plano){
-    const naDificuldade=m.questoes.filter(q=>q.dificuldade===d&&!usados.has(q.questao_id));
+    const naDificuldade=banco.filter(q=>q.dificuldade===d&&!usados.has(q.questao_id));
     /* Banco sem questão daquele nível ainda livre: cai para qualquer uma ainda
        não usada. Missão curta seria pior que missão fora do nível pedido — e o
        build recusa a prova antes de isso acontecer. */
-    const pool=naDificuldade.length?naDificuldade:m.questoes.filter(q=>!usados.has(q.questao_id));
+    const pool=naDificuldade.length?naDificuldade:banco.filter(q=>!usados.has(q.questao_id));
     if(!pool.length) break;
     const q=pool[Math.floor(Math.random()*pool.length)];
     usados.add(q.questao_id); saida.push(q);
   }
   return saida;
+}
+
+/* Espalha os temas: duas questões seguidas nunca do mesmo tema. É daí que vem o
+   ganho da intercalação — com o bloco entregando o tema, ela recebe a estratégia
+   pronta e só executa; misturado, precisa decidir qual regra usar, que é a
+   decisão que a prova vai cobrar.
+
+   Guloso: a cada passo entra o tema com mais questões restantes entre os que
+   não acabaram de sair. É o arranjo que minimiza adjacências repetidas, então
+   um tema que domine o sorteio degrada em vez de quebrar a missão. */
+function intercalar(grupos){
+  const fila=grupos.map(g=>[...g]).filter(g=>g.length);
+  const saida=[]; let ultimo=null;
+  while(fila.some(g=>g.length)){
+    const cheios=fila.filter(g=>g.length);
+    const outros=cheios.filter(g=>g[0].tema_id!==ultimo);
+    const pool=outros.length?outros:cheios;
+    /* Desempate sorteado, e não pelo primeiro da lista: com os grupos todos do
+       mesmo tamanho, o guloso determinístico cicla na mesma ordem de temas e a
+       segunda metade da missão repete a primeira. Ela decoraria a ordem em vez
+       de escolher a estratégia — que é o que a intercalação existe para treinar. */
+    const maior=Math.max(...pool.map(g=>g.length));
+    const empatados=pool.filter(g=>g.length===maior);
+    const alvo=empatados[Math.floor(Math.random()*empatados.length)];
+    const q=alvo.shift(); saida.push(q); ultimo=q.tema_id;
+  }
+  return saida;
+}
+
+function sortearQuestoes(m){
+  /* Missão intercalada: o plano de dificuldade vale POR TEMA, não pela missão
+     inteira. Seis temas × [1,2] = doze questões, duas de cada tema. */
+  const porTema=m.sorteio?.por_tema;
+  if(porTema?.length){
+    const temas=[...new Set(m.questoes.map(q=>q.tema_id))].filter(t=>t!=null);
+    /* Ordem dos grupos sorteada, senão o mesmo tema abriria a missão sempre.
+       E a ordem DENTRO do grupo também: sem isso o intercalar tira sempre o
+       primeiro item de cada tema e a missão vira uma rampa — as seis fáceis,
+       depois as seis difíceis, toda vez. Isso é previsível e joga o fracasso
+       todo para o fim, que é justamente onde o log dela já mostra queda. */
+    const grupos=baralhar(temas).map(t=>baralhar(sortearPlano(m.questoes.filter(q=>q.tema_id===t),porTema)));
+    return intercalar(grupos);
+  }
+  const plano=m.sorteio?.dificuldades;
+  if(!plano?.length) return m.questoes.slice();
+  return sortearPlano(m.questoes,plano);
 }
 
 /* Embaralha as alternativas e remapeia o índice do gabarito. `alternativas_fixas`
@@ -1108,9 +1238,17 @@ function renderQ(){
   el('qTag').textContent=m.titulo;
   /* O texto de leitura fica visível DURANTE as questões — é exatamente o que o
      cartão fixo serve para fazer. Ele mora só em `dados.texto`, e não também na
-     `regra`, pelo mesmo motivo da série do gráfico: dois lugares divergem. */
-  el('ruleText').innerHTML=(m.regra||'') +
-    (m.dados?.texto ? `<div class="rtexto">${m.dados.texto.split('|').map(s=>s.trim()).filter(Boolean).join(' ')}</div>` : '');
+     `regra`, pelo mesmo motivo da série do gráfico: dois lugares divergem.
+
+     Na missão intercalada o cartão vira cola: todas as regras, na ordem em que
+     o JSON as escreveu, sem nenhuma marcada como sendo a da questão atual —
+     marcar entregaria a resposta e desmontaria a intercalação. */
+  const cola=m.regras?.length;
+  el('ruleSummary').textContent=cola?'📌 Sua cola: as regras de todos os temas':'📌 A regra desta missão';
+  el('ruleText').innerHTML = cola
+    ? `<div class="cola">${m.regras.map(r=>`<div class="cregra"><b>${r.rotulo}</b>${r.texto}</div>`).join('')}</div>`
+    : (m.regra||'') +
+      (m.dados?.texto ? `<div class="rtexto">${m.dados.texto.split('|').map(s=>s.trim()).filter(Boolean).join(' ')}</div>` : '');
   el('dots').innerHTML=qsAtivas.map((_,i)=>`<i class="${i<S.q?'on':i===S.q?'now':''}"></i>`).join('');
   el('qText').innerHTML=`<span class="muted" style="font-size:.9rem;font-weight:600">Desafio ${S.q+1} de ${qsAtivas.length}</span><br>${q.enunciado}`;
   el('qFigure').innerHTML=figuraHTML(q.figura,m);
@@ -1223,7 +1361,10 @@ function finishModule(){
   S.screen='map';save();hud();
   el('medalIcon').textContent=medal;
   el('doneTitle').textContent=`Missão "${m.titulo}" concluída!`;
-  el('doneMsg').textContent = c===n?`${c} de ${n}. Esse tema você domina — pode marcar como resolvido.`
+  /* Missão intercalada atravessa vários temas: "esse tema" mentiria sobre o
+     que ela acabou de fazer, e o elogio específico é a metade que funciona. */
+  const oQue = m.intercalada ? 'Misturado desse jeito, você não errou nenhuma' : 'Esse tema você domina';
+  el('doneMsg').textContent = c===n?`${c} de ${n}. ${oQue} — pode marcar como resolvido.`
     : c>=n-1?`${c} de ${n}. Muito perto do topo: reveja a explicação da que escapou e refaça quando quiser.`
     : 'Missão cumprida. O importante é que agora você viu onde estava a pegadinha — refazer depois vale ouro.';
   el('doneXp').textContent=`+${bonus} XP de bônus de missão · total ${S.xp} XP`;
@@ -1260,7 +1401,13 @@ el('backToMap').onclick=()=>{
 
 function showFinal(){
   el('finalXp').textContent=`${S.xp} XP`;
-  el('finalMsg').textContent=`Nível ${levelOf(S.xp)+1} · ${LEVELS[levelOf(S.xp)][1]} · maior sequência de acertos: ${S.best}. Você atravessou os ${N_MISSOES} temas da prova, com ferramenta e explicação em cada um.`;
+  /* "os N temas" vinha do número de missões. Numa missão intercalada são seis
+     temas dentro de uma missão só, e a prova pode não ter ferramenta nenhuma —
+     as duas afirmações têm de olhar o conteúdo, não a contagem de missões. */
+  const temas=new Set(missoes.flatMap(m=>m.intercalada?m.questoes.map(q=>q.tema_id):[m.tema_id])).size;
+  const comFerramenta=missoes.some(m=>m.ferramenta);
+  el('finalMsg').textContent=`Nível ${levelOf(S.xp)+1} · ${LEVELS[levelOf(S.xp)][1]} · maior sequência de acertos: ${S.best}. `+
+    `Você atravessou ${temas===1?'o tema':`os ${temas} temas`} da prova${comFerramenta?', com ferramenta e explicação em cada um':''}.`;
   const uniq=[];S.errors.forEach(e=>{if(!uniq.find(u=>u.q===e.q))uniq.push(e);});
   el('finalReview').innerHTML = uniq.length
     ? `<h3>Vale reler antes da prova</h3>`+uniq.map(e=>`<div class="review-item"><b>${e.mod}</b><br>${e.q}<br><b>Resposta:</b> ${e.ans}<br>${e.why}</div>`).join('')

@@ -126,6 +126,50 @@
           "tipo_raciocinio": "conceitual",
           "dica": "Ela fez as duas coisas. E repare: logo depois da lacuna vem \"doing\", com -ing.",
           "explicacao": "<b>In addition to</b> soma e pede verbo com -ing depois dele. \"However\" e \"Therefore\" nunca vêm antes de um verbo assim — é por isso que só um cabe aqui."
+        },
+        {
+          "questao_id": "ING.ESC.CONECT.Q7",
+          "enunciado": "Which sentence uses the connective <mark>correctly</mark>?",
+          "figura": null,
+          "alternativas": [
+            "In addition to playing the violin, she sings in the choir.",
+            "In addition to she plays the violin, she sings in the choir.",
+            "She plays the violin. In addition to, she sings in the choir.",
+            "In addition to play the violin, she sings in the choir."
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Primeiro a família: as duas partes brigam, somam, ou uma causa a outra?",
+            "Ela faz as duas coisas, então é soma — e todas as quatro já usam o conector de soma.",
+            "Agora a gramática: depois de <b>in addition to</b> vem substantivo ou verbo com -ing, nunca uma frase com sujeito.",
+            "Corte as que põem sujeito ou verbo puro depois do conector, e a que deixa \"In addition to,\" sozinho antes da vírgula."
+          ],
+          "dica": "As quatro usam o mesmo conector. O que muda é o que vem logo depois dele.",
+          "explicacao": "<b>In addition to</b> pede substantivo ou verbo com <b>-ing</b>: <i>in addition to playing</i>. Ele não aceita sujeito depois (\"she plays\"), não aceita verbo puro (\"play\"), e não vive sozinho antes da vírgula como <b>However,</b> vive. Escolher a família certa é metade do caminho; a outra metade é a gramática que ela exige."
+        },
+        {
+          "questao_id": "ING.ESC.CONECT.Q8",
+          "enunciado": "Read the paragraph:<br><i>The city built more bike lanes. _____, fewer people drive to work now. _____, the air is cleaner and the streets are quieter.</i><br>Which pair fits both gaps?",
+          "figura": null,
+          "alternativas": [
+            "Therefore … Also",
+            "However … Therefore",
+            "Therefore … However",
+            "For instance … Therefore"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Leia só a primeira lacuna: construir ciclovias fez menos gente dirigir. Isso é briga, soma, exemplo ou consequência?",
+            "Consequência é a família de <b>therefore</b> — já dá para cortar os pares que começam com outra coisa.",
+            "Agora a segunda lacuna: ar mais limpo e ruas mais silenciosas continuam a mesma boa notícia ou contrariam ela?",
+            "Continuar somando é a família de <b>also</b>. O par certo é o que acerta as duas famílias."
+          ],
+          "dica": "São duas decisões, uma por lacuna. Resolva a primeira e já sobram menos pares.",
+          "explicacao": "A primeira lacuna é consequência: as ciclovias fizeram menos gente dirigir → <b>Therefore</b>. A segunda soma mais um resultado bom → <b>Also</b>. \"However\" não cabe ali porque ar limpo e rua silenciosa não contrariam nada — combinam. São duas famílias diferentes no mesmo parágrafo."
         }
       ],
       "dados": {
@@ -489,6 +533,38 @@
             "O ônibus chegar vem antes ou depois de ela esperar no ponto?",
             "Sentar na janela só é possível depois de qual evento?"
           ]
+        },
+        {
+          "questao_id": "ING.ESC.NARR.Q7",
+          "enunciado": "In a narrative, which sentence is the <mark>ending</mark>?",
+          "figura": null,
+          "alternativas": [
+            "At last the lights came back on, and everyone laughed.",
+            "It was a stormy Tuesday afternoon.",
+            "Suddenly the whole house went dark.",
+            "Ben felt his way along the wall to look for the torch."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "O desfecho é a parte que fecha a história, quando o problema já foi resolvido.",
+          "explicacao": "As luzes voltarem resolve o problema e fecha a cena: é o desfecho. As outras três são a situação (a tarde de tempestade), o problema (a casa escurecer) e a ação (procurar a lanterna) — tudo o que vem antes do fim."
+        },
+        {
+          "questao_id": "ING.ESC.NARR.Q8",
+          "enunciado": "Which sentence <mark>tells</mark> the feeling instead of showing it?",
+          "figura": null,
+          "alternativas": [
+            "Sofia was happy.",
+            "Sofia jumped up and hugged her brother.",
+            "Sofia’s smile spread across her whole face.",
+            "Sofia ran down the stairs two at a time."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Contar é dizer o sentimento com a palavra dele. Mostrar é descrever o que dá para ver acontecendo.",
+          "explicacao": "\"Sofia was happy\" entrega o sentimento pronto — isso é <b>contar</b>. As outras três mostram: pular, o sorriso se abrindo, descer a escada de dois em dois. Nelas o leitor conclui a alegria sozinho, e é isso que deixa a narrativa viva."
         }
       ],
       "dados": {
@@ -848,6 +924,50 @@
           "tipo_raciocinio": "conceitual",
           "dica": "Procure a fórmula <b>am/is/are</b> + verbo com -ing.",
           "explicacao": "<b>Is reading</b> é Present Continuous: acontece agora. \"Was reading\" é passado, \"reads\" é rotina, e \"has read\" é outro tempo verbal."
+        },
+        {
+          "questao_id": "ING.CLI.CONT.Q7",
+          "enunciado": "Complete the question: \"_____ your brother _____ TV when the storm started?\" <i>(watch)</i>",
+          "figura": null,
+          "alternativas": [
+            "Was … watching",
+            "Were … watching",
+            "Was … watched",
+            "Did … watching"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "\"When the storm started\" põe a cena no passado — o presente já está fora.",
+            "Continuous no passado usa was ou were. Qual deles combina com \"your brother\", uma pessoa só?",
+            "Depois de was/were, o verbo principal fica sempre com <b>-ing</b> — nunca no passado.",
+            "Junte as duas decisões: o auxiliar do singular mais o verbo com -ing."
+          ],
+          "dica": "São duas escolhas: qual auxiliar combina com \"your brother\", e qual forma do verbo vem depois dele.",
+          "explicacao": "\"Your brother\" é uma pessoa só, então o auxiliar é <b>was</b>. E depois de was/were o verbo mantém o <b>-ing</b>: <b>Was your brother watching…?</b> \"Did\" pediria o verbo puro (watch), e \"watched\" já é outro tempo verbal. Numa pergunta o auxiliar só muda de lugar — a fórmula continua a mesma."
+        },
+        {
+          "questao_id": "ING.CLI.CONT.Q8",
+          "enunciado": "Right now the children _____ a sandcastle, but an hour ago they _____ in the sea. <i>(build / swim)</i>",
+          "figura": null,
+          "alternativas": [
+            "are building … were swimming",
+            "are building … are swimming",
+            "is building … was swimming",
+            "were building … are swimming"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "A frase fala de dois momentos. Ache as duas marcas de tempo: \"right now\" e \"an hour ago\".",
+            "\"Right now\" é agora → am/is/are + -ing. \"An hour ago\" já passou → was/were + -ing.",
+            "O sujeito é \"the children\", mais de um: nas duas partes o auxiliar é o do plural.",
+            "Monte o par: auxiliar do presente na primeira lacuna, auxiliar do passado na segunda."
+          ],
+          "dica": "\"Right now\" e \"an hour ago\" apontam para tempos diferentes. A mesma frase precisa de dois auxiliares diferentes.",
+          "explicacao": "\"Right now\" pede Present Continuous (<b>are building</b>) e \"an hour ago\" pede Past Continuous (<b>were swimming</b>). Como \"the children\" é plural, os dois auxiliares são os do plural: are e were. Repare também que <i>swim</i> dobra o m antes do -ing: swi<b>mm</b>ing."
         }
       ],
       "dados": {
@@ -1021,6 +1141,50 @@
           "tipo_raciocinio": "conceitual",
           "dica": "O prazo veio da professora, não da vontade dela.",
           "explicacao": "Obrigação que vem de fora é <b>have to</b> (aqui <b>has to</b>, porque é \"Marta\"). \"Should\" seria só um conselho, e prazo de professora não é conselho."
+        },
+        {
+          "questao_id": "ING.CLI.MODAL.Q7",
+          "enunciado": "The sign at the museum door says: <b>NO PHOTOS</b>.<br>Which sentence says the same thing?",
+          "figura": null,
+          "alternativas": [
+            "You mustn’t take photos here.",
+            "You don’t have to take photos here.",
+            "You shouldn’t take too many photos here.",
+            "You don’t must take photos here."
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Leia a placa: ela proíbe, ou só avisa que não é obrigatório?",
+            "Proibição é obrigação de NÃO fazer — no negativo, isso é <b>mustn’t</b>.",
+            "<b>Don’t have to</b> quer dizer o contrário: pode fazer ou não, ninguém obriga.",
+            "Falta conferir a forma: depois de \"don’t\" nunca vem \"must\". Corte a que junta os dois."
+          ],
+          "dica": "Duas alternativas parecem dizer \"não\". Só uma delas proíbe de verdade.",
+          "explicacao": "A placa proíbe, e proibição é <b>mustn’t</b>. \"Don’t have to\" diria que a foto é opcional — quase o contrário. \"Shouldn’t\" é conselho, fraco demais para uma placa, e \"don’t must\" não existe em inglês. Confundir <i>mustn’t</i> com <i>don’t have to</i> é o tropeço mais comum deste tema — agora você não erra mais essa."
+        },
+        {
+          "questao_id": "ING.CLI.MODAL.Q8",
+          "enunciado": "Which sentence is <mark>correct</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Every player has to bring their own water bottle.",
+            "Every player have to bring their own water bottle.",
+            "Every player must to bring their own water bottle.",
+            "Every player should to bring their own water bottle."
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "\"Every player\" fala de um jogador de cada vez, então o verbo é o do singular.",
+            "Isso já derruba a que usa \"have to\" com sujeito singular.",
+            "Agora a outra regra: depois de must e should o verbo vem <b>sem \"to\"</b>.",
+            "Corte as duas que puseram \"to\" depois do modal. Sobra uma."
+          ],
+          "dica": "Duas coisas para conferir: a forma de \"have to\" com sujeito singular, e se sobrou um \"to\" onde não devia.",
+          "explicacao": "\"Every player\" é singular, então é <b>has to</b>. E <b>must</b> e <b>should</b> nunca levam \"to\" depois: <i>must bring</i>, <i>should bring</i>. São duas regras diferentes na mesma frase — a concordância e o verbo sem \"to\" — e a certa é a única que acerta as duas."
         }
       ],
       "dados": {
@@ -1194,6 +1358,50 @@
           "tipo_raciocinio": "conceitual",
           "dica": "Três destes seguiram a regra do -s quando não deviam.",
           "explicacao": "<b>Geese</b> está certo (goose → geese). Os outros seriam <i>leaves</i>, <i>children</i> e <i>mice</i> — irregulares que fingiram ser regulares."
+        },
+        {
+          "questao_id": "ING.CLI.PLUIRR.Q7",
+          "enunciado": "Which sentence is <mark>correct</mark>?",
+          "figura": null,
+          "alternativas": [
+            "The mice were hiding behind the two shelves.",
+            "The mouses were hiding behind the two shelfs.",
+            "The mice was hiding behind the two shelves.",
+            "The mices were hiding behind the two shelfs."
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Comece pelo bicho: <i>mouse</i> é do grupo que muda por dentro. Qual é o plural dele?",
+            "Agora o móvel: <i>shelf</i> termina em -f, e -f troca o final por <b>-ves</b>.",
+            "Falta o verbo: \"mice\" já é plural, então pede <b>were</b>, não \"was\".",
+            "A frase certa é a que acerta as três coisas ao mesmo tempo."
+          ],
+          "dica": "São duas palavras irregulares na mesma frase — e ainda o verbo precisa combinar com elas.",
+          "explicacao": "<b>Mouse → mice</b> (muda por dentro, como tooth → teeth) e <b>shelf → shelves</b> (troca o final -f por -ves, como knife → knives). E como \"mice\" é plural, o verbo é <b>were</b>. Basta uma dessas três decisões sair errada para a frase inteira ficar errada."
+        },
+        {
+          "questao_id": "ING.CLI.PLUIRR.Q8",
+          "enunciado": "Which sentence is <mark>correct</mark>?",
+          "figura": null,
+          "alternativas": [
+            "We saw three fish and six geese by the lake.",
+            "We saw three fishes and six gooses by the lake.",
+            "We saw three fish and six goose by the lake.",
+            "We saw three fishes and six geese by the lake."
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Separe as duas palavras: uma delas é do grupo que não muda no plural.",
+            "<i>Fish</i> é como <i>sheep</i>: um fish, três fish. Nada de -s.",
+            "<i>Goose</i> é do outro grupo, o que muda por dentro — como tooth → teeth.",
+            "A frase certa junta as duas regras: a palavra que fica igual e a que muda a vogal."
+          ],
+          "dica": "As duas palavras são irregulares, mas cada uma de um jeito diferente.",
+          "explicacao": "<b>Fish</b> é do grupo que não muda (como sheep), e <b>goose → geese</b> é do grupo que muda por dentro (como tooth → teeth). Cada palavra segue a regra da família dela, e aqui as famílias são diferentes — por isso não dá para aplicar o mesmo truque nas duas."
         }
       ],
       "dados": {

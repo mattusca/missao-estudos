@@ -1,0 +1,76 @@
+{
+  "prova_id": "2026-08-REV-LA-Y5",
+  "titulo": "Missão Language Arts — revisão relâmpago (misturada)",
+  "materia": "Language Arts",
+  "alunas": [
+    "Alicia",
+    "Marco (teste)",
+    "Fernanda (teste)"
+  ],
+  "escola": "PD",
+  "ano_aluna": "Y5",
+  "nivel_conteudo": "Y5",
+  "bimestre": "3",
+  "contexto": "revisao_espacada",
+  "criado_em": "2026-08-25",
+  "origem": "Banco de questões de 2026-08-LA-Y5, sorteadas intercaladas (Rohrer et al., 2020 — prática intercalada vs. em bloco)",
+  "observacao": "Revisão curta de propósito (~12 questões, ~5 min): o ganho vem de MAIS OCASIÕES, não de mais questões — a ideia é fazê-la três vezes entre uma prova e outra. As questões não moram aqui: o build as resolve a partir de 2026-08-LA-Y5, para a fonte da verdade continuar num lugar só. ING.LEI.INTERP ficou de fora desta primeira revisão porque suas questões dependem do texto do Atacama, que teria de morar na cola e alongaria demais um artefato desenhado para 5 minutos no celular. Bloco continua na prova (material novo); intercalado só entra na revisão, sobre o que ela já viu — intercalar sem base bloqueada vira dificuldade indesejável. PENDÊNCIA DE INTEGRAÇÃO: hoje ING.ESC.NARR não tem nenhuma questão de dificuldade 1 em 2026-08-LA-Y5 (as seis são 2,2,3,2,2,3), então o sorteio por_tema [1,2] não fecha para esse tema. Corrigir no banco — acrescentar ao menos uma questão de dificuldade 1 de ING.ESC.NARR — e não aqui: baixar a exigência do sorteio quebraria a intercalação nos outros cinco temas.",
+  "missoes": [
+    {
+      "missao_id": "revisao-misturada",
+      "icone": "🎲",
+      "titulo": "Tudo misturado",
+      "subtitulo": "Uma de cada vez, sem avisar de qual assunto é",
+      "intercalada": true,
+      "banco_de": {
+        "prova": "2026-08-LA-Y5",
+        "temas": [
+          "ING.ESC.CONECT",
+          "ING.ESC.NARR",
+          "ING.CLI.COMPSUP",
+          "ING.CLI.CONT",
+          "ING.CLI.MODAL",
+          "ING.CLI.PLUIRR"
+        ]
+      },
+      "sorteio": {
+        "por_tema": [
+          1,
+          2
+        ]
+      },
+      "regras": [
+        {
+          "tema_id": "ING.ESC.CONECT",
+          "rotulo": "Conectores",
+          "texto": "Leia as <b>duas partes</b> da frase e pergunte o que a segunda faz com a primeira: <b>briga</b> com ela, vem <b>por causa</b> dela, <b>soma</b> a ela ou <b>dá um exemplo</b> dela. Cada uma dessas quatro tem a sua palavra."
+        },
+        {
+          "tema_id": "ING.ESC.NARR",
+          "rotulo": "Narrativa",
+          "texto": "Ordem: <b>situação → problema → ponto alto → desfecho</b>.<br>Abertura boa já tem algo <b>acontecendo</b>; ela não avisa que a história vai começar.<br>Se a frase <b>nomeia</b> o sentimento, ela conta; se descreve o que dá para <b>ver</b>, ela mostra."
+        },
+        {
+          "tema_id": "ING.CLI.COMPSUP",
+          "rotulo": "Comparar e destacar",
+          "texto": "Decida primeiro: compara <b>duas</b> coisas (comparativo) ou destaca <b>uma entre todas</b> (superlativo, pede <i>the</i>)? Só então conte as sílabas: adjetivo <b>curto</b> muda o fim, <b>longo</b> pede <i>more</i> / <i>most</i>.<br>Alguns são <b>irregulares</b>: viram outra palavra e não aceitam nem -er nem <i>more</i>."
+        },
+        {
+          "tema_id": "ING.CLI.CONT",
+          "rotulo": "Ação em andamento",
+          "texto": "A fórmula é <i>to be</i> + verbo com <b>-ing</b>. O <b>-ing</b> nunca sai — o que muda é o <i>to be</i>: a ação está acontecendo <b>agora</b> ou estava acontecendo <b>antes</b>? E o sujeito é um ou mais de um?"
+        },
+        {
+          "tema_id": "ING.CLI.MODAL",
+          "rotulo": "Grau de obrigação",
+          "texto": "Ache <b>de onde vem a pressão</b> na frase: é só um <b>conselho</b> (ela decide), é regra vinda <b>de fora</b> (lei, escola, prazo) ou é <b>imposição forte</b> de quem fala? Cada força tem a sua palavra.<br>Depois delas o verbo vem <b>sem <i>to</i></b>."
+        },
+        {
+          "tema_id": "ING.CLI.PLUIRR",
+          "rotulo": "Plurais irregulares",
+          "texto": "Nem todo plural ganha <b>-s</b>. São três grupos: uns mudam <b>por dentro</b> (a vogal do meio), uns trocam o <b>final</b> (-f/-fe e -y) e uns <b>não mudam nada</b>. Se a palavra é de um desses grupos, o -s simples está errado."
+        }
+      ]
+    }
+  ]
+}

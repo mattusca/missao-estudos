@@ -92,6 +92,69 @@
             "Quantos livros foram lidos em julho?",
             "Monte a fração julho ÷ total e simplifique."
           ]
+        },
+        {
+          "questao_id": "MAT.EST.GRAF.Q4",
+          "enunciado": "Quantos livros Alicia leu em <mark>março e abril juntos</mark>?",
+          "figura": {
+            "tipo": "barras",
+            "fonte": "missao"
+          },
+          "alternativas": [
+            "15",
+            "3",
+            "13",
+            "54"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Março = 6 e abril = 9. \"Juntos\" pede soma.",
+          "explicacao": "Março = 6 e abril = 9, então 6 + 9 = 15 livros. Cuidado com o 3: ele aparece quando a gente subtrai em vez de somar."
+        },
+        {
+          "questao_id": "MAT.EST.GRAF.Q5",
+          "enunciado": "Cada livro que Alicia leu custou <mark>R$ 20</mark>. Quanto custaram os livros que ela leu em <b>abril</b>?",
+          "figura": {
+            "tipo": "barras",
+            "fonte": "missao"
+          },
+          "alternativas": [
+            "R$ 29",
+            "R$ 180",
+            "R$ 90",
+            "R$ 200"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Primeiro leia a barra de abril. Depois multiplique esse número por 20.",
+          "explicacao": "A barra de abril mostra 9 livros. Como cada um custa R$ 20: 9 × 20 = R$ 180. A conta é multiplicação, não soma — por isso R$ 29 não serve."
+        },
+        {
+          "questao_id": "MAT.EST.GRAF.Q6",
+          "enunciado": "Junho e julho <mark>juntos</mark> tiveram quantos livros <b>a mais</b> que março e maio juntos?",
+          "figura": {
+            "tipo": "barras",
+            "fonte": "missao"
+          },
+          "alternativas": [
+            "31",
+            "7",
+            "1",
+            "11"
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Some primeiro junho + julho. Depois março + maio. Só então compare os dois totais.",
+          "explicacao": "Junho + julho = 11 + 10 = 21. Março + maio = 6 + 4 = 10. Como a pergunta é \"quantos a mais\", subtraímos: 21 − 10 = 11 livros. Duplas de barras funcionam igual a barras sozinhas: junte cada lado primeiro, compare depois.",
+          "passos": [
+            "Some as barras de junho e julho.",
+            "Agora some as barras de março e maio.",
+            "\"Quantos a mais\" pede subtração, não soma.",
+            "Tire o segundo total do primeiro."
+          ]
         }
       ],
       "dados": {
@@ -119,6 +182,13 @@
             "Jul",
             10
           ]
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          3
         ]
       }
     },
@@ -200,8 +270,75 @@
             "Calcule a área do quadradinho que foi retirado: 2 × 2.",
             "Tire o segundo do primeiro."
           ]
+        },
+        {
+          "questao_id": "MAT.GEO.AREAPER.Q4",
+          "enunciado": "Um retângulo tem 12 cm de comprimento e 5 cm de largura. Qual é o seu <mark>perímetro</mark>?",
+          "figura": null,
+          "alternativas": [
+            "60 cm",
+            "17 cm",
+            "34 cm",
+            "24 cm"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Perímetro é a cerca: some os quatro lados. O retângulo tem dois lados de 12 e dois de 5.",
+          "explicacao": "Perímetro = 12 + 5 + 12 + 5 = 34 cm. O 60 é a área (12 × 5) — ela mede o piso, não a cerca, e viria em cm². O 17 é só um lado de cada, faltou a outra metade da volta."
+        },
+        {
+          "questao_id": "MAT.GEO.AREAPER.Q5",
+          "enunciado": "Uma horta retangular mede 8 m por 5 m. Marco vai cercá-la com <mark>2 voltas</mark> de arame. Quantos metros de arame ele precisa?",
+          "figura": null,
+          "alternativas": [
+            "26 m",
+            "52 m",
+            "40 m",
+            "80 m"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Ache primeiro quanto arame dá uma volta (o perímetro). Só depois pense nas duas voltas.",
+          "explicacao": "Uma volta é o perímetro: 8 + 5 + 8 + 5 = 26 m. Como são 2 voltas: 26 × 2 = 52 m. O 26 é a resposta de quem parou na primeira volta, e o 40 é a área (8 × 5), que mede o piso da horta, não a cerca.",
+          "passos": [
+            "Cercar é perímetro: some os quatro lados (8 + 5 + 8 + 5).",
+            "Esse resultado é o arame de <b>uma</b> volta só.",
+            "A pergunta diz que ele quer dar 2 voltas.",
+            "Multiplique o perímetro por 2."
+          ]
+        },
+        {
+          "questao_id": "MAT.GEO.AREAPER.Q6",
+          "enunciado": "Um piso quadrado de 3 m de lado será coberto por ladrilhos de <mark>1 m² cada</mark>. Se cada ladrilho custa R$ 12, quanto custa cobrir o piso inteiro?",
+          "figura": null,
+          "alternativas": [
+            "R$ 36",
+            "R$ 144",
+            "R$ 108",
+            "R$ 12"
+          ],
+          "correta": 2,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Cobrir o piso é área. Descubra quantos m² tem o piso — esse é o número de ladrilhos.",
+          "explicacao": "Área do piso = 3 × 3 = 9 m². Como cada ladrilho cobre 1 m², são 9 ladrilhos. Custo: 9 × 12 = R$ 108. O R$ 36 sai de usar o lado (3) no lugar da área, e o R$ 144 de usar o perímetro (12) — cobrir piso é sempre área.",
+          "passos": [
+            "O piso é um quadrado de 3 m de lado: calcule a área (3 × 3).",
+            "Cada ladrilho cobre 1 m², então a área em m² já diz quantos ladrilhos são.",
+            "Cada ladrilho custa R$ 12.",
+            "Multiplique a quantidade de ladrilhos por 12."
+          ]
         }
-      ]
+      ],
+      "sorteio": {
+        "dificuldades": [
+          3,
+          2,
+          3
+        ]
+      }
     },
     {
       "missao_id": "prob",
@@ -266,8 +403,63 @@
           "tipo_raciocinio": "procedimental",
           "dica": "4/10 em decimal é quanto? Depois multiplique por 100 para virar porcentagem.",
           "explicacao": "4/10 = 0,4. Multiplicando por 100: 40%."
+        },
+        {
+          "questao_id": "MAT.PROB.SIMPLES.Q4",
+          "enunciado": "Numa caixa há 4 balas de morango e 6 de uva. Tirando uma sem olhar, qual é a probabilidade de sair <mark>morango</mark>?",
+          "figura": null,
+          "alternativas": [
+            "2/3",
+            "2/5",
+            "3/5",
+            "1/4"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "O total é 4 + 6. Quantas balas servem? Monte quantas servem ÷ total.",
+          "explicacao": "Total = 4 + 6 = 10 balas. Morango = 4. Então 4/10, que simplificado é 2/5. O 2/3 aparece quando comparamos morango com uva (4/6) em vez de comparar com o total."
+        },
+        {
+          "questao_id": "MAT.PROB.SIMPLES.Q5",
+          "enunciado": "Numa turma de 25 alunos, 10 são meninos. Sorteando um aluno, a probabilidade de ser <mark>menina</mark> é:",
+          "figura": null,
+          "alternativas": [
+            "3/5",
+            "2/5",
+            "2/3",
+            "1/25"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "O enunciado deu os meninos, mas pediu as meninas. Quantas meninas há na turma?",
+          "explicacao": "Meninas = 25 − 10 = 15. Então 15/25, e dividindo os dois por 5 chega em 3/5. O 2/5 é a chance de ser menino (10/25) — o enunciado dá um dado e pergunta o outro, então vale sublinhar o que ele pede."
+        },
+        {
+          "questao_id": "MAT.PROB.SIMPLES.Q6",
+          "enunciado": "Uma sacola tem 5 bolas amarelas e 3 bolas pretas. Qual é a probabilidade de sair uma bola <mark>vermelha</mark>?",
+          "figura": null,
+          "alternativas": [
+            "1/8",
+            "1",
+            "1/2",
+            "0"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Conte quantas bolas vermelhas existem na sacola antes de montar a fração.",
+          "explicacao": "Não há nenhuma bola vermelha, então \"quantas servem\" é 0. E 0/8 = 0: o evento é impossível. Essa é uma das duas fronteiras da probabilidade — impossível vale 0 e certeza vale 1."
         }
-      ]
+      ],
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2
+        ]
+      }
     },
     {
       "missao_id": "contas",
@@ -338,8 +530,69 @@
             "3ª parte: some os dois valores para achar o total da compra.",
             "4ª parte: o troco é 50,00 menos esse total."
           ]
+        },
+        {
+          "questao_id": "MAT.NUM.OPDEC.Q4",
+          "enunciado": "Quanto vale <mark>3,7 + 12,45</mark>?",
+          "figura": null,
+          "alternativas": [
+            "15,52",
+            "16,15",
+            "15,15",
+            "8,75"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Escreva 3,7 como 3,70 antes de armar. Vírgula embaixo de vírgula.",
+          "explicacao": "3,70 + 12,45 = 16,15. O 15,52 aparece quando a conta é alinhada pela direita em vez da vírgula, e o 15,15 quando o \"vai um\" dos centésimos é esquecido."
+        },
+        {
+          "questao_id": "MAT.NUM.OPDEC.Q5",
+          "enunciado": "Quanto vale <mark>6 × 0,35</mark>?",
+          "figura": null,
+          "alternativas": [
+            "21",
+            "0,21",
+            "2,1",
+            "1,8"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "6 × 35 = 210. Agora conte as casas decimais: 0,35 tem 2, o 6 não tem nenhuma.",
+          "explicacao": "6 × 35 = 210 e há 2 casas decimais ao todo, então 2,10 — o mesmo que 2,1. O 21 é o resultado de quem esqueceu de devolver a vírgula, e o 1,8 de quem multiplicou só 6 × 0,3."
+        },
+        {
+          "questao_id": "MAT.NUM.OPDEC.Q6",
+          "enunciado": "Alicia correu 2,4 km na segunda, 3,75 km na quarta e 1,8 km na sexta. A meta da semana é <mark>10 km</mark>. Quantos quilômetros ainda faltam?",
+          "figura": null,
+          "alternativas": [
+            "7,95 km",
+            "17,95 km",
+            "2,05 km",
+            "2,95 km"
+          ],
+          "correta": 2,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Some as três corridas primeiro. Depois lembre que a pergunta é o que <b>falta</b>, não o que já foi feito.",
+          "explicacao": "Somando: 2,40 + 3,75 + 1,80 = 7,95 km corridos. Faltam 10,00 − 7,95 = 2,05 km. O 7,95 é o que ela já correu — é a armadilha de parar antes do fim da pergunta.",
+          "passos": [
+            "Some as três corridas: 2,4 + 3,75 + 1,8 (alinhe vírgula com vírgula e complete com zeros).",
+            "Esse total é o que ela <b>já</b> correu.",
+            "A meta é 10 km — escreva 10 como 10,00 para armar a subtração.",
+            "Faça 10,00 menos o total corrido."
+          ]
         }
-      ]
+      ],
+      "sorteio": {
+        "dificuldades": [
+          2,
+          1,
+          3
+        ]
+      }
     },
     {
       "missao_id": "virgula",
@@ -409,8 +662,69 @@
             "Se o resultado foi 350, para achar o número original a vírgula tem que <b>voltar</b> quantas casas?",
             "Ande as 3 casas para a esquerda em 350."
           ]
+        },
+        {
+          "questao_id": "MAT.NUM.MUL10.Q4",
+          "enunciado": "Quanto vale <mark>5,26 × 100</mark>?",
+          "figura": null,
+          "alternativas": [
+            "52,6",
+            "5260",
+            "0,0526",
+            "526"
+          ],
+          "correta": 3,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Dois zeros no 100 = dois passos da vírgula para a direita: 5,26 → 52,6 → ?",
+          "explicacao": "Andando 2 casas para a direita: 5,26 → 52,6 → 526. O 52,6 é a parada no meio do caminho, com apenas uma casa andada."
+        },
+        {
+          "questao_id": "MAT.NUM.MUL10.Q5",
+          "enunciado": "Quanto vale <mark>92 ÷ 1000</mark>?",
+          "figura": null,
+          "alternativas": [
+            "0,092",
+            "0,92",
+            "9,2",
+            "92000"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Dividir manda a vírgula para a <b>esquerda</b>. Em 92 a vírgula está escondida no fim: 92,0.",
+          "explicacao": "Em 92 a vírgula está logo depois do 2. Voltando 3 casas: 9,2 → 0,92 → 0,092. Foi preciso escrever um zero à esquerda para a vírgula ter por onde andar."
+        },
+        {
+          "questao_id": "MAT.NUM.MUL10.Q6",
+          "enunciado": "Uma caixa tem 100 tabletes de chocolate de <mark>0,035 kg</mark> cada. Quanto pesam <b>10 caixas</b>?",
+          "figura": null,
+          "alternativas": [
+            "3,5 kg",
+            "35 kg",
+            "350 kg",
+            "0,35 kg"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Primeiro descubra quanto pesa <b>uma</b> caixa (0,035 × 100). Só depois multiplique pelas 10 caixas.",
+          "explicacao": "Uma caixa: 0,035 × 100 = 3,5 kg (vírgula anda 2 casas). Dez caixas: 3,5 × 10 = 35 kg (mais 1 casa). O 3,5 é a resposta de uma caixa só — a pergunta pede as dez.",
+          "passos": [
+            "Cada caixa tem 100 tabletes de 0,035 kg: multiplique 0,035 × 100.",
+            "A vírgula anda 2 casas para a direita — esse é o peso de <b>uma</b> caixa.",
+            "Agora são 10 caixas: multiplique por 10 (a vírgula anda mais 1 casa).",
+            "Escreva o resultado final em kg."
+          ]
         }
-      ]
+      ],
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          3
+        ]
+      }
     },
     {
       "missao_id": "fracao",
@@ -480,8 +794,69 @@
             "Escreva os dois com 2 casas para comparar: 0,60 e 0,62.",
             "Qual dos dois é o maior?"
           ]
+        },
+        {
+          "questao_id": "MAT.NUM.FRA.Q4",
+          "enunciado": "Transformando <mark>5/8</mark> em número decimal, obtemos:",
+          "figura": null,
+          "alternativas": [
+            "0,58",
+            "1,6",
+            "0,625",
+            "0,0625"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "5 ÷ 8. Se 1/8 = 0,125, quanto são cinco deles?",
+          "explicacao": "5 ÷ 8 = 0,625. Confere: 0,125 × 5 = 0,625. O 1,6 é 8 ÷ 5, a divisão feita de cabeça para baixo — na fração, o de cima é sempre quem entra na divisão."
+        },
+        {
+          "questao_id": "MAT.NUM.FRA.Q5",
+          "enunciado": "O número <mark>0,125</mark> escrito como fração <b>irredutível</b> é:",
+          "figura": null,
+          "alternativas": [
+            "125/1000",
+            "1/8",
+            "5/40",
+            "1/125"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Três casas decimais = sobre 1000. Depois vá simplificando até não dar mais.",
+          "explicacao": "0,125 = 125/1000. Dividindo os dois por 25: 5/40. E dividindo de novo por 5: 1/8. As opções 125/1000 e 5/40 valem o mesmo número, mas ainda dava para simplificar — irredutível é a última parada."
+        },
+        {
+          "questao_id": "MAT.NUM.FRA.Q6",
+          "enunciado": "Coloque em <mark>ordem crescente</mark> (do menor para o maior): 0,7 · 3/4 · 0,68",
+          "figura": null,
+          "alternativas": [
+            "0,68 · 0,7 · 3/4",
+            "3/4 · 0,7 · 0,68",
+            "0,7 · 0,68 · 3/4",
+            "3/4 · 0,68 · 0,7"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Primeiro traduza a fração para decimal (3 ÷ 4). Depois iguale as casas e compare.",
+          "explicacao": "3/4 = 0,75. Com duas casas em todos: 0,68 · 0,70 · 0,75. Do menor para o maior: 0,68 · 0,7 · 3/4. Cuidado com o 0,68: ter mais algarismos não faz um decimal ser maior.",
+          "passos": [
+            "Traduza a fração para decimal: 3 ÷ 4.",
+            "Escreva os três com 2 casas: 0,70 · 0,75 · 0,68.",
+            "Compare como se fossem inteiros: 70, 75 e 68.",
+            "A pergunta pede do <b>menor</b> para o maior — escreva nessa ordem."
+          ]
         }
-      ]
+      ],
+      "sorteio": {
+        "dificuldades": [
+          2,
+          2,
+          3
+        ]
+      }
     },
     {
       "missao_id": "valor",
@@ -551,8 +926,69 @@
             "Agora esqueça a vírgula: qual número fica bem no meio entre 20 e 30?",
             "Volte a vírgula para o lugar: 4,<b>25</b>."
           ]
+        },
+        {
+          "questao_id": "MAT.NUM.DEC.Q4",
+          "enunciado": "Como se lê o número <mark>0,08</mark>?",
+          "figura": null,
+          "alternativas": [
+            "oito décimos",
+            "oitenta centésimos",
+            "oito centésimos",
+            "oito milésimos"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Conte as casas depois da vírgula: o 8 está na 2ª. E a 2ª casa é a dos…",
+          "explicacao": "O 8 ocupa a 2ª casa depois da vírgula, a dos centésimos: lê-se oito centésimos. \"Oito décimos\" seria 0,8, um número dez vezes maior."
+        },
+        {
+          "questao_id": "MAT.NUM.DEC.Q5",
+          "enunciado": "Um número tem <mark>3 unidades</mark>, <mark>5 décimos</mark> e <mark>8 milésimos</mark>. Que número é esse?",
+          "figura": null,
+          "alternativas": [
+            "3,58",
+            "3,85",
+            "3,058",
+            "3,508"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Monte as casas na ordem: unidades, décimos, centésimos, milésimos. Nada foi dito sobre os centésimos — o que entra ali?",
+          "explicacao": "Unidades = 3, décimos = 5, centésimos = 0 (não foram citados) e milésimos = 8. Logo 3,508. O 3,58 é o que sai quando o zero dos centésimos é esquecido, e aí o 8 vira centésimo em vez de milésimo."
+        },
+        {
+          "questao_id": "MAT.NUM.DEC.Q6",
+          "enunciado": "Um número é <b>maior que 6,3</b> e <b>menor que 6,4</b>, e o algarismo dos <mark>centésimos</mark> dele é 5. Que número é esse?",
+          "figura": null,
+          "alternativas": [
+            "6,5",
+            "6,45",
+            "6,35",
+            "6,305"
+          ],
+          "correta": 2,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "São duas pistas. A primeira já fixa o começo do número; a segunda diz em que casa o 5 mora.",
+          "explicacao": "Estar entre 6,3 e 6,4 obriga o número a começar com 6,3. Com o 5 nos centésimos (2ª casa), fica 6,35. O 6,45 desrespeita a primeira pista, e o 6,305 põe o 5 nos milésimos, uma casa depois do lugar.",
+          "passos": [
+            "O número está entre 6,3 e 6,4, então ele começa com 6,3.",
+            "Falta preencher a casa seguinte, depois do 3.",
+            "A 2ª casa depois da vírgula é a dos centésimos — é lá que o 5 entra.",
+            "Junte tudo: 6,3 com o 5 nos centésimos."
+          ]
         }
-      ]
+      ],
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          3
+        ]
+      }
     }
   ]
 }

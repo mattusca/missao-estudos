@@ -2,10 +2,13 @@
 
 ## Escopo fechado em 25/08 — evolução do artefato
 
+**Todos os seis implementados, auditados e publicados em 25/08 (noite).**
+O que sobra de cada um está anotado abaixo do item.
+
 Ordenado por retorno esperado sobre custo. Nada disso entra antes da prova de 26/08.
 A pesquisa que embasa cada item está no changelog da mesma data.
 
-### 1. A aula precisa custar mais que um toque — **decisão do Marco, pendente**
+### ✅ 1. A aula precisa custar mais que um toque — **decisão do Marco, pendente**
 O "próximo" da tela da ferramenta só habilita depois de um toque no widget.
 **Por quê:** no log de 25/08 a aula ficou com 20% do tempo da sessão — 3,1 s por tela,
 em 28 telas. As questões receberam 80%. Nenhum ajuste de quantidade conserta isso.
@@ -13,7 +16,7 @@ em 28 telas. As questões receberam 80%. Nenhum ajuste de quantidade conserta is
 **Ressalva:** é atrito deliberado numa criança com dificuldade de atenção, da mesma
 família da confirmação em dois toques. Por isso a chamada é do Marco, não minha.
 
-### 2. Intercalar as revisões espaçadas
+### ✅ 2. Intercalar as revisões espaçadas
 Missão de tema único continua em `contexto: prova`. `revisao_espacada` passa a
 misturar questões de temas que ela já viu.
 **Por quê:** Rohrer et al. 2020 (RCT, 54 turmas): 61% × 38% num teste-surpresa um mês
@@ -23,13 +26,13 @@ espaça as recuperações sem tirar nem pôr uma questão.
 **Ressalva:** Hwang 2025 — intercalar sem base bloqueada é dificuldade *indesejável* para
 quem tem pouco conhecimento prévio. Por isso bloco na prova, intercalado só na revisão.
 
-### 3. Cartão de regra vira cola de todas as regras (só nas revisões intercaladas)
+### ✅ 3. Cartão de regra vira cola de todas as regras (só nas revisões intercaladas)
 **Por quê:** o cartão fixo e a intercalação brigam — se ele anuncia o tema, a
 discriminação já está feita e o ganho do item 2 evapora. Tirar o cartão não é opção:
 é acomodação.
 **Objetivo:** nada na memória de trabalho dela, nada entregue de bandeja.
 
-### 4. Revisão espaçada nasce menor e repetida
+### ✅ 4. Revisão espaçada nasce menor e repetida
 9–12 questões, ~5 min, desenhada para ser feita **três vezes** entre uma prova e outra.
 **Por quê:** Rawson & Dunlosky — o critério é 3 recuperações corretas espaçadas; exigir
 4 não traz benefício. Em crianças, praticar 1 min quatro vezes bate 4 min de uma vez.
@@ -37,35 +40,29 @@ Cepeda: com prova em duas semanas, revisar por volta do 3º e do 7º dia.
 **Objetivo:** trocar "mais questões" por "mais ocasiões", que é onde está a evidência.
 Sessão curta também encurta a distância entre esforço e recompensa.
 
-### 5. Retenção como entrada da calibragem
+### ✅ 5. Retenção como entrada da calibragem
 Mesmo `questao_id` reaparecendo semanas depois.
 **Por quê:** Bjork — desempenho durante a prática é índice ruim de aprendizagem. Hoje a
 seção 2 lê só a sessão corrente, que é exatamente a medida que ilude o instrutor.
 **Objetivo:** calibrar por retenção medida com atraso, não por placar do dia.
 É trabalho de dashboard, não de motor.
 
-### 6. Encher o banco
+### ✅ 6. Encher o banco
 - [ ] Language Arts: 4 das 7 missões ainda não têm nenhuma questão de dificuldade 3
       (conectores, continuous, modais, plurais); narrativa não tem nenhuma de nível 1.
 - [ ] Matemática: 21 questões, sem `sorteio` — continua no formato antigo.
 **Objetivo:** banco maior serve a todos os cenários e não depende de decisão pendente.
 
-### 7. Tela final visual
-Mapa das 7 missões com a medalha de cada uma, no lugar do número grande de XP.
-O dado já existe em `S.done` e `S.errors`.
-**Objetivo:** ela ver o que fez, não quanto pontuou.
+### Descartados em 25/08 — sem lastro de pesquisa
+Registrados com o motivo para não serem reinventados daqui a três meses.
 
-### 8. `missao.ilustracao` com SVG inline
-No padrão do `questao.figura`: motor dono da moldura, JSON dono do desenho.
-**Objetivo:** deixar a aula mais lúdica sem que prova nova volte a mexer no motor.
-Nada de GIF nem imagem externa — arquivo único, offline-first.
+| Ideia | Por que caiu |
+|---|---|
+| Tela final visual (mapa de medalhas no lugar do XP) | Nenhuma evidência a favor. Meta-análises de gamificação acham efeito pequeno-a-moderado, mais extrínseco que intrínseco, com risco de sobrejustificação — aumentar a camada de recompensa sem necessidade é o movimento errado. |
+| Ilustração decorativa por missão | **Pesquisa contra**: meta-análise do efeito de detalhes sedutores; em leitores iniciantes, simplificar as ilustrações melhorou atenção e compreensão. Sobrevive só a figura que EXPLICA — e para isso já existe `questao.figura`. |
+| Micro-movimento decorativo | Mesma pesquisa. Sobrevive só o movimento que carrega informação (barra de XP enchendo). |
 
-### 9. Micro-movimento
-Medalha que aparece, barra que enche, transição entre telas da aula.
-**Objetivo:** dar vida sem virar ruído. Sempre morto no modo foco e sob
-`prefers-reduced-motion`.
-
-### Restrição que vale para os itens 7 a 9
+### Restrição permanente de reforço
 O `+XP` continua aparecendo **no instante da resposta**. Aversão a atraso em TDAH não é
 só preferir recompensa imediata: o atraso carrega valência afetiva negativa. Enfileirar o
 reforço atrás de uma animação bonita quebra uma acomodação com um enfeite.

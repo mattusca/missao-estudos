@@ -41,10 +41,15 @@ function tema(aluna, materia, tema_id, subtema, sessoes, taxaSemApoio, dificulda
     const [dia, nQuestoes] = sessoes[s];
     const sessao_id = `prev_${aluna.slice(0, 3)}_${dia}`;
     for (let q = 0; q < nQuestoes; q++) {
+      /* questao_id sai de um pool fixo por tema: a mesma questão reaparece em
+         sessões diferentes, que é a única forma de o painel de retenção ter o
+         que medir. Sem isso o preview mostrava "ainda não sei dizer" e a tela
+         nova não dava para inspecionar. */
+      const questao_id = `${tema_id}.Q${(q % 6) + 1}`;
       const limpo = rnd() < taxaSemApoio;
       const comDica = !limpo && rnd() < 0.5;
       eventos.push({
-        aluna, materia, tema_id, subtema, sessao_id,
+        aluna, materia, tema_id, subtema, sessao_id, questao_id,
         timestamp: new Date(Date.UTC(2026, 7, dia, 14, q * 3)).toISOString(),
         resultado: limpo ? 'acerto_1a' : (rnd() < 0.6 ? 'acerto_2a' : (rnd() < 0.5 ? 'acerto_1a' : 'erro')),
         usou_dica: comDica ? 'sim' : 'nao',
@@ -59,11 +64,11 @@ function tema(aluna, materia, tema_id, subtema, sessoes, taxaSemApoio, dificulda
 
 // Alícia — os quatro estados
 tema('Alicia', 'Matemática', 'MAT.NUM.FRA', 'Frações equivalentes',
-  [[3, 3], [8, 3], [15, 3], [22, 3]], 0.92, [1, 2, 2, 3]);          // firme
+  [[3, 6], [8, 6], [15, 6], [22, 6]], 0.92, [1, 2, 2, 3]);          // firme
 tema('Alicia', 'Matemática', 'MAT.NUM.DEC', 'Números decimais',
-  [[5, 4], [12, 4], [20, 3]], 0.72, [1, 2, 2]);                     // atenção
+  [[5, 6], [12, 6], [20, 6]], 0.72, [1, 2, 2]);                     // atenção
 tema('Alicia', 'Matemática', 'MAT.GEO.AREAPER', 'Área e perímetro',
-  [[5, 3], [12, 4], [20, 3]], 0.42, [1, 1, 2]);                     // frágil
+  [[5, 6], [12, 6], [20, 6]], 0.42, [1, 1, 2]);                     // frágil
 tema('Alicia', 'Matemática', 'MAT.EST.GRAF', 'Gráficos de barras',
   [[15, 3], [22, 3]], 0.8, [1, 2]);                                 // ainda não sei
 
