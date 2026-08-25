@@ -1,18 +1,84 @@
 # Pendências
 
-## Evoluir o artefato (decidido em 25/08, depois da prova)
-- [ ] A aula precisa custar mais que um toque: o "próximo" da tela da ferramenta
-      só habilita depois de ela mexer uma vez no widget. **Marco decide** se entra —
-      é atrito deliberado, da mesma família dos dois toques, e isso é chamada dele.
-- [ ] Tela final visual: mapa das 7 missões com medalha de cada uma, no lugar do
-      número grande de XP. O dado já existe em `S.done` e `S.errors`.
-- [ ] `missao.ilustracao` com SVG inline, no padrão do `questao.figura`: motor dono
-      da moldura, JSON dono do desenho. Prova nova segue sendo só dado.
-- [ ] Micro-movimento (medalha que aparece, barra que enche), sempre morto no modo
-      foco e sob `prefers-reduced-motion`. Nada de GIF: arquivo único, offline-first.
+## Escopo fechado em 25/08 — evolução do artefato
+
+Ordenado por retorno esperado sobre custo. Nada disso entra antes da prova de 26/08.
+A pesquisa que embasa cada item está no changelog da mesma data.
+
+### 1. A aula precisa custar mais que um toque — **decisão do Marco, pendente**
+O "próximo" da tela da ferramenta só habilita depois de um toque no widget.
+**Por quê:** no log de 25/08 a aula ficou com 20% do tempo da sessão — 3,1 s por tela,
+em 28 telas. As questões receberam 80%. Nenhum ajuste de quantidade conserta isso.
+**Objetivo:** devolver à instrução mais da metade do tempo da sessão.
+**Ressalva:** é atrito deliberado numa criança com dificuldade de atenção, da mesma
+família da confirmação em dois toques. Por isso a chamada é do Marco, não minha.
+
+### 2. Intercalar as revisões espaçadas
+Missão de tema único continua em `contexto: prova`. `revisao_espacada` passa a
+misturar questões de temas que ela já viu.
+**Por quê:** Rohrer et al. 2020 (RCT, 54 turmas): 61% × 38% num teste-surpresa um mês
+depois, d = 0,83. E três questões seguidas do mesmo tema é prática massada — intercalar
+espaça as recuperações sem tirar nem pôr uma questão.
+**Objetivo:** ela escolher a estratégia em vez de recebê-la pronta no cabeçalho do bloco.
+**Ressalva:** Hwang 2025 — intercalar sem base bloqueada é dificuldade *indesejável* para
+quem tem pouco conhecimento prévio. Por isso bloco na prova, intercalado só na revisão.
+
+### 3. Cartão de regra vira cola de todas as regras (só nas revisões intercaladas)
+**Por quê:** o cartão fixo e a intercalação brigam — se ele anuncia o tema, a
+discriminação já está feita e o ganho do item 2 evapora. Tirar o cartão não é opção:
+é acomodação.
+**Objetivo:** nada na memória de trabalho dela, nada entregue de bandeja.
+
+### 4. Revisão espaçada nasce menor e repetida
+9–12 questões, ~5 min, desenhada para ser feita **três vezes** entre uma prova e outra.
+**Por quê:** Rawson & Dunlosky — o critério é 3 recuperações corretas espaçadas; exigir
+4 não traz benefício. Em crianças, praticar 1 min quatro vezes bate 4 min de uma vez.
+Cepeda: com prova em duas semanas, revisar por volta do 3º e do 7º dia.
+**Objetivo:** trocar "mais questões" por "mais ocasiões", que é onde está a evidência.
+Sessão curta também encurta a distância entre esforço e recompensa.
+
+### 5. Retenção como entrada da calibragem
+Mesmo `questao_id` reaparecendo semanas depois.
+**Por quê:** Bjork — desempenho durante a prática é índice ruim de aprendizagem. Hoje a
+seção 2 lê só a sessão corrente, que é exatamente a medida que ilude o instrutor.
+**Objetivo:** calibrar por retenção medida com atraso, não por placar do dia.
+É trabalho de dashboard, não de motor.
+
+### 6. Encher o banco
+- [ ] Language Arts: 4 das 7 missões ainda não têm nenhuma questão de dificuldade 3
+      (conectores, continuous, modais, plurais); narrativa não tem nenhuma de nível 1.
+- [ ] Matemática: 21 questões, sem `sorteio` — continua no formato antigo.
+**Objetivo:** banco maior serve a todos os cenários e não depende de decisão pendente.
+
+### 7. Tela final visual
+Mapa das 7 missões com a medalha de cada uma, no lugar do número grande de XP.
+O dado já existe em `S.done` e `S.errors`.
+**Objetivo:** ela ver o que fez, não quanto pontuou.
+
+### 8. `missao.ilustracao` com SVG inline
+No padrão do `questao.figura`: motor dono da moldura, JSON dono do desenho.
+**Objetivo:** deixar a aula mais lúdica sem que prova nova volte a mexer no motor.
+Nada de GIF nem imagem externa — arquivo único, offline-first.
+
+### 9. Micro-movimento
+Medalha que aparece, barra que enche, transição entre telas da aula.
+**Objetivo:** dar vida sem virar ruído. Sempre morto no modo foco e sob
+`prefers-reduced-motion`.
+
+### Restrição que vale para os itens 7 a 9
+O `+XP` continua aparecendo **no instante da resposta**. Aversão a atraso em TDAH não é
+só preferir recompensa imediata: o atraso carrega valência afetiva negativa. Enfileirar o
+reforço atrás de uma animação bonita quebra uma acomodação com um enfeite.
+
+### Congelados, com motivo
+| | Por quê |
+|---|---|
+| Ordenar missões por desempenho | Evidência de adultos (ancoragem) e de 15 anos (fadiga). Não transfere com segurança para 10 anos. |
+| Dificuldade adaptativa em tempo real | Princípio tem apoio (Metcalfe), gatilho e tamanho de amostra não. Destruiria a comparabilidade de "acerto sem apoio". |
+| Mudar as 21 questões da prova | 7 min de sessão contra 20–30 min de atenção sustentada esperada. O tamanho está certo; o arranjo é que não (ver item 2). |
+
 - [x] Banco de questões com sorteio por dificuldade — feito em 25/08.
 - [x] Alternativas embaralhadas com gabarito remapeado — feito em 25/08.
-- [ ] Encher o banco da prova de matemática (hoje 21, sem `sorteio`).
 
 ## Questões para reler no log
 - [ ] `ING.ESC.CONECT.Q2` — 41 s até o 1º toque e erro. Reli: a questão está correta,
