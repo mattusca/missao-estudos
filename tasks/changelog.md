@@ -1,5 +1,53 @@
 # Changelog
 
+## 2026-08-25 — Banco de questões e alternativas embaralhadas
+
+A Alícia fechou a prova de Language Arts (21/21, 7 missões, uma sessão). O log
+mostrou que da 3ª missão em diante a aula recebeu ~10 s — quatro telas em dez
+segundos é tocar em "próximo", não ler. Refazer uma missão, do jeito que estava,
+seria conferir memória em vez de praticar.
+
+**Motor**
+- `missao.sorteio.dificuldades` (ex.: `[1,2,2]`): o tamanho é quantas questões a
+  sessão aplica, cada item é a dificuldade daquela posição. Sorteio novo a cada
+  abertura da missão, sem repetir questão dentro da mesma tentativa.
+- Missão sem `sorteio` aplica tudo na ordem escrita — a prova de matemática não
+  precisou de uma linha de mudança.
+- Alternativas embaralhadas a cada abertura, com o gabarito remapeado.
+  `questao.alternativas_fixas: true` protege as questões cuja ordem tem sentido.
+- `qsAtivas` é memória só: missão abandonada já recomeçava pela aula, então
+  nunca há tela de desafio sem `openModule` ter passado antes.
+- Bônus de confete assumia missão de 3 questões (`c===3`); agora usa o tamanho
+  real do sorteio.
+
+**Por que sortear e não gerar questão**
+Banco escolhe entre questões escritas à mão, então `questao_id` continua estável
+e retenção continua mensurável. Gerador produziria item novo a cada evento —
+nunca se acumularia evidência sobre um item — e a dificuldade viraria rótulo de
+template, que é uma média, não a dificuldade daquela instância.
+
+**Build**
+- Recusa a prova se o banco não tiver questões suficientes de cada nível pedido.
+  Sem isso o motor cai no fallback e aplica questão fora do nível declarado em
+  silêncio, que é o pior jeito de a dificuldade declarada deixar de ser verdade.
+- O check de gabarito decorável passou a olhar só as questões `alternativas_fixas`:
+  balancear à mão o que o motor embaralha não significa nada.
+
+**Conteúdo**
+- Language Arts: banco de 21 → 42 questões, 6 por missão, exatamente o dobro do
+  sorteio em cada nível. Os ids Q1–Q3 ficaram intactos — já existem no log.
+
+**Verificação**
+- Suíte extraindo as funções reais do `motor.html` (não uma cópia): plano de
+  dificuldade respeitado, sem repetição, banco inteiro coberto em 400 sorteios,
+  gabarito preservado e passando pelas 4 posições, `alternativas_fixas` intocada,
+  prova sem sorteio inalterada, banco capenga não encurta a missão.
+- No navegador: 8 aberturas da mesma missão deram 6 conjuntos distintos; gabarito
+  remapeado aceito na posição nova; 2ª tentativa, dica e medalha íntegras; a
+  prova de matemática segue com figura e ordem original.
+
+# Changelog
+
 ## 2026-08-24 — Repositório e circuito de ponta a ponta
 
 Protótipo monolítico virou base reaproveitável. Nenhuma prova nova.

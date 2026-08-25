@@ -128,6 +128,31 @@ Declarada na criação (1–3), nunca inferida do desempenho — senão não é 
 evolução, apenas que as questões ficaram fáceis.
 `tipo_raciocinio`: `procedimental` | `conceitual` | `multi-etapa` | `interpretacao`.
 
+### Banco de questões e sorteio
+`missao.sorteio.dificuldades` é uma lista como `[1,2,2]`: o **tamanho** é quantas questões
+a sessão aplica, e cada item é a dificuldade daquela posição. O motor sorteia uma questão
+por item, sem repetir dentro da mesma tentativa. Missão **sem** `sorteio` aplica todas as
+questões na ordem escrita — é assim que as provas antigas continuam funcionando.
+
+Por que sortear em vez de gerar: o banco **escolhe entre questões escritas à mão**, então
+`questao_id` continua estável e continua sendo possível medir retenção e aposentar questão
+ruim. Id gerado na hora não se compara com nada, e dificuldade rotulada por template é uma
+média — deixaria de ser verdade item a item, em silêncio.
+
+O build recusa a prova se o banco não tiver questões suficientes de cada nível pedido.
+Sem essa checagem o motor cairia no fallback e aplicaria uma questão fora do nível
+declarado sem avisar ninguém.
+
+### Ordem das alternativas
+O motor **embaralha as alternativas a cada abertura** e remapeia o gabarito. Isso mata a
+memorização de posição quando ela refaz uma missão — que é justamente o que a repetição
+espaçada precisa que não aconteça.
+
+`questao.alternativas_fixas: true` desliga o embaralhamento para as questões cuja ordem
+carrega sentido: sequência de etapas, escala crescente, "nenhuma das anteriores".
+Como o motor embaralha, **balancear o gabarito à mão só importa nessas** — e é só nelas
+que o build ainda checa o balanceamento.
+
 ### Campos de acomodação — obrigatórios, o build recusa sem eles
 - `missao.regra` (**obrigatório**): o texto do cartão de regra fixo. Aceita HTML simples.
   Vazio = cartão vazio na tela, e cartão vazio conta como acomodação removida.
@@ -205,9 +230,10 @@ Preview local: `node scripts/preview-dash.mjs [pasta] --servir` (saída nunca em
 1. Partir do roteiro real da professora (foto/PDF). **Não inventar tópico fora do roteiro.**
 2. Mapear cada tópico a um `tema_id` do catálogo; criar entrada nova se não existir.
 3. Consultar o log antes de definir dificuldade — aplicar a tabela da seção 2.
-4. Balancear o gabarito: distribuir as respostas corretas entre as alternativas,
-   sem padrão que possa ser decorado.
-5. Toda missão precisa de: regra curta, aula fatiada, **uma ferramenta manipulável** e 3 questões.
+4. Balancear o gabarito só nas questões `alternativas_fixas` — o motor embaralha o resto.
+5. Toda missão precisa de: regra curta, aula fatiada, **uma ferramenta manipulável** e um
+   banco com pelo menos o dobro do que o `sorteio` aplica. Banco do tamanho exato do
+   sorteio não é banco: sorteia sempre as mesmas.
 6. Ordenar as missões começando pelos temas mais frágeis (atenção é melhor no início).
 7. Rodar `node build.mjs <prova_id>` e testar a retomada antes de publicar.
 

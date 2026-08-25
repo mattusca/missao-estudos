@@ -1,5 +1,26 @@
 # Pendências
 
+## Evoluir o artefato (decidido em 25/08, depois da prova)
+- [ ] A aula precisa custar mais que um toque: o "próximo" da tela da ferramenta
+      só habilita depois de ela mexer uma vez no widget. **Marco decide** se entra —
+      é atrito deliberado, da mesma família dos dois toques, e isso é chamada dele.
+- [ ] Tela final visual: mapa das 7 missões com medalha de cada uma, no lugar do
+      número grande de XP. O dado já existe em `S.done` e `S.errors`.
+- [ ] `missao.ilustracao` com SVG inline, no padrão do `questao.figura`: motor dono
+      da moldura, JSON dono do desenho. Prova nova segue sendo só dado.
+- [ ] Micro-movimento (medalha que aparece, barra que enche), sempre morto no modo
+      foco e sob `prefers-reduced-motion`. Nada de GIF: arquivo único, offline-first.
+- [x] Banco de questões com sorteio por dificuldade — feito em 25/08.
+- [x] Alternativas embaralhadas com gabarito remapeado — feito em 25/08.
+- [ ] Encher o banco da prova de matemática (hoje 21, sem `sorteio`).
+
+## Questões para reler no log
+- [ ] `ING.ESC.CONECT.Q2` — 41 s até o 1º toque e erro. Reli: a questão está correta,
+      o tropeço provável é gramatical ("In addition to" não abre frase com vírgula).
+      Vale ver se cai de novo agora que `ING.ESC.CONECT.Q6` treina exatamente isso.
+- [ ] `ING.CLI.PLUIRR.Q2` — erro em 8 s numa dificuldade 1. Reli: a armadilha
+      ("sheeps") é intencional e funcionou. É pressa, não questão ruim.
+
 ## Prova de Language Arts (26/08)
 - [ ] Marco: testar a prova antes de a Alícia usar (25/08).
       https://mattusca.github.io/missao-estudos/2026-08-language-arts-y5.html

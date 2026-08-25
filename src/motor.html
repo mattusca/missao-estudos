@@ -667,7 +667,10 @@ const PROVA = (() => {
    primeiro, enquanto a atenção está melhor). O motor não reordena. */
 const missoes    = PROVA.missoes;
 const N_MISSOES  = missoes.length;
-const N_QUESTOES = missoes.reduce((a, m) => a + m.questoes.length, 0);
+/* Quantas questões uma missão APLICA. Com banco de questões o JSON declara a
+   distribuição de dificuldade do sorteio, e o banco é maior que a aplicação. */
+const tamanhoMissao = m => m.sorteio?.dificuldades?.length || m.questoes.length;
+const N_QUESTOES = missoes.reduce((a, m) => a + tamanhoMissao(m), 0);
 
 /* ============================ FIGURAS ============================
    O JSON é dono do conteúdo, o motor é dono da moldura. */
@@ -908,7 +911,7 @@ const el=id=>document.getElementById(id);
    ou de questão escrito à mão. */
 const NUM=['nenhuma','uma','duas','três','quatro','cinco','seis','sete','oito','nove','dez'];
 function rotulos(){
-  const porMissao=[...new Set(missoes.map(m=>m.questoes.length))];
+  const porMissao=[...new Set(missoes.map(tamanhoMissao))];
   const desafios=porMissao.length===1?`${porMissao[0]} desafios`:'alguns desafios';
   el('mapEyebrow').textContent=`${PROVA.ano_aluna} · ${PROVA.materia}`;
   el('mapTitle').textContent=PROVA.titulo;
@@ -1026,6 +1029,7 @@ let lessonSteps=[],lessonStep=0;
 function openModule(i){
   S.mod=i;S.modId=missoes[i].missao_id;S.q=0;S.screen='lesson';S.usedHint=false;S.shield=true;save();
   const m=missoes[i];
+  qsAtivas=sortearQuestoes(m).map(prepararQuestao);
   el('lessonEyebrow').textContent=`Missão ${i+1} de ${N_MISSOES}`;
   el('lessonTitle').textContent=m.titulo;
   lessonSteps=buildSteps(m);lessonStep=0;
@@ -1047,10 +1051,59 @@ el('lessonNext').onclick=()=>{if(lessonStep<lessonSteps.length-1){lessonStep++;d
 el('lessonBack').onclick=()=>{if(lessonStep>0){lessonStep--;drawLessonStep();window.scrollTo({top:0,behavior:'smooth'});}};
 el('toQuizBtn').onclick=()=>{S.screen='quiz';S.q=0;S.correctInMod=0;save();renderQ();};
 
+/* ====== SORTEIO DO BANCO E EMBARALHAMENTO DAS ALTERNATIVAS ======
+   Duas coisas diferentes com o mesmo objetivo: refazer uma missão tem que ser
+   prática de novo, não conferência de memória.
+
+   O banco NÃO gera questão: ele escolhe entre questões escritas à mão. Por isso
+   o `questao_id` continua estável entre provas, e é ele que sustenta a medida
+   de retenção e o QA de questão. Id inventado na hora não se compara com nada.
+
+   A dificuldade do sorteio é DECLARADA no JSON (`sorteio.dificuldades`), nunca
+   emergente do banco — a regra de que dificuldade se declara na criação vale
+   igual aqui. Missão sem `sorteio` aplica todas as questões na ordem escrita,
+   que é como as provas antigas seguem funcionando. */
+function baralhar(a){
+  const r=[...a];
+  for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}
+  return r;
+}
+
+function sortearQuestoes(m){
+  const plano=m.sorteio?.dificuldades;
+  if(!plano?.length) return m.questoes.slice();
+  const usados=new Set(), saida=[];
+  for(const d of plano){
+    const naDificuldade=m.questoes.filter(q=>q.dificuldade===d&&!usados.has(q.questao_id));
+    /* Banco sem questão daquele nível ainda livre: cai para qualquer uma ainda
+       não usada. Missão curta seria pior que missão fora do nível pedido — e o
+       build recusa a prova antes de isso acontecer. */
+    const pool=naDificuldade.length?naDificuldade:m.questoes.filter(q=>!usados.has(q.questao_id));
+    if(!pool.length) break;
+    const q=pool[Math.floor(Math.random()*pool.length)];
+    usados.add(q.questao_id); saida.push(q);
+  }
+  return saida;
+}
+
+/* Embaralha as alternativas e remapeia o índice do gabarito. `alternativas_fixas`
+   protege as questões cuja ordem carrega sentido — sequência de etapas, escala
+   crescente, "nenhuma das anteriores". */
+function prepararQuestao(q){
+  if(q.alternativas_fixas||!Array.isArray(q.alternativas)) return q;
+  const ordem=baralhar(q.alternativas.map((_,i)=>i));
+  return {...q, alternativas:ordem.map(i=>q.alternativas[i]), correta:ordem.indexOf(q.correta)};
+}
+
+/* As questões desta tentativa. Memória só: uma missão abandonada recomeça pela
+   aula (entrarNoMapa descarta o parcial), então nunca há tela de desafio sem
+   openModule ter passado antes. Sorteio novo a cada tentativa é o ponto. */
+let qsAtivas=[];
+
 let chosen=null, stepsShown=0, attempts=0;
 
 function renderQ(){
-  const m=missoes[S.mod],q=m.questoes[S.q];
+  const m=missoes[S.mod],q=qsAtivas[S.q];
   S.usedHint=false;chosen=null;stepsShown=0;attempts=0;
   el('qTag').textContent=m.titulo;
   /* O texto de leitura fica visível DURANTE as questões — é exatamente o que o
@@ -1058,8 +1111,8 @@ function renderQ(){
      `regra`, pelo mesmo motivo da série do gráfico: dois lugares divergem. */
   el('ruleText').innerHTML=(m.regra||'') +
     (m.dados?.texto ? `<div class="rtexto">${m.dados.texto.split('|').map(s=>s.trim()).filter(Boolean).join(' ')}</div>` : '');
-  el('dots').innerHTML=m.questoes.map((_,i)=>`<i class="${i<S.q?'on':i===S.q?'now':''}"></i>`).join('');
-  el('qText').innerHTML=`<span class="muted" style="font-size:.9rem;font-weight:600">Desafio ${S.q+1} de ${m.questoes.length}</span><br>${q.enunciado}`;
+  el('dots').innerHTML=qsAtivas.map((_,i)=>`<i class="${i<S.q?'on':i===S.q?'now':''}"></i>`).join('');
+  el('qText').innerHTML=`<span class="muted" style="font-size:.9rem;font-weight:600">Desafio ${S.q+1} de ${qsAtivas.length}</span><br>${q.enunciado}`;
   el('qFigure').innerHTML=figuraHTML(q.figura,m);
   const box=el('opts');box.innerHTML='';
   q.alternativas.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';
@@ -1069,7 +1122,7 @@ function renderQ(){
   el('hintBtn').classList.remove('hidden');
   el('nextBtn').classList.add('hidden');
   el('confirmBtn').classList.add('hidden');
-  el('nextBtn').textContent=S.q===m.questoes.length-1?'Finalizar missão':'Próximo desafio';
+  el('nextBtn').textContent=S.q===qsAtivas.length-1?'Finalizar missão':'Próximo desafio';
   // andaime, só nas questões que declararam passos
   el('stepBox').className='stepbox';el('stepBox').innerHTML='';
   el('stepBtn').classList.toggle('hidden',!q.passos?.length);
@@ -1090,7 +1143,7 @@ el('confirmBtn').onclick=()=>{if(chosen!==null)answer(chosen);};
 
 /* andaime: revela uma etapa por vez */
 el('stepBtn').onclick=()=>{
-  const p=missoes[S.mod].questoes[S.q].passos;if(!p?.length)return;
+  const p=qsAtivas[S.q].passos;if(!p?.length)return;
   marcarPrimeiroToque();
   el('stepBox').className='stepbox show';
   stepsShown++;
@@ -1100,14 +1153,14 @@ el('stepBtn').onclick=()=>{
 };
 
 el('hintBtn').onclick=()=>{
-  const q=missoes[S.mod].questoes[S.q];S.usedHint=true;marcarPrimeiroToque();
+  const q=qsAtivas[S.q];S.usedHint=true;marcarPrimeiroToque();
   el('hintBox').className='hintbox show';el('hintBox').innerHTML=`<b>Dica:</b> ${q.dica}`;
   el('hintBtn').classList.add('hidden');};
 
 const PRAISE=['Boa! 🎯','Isso aí! ✨','Mandou bem! 🚀','Exatamente! 💚','Perfeito! ⭐','Você pegou o jeito! 🔥'];
 
 function answer(choice){
-  const m=missoes[S.mod],q=m.questoes[S.q],ok=choice===q.correta;
+  const m=missoes[S.mod],q=qsAtivas[S.q],ok=choice===q.correta;
   const fb=el('feedback');
   el('confirmBtn').classList.add('hidden');
 
@@ -1159,11 +1212,11 @@ function answer(choice){
 
 el('nextBtn').onclick=()=>{
   const m=missoes[S.mod];
-  if(S.q<m.questoes.length-1){S.q++;save();renderQ();}
+  if(S.q<qsAtivas.length-1){S.q++;save();renderQ();}
   else finishModule();};
 
 function finishModule(){
-  const m=missoes[S.mod],c=S.correctInMod||0,n=m.questoes.length;
+  const m=missoes[S.mod],c=S.correctInMod||0,n=qsAtivas.length;
   const medal=c===n?'🥇':c>=n-1?'🥈':'🥉';
   S.done[m.missao_id]=medal;
   const bonus=c===n?150:c>=n-1?90:60;S.xp+=bonus;
@@ -1177,7 +1230,7 @@ function finishModule(){
   /* Nenhuma linha de resumo aqui: acertos, medalha e tempo por missão se
      calculam na planilha a partir das linhas por questão. */
   offerPause(S.mod);
-  if(!S.focus)confetti(c===3?40:20);
+  if(!S.focus)confetti(c===n?40:20);
   show('moduleDone');
 }
 

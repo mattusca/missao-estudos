@@ -78,6 +78,54 @@
           "tipo_raciocinio": "conceitual",
           "dica": "Xadrez, robótica e teatro são três exemplos de \"many clubs\".",
           "explicacao": "A segunda parte lista exemplos da primeira — família \"for instance\"."
+        },
+        {
+          "questao_id": "ING.ESC.CONECT.Q4",
+          "enunciado": "Ravi plays the guitar _____ the piano.",
+          "figura": null,
+          "alternativas": [
+            "as well as",
+            "however",
+            "therefore",
+            "for instance"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Ele toca os dois instrumentos. A segunda coisa se soma à primeira.",
+          "explicacao": "Somar uma coisa à outra é a família de <b>as well as</b> e <b>in addition to</b>."
+        },
+        {
+          "questao_id": "ING.ESC.CONECT.Q5",
+          "enunciado": "Penguins cannot fly. _____, they are excellent swimmers.",
+          "figura": null,
+          "alternativas": [
+            "Therefore",
+            "However",
+            "In addition to",
+            "For instance"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Não voar e nadar muito bem puxam para lados opostos.",
+          "explicacao": "É contraste: <b>However</b>. \"Therefore\" seria consequência, e não voar não faz ninguém nadar bem."
+        },
+        {
+          "questao_id": "ING.ESC.CONECT.Q6",
+          "enunciado": "_____ doing her homework, Lara helped her mum with dinner.",
+          "figura": null,
+          "alternativas": [
+            "However",
+            "In addition to",
+            "Therefore",
+            "For instance"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Ela fez as duas coisas. E repare: logo depois da lacuna vem \"doing\", com -ing.",
+          "explicacao": "<b>In addition to</b> soma e pede verbo com -ing depois dele. \"However\" e \"Therefore\" nunca vêm antes de um verbo assim — é por isso que só um cabe aqui."
         }
       ],
       "dados": {
@@ -145,6 +193,13 @@
               }
             ]
           }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2
         ]
       }
     },
@@ -217,6 +272,60 @@
           ],
           "dica": "\"Surprisingly\" avisa que o que vem a seguir é inesperado. Inesperado por quê?",
           "explicacao": "O texto já disse que é o lugar mais seco da Terra. Por isso o autor acha surpreendente que animais consigam viver ali. Isso é inferência: a resposta não está escrita, você junta duas pistas."
+        },
+        {
+          "questao_id": "ING.LEI.INTERP.Q4",
+          "enunciado": "According to the text, where do the foxes and lizards find water?",
+          "figura": null,
+          "alternativas": [
+            "In the fog that comes from the ocean.",
+            "In rivers hidden under the desert.",
+            "In the rain that falls at night.",
+            "In water brought by the scientists."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "A resposta está na última frase do texto.",
+          "explicacao": "O texto diz que raposas e lagartos acham água na neblina espessa que vem do oceano. É detalhe explícito: está escrito, não precisa deduzir."
+        },
+        {
+          "questao_id": "ING.LEI.INTERP.Q5",
+          "enunciado": "Which <mark>title</mark> fits the whole text best?",
+          "figura": null,
+          "alternativas": [
+            "A Desert Full of Rain",
+            "The Driest Place on Earth",
+            "How to Build a Telescope",
+            "Foxes and Lizards of Chile"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Um bom título cobre o texto inteiro, não só um pedaço dele.",
+          "explicacao": "Telescópios e animais são partes do texto; o assunto que amarra tudo é o deserto mais seco da Terra. Título que cobre só um parágrafo é título estreito demais."
+        },
+        {
+          "questao_id": "ING.LEI.INTERP.Q6",
+          "enunciado": "The text does not say it directly, but you can <mark>conclude</mark> that…",
+          "figura": null,
+          "alternativas": [
+            "the fog is more useful to those animals than the rain is.",
+            "it rains in the Atacama every night.",
+            "the scientists give water to the foxes.",
+            "the telescopes are built inside the fog."
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Junte duas informações que estão em frases diferentes do texto.",
+          "explicacao": "Em algumas partes não chove há mais de quatrocentos anos — então a chuva não serve de nada para eles. A neblina, sim: é dela que tiram água. Concluir é juntar duas frases que o texto não juntou.",
+          "passos": [
+            "Procure no texto de onde os animais tiram água.",
+            "Agora procure há quanto tempo não chove em algumas partes.",
+            "Compare as duas: qual delas existe ali de verdade e qual não existe?",
+            "A conclusão é sobre qual das duas realmente serve para eles."
+          ]
         }
       ],
       "dados": {
@@ -247,6 +356,13 @@
             "frase": "Foxes and lizards find water",
             "papel": "dar o exemplo que fecha a ideia nova"
           }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          3
         ]
       }
     },
@@ -319,6 +435,60 @@
           ],
           "dica": "Comece pela situação: o que já estava acontecendo antes do barulho?",
           "explicacao": "B é a situação (ela não conseguia dormir), A é o problema (o barulho), C é a ação (subir a escada) e D é o desfecho (era o gato). Situação → problema → ponto alto → desfecho."
+        },
+        {
+          "questao_id": "ING.ESC.NARR.Q4",
+          "enunciado": "Which sentence is the best <mark>opening</mark> for a narrative?",
+          "figura": null,
+          "alternativas": [
+            "The wind slammed the door shut just as Theo reached the top step.",
+            "I am going to write about a boy called Theo.",
+            "Theo was a boy who lived in an old house.",
+            "This story happens in an old house in the countryside."
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Uma boa abertura já coloca alguma coisa acontecendo, sem avisar que vai contar.",
+          "explicacao": "A primeira já joga o leitor para dentro da cena: tem ação e tensão na mesma frase. As outras anunciam a história ou descrevem antes de começar — e anunciar não é começar."
+        },
+        {
+          "questao_id": "ING.ESC.NARR.Q5",
+          "enunciado": "Which sentence <mark>shows</mark> instead of <mark>tells</mark>?",
+          "figura": null,
+          "alternativas": [
+            "The dog was excited.",
+            "The dog’s tail thumped against the door and he spun in circles.",
+            "He felt excitement when he saw the dog.",
+            "The dog was a very excited animal."
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Procure a frase que descreve o que dá para ver acontecendo, sem nomear o sentimento.",
+          "explicacao": "Rabo batendo na porta e o cachorro rodando: o leitor conclui sozinho que ele está animado. As outras entregam a palavra \"excited\" pronta — isso é contar, não mostrar."
+        },
+        {
+          "questao_id": "ING.ESC.NARR.Q6",
+          "enunciado": "Read the four events:<br><b>A.</b> Nina packed her bag.<br><b>B.</b> The bus arrived.<br><b>C.</b> She waited at the stop.<br><b>D.</b> She sat by the window.<br>Which order tells the story correctly?",
+          "figura": null,
+          "alternativas": [
+            "C → A → B → D",
+            "A → C → B → D",
+            "A → B → C → D",
+            "B → A → C → D"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Comece pelo evento que só pode acontecer dentro de casa.",
+          "explicacao": "Arrumar a mochila é em casa, então vem primeiro. Depois ela espera no ponto, o ônibus chega, e só aí dá para sentar na janela. Cada evento abre o seguinte.",
+          "passos": [
+            "Ache o evento que só pode acontecer em casa, antes de sair.",
+            "Para o ônibus chegar até ela, onde ela precisa estar antes?",
+            "O ônibus chegar vem antes ou depois de ela esperar no ponto?",
+            "Sentar na janela só é possível depois de qual evento?"
+          ]
         }
       ],
       "dados": {
@@ -354,6 +524,13 @@
             ],
             "porque": "repare que o desfecho fecha o que o problema abriu"
           }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          2,
+          2,
+          3
         ]
       }
     },
@@ -426,6 +603,60 @@
           ],
           "dica": "\"Interesting\" tem 4 sílabas. Palavra longa nunca ganha -er.",
           "explicacao": "\"Interesting\" é longa, então usa <b>more</b> (nunca \"interestinger\"). Como há \"than\", é comparativo — e comparativo não leva \"the\" nem \"most\"."
+        },
+        {
+          "questao_id": "ING.CLI.COMPSUP.Q4",
+          "enunciado": "My bag is _____ than yours. <i>(light)</i>",
+          "figura": null,
+          "alternativas": [
+            "more light",
+            "lightest",
+            "lighter",
+            "the lighter"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "\"Light\" é adjetivo curto, e a frase compara duas coisas.",
+          "explicacao": "Adjetivo curto comparando duas coisas leva <b>-er</b>: <b>lighter</b>. \"More\" fica com os adjetivos longos."
+        },
+        {
+          "questao_id": "ING.CLI.COMPSUP.Q5",
+          "enunciado": "That was _____ film I have ever seen. <i>(bad)</i>",
+          "figura": null,
+          "alternativas": [
+            "the baddest",
+            "the worse",
+            "the most bad",
+            "the worst"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "\"Bad\" é irregular: não usa -est nem \"most\". E \"ever seen\" pede superlativo.",
+          "explicacao": "<b>Bad → worse → the worst.</b> \"The worse\" compara só dois; aqui a comparação é com todos os filmes que ela já viu."
+        },
+        {
+          "questao_id": "ING.CLI.COMPSUP.Q6",
+          "enunciado": "Which sentence is <mark>correct</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Anna is the tallest girl in the team.",
+            "Anna is the most tall girl in the team.",
+            "Anna is taller girl in the team.",
+            "Anna is more taller than the team."
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Primeiro decida: a frase compara Anna com uma pessoa ou com o time inteiro?",
+          "explicacao": "Comparar com um grupo todo é superlativo, e superlativo pede \"the\". \"Tall\" é curto, então ganha <b>-est</b>, nunca \"most\". Só uma frase tem as duas coisas certas ao mesmo tempo.",
+          "passos": [
+            "A frase compara Anna com uma pessoa só ou com o time inteiro?",
+            "Comparar com um grupo inteiro pede superlativo, com \"the\" na frente.",
+            "\"Tall\" é adjetivo curto: superlativo curto ganha -est, e não \"most\".",
+            "Sobra a frase que tem \"the\" e o -est juntos. É ela."
+          ]
         }
       ],
       "dados": {
@@ -497,6 +728,13 @@
             "nota": "irregular — só decorando"
           }
         ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          3
+        ]
       }
     },
     {
@@ -562,6 +800,54 @@
           "tipo_raciocinio": "conceitual",
           "dica": "Procure was/were seguido de um verbo terminado em -ing.",
           "explicacao": "Past Continuous = was/were + -ing. Só a alternativa C tem <b>were playing</b>. A B é Present Continuous, a A é Past Simple e a D é Present Perfect."
+        },
+        {
+          "questao_id": "ING.CLI.CONT.Q4",
+          "enunciado": "Right now, my parents _____ dinner. <i>(cook)</i>",
+          "figura": null,
+          "alternativas": [
+            "is cooking",
+            "are cooking",
+            "cooks",
+            "were cooking"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "\"My parents\" são duas pessoas — repare em qual verbo auxiliar combina.",
+          "explicacao": "\"Right now\" pede Present Continuous, e sujeito no plural leva <b>are</b>: <b>are cooking</b>."
+        },
+        {
+          "questao_id": "ING.CLI.CONT.Q5",
+          "enunciado": "At eight o’clock last night, we _____ a film. <i>(watch)</i>",
+          "figura": null,
+          "alternativas": [
+            "are watching",
+            "watch",
+            "were watching",
+            "have watched"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "\"Last night\" já passou, e a frase marca um momento exato dentro daquela noite.",
+          "explicacao": "Ação em andamento num momento do passado é Past Continuous: <b>were watching</b>. O filme já tinha começado às oito e continuava depois."
+        },
+        {
+          "questao_id": "ING.CLI.CONT.Q6",
+          "enunciado": "Which sentence is in the <mark>Present Continuous</mark>?",
+          "figura": null,
+          "alternativas": [
+            "She was reading when I called.",
+            "She reads every evening.",
+            "She has read that book twice.",
+            "She is reading in the garden."
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Procure a fórmula <b>am/is/are</b> + verbo com -ing.",
+          "explicacao": "<b>Is reading</b> é Present Continuous: acontece agora. \"Was reading\" é passado, \"reads\" é rotina, e \"has read\" é outro tempo verbal."
         }
       ],
       "dados": {
@@ -614,6 +900,13 @@
             ],
             "porque": "a ação longa fica no Continuous; a curta, no Past Simple"
           }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2
         ]
       }
     },
@@ -680,6 +973,54 @@
           "tipo_raciocinio": "conceitual",
           "dica": "Conselho é o que você pode recusar sem quebrar regra nenhuma.",
           "explicacao": "Só a alternativa A é sugestão — ninguém é obrigado a comer bolo. As outras três são obrigações, com <b>must</b> ou <b>have to</b>."
+        },
+        {
+          "questao_id": "ING.CLI.MODAL.Q4",
+          "enunciado": "This is a hospital. You _____ be quiet.",
+          "figura": null,
+          "alternativas": [
+            "might",
+            "must",
+            "could",
+            "would"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Num hospital, ficar quieto não é sugestão: é regra forte.",
+          "explicacao": "<b>Must</b> carrega obrigação forte. \"Might\" e \"could\" são possibilidade, não obrigação."
+        },
+        {
+          "questao_id": "ING.CLI.MODAL.Q5",
+          "enunciado": "Which sentence means the thing is <mark>optional</mark>?",
+          "figura": null,
+          "alternativas": [
+            "You must bring a jacket.",
+            "You have to bring a jacket.",
+            "You don’t have to bring a jacket.",
+            "You should bring a jacket."
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Optional quer dizer: pode trazer ou não, ninguém te obriga.",
+          "explicacao": "<b>Don’t have to</b> quer dizer que não é obrigatório — e é aí que quase todo mundo tropeça, porque parece proibição e não é. \"Should\" é conselho, e conselho ainda empurra para um lado."
+        },
+        {
+          "questao_id": "ING.CLI.MODAL.Q6",
+          "enunciado": "Marta _____ finish the project by Friday — her teacher set that deadline.",
+          "figura": null,
+          "alternativas": [
+            "should",
+            "has to",
+            "might",
+            "could"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "O prazo veio da professora, não da vontade dela.",
+          "explicacao": "Obrigação que vem de fora é <b>have to</b> (aqui <b>has to</b>, porque é \"Marta\"). \"Should\" seria só um conselho, e prazo de professora não é conselho."
         }
       ],
       "dados": {
@@ -732,6 +1073,13 @@
             ],
             "porque": "obrigação forte, sem 'to' depois de must"
           }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2
         ]
       }
     },
@@ -798,6 +1146,54 @@
           "tipo_raciocinio": "conceitual",
           "dica": "Cuidado: a pergunta quer o ERRADO, não o certo.",
           "explicacao": "O plural de tooth é <b>teeth</b>, não \"tooths\" — é do grupo que muda por dentro. Children, mice e women estão corretos."
+        },
+        {
+          "questao_id": "ING.CLI.PLUIRR.Q4",
+          "enunciado": "The dentist checked all my _____ . <i>(tooth)</i>",
+          "figura": null,
+          "alternativas": [
+            "tooths",
+            "teeth",
+            "teeths",
+            "toothes"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Este plural não ganha -s: a palavra inteira muda por dentro.",
+          "explicacao": "<b>Tooth → teeth.</b> É um dos plurais que trocam a vogal, como foot → feet."
+        },
+        {
+          "questao_id": "ING.CLI.PLUIRR.Q5",
+          "enunciado": "Two _____ were waiting outside the shop. <i>(woman)</i>",
+          "figura": null,
+          "alternativas": [
+            "womans",
+            "womens",
+            "women",
+            "womanes"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Mesma família de tooth: o miolo da palavra muda, não o fim.",
+          "explicacao": "<b>Woman → women.</b> Muda a vogal do meio, e nada de -s no fim."
+        },
+        {
+          "questao_id": "ING.CLI.PLUIRR.Q6",
+          "enunciado": "Which plural is <mark>correct</mark>?",
+          "figura": null,
+          "alternativas": [
+            "leafs",
+            "geese",
+            "childs",
+            "mouses"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Três destes seguiram a regra do -s quando não deviam.",
+          "explicacao": "<b>Geese</b> está certo (goose → geese). Os outros seriam <i>leaves</i>, <i>children</i> e <i>mice</i> — irregulares que fingiram ser regulares."
         }
       ],
       "dados": {
@@ -869,6 +1265,13 @@
             ],
             "nota": "não muda nada"
           }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          1,
+          2
         ]
       }
     }

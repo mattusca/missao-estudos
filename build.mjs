@@ -58,6 +58,23 @@ for (const m of prova.missoes) {
   // o cartão de regra é acomodação, não enfeite: sem texto ele some da tela
   if (!m.regra || !String(m.regra).trim())
     erros.push(`missão sem regra para o cartão fixo: ${m.missao_id}`);
+  /* Banco de questões: o sorteio declara a distribuição de dificuldade, e o
+     banco precisa ter com que atendê-la. Sem esta checagem o motor cai no
+     fallback e aplica uma questão fora do nível pedido — em silêncio, que é o
+     pior jeito de a dificuldade declarada deixar de ser verdade. */
+  if (m.sorteio != null) {
+    const plano = m.sorteio.dificuldades;
+    if (!Array.isArray(plano) || !plano.length)
+      erros.push(`sorteio sem lista "dificuldades": ${m.missao_id}`);
+    else if (plano.some(d => ![1,2,3].includes(d)))
+      erros.push(`sorteio com dificuldade fora de 1-3: ${m.missao_id}`);
+    else for (const d of new Set(plano)) {
+      const pedidas = plano.filter(x => x === d).length;
+      const temNoBanco = m.questoes.filter(q => q.dificuldade === d).length;
+      if (temNoBanco < pedidas)
+        erros.push(`banco insuficiente em ${m.missao_id}: o sorteio pede ${pedidas} de dificuldade ${d} e o banco tem ${temNoBanco}`);
+    }
+  }
   for (const q of m.questoes) {
     if (ids.has(q.questao_id)) erros.push(`questao_id duplicado: ${q.questao_id}`);
     ids.add(q.questao_id);
@@ -66,6 +83,8 @@ for (const m of prova.missoes) {
     if (![1,2,3].includes(q.dificuldade)) erros.push(`dificuldade fora de 1-3: ${q.questao_id}`);
     if (q.passos != null && (!Array.isArray(q.passos) || !q.passos.length))
       erros.push(`passos vazios ou malformados: ${q.questao_id}`);
+    if (q.alternativas_fixas != null && typeof q.alternativas_fixas !== 'boolean')
+      erros.push(`alternativas_fixas precisa ser booleano: ${q.questao_id}`);
     if (q.figura != null) {
       const f = q.figura;
       if (typeof f !== 'object') erros.push(`figura deve ser objeto tipado: ${q.questao_id}`);
@@ -78,12 +97,17 @@ for (const m of prova.missoes) {
     }
   }
 }
-// gabarito não pode ter padrão decorável
-const dist = [0,0,0,0];
-prova.missoes.forEach(m => m.questoes.forEach(q => dist[q.correta]++));
-const total = dist.reduce((a,b) => a+b, 0);
-if (Math.max(...dist) > total * 0.4)
-  erros.push(`gabarito desbalanceado: ${dist.join('/')} (A/B/C/D)`);
+/* Gabarito decorável só é risco onde a ordem das alternativas é fixa: o motor
+   embaralha as demais a cada abertura, então balancear aquelas à mão não
+   significa nada. A checagem passou a olhar só as questões protegidas por
+   `alternativas_fixas`, e só quando há amostra para a conta valer. */
+const fixas = prova.missoes.flatMap(m => m.questoes.filter(q => q.alternativas_fixas));
+if (fixas.length >= 5) {
+  const dist = [0,0,0,0];
+  fixas.forEach(q => dist[q.correta]++);
+  if (Math.max(...dist) > fixas.length * 0.4)
+    erros.push(`gabarito desbalanceado nas questões de ordem fixa: ${dist.join('/')} (A/B/C/D)`);
+}
 
 if (erros.length) { console.error('Build abortado:\n- ' + erros.join('\n- ')); process.exit(1); }
 
@@ -137,8 +161,11 @@ ${publicadas.map(f => `<li><a href="${f}">${f.replace('.html', '')}</a></li>`).j
 </ul></body></html>\n`);
 
 console.log(`OK  ${dest}`);
-console.log(`    ${prova.missoes.length} missões · ${total} questões · gabarito A/B/C/D = ${dist.join('/')}`);
-console.log(`    dificuldade média ${(prova.missoes.flatMap(m=>m.questoes).reduce((a,q)=>a+q.dificuldade,0)/total).toFixed(2)}`);
+const banco = prova.missoes.flatMap(m => m.questoes);
+const aplicadas = prova.missoes.reduce((a, m) => a + (m.sorteio?.dificuldades?.length || m.questoes.length), 0);
+console.log(`    ${prova.missoes.length} missões · ${aplicadas} questões por sessão, sorteadas de um banco de ${banco.length}`);
+console.log(`    dificuldade média do banco ${(banco.reduce((a,q)=>a+q.dificuldade,0)/banco.length).toFixed(2)}`);
+console.log(`    alternativas embaralhadas em ${banco.filter(q=>!q.alternativas_fixas).length} de ${banco.length} questões`);
 console.log(sheetUrl
   ? '    envio para a planilha: ATIVO'
   : '    envio para a planilha: DESLIGADO (sem SHEET_URL) — fila local + botão "Copiar resultados"');
