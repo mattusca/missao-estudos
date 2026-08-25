@@ -96,13 +96,15 @@ if (SERVIR) {
   const PORTA = 4174;
   http.createServer((req, res) => {
     const alvo = path.resolve(RAIZ, '.' + decodeURIComponent(req.url.split('?')[0]));
-    if (!alvo.startsWith(RAIZ)) { res.writeHead(403); return res.end(); }
+    // separador no fim: startsWith cru aceitaria um diretório irmão de mesmo prefixo
+    if (alvo !== RAIZ && !alvo.startsWith(RAIZ + path.sep)) { res.writeHead(403); return res.end(); }
     fs.readFile(alvo.endsWith(path.sep) || alvo === RAIZ ? path.join(RAIZ, 'dash-preview.html') : alvo, (erro, dados) => {
       if (erro) { res.writeHead(404); return res.end('404'); }
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
       res.end(dados);
     });
-  }).listen(PORTA, () => {
+  // só loopback: preview é ferramenta de mesa, não serviço de rede
+  }).listen(PORTA, '127.0.0.1', () => {
     console.log(`    http://localhost:${PORTA}/dash-preview.html`);
     console.log(`    http://localhost:${PORTA}/dash-preview-vazio.html`);
     console.log('Ctrl+C para parar.');

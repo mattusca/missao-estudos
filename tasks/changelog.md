@@ -196,3 +196,22 @@ legítima via dedup é impraticável — `evento_id` carrega id aleatório.
 plausíveis (poluir o log). Não há como autenticar sem pôr segredo no HTML
 público, o que não resolveria nada. A coluna `aluna` e o filtro `(teste)`
 limitam o estrago à calibragem, não ao acesso.
+
+## 2026-08-25 — Segunda rodada da auditoria de segurança
+
+- **fix**: com SHEET_URL malformada, o `build.mjs` imprimia o VALOR no erro — e
+  esse build roda no Actions de repositório público, cujo log é público. O
+  cenário exato do erro (espaço no fim, colagem dupla) é o em que o valor ainda
+  é a URL real. A mensagem passa a omitir o valor e dizer só o tamanho.
+- **fix**: os dois servidores locais escutavam em todas as interfaces
+  (LAN inteira) e a checagem `startsWith(RAIZ)` aceitava diretório irmão de
+  mesmo prefixo (`docs-x`). Agora: bind em 127.0.0.1 e prefixo fechado com
+  `path.sep`. Provado com o predicado real: o irmão de prefixo era SERVIDO
+  pela versão antiga e é 403 na nova; traversal (encodado, backslash) barrado
+  nas duas; caminhos legítimos e raiz intactos.
+
+**Sem achado nesta rodada**: atributos de aspas simples no dashboard (não há);
+`timestamp` vira objeto Date, nunca string em célula; `innerHTML` das
+ferramentas de matemática usa apenas valores internos; identidade renderizada
+restrita à lista `alunas` do JSON de build; regex da SHEET_URL ancorado no host
+exato (script.google.com.evil.com rejeitado — testado).

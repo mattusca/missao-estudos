@@ -102,7 +102,11 @@ out = out.replace(/<title>.*?<\/title>/, `<title>${tituloSeguro}</title>`);
 // A URL do Apps Script é segredo de deploy, não de repositório.
 const sheetUrl = (process.env.SHEET_URL || '').trim();
 if (sheetUrl && !/^https:\/\/script\.google\.com\/.*\/exec$/.test(sheetUrl)) {
-  console.error(`SHEET_URL não parece uma URL /exec do Apps Script: ${sheetUrl}`);
+  /* NUNCA imprimir o valor: este build roda no Actions de um repositório
+     público, e log de Action de repo público é público. Ecoar a URL no erro
+     imprimiria o segredo no exato cenário em que ele veio meio-quebrado
+     (espaço no fim, colagem dupla) — ou seja, quando ele ainda é a URL real. */
+  console.error(`SHEET_URL definida mas não é uma URL /exec do Apps Script (host script.google.com). Valor omitido do log de propósito — confira o secret. (${sheetUrl.length} caracteres)`);
   process.exit(1);
 }
 if (!out.includes("'__SHEET_URL__'")) {

@@ -25,7 +25,9 @@ if (!fs.existsSync(RAIZ)) {
 http.createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
   const alvo = path.resolve(RAIZ, '.' + url);
-  if (!alvo.startsWith(RAIZ)) { res.writeHead(403); return res.end(); }
+  /* startsWith(RAIZ) sozinho deixaria passar um irmão com o mesmo prefixo
+     ("...\docs-outra"): o separador no fim fecha essa fresta. */
+  if (alvo !== RAIZ && !alvo.startsWith(RAIZ + path.sep)) { res.writeHead(403); return res.end(); }
   fs.readFile(alvo, (erro, dados) => {
     if (erro) {
       const provas = fs.readdirSync(RAIZ).filter(f => f.endsWith('.html'));
@@ -36,7 +38,10 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': TIPOS[path.extname(alvo)] || 'application/octet-stream', 'Cache-Control': 'no-store' });
     res.end(dados);
   });
-}).listen(PORTA, () => {
+/* Só loopback: sem o host, o Node escuta em todas as interfaces e qualquer
+   máquina da rede leria o docs/ local. O teste no tablet usa a URL do Pages,
+   não este servidor — não há motivo para expô-lo à rede. */
+}).listen(PORTA, '127.0.0.1', () => {
   const provas = fs.readdirSync(RAIZ).filter(f => f.endsWith('.html'));
   console.log(`docs/ em http://localhost:${PORTA}`);
   provas.forEach(p => console.log(`  http://localhost:${PORTA}/${p}`));
