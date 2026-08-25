@@ -14,8 +14,12 @@
 - [ ] Compartilhar a planilha com a Fernanda (leitor) e testar o dash na conta dela.
 - [x] `gh secret set SHEET_URL` — feito; build imprime "envio para a planilha: ATIVO".
 - [x] Confirmado: questão respondida vira linha na aba `Eventos`, 28 colunas.
+- [x] Proteção anti-fórmula verificada no endpoint em 25/08 (Version 3):
+      `=1+1` gravado como texto literal, não avaliado como `2`.
 - [ ] Confirmar a deduplicação: responder offline, voltar online, reabrir,
       e checar que a fila subiu sem duplicar linha.
+- [ ] Apagar a linha `teste-seguranca-002` da planilha quando quiser (inofensiva:
+      é texto inerte e `(teste)`, filtrada do dashboard).
 
 ## Depois do teste manual passar
 - [x] GitHub Action: build com `SHEET_URL` de secret + publicação no Pages.
