@@ -88,9 +88,16 @@ if (Math.max(...dist) > total * 0.4)
 if (erros.length) { console.error('Build abortado:\n- ' + erros.join('\n- ')); process.exit(1); }
 
 // --- injeção ---
-const payload = `<script id="prova-data" type="application/json">\n${JSON.stringify(prova)}\n</script>`;
+/* `<` vira <: o JSON da prova contém HTML de propósito (regra, aula), e um
+   `</script>` dentro de qualquer string fecharia a tag cedo e transformaria o
+   resto do conteúdo em HTML executável. Só nós escrevemos provas, então não é
+   porta de entrada externa — é armadilha para nós mesmos no dia em que uma
+   questão precisar falar sobre a tag. O JSON.parse desfaz o escape sozinho. */
+const dados = JSON.stringify(prova).replace(/</g, '\\u003c');
+const payload = `<script id="prova-data" type="application/json">\n${dados}\n</script>`;
 let out = motor.replace('</head>', payload + '\n</head>');
-out = out.replace(/<title>.*?<\/title>/, `<title>${prova.titulo}</title>`);
+const tituloSeguro = prova.titulo.replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+out = out.replace(/<title>.*?<\/title>/, `<title>${tituloSeguro}</title>`);
 
 // A URL do Apps Script é segredo de deploy, não de repositório.
 const sheetUrl = (process.env.SHEET_URL || '').trim();

