@@ -160,6 +160,11 @@ Campos: `evento_id`, `sessao_id`, `timestamp`, `aluna`, `materia`, `eixo`, `tema
 Marcar `tempo_valido = false` se houve saída de tela (Page Visibility API) ou se passou de
 ~3 min. Analisar por **mediana**, comparando ela com ela mesma — nunca com padrão externo.
 
+**Sobre sessão:** `sessao_id` expira após **3 h paradas**. Fechar a aba e voltar logo não
+abre sessão nova (vira `retomada = true`); voltar no dia seguinte abre, e `posicao_na_sessao`
+recomeça em 1. Sem esse teto, duas ocasiões de estudo viravam uma só e a exigência de
+**3 sessões distintas** da seção 2 nunca era satisfeita honestamente.
+
 Envio: `fetch` com `mode:'no-cors'` para o Apps Script. Falha ou ausência de URL → fila em
 `localStorage`, reenviada na próxima abertura. Sempre existe fallback manual de cópia.
 

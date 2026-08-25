@@ -819,10 +819,31 @@ function dispositivo(){
 function novoId(){ return Math.random().toString(36).slice(2,10); }
 
 /* Uma sessão = uma passagem pela prova, mesmo que ela feche a aba no meio.
-   Fechar e voltar não vira sessão nova: vira `retomada = true` nas linhas
-   seguintes, que é a informação que realmente muda a leitura do dado. */
+   Fechar e voltar logo em seguida não vira sessão nova: vira `retomada = true`
+   nas linhas seguintes, que é a informação que muda a leitura do dado.
+
+   MAS sessão precisa de teto. Sem ele o id sobrevivia à noite inteira: uma
+   sessão real ficou com a 1ª questão às 20h27 de um dia e a 2ª às 13h03 do
+   seguinte — duas ocasiões de estudo contadas como uma só. Isso corrói
+   exatamente a regra da seção 2 do CLAUDE.md, que exige **3 sessões
+   distintas** antes de tratar qualquer coisa como diagnóstico: um tema ruim
+   numa sessão pode ser cansaço ou fome, e só ocasiões separadas distinguem
+   isso de lacuna real. Contar 3 ocasiões como 1 adia o diagnóstico; contar
+   1 como 3 daria diagnóstico falso.
+
+   3 horas: pausa para o almoço não parte a sessão, uma noite parte. */
+const PARADA_MAX = 3*60*60*1000;
 function sessaoId(){
-  if(!S.sessao) { S.sessao = new Date().toISOString().slice(0,10)+'-'+novoId(); }
+  const agora = Date.now();
+  if(S.sessao && S.ultimoEvento && (agora - S.ultimoEvento) > PARADA_MAX){
+    S.sessao = null;      // ocasião nova: id novo e posição do zero
+    S.posicao = 0;
+    /* E deixa de ser "retomada": estas linhas abrem uma sessão, não continuam
+       a anterior. Manter retomada=true aqui faria toda ocasião a partir da
+       segunda parecer interrompida. */
+    S.retomou = false;
+  }
+  if(!S.sessao) { S.sessao = new Date(agora).toISOString().slice(0,10)+'-'+novoId(); }
   return S.sessao;
 }
 
@@ -831,10 +852,14 @@ function registrarQuestao(m,q,resultado){
   const r=relogio||{t0:fim,primeiro:null,saiu:false};
   const segTotal=+((fim-r.t0)/1000).toFixed(1);
   const segToque=r.primeiro!==null ? +((r.primeiro-r.t0)/1000).toFixed(1) : '';
+  /* sessaoId() ANTES do incremento: ele pode rotacionar a sessão e zerar a
+     posição, e aí esta questão precisa ser a posição 1 da sessão nova. */
+  const sid=sessaoId();
   S.posicao=(S.posicao||0)+1;
+  S.ultimoEvento=fim;          // base para decidir a rotação da próxima
   enviarLinha({
-    evento_id:`${sessaoId()}-${String(S.posicao).padStart(3,'0')}`,
-    sessao_id:sessaoId(),
+    evento_id:`${sid}-${String(S.posicao).padStart(3,'0')}`,
+    sessao_id:sid,
     timestamp:new Date(fim).toISOString(),
     aluna:alunaAtual(),
     materia:PROVA.materia, eixo:m.eixo, tema_id:m.tema_id, subtema:m.subtema,

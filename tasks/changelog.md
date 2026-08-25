@@ -234,3 +234,21 @@ guardou o texto literal `=1+1` em vez de avaliar para `2`. Proteção ativa.
 Nota operacional: `curl` devolve HTTP 411 nesses POSTs porque segue o redirect
 do Apps Script e reemite sem `Content-Length`. O POST original é processado —
 a verificação é ler a planilha, não o código de retorno.
+
+## 2026-08-25 — Sessão com prazo de validade
+
+- **Diagnóstico**: as respostas do Marco não chegavam à planilha. Causa: a aba
+  rodava a versão da página anterior ao secret, então `TEM_URL` era falso e cada
+  linha ia para a fila do `localStorage`. Nada se perdeu — o hard reload drenou
+  a fila e as 7 linhas subiram sozinhas. O mecanismo offline fez o trabalho dele,
+  só que em silêncio.
+- **fix (métrica)**: `sessao_id` não expirava. Uma sessão real ficou com a 1ª
+  questão às 20h27 de 24/08 e a 2ª às 13h03 de 25/08 — duas ocasiões de estudo
+  contadas como uma. Isso corrói a regra de "3 sessões distintas" da seção 2:
+  um tema ruim numa sessão pode ser cansaço, e só ocasiões separadas distinguem
+  cansaço de lacuna. Agora a sessão expira após 3 h paradas; `posicao_na_sessao`
+  recomeça em 1 e `retomada` volta a `false`, porque a linha abre uma sessão em
+  vez de continuar a anterior.
+  Verificado contra o cenário real: pausa de 45 min mantém a sessão (pos 3),
+  a virada do dia gera id novo (pos 1). O dashboard passa a contar 2 sessões
+  onde contava 1.
