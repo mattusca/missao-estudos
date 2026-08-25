@@ -9,12 +9,11 @@
 
 ## Antes de considerar o circuito fechado
 - [ ] Marco: rodar o roteiro de teste manual (abaixo) no aparelho da Alícia.
-- [ ] Implantar `apps-script/enviar.gs` + `dashboard.html` (DUAS implantações,
-      ver instruções no topo do enviar.gs) e pegar as duas URLs `/exec`.
+- [x] Implantar `apps-script/enviar.gs` + `dashboard.html` — feito em 25/08,
+      duas implantações no ar.
 - [ ] Compartilhar a planilha com a Fernanda (leitor) e testar o dash na conta dela.
-- [ ] `gh secret set SHEET_URL` com a URL `/exec` da telemetria e dar um push
-      (ou `gh workflow run publicar.yml`) para republicar com o envio ligado.
-- [ ] Confirmar que uma questão respondida vira uma linha na aba `Eventos`.
+- [x] `gh secret set SHEET_URL` — feito; build imprime "envio para a planilha: ATIVO".
+- [x] Confirmado: questão respondida vira linha na aba `Eventos`, 28 colunas.
 - [ ] Confirmar a deduplicação: responder offline, voltar online, reabrir,
       e checar que a fila subiu sem duplicar linha.
 

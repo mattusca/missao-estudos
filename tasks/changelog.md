@@ -148,3 +148,23 @@ entram com `habilidade_bncc: null`, não com código inventado.
 **Verificado no navegador** — Marco joga a missão 1 (480 XP, 1 medalha); Alícia abre
 e encontra 0 XP, nenhuma medalha e 6 de 7 travadas; voltando ao Marco, os 480 XP e a
 missão 2 aberta reaparecem. Duas chaves separadas no localStorage. Nas duas provas.
+
+## 2026-08-25 — Circuito fechado de ponta a ponta
+
+Marco implantou o Apps Script (duas implantações) e a `SHEET_URL` entrou como
+secret do repositório. O build passou a imprimir "envio para a planilha: ATIVO".
+
+**Verificado de ponta a ponta, na página publicada**
+- Ping da telemetria responde; o gate do `doGet` recusa servir o dashboard pela
+  URL pública, como projetado.
+- Dashboard anônimo → 302 para o login do Google. O acesso é o compartilhamento
+  da planilha, não senha no código.
+- Questão respondida no navegador vira linha na aba `Eventos`: cabeçalho
+  autogerado com as 28 colunas e o evento completo (`Marco (teste)`,
+  `ING.ESC.CONECT.Q1`, `acerto_1a`, `escola PD`, `BNCC` vazio).
+- Tempo até o 1º toque medido corretamente: 4,2 s para uma pausa de 4,2 s.
+  O `0` da primeira linha era clique automático instantâneo, não defeito.
+- A URL está na página publicada e **não** no repositório — `git grep` limpo.
+
+Ficam na planilha 2 linhas de `Marco (teste)` deste teste. São filtradas no
+dashboard (servidor e cliente) e não entram na calibragem.
