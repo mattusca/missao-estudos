@@ -5,8 +5,10 @@
 - [x] Validar conteúdo gerado, continuidade dos encontros e separação do progresso.
       Doze testes aprovados; auditor independente confirmou a correção da migração
       da fila offline antiga, preservando eventos sem herdar XP ou medalhas.
-- [ ] Publicar no Pages e verificar a página entregue pela implantação.
-      Responsável: Codex; publicação explicitamente autorizada por Marco.
+- [x] Publicar no Pages e verificar a página entregue pela implantação.
+      Commit 1c33536; Action 34146074968 concluído com sucesso. Endereço original
+      abre o encontro 1; três páginas com HTTP 200, trilha e telemetria configuradas.
+      Mapa publicado conferido no navegador com Marco (teste), sem responder questões.
 
 ## 2026-09-07 — Hugo: três encontros de estudo antes de 09/09
 - [x] Definir ensino guiado → aplicação em novas situações → recuperação espaçada,

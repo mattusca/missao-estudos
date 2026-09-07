@@ -16,8 +16,12 @@ O auditor independente identificou uma fila offline que ficaria sem reenvio
 após a troca de identidade. Corrigido: o encontro 1 migra os eventos antigos,
 deduplica por identidade e só remove a origem após gravar a nova fila. Uma falha
 de armazenamento preserva a origem. A correção foi rechecada e aprovada pelo auditor.
-A implantação usa o workflow existente com o segredo de telemetria; o estado
-da publicação e a conferência do endereço público são acompanhados em `tasks/todo.md`.
+A implantação usa o workflow existente com o segredo de telemetria.
+Publicado no commit `1c33536`: [Action concluído com sucesso](https://github.com/mattusca/missao-estudos/actions/runs/34146074968).
+As três páginas responderam HTTP 200 com as identidades, os links e a configuração
+de telemetria esperados. O endereço original foi aberto no navegador e o mapa do
+primeiro encontro foi conferido visualmente com Marco (teste), sem enviar respostas.
+Resta ao responsável conferir o acesso no aparelho usado para estudar.
 
 ## 2026-09-07 — Hugo: ensino, aplicação e recuperação em três encontros
 
