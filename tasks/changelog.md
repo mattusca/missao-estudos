@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-07 — Próximo encontro com mais destaque
+
+A pedido de Marco, o link de avanço no mapa e no encerramento ganhou aparência
+de botão: fundo verde escuro, texto branco maior, altura mínima de 54 px e
+largura completa no celular. Foco de teclado explícito e destaque preservado
+no modo foco. O link anterior mantém aparência secundária.
+
+Verificação: navegador em 390 e 1100 px, sem rolagem horizontal, modo foco e
+navegação para o encontro 2 conferidos; builds e os 12 testes existentes aprovados.
+Publicação pelo workflow do Pages no mesmo endereço de Hugo.
+
 ## 2026-09-07 — Substituição de Hugo preservando o link público
 
 Marco autorizou publicar e manter o endereço

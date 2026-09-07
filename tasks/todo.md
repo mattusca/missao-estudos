@@ -1,5 +1,13 @@
 # Pendências
 
+## 2026-09-07 — Destaque do próximo encontro
+- [x] Dar ao link de avanço aparência de botão, com contraste e área de toque maiores.
+      Responsável: Codex; escopo: `src/motor.html` e registros da entrega.
+- [x] Conferir o resultado em tela estreita, navegação e modo foco.
+      Navegador em 390 e 1100 px, área de toque de 54 px de altura, sem rolagem
+      horizontal; passagem ao encontro 2 conferida e 12 testes aprovados.
+      A publicação segue pelo workflow existente, no endereço preservado.
+
 ## 2026-09-07 — Publicação no mesmo endereço de Hugo
 - [x] Substituir a página antiga pelo encontro 1, preservando a URL compartilhada.
 - [x] Validar conteúdo gerado, continuidade dos encontros e separação do progresso.

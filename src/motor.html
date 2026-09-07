@@ -174,8 +174,14 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
 .trilha{background:var(--mint-soft);border-left:5px solid var(--mint);border-radius:12px;padding:12px 14px;margin:16px 0;}
 .trilha strong{font-family:'Fredoka',sans-serif;display:block;margin-bottom:4px;}
 .trilha p{margin:0 0 8px;font-size:.93rem;line-height:1.5;}
-.trilha nav{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:700;}
+.trilha nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:700;}
 .trilha a{color:#1d7a66;}
+.trilha a:focus-visible{outline:3px solid var(--ink);outline-offset:3px;}
+.trilha .trilha-next{display:inline-flex;align-items:center;justify-content:center;
+  min-height:54px;padding:12px 22px;border:2px solid #166653;border-radius:12px;
+  background:#166653;color:#fff;font-size:1.08rem;font-weight:800;text-decoration:none;text-align:center;}
+.trilha .trilha-next:hover{background:#104f41;border-color:#104f41;}
+@media(max-width:480px){.trilha .trilha-next{width:100%;}}
 /* saída para o mapa: discreta de propósito, para ser porta e não convite */
 .navtop{margin:-4px 0 10px;}
 .navtop .btn{font-size:.82rem;padding:6px 13px;}
@@ -1069,7 +1075,7 @@ function desenharTrilha(id){
     const aviso=document.createElement('p');aviso.textContent='Em outro momento:';bloco.appendChild(aviso);
     const nav=document.createElement('nav');nav.setAttribute('aria-label','Outros encontros da trilha');
     if(linkTrilhaSeguro(t.anterior)){const a=document.createElement('a');a.href=t.anterior;a.textContent='← Encontro anterior';nav.appendChild(a);}
-    if(linkTrilhaSeguro(t.proxima)){const a=document.createElement('a');a.href=t.proxima;a.textContent='Próximo encontro →';nav.appendChild(a);}
+    if(linkTrilhaSeguro(t.proxima)){const a=document.createElement('a');a.href=t.proxima;a.className='trilha-next';a.textContent='Próximo encontro →';nav.appendChild(a);}
     bloco.appendChild(nav);
   }
   caixa.appendChild(bloco);
