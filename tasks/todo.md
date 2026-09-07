@@ -8,8 +8,10 @@
 - [ ] Criar `data/provas/2026-09-revisao-hugo-y5.json`: intercalada, `banco_de` a prova,
       `por_tema: [1,2]`, cola com os 6 critérios de decisão. Calendário D-5, D-3, D-1.
 - [ ] Decidir ferramenta `fotogramas` (proposta §3.2). Sem ela, missão 6 fica em `destacar`.
-- [ ] Textos de apoio das missões Temas (533 chars) e Forma (616) passam do teto prático
-      de ~450: cabem com rolagem interna, mas vale encurtar.
+- [x] Textos de apoio de Temas e Forma encurtados para ≤450 chars (07/09 tarde).
+- [ ] Promover o validador de conteúdo (`validate_final.py`, no scratch desta sessão) para
+      `scripts/` e rodar no build: telas por aula, correta ≤1,35× o maior distrator,
+      passos sem resposta colada, cartão não pode conter gabarito.
 - [ ] Commit e push (publica no Pages) só depois da revisão factual.
 
 ## Escopo fechado em 25/08 — evolução do artefato

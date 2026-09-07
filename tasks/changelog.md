@@ -1,5 +1,37 @@
 # Changelog
 
+## 2026-09-07 (tarde) — Hugo Cabret: reescrita narrativa e auditoria
+
+A v1 estava correta e fria: aula em lista, enunciado de gabarito, distrator bobo,
+dica que entregava o fato. Reescrita completa do texto das 6 missões, sem mudar
+ids, dificuldades, ferramentas, sorteio nem figuras.
+
+**Método** — guia de reescrita (voz única, 3 telas por aula: cena → ideia pelo
+exemplo → por que importa; enunciado ancorado numa cena; dica aponta, não entrega;
+explicação com o porquê e uma frase que gruda; distrator = confusão real do livro;
+"mais didático ≠ mais texto") + ficha de fatos do livro. Três redatores (Sonnet) em
+paralelo, dois missões cada; dois auditores independentes (fatos/coerência em Sonnet,
+didática/voz em Opus). 35 findings ao todo, todos corrigidos.
+
+**Achados que valem lembrar**
+- Alternativa certa 1,5–2,5× mais longa que os distratores em 8 questões: atalho de
+  layout que o log leria como domínio. Reequilibrado; o validador agora avisa acima de 1,35×.
+- Passos do andaime respondendo a própria pergunta em 6 questões ("…? Georges.").
+  Andaime é organização, não dica: cortadas as respostas coladas.
+- Cartão de regra entregando gabarito: Linha do tempo (a sequência era a resposta da
+  Q3, `alternativas_fixas`), Vocabulário (seis definições = seis gabaritos), Forma
+  (revelava o narrador). Cartão virou critério de decisão, como manda a seção 4.
+- Fato errado: Étienne não leva Hugo à Academia; Labisse indica, Étienne ajuda lá.
+- Quadro da aula grudado na tela 1 em 3 missões (assinatura de autor): movido para a
+  tela 2 em todas.
+- Títulos viraram lugares da estação (loja de brinquedos, passagens secretas, oficina
+  dos relógios, alto do relógio de vidro, caixa de ferramentas, sala de cinema).
+
+**Verificado** — validador final (0 erros): 3 telas por aula, box na tela 2, alvos do
+`destacar` casando, `montar` com a ficha nova ("é ela quem gira a chave"), conector com
+1 ok por par, passos 3–4 nas de nível 3, tags fechadas. Build OK. No navegador: as 6
+aulas fatiam em 5 telas, portão arma e destrava no `montar`.
+
 ## 2026-09-07 — Prova de Hugo Cabret Y5 (primeira versão)
 
 Terceira prova do sistema, primeira de Português e primeira sobre um livro.
