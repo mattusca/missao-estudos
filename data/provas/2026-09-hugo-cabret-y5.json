@@ -1,0 +1,1218 @@
+{
+  "prova_id": "2026-09-HUGO-Y5",
+  "titulo": "Missão Hugo Cabret — revisão do livro",
+  "materia": "Português",
+  "alunas": [
+    "Alicia",
+    "Marco (teste)",
+    "Fernanda (teste)"
+  ],
+  "escola": "PD",
+  "ano_aluna": "Y5",
+  "nivel_conteudo": "Y5",
+  "bimestre": "3",
+  "contexto": "prova",
+  "criado_em": "2026-09-07",
+  "origem": "Primeira versão sem roteiro da professora: síntese de guias de leitura (Scholastic, Ferguson Library, Reed Novel Studies grade 5, SM Educação) sobre A Invenção de Hugo Cabret, Brian Selznick, ed. SM (trad. Marcos Bagno). Ajustar ao roteiro quando ele chegar.",
+  "observacao": "Nenhuma missão depende do texto do cartão: as questões carregam o próprio contexto. Isso é o que permite intercalar os seis temas na revisão espaçada. Frases do livro em paráfrase; nenhum desenho do Selznick reproduzido — figuras são SVG próprio.",
+  "missoes": [
+    {
+      "missao_id": "personagens",
+      "icone": "🎭",
+      "titulo": "Quem é quem",
+      "subtitulo": "O que cada um faz mostra quem ele é",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.PERS",
+      "subtema": "Personagens: ações, traços e relações",
+      "habilidade_bncc": "EF35LP29",
+      "ferramenta": "destacar",
+      "regra": "Traço de personagem é o que a <b>ação</b> mostra, não o que o nome diz.<br>Pergunte: <b>o que ele fez?</b> → <b>o que isso mostra dele?</b>",
+      "aula": {
+        "corpo": "<p>O livro quase nunca diz \"Hugo é corajoso\" ou \"Isabelle é curiosa\". Ele <mark>mostra</mark> o que cada um faz — e deixa você concluir.</p>\n  <div class=\"lesson-box\"><strong>Os principais, e o que os move:</strong><br><b>Hugo</b> — órfão, vive escondido na estação, conserta o autômato para ter uma mensagem do pai<br><b>Isabelle</b> — afilhada de Papa Georges, lê tudo, abre fechaduras com grampo<br><b>Papa Georges</b> — o velho da loja de brinquedos; na verdade, Georges Méliès, mágico e cineasta<br><b>Mama Jeanne</b> — esposa de Georges, guarda os segredos dele<br><b>Inspetor</b> — o medo de Hugo: quem o pegar, manda para o orfanato</div>\n  <p>Cuidado com a primeira impressão. Papa Georges começa como o velho bravo que confisca o caderno — e termina como a família de Hugo. Personagem <b>muda</b>, e a prova adora perguntar sobre isso.</p>\n  <h3>Hora de mexer · A ação mostra o traço</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se a pergunta for \"como é o personagem\", procure na sua memória uma <b>cena</b> em que ele fez algo. A resposta certa combina com a cena.</div>"
+      },
+      "dados": {
+        "instrucao": "Toque em cada frase e veja o que aquela ação mostra do personagem",
+        "texto": "Hugo dá corda nos 27 relógios da estação todo dia, sozinho, sem que ninguém saiba. | Isabelle abre a porta trancada do cinema com um grampo de cabelo. | O velho da loja revista os bolsos de Hugo e guarda o caderno de desenhos. | Mama Jeanne cuida da mão machucada de Hugo e pede que ele não conte nada ao marido. | Étienne deixa as duas crianças entrarem escondidas na sala de cinema. | O Inspetor da estação persegue Hugo pelos corredores até os trilhos.",
+        "alvos": [
+          {
+            "frase": "Hugo dá corda nos 27 re",
+            "papel": "responsabilidade e segredo — ele sustenta a estação inteira escondido, para ninguém descobrir que o tio sumiu"
+          },
+          {
+            "frase": "Isabelle abre a porta tr",
+            "papel": "curiosidade e ousadia — ela não espera permissão para entrar onde quer conhecer"
+          },
+          {
+            "frase": "O velho da loja revista",
+            "papel": "desconfiança, e algo escondido — o caderno mexe com um passado que ele quer esquecer"
+          },
+          {
+            "frase": "Mama Jeanne cuida da mã",
+            "papel": "cuidado e proteção — ela acolhe Hugo, mas protege Georges da tristeza do passado"
+          },
+          {
+            "frase": "Étienne deixa as duas cr",
+            "papel": "generosidade — ele compartilha o cinema, mesmo correndo risco de perder o emprego"
+          },
+          {
+            "frase": "O Inspetor da estação pe",
+            "papel": "autoridade e ameaça — para Hugo, ser pego é ir para o orfanato"
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.PERS.Q1",
+          "enunciado": "Quem é <mark>Papa Georges</mark>, o velho da loja de brinquedos da estação?",
+          "figura": null,
+          "alternativas": [
+            "Georges Méliès, um mágico que fez filmes e se escondeu do passado",
+            "O tio de Hugo, que cuidava dos relógios da estação",
+            "O Inspetor da estação disfarçado de vendedor",
+            "O professor de cinema que escreveu um livro sobre filmes antigos"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Lembre o que o autômato escreveu quando ganhou corda: uma assinatura.",
+          "explicacao": "O autômato assina <b>Georges Méliès</b>. O velho rabugento da loja era um dos primeiros cineastas do mundo, que perdeu tudo e passou a vender brinquedos."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q2",
+          "enunciado": "Qual é a relação entre <mark>Isabelle</mark> e Papa Georges?",
+          "figura": null,
+          "alternativas": [
+            "Ela é afilhada dele e mora com ele e Mama Jeanne",
+            "Ela é filha dele e trabalha na loja",
+            "Ela é irmã de Hugo",
+            "Ela é a neta do Inspetor"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Os pais de Isabelle morreram num acidente. Quem a criou?",
+          "explicacao": "Isabelle é <b>afilhada</b> de Georges e Jeanne. Os pais dela morreram, e os padrinhos a criaram. Ela e Hugo são os dois órfãos da história."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q3",
+          "enunciado": "Hugo dá corda em todos os relógios da estação sem que ninguém perceba. O que essa ação <mark>mostra</mark> sobre ele?",
+          "figura": null,
+          "alternativas": [
+            "Que ele é responsável e sabe guardar um segredo",
+            "Que ele gosta de brincar com relógios",
+            "Que ele quer ser elogiado pelo Inspetor",
+            "Que ele está treinando para ser vendedor"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Por que ninguém pode saber que é Hugo quem cuida dos relógios?",
+          "explicacao": "Se os relógios parassem, alguém descobriria que o tio Claude sumiu — e Hugo iria para o orfanato. Manter tudo funcionando, escondido, mostra <b>responsabilidade</b> e <b>segredo</b>."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q4",
+          "enunciado": "Em que Hugo e Isabelle são <mark>parecidos</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Os dois perderam os pais e gostam de descobrir segredos",
+            "Os dois moram escondidos na estação",
+            "Os dois sabem consertar máquinas",
+            "Os dois têm medo de entrar no cinema"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense na família de cada um — e no que os dois fazem quando encontram uma porta fechada.",
+          "explicacao": "Os dois são <b>órfãos</b> e os dois vão atrás do que está escondido: Hugo com o autômato, Isabelle com o grampo e os livros. Só Hugo sabe mecânica; e quem nunca tinha ido ao cinema era Isabelle."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q5",
+          "enunciado": "Mama Jeanne cuida da mão machucada de Hugo, mas pede que ele não conte nada a Georges. Que traço dela isso mostra?",
+          "figura": null,
+          "alternativas": [
+            "Ela é protetora: cuida de Hugo e protege o marido da tristeza",
+            "Ela é medrosa e não gosta de crianças",
+            "Ela quer que Hugo vá embora da casa",
+            "Ela está do lado do Inspetor"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Ela faz duas coisas ao mesmo tempo: uma por Hugo, outra por Georges.",
+          "explicacao": "Jeanne acolhe Hugo e, ao mesmo tempo, esconde o passado de Georges porque sabe o quanto ele sofre com isso. As duas ações têm o mesmo motivo: <b>proteger</b>."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q6",
+          "enunciado": "Como Papa Georges <mark>muda</mark> do começo ao fim do livro?",
+          "figura": null,
+          "alternativas": [
+            "De velho bravo que esconde o passado a um homem que volta a ser Méliès e acolhe Hugo",
+            "De vendedor pobre a dono da estação",
+            "De amigo de Hugo a seu inimigo",
+            "Ele não muda: continua bravo até o fim"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Lembre a primeira cena: o velho pega Hugo roubando e confisca o caderno.",
+            "Lembre o meio: ele chora com os desenhos antigos e se tranca no quarto.",
+            "Lembre o fim: a homenagem na Academia, e Hugo morando com a família.",
+            "Compare o começo com o fim: o que mudou nele?"
+          ],
+          "dica": "Compare a primeira cena dele com a última.",
+          "explicacao": "No começo ele se esconde: nega o passado, fica bravo, confisca o caderno. No fim ele volta a ser <b>Georges Méliès</b> em público e leva Hugo para casa. Foi Hugo, ao consertar o autômato, que \"consertou\" Georges também."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q7",
+          "enunciado": "Étienne usa um <mark>tapa-olho</mark> e trabalha no cinema. Qual é o papel dele na história?",
+          "figura": null,
+          "alternativas": [
+            "Ajudar Hugo e Isabelle a entrar no cinema e chegar à Academia de Cinema",
+            "Perseguir Hugo pela estação",
+            "Consertar o autômato no lugar de Hugo",
+            "Contar ao Inspetor onde Hugo mora"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Onde Hugo e Isabelle encontram Étienne pela primeira vez?",
+            "O que ele faz por eles ali, mesmo correndo risco?",
+            "Mais tarde, para onde ele leva Hugo? O que Hugo descobre lá?"
+          ],
+          "dica": "Ele abre uma porta no começo e outra, bem maior, no meio do livro.",
+          "explicacao": "Étienne deixa as crianças entrarem no cinema e depois leva Hugo à <b>Academia de Cinema</b>, onde Hugo acha o livro com o fotograma de <i>Viagem à Lua</i> e descobre quem é Papa Georges."
+        }
+      ]
+    },
+    {
+      "missao_id": "enredo",
+      "icone": "🎞️",
+      "titulo": "A linha do tempo",
+      "subtitulo": "O que aconteceu antes e o que veio depois",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.SEQ",
+      "subtema": "Enredo: sequência de eventos",
+      "habilidade_bncc": "EF35LP26",
+      "ferramenta": "montar",
+      "regra": "<b>Parte 1:</b> caderno confiscado → acordo na loja → chave-coração → o autômato desenha a Lua.<br><b>Parte 2:</b> assinatura \"Méliès\" → biblioteca da Academia → Tabard e o projetor → Georges conta tudo → trilhos → Hugo tem uma família.",
+      "aula": {
+        "corpo": "<p>O livro tem duas partes, como um filme com intervalo. Na <b>Parte 1</b>, Hugo persegue um segredo. Na <b>Parte 2</b>, o segredo persegue Hugo.</p>\n  <div class=\"lesson-box\"><strong>Parte 1 — o autômato</strong><br>1. O velho pega Hugo roubando e fica com o <b>caderno</b><br>2. Hugo conserta um ratinho de corda e faz o <b>acordo</b>: trabalhar na loja<br>3. Hugo vê a <b>chave em forma de coração</b> no pescoço de Isabelle<br>4. A chave gira, e o autômato desenha a <b>Lua com o foguete no olho</b></div>\n  <div class=\"lesson-box\"><strong>Parte 2 — o mágico</strong><br>5. O autômato assina <b>Georges Méliès</b><br>6. Na biblioteca da Academia, Hugo descobre quem era Méliès<br>7. René <b>Tabard</b> traz o projetor; Georges se tranca<br>8. Georges conta a própria história e pede o autômato de volta<br>9. Hugo cai nos <b>trilhos</b> e é salvo; Georges e Isabelle o tiram da prisão<br>10. Seis meses depois: a homenagem — e Hugo tem uma <b>família</b></div>\n  <p>O truque para não se perder: cada acontecimento <mark>abre a porta</mark> do seguinte. Sem o acordo, não há Isabelle. Sem a chave, o autômato não desenha. Sem o desenho, ninguém descobre Méliès.</p>\n  <h3>Hora de mexer · Colocar a história em ordem</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se a pergunta for \"o que aconteceu depois de…\", ache o acontecimento na sua linha do tempo e olhe o vizinho da direita. Não pule.</div>"
+      },
+      "dados": {
+        "instrucao": "Toque nas fichas na ordem em que as coisas aconteceram no livro",
+        "itens": [
+          {
+            "fichas": [
+              "O velho da loja pega Hugo roubando e fica com o caderno.",
+              "Hugo conserta o ratinho de corda e faz o acordo de trabalhar na loja.",
+              "Hugo pega a chave em forma de coração de Isabelle.",
+              "O autômato desenha a Lua com um foguete no olho."
+            ],
+            "ordem": [
+              "O velho da loja pega Hugo roubando e fica com o caderno.",
+              "Hugo conserta o ratinho de corda e faz o acordo de trabalhar na loja.",
+              "Hugo pega a chave em forma de coração de Isabelle.",
+              "O autômato desenha a Lua com um foguete no olho."
+            ],
+            "porque": "caderno → acordo → chave → desenho: cada passo abre a porta do seguinte"
+          },
+          {
+            "fichas": [
+              "O autômato assina o nome Georges Méliès.",
+              "Hugo acha o livro com o fotograma de Viagem à Lua na Academia.",
+              "René Tabard traz o projetor e exibe um filme de Méliès.",
+              "Georges conta sua história e pede o autômato de volta."
+            ],
+            "ordem": [
+              "O autômato assina o nome Georges Méliès.",
+              "Hugo acha o livro com o fotograma de Viagem à Lua na Academia.",
+              "René Tabard traz o projetor e exibe um filme de Méliès.",
+              "Georges conta sua história e pede o autômato de volta."
+            ],
+            "porque": "assinatura → descoberta → projetor → confissão: Georges só fala depois de ver o próprio filme"
+          },
+          {
+            "fichas": [
+              "Hugo ouve que o corpo do tio Claude foi encontrado.",
+              "O Inspetor persegue Hugo e ele cai nos trilhos.",
+              "Georges e Isabelle tiram Hugo da prisão da estação.",
+              "Na homenagem na Academia, Hugo faz mágica como Professor Alcofrisbas."
+            ],
+            "ordem": [
+              "Hugo ouve que o corpo do tio Claude foi encontrado.",
+              "O Inspetor persegue Hugo e ele cai nos trilhos.",
+              "Georges e Isabelle tiram Hugo da prisão da estação.",
+              "Na homenagem na Academia, Hugo faz mágica como Professor Alcofrisbas."
+            ],
+            "porque": "notícia do tio → perseguição → resgate → homenagem, seis meses depois"
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.SEQ.Q1",
+          "enunciado": "O que o velho da loja faz com Hugo na <mark>primeira cena</mark> do livro?",
+          "figura": null,
+          "alternativas": [
+            "Pega Hugo roubando um brinquedo e confisca o caderno de desenhos",
+            "Convida Hugo para morar na casa dele",
+            "Entrega a Hugo a chave em forma de coração",
+            "Mostra a Hugo o filme Viagem à Lua"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Hugo estava tentando pegar um ratinho de corda.",
+          "explicacao": "O velho pega Hugo com a mão no ratinho, revista os bolsos dele e fica com o <b>caderno</b> — os desenhos do autômato feitos pelo pai de Hugo. É daí que tudo começa."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q2",
+          "enunciado": "O que acontece quando Isabelle gira a chave em forma de coração no autômato?",
+          "figura": {
+            "tipo": "svg",
+            "conteudo": "<svg viewBox=\"0 0 320 100\" width=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Lua com um foguete no olho\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"100\" fill=\"#17324a\"/><circle cx=\"160\" cy=\"50\" r=\"36\" fill=\"#fff2d3\" stroke=\"#ffc857\" stroke-width=\"3\"/><path d=\"M144 38 q6 -8 12 0\" fill=\"none\" stroke=\"#17324a\" stroke-width=\"3\" stroke-linecap=\"round\"/><path d=\"M142 66 q18 11 36 0\" fill=\"none\" stroke=\"#17324a\" stroke-width=\"3\" stroke-linecap=\"round\"/><g transform=\"translate(176 36) rotate(35)\"><rect x=\"-5\" y=\"-14\" width=\"10\" height=\"22\" rx=\"4\" fill=\"#f2604c\"/><path d=\"M-5 8 l-4 7 h18 l-4 -7z\" fill=\"#f2604c\"/><circle cx=\"0\" cy=\"-7\" r=\"2.5\" fill=\"#fff\"/></g><g fill=\"#fff\"><circle cx=\"40\" cy=\"22\" r=\"1.6\"/><circle cx=\"280\" cy=\"30\" r=\"1.6\"/><circle cx=\"250\" cy=\"80\" r=\"1.6\"/><circle cx=\"70\" cy=\"78\" r=\"1.6\"/><circle cx=\"100\" cy=\"15\" r=\"1.2\"/><circle cx=\"220\" cy=\"12\" r=\"1.2\"/></g></svg>",
+            "legenda": "Desenho próprio: a imagem que o autômato faz. Lembra o filme favorito do pai de Hugo."
+          },
+          "alternativas": [
+            "Ele desenha a Lua com um foguete cravado no olho",
+            "Ele escreve uma carta do pai de Hugo",
+            "Ele quebra de vez e nunca mais funciona",
+            "Ele desenha um retrato de Isabelle"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Hugo esperava uma mensagem do pai. O que veio foi uma imagem.",
+          "explicacao": "O autômato desenha a <b>Lua com o foguete no olho</b>, a cena do filme <i>Viagem à Lua</i> que o pai de Hugo tanto amava. Não era a mensagem que Hugo esperava — era uma pista."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q3",
+          "enunciado": "Qual é a ordem <mark>correta</mark> desses acontecimentos da Parte 1?",
+          "figura": null,
+          "alternativas": [
+            "Caderno confiscado → acordo na loja → chave-coração → desenho da Lua",
+            "Acordo na loja → caderno confiscado → desenho da Lua → chave-coração",
+            "Chave-coração → caderno confiscado → acordo na loja → desenho da Lua",
+            "Desenho da Lua → chave-coração → acordo na loja → caderno confiscado"
+          ],
+          "correta": 0,
+          "alternativas_fixas": true,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "O autômato só desenha depois que a chave gira. E Hugo só conhece Isabelle depois do acordo.",
+          "explicacao": "Sem o caderno confiscado não há acordo; sem o acordo Hugo não se aproxima de Isabelle; sem Isabelle não há chave; sem a chave não há desenho. Cada passo <b>abre a porta</b> do seguinte."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q4",
+          "enunciado": "O que acontece <mark>logo depois</mark> que o autômato assina o nome \"Georges Méliès\"?",
+          "figura": null,
+          "alternativas": [
+            "Hugo e Isabelle brigam, o desenho rasga e Hugo machuca a mão na porta",
+            "Georges convida Hugo para morar com ele",
+            "O Inspetor prende Hugo na cela da estação",
+            "Tabard chega com o projetor"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Isabelle quer mostrar o desenho aos padrinhos; Hugo não quer soltar.",
+          "explicacao": "Os dois disputam o desenho, ele rasga, e Hugo prende a mão na porta. É Mama Jeanne quem cuida do ferimento. Tabard só chega bem mais tarde, na Parte 2."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q5",
+          "enunciado": "Onde Hugo <mark>descobre</mark> que Papa Georges é Georges Méliès, o cineasta?",
+          "figura": null,
+          "alternativas": [
+            "Num livro da biblioteca da Academia de Cinema, com um fotograma de Viagem à Lua",
+            "Numa carta que o tio Claude deixou",
+            "No caderno que o pai de Hugo desenhou",
+            "Numa conversa com o Inspetor da estação"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Étienne leva Hugo a um lugar cheio de livros sobre filmes.",
+          "explicacao": "Na <b>Academia de Cinema</b>, Hugo encontra o livro <i>A invenção dos sonhos</i>, com a mesma Lua que o autômato desenhou. O livro diz até que Méliès já morreu — e Hugo sabe que não."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q6",
+          "enunciado": "Qual desses acontecimentos vem <mark>por último</mark> no livro?",
+          "figura": null,
+          "alternativas": [
+            "A homenagem a Méliès na Academia, com Hugo fazendo mágica",
+            "Hugo caindo nos trilhos do trem",
+            "Georges contando sua história para as crianças",
+            "Tabard exibindo o filme na casa de Georges"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Georges conta a história logo depois de ver o filme que Tabard trouxe.",
+            "Só depois disso Hugo vai buscar o autômato e é perseguido até os trilhos.",
+            "A homenagem acontece seis meses depois do resgate.",
+            "Então: filme → história → trilhos → homenagem."
+          ],
+          "dica": "Um desses acontece \"seis meses depois\" de todos os outros.",
+          "explicacao": "A homenagem na Academia é o final: <b>seis meses</b> depois de Hugo ir morar com a família. É lá que ele se apresenta como Professor Alcofrisbas."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q7",
+          "enunciado": "Por que Hugo está nos <mark>trilhos</mark> quando o trem chega à estação?",
+          "figura": null,
+          "alternativas": [
+            "Ele fugia do Inspetor, tropeçou e caiu da plataforma",
+            "Ele foi empurrado por Isabelle",
+            "Ele tentava pegar o autômato que caiu nos trilhos",
+            "Ele queria viajar escondido no trem"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "O que Hugo foi buscar na estação naquela noite? O autômato.",
+            "Quem o vê e sai atrás dele? O Inspetor.",
+            "Na correria pela plataforma, o que acontece? Ele cai nos trilhos.",
+            "Quem o puxa pelo colarinho no último instante? O próprio Inspetor."
+          ],
+          "dica": "Alguém estava correndo atrás dele.",
+          "explicacao": "Hugo volta à estação para buscar o autômato, o Inspetor o vê, e na <b>perseguição</b> ele cai nos trilhos. É puxado pelo colarinho no último segundo — e vai parar na cela."
+        }
+      ]
+    },
+    {
+      "missao_id": "causa",
+      "icone": "⚙️",
+      "titulo": "Por que aconteceu",
+      "subtitulo": "Toda ação tem um motivo escondido",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.CAUSA",
+      "subtema": "Causa e consequência, inferência sobre motivos",
+      "habilidade_bncc": "EF35LP04",
+      "ferramenta": "conector",
+      "regra": "<b>Causa</b> vem antes e explica: <i>X aconteceu <b>porque</b> Y</i>.<br><b>Consequência</b> vem depois: <i>Y aconteceu, <b>por isso</b> X</i>.<br>Quando o livro não diz o motivo, <b>junte duas pistas</b>.",
+      "aula": {
+        "corpo": "<p>Prova de livro pergunta muito <mark>por quê</mark>. E o livro raramente responde com todas as letras: ele dá pistas e deixa você juntar.</p>\n  <div class=\"lesson-box\"><strong>Duas perguntas que resolvem quase tudo:</strong><br><b>O que veio antes?</b> — isso é a causa<br><b>O que veio depois?</b> — isso é a consequência<br>Exemplo: Hugo rouba peças na loja <b>porque</b> precisa consertar o autômato. O velho fica com o caderno, <b>por isso</b> Hugo o segue até em casa.</div>\n  <p>Os motivos mais perguntados são os escondidos: por que o velho fala em \"fantasmas\" ao ver os desenhos? Porque o autômato foi <b>ele</b> quem construiu — e ele achava que tudo aquilo tinha morrido. Isso não está escrito na cena. Você descobre juntando pistas de capítulos diferentes.</p>\n  <h3>Hora de mexer · Ligar a causa ao efeito</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se duas alternativas parecem verdadeiras, escolha a que <b>explica</b> a ação, não a que só descreve outra coisa que também aconteceu.</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a palavra que liga as duas partes e veja se a frase faz sentido",
+        "pares": [
+          {
+            "a": "Hugo roubava peças na loja de brinquedos",
+            "b": "precisava delas para consertar o autômato.",
+            "opcoes": [
+              {
+                "palavra": "porque",
+                "sentido": "causa — o conserto é o motivo do roubo",
+                "ok": true
+              },
+              {
+                "palavra": "por isso",
+                "sentido": "consequência — mas o roubo não causa a necessidade das peças; é o contrário",
+                "ok": false
+              },
+              {
+                "palavra": "mas",
+                "sentido": "contraste — as duas partes não brigam entre si",
+                "ok": false
+              }
+            ]
+          },
+          {
+            "a": "O tio Claude sumiu,",
+            "b": "Hugo passou a dar corda nos relógios sozinho.",
+            "opcoes": [
+              {
+                "palavra": "por isso",
+                "sentido": "consequência — o sumiço do tio obrigou Hugo a assumir os relógios",
+                "ok": true
+              },
+              {
+                "palavra": "porque",
+                "sentido": "causa — mas Hugo cuidar dos relógios não fez o tio sumir",
+                "ok": false
+              },
+              {
+                "palavra": "mas",
+                "sentido": "contraste — não há oposição entre as duas partes",
+                "ok": false
+              }
+            ]
+          },
+          {
+            "a": "Georges esconde que foi cineasta,",
+            "b": "Isabelle nunca tinha entrado num cinema.",
+            "opcoes": [
+              {
+                "palavra": "por isso",
+                "sentido": "consequência — ele proibia filmes em casa para não lembrar do passado",
+                "ok": true
+              },
+              {
+                "palavra": "porque",
+                "sentido": "causa — mas Isabelle não ir ao cinema não é o motivo de Georges se esconder",
+                "ok": false
+              },
+              {
+                "palavra": "mas",
+                "sentido": "contraste — as duas coisas combinam, não se opõem",
+                "ok": false
+              }
+            ]
+          },
+          {
+            "a": "Hugo esperava uma mensagem do pai,",
+            "b": "o autômato desenhou a Lua com um foguete.",
+            "opcoes": [
+              {
+                "palavra": "mas",
+                "sentido": "contraste — o que veio foi diferente do que ele esperava",
+                "ok": true
+              },
+              {
+                "palavra": "porque",
+                "sentido": "causa — a esperança de Hugo não é o motivo do desenho",
+                "ok": false
+              },
+              {
+                "palavra": "por isso",
+                "sentido": "consequência — esperar uma carta não faz o autômato desenhar a Lua",
+                "ok": false
+              }
+            ]
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          3
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.CAUSA.Q1",
+          "enunciado": "<mark>Por que</mark> Hugo rouba peças e brinquedos da loja da estação?",
+          "figura": null,
+          "alternativas": [
+            "Para conseguir peças e consertar o autômato do pai",
+            "Para vender e comprar comida",
+            "Para dar de presente a Isabelle",
+            "Porque o tio Claude mandou"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "O que Hugo faz com as engrenagens dos brinquedos?",
+          "explicacao": "Hugo desmonta os brinquedos de corda para tirar <b>engrenagens e molas</b> e usar no autômato. Ele acredita que, consertado, o autômato escreverá uma mensagem do pai."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q2",
+          "enunciado": "Por que Hugo <mark>continua</mark> dando corda nos relógios da estação depois que o tio Claude some?",
+          "figura": null,
+          "alternativas": [
+            "Para que ninguém perceba que o tio sumiu e o mande para o orfanato",
+            "Porque ele recebe o salário do tio",
+            "Porque o Inspetor pediu ajuda",
+            "Porque ele quer virar relojoeiro famoso"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "O que aconteceria com Hugo se descobrissem que ele mora sozinho na estação?",
+          "explicacao": "Relógio parado chamaria atenção. Enquanto tudo funciona, ninguém procura o tio — e Hugo, que tem 12 anos e nenhum adulto, fica longe do <b>orfanato</b>."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q3",
+          "enunciado": "Ao ver os desenhos do caderno de Hugo, o velho da loja fica pálido e fala em \"fantasmas\". <mark>Por quê</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Porque o autômato dos desenhos foi construído por ele mesmo, num passado que ele tenta esquecer",
+            "Porque ele tem medo de desenhos de máquinas",
+            "Porque ele reconheceu a letra do tio Claude",
+            "Porque o caderno estava sujo de cinzas"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Quem construiu o autômato, muitos anos antes?",
+          "explicacao": "O autômato era criação de <b>Méliès</b>, doado ao museu quando ele perdeu tudo. Ver os desenhos é ver o próprio passado voltar — por isso \"fantasmas\". A cena não explica; você junta com o que descobre na Parte 2."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q4",
+          "enunciado": "Hugo entrega o lenço com cinzas e chora, achando que o caderno foi queimado. Que <mark>consequência</mark> isso tem?",
+          "figura": null,
+          "alternativas": [
+            "Hugo conserta o ratinho na frente do velho e consegue o acordo de trabalhar na loja",
+            "Hugo desiste do autômato para sempre",
+            "Hugo vai morar com Étienne",
+            "Isabelle queima o autômato"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Depois do lenço com cinzas, Hugo prova ao velho que sabe consertar coisas.",
+          "explicacao": "As cinzas eram um teste. Hugo mostra que conserta o ratinho quebrado, e o velho propõe o <b>acordo</b>: trabalhar na loja para recuperar o caderno. Sem as cinzas, Hugo não teria mostrado o que sabia."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q5",
+          "enunciado": "Por que Georges <mark>se tranca</mark> no quarto depois que Tabard exibe o filme na casa dele?",
+          "figura": null,
+          "alternativas": [
+            "Porque rever o próprio filme traz de volta tudo o que ele perdeu",
+            "Porque ele não gostou do filme",
+            "Porque Tabard entrou sem pedir licença",
+            "Porque ele descobriu que Hugo roubou a chave"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "O que aconteceu com os filmes de Méliès depois da guerra?",
+          "explicacao": "Depois da Primeira Guerra ninguém mais queria os filmes dele; foram vendidos e derretidos. Ver um sobrevivente na parede da própria sala é <b>dor</b>, não alegria — ao menos no começo."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q6",
+          "enunciado": "No capítulo 2, o livro mostra que o Inspetor tem uma <mark>cela</mark> dentro do escritório. Por que o autor mostra isso tão cedo?",
+          "figura": null,
+          "alternativas": [
+            "É uma pista do que vai acontecer: Hugo acaba preso nessa cela no fim",
+            "Para explicar que a estação é perigosa para adultos",
+            "Porque o Inspetor prende Isabelle no meio do livro",
+            "Não tem motivo: é só um detalhe do cenário"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Lembre quem Hugo mais teme na estação e por quê.",
+            "Lembre onde Hugo vai parar depois da perseguição nos trilhos.",
+            "Uma coisa mostrada cedo e usada bem depois chama-se pista, ou prenúncio.",
+            "Então: a cela no começo prepara a prisão de Hugo no fim."
+          ],
+          "dica": "Onde Hugo vai parar depois de cair nos trilhos?",
+          "explicacao": "É um <b>prenúncio</b>: o autor planta a cela no capítulo 2 para que a prisão de Hugo, lá no final, pareça inevitável. Pista mostrada cedo, cobrada tarde."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q7",
+          "enunciado": "Por que Georges <mark>doou</mark> o autômato ao museu, anos antes da história começar?",
+          "figura": null,
+          "alternativas": [
+            "Ele perdeu tudo depois da guerra e queria se livrar de tudo que lembrasse o passado",
+            "O museu pagou muito dinheiro pelo autômato",
+            "O autômato estava quebrado e ele não sabia consertar",
+            "O pai de Hugo pediu para estudar a máquina"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "O que aconteceu com o estúdio e os filmes de Méliès depois da Primeira Guerra?",
+            "Como ele se sentia em relação a esse passado?",
+            "O autômato era parte desse passado. O que fazer com algo que dói lembrar?",
+            "Doar ao museu foi a forma de deixar tudo para trás."
+          ],
+          "dica": "Ele não vendeu: ele deu. O que isso mostra sobre o motivo?",
+          "explicacao": "Arruinado e sem público, Georges quis <b>enterrar o passado</b>: vendeu os filmes, comprou a loja e doou o autômato. Ironia: foi essa doação que, pelo pai de Hugo, trouxe tudo de volta."
+        }
+      ]
+    },
+    {
+      "missao_id": "temas",
+      "icone": "🔑",
+      "titulo": "O que o livro quer dizer",
+      "subtitulo": "As ideias por trás da história",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.TEMA",
+      "subtema": "Temas e mensagens da narrativa",
+      "habilidade_bncc": "EF35LP03",
+      "ferramenta": "destacar",
+      "regra": "Tema é a ideia que <b>atravessa o livro todo</b>, não uma cena só.<br>Os grandes: <b>todo mundo tem um propósito</b> · <b>consertar o que está quebrado</b> · <b>segredos e confiança</b> · <b>família que a gente escolhe</b>.",
+      "aula": {
+        "corpo": "<p>Uma história é sobre o que acontece. Mas também é sobre <mark>o que isso significa</mark>. Prova de livro chama isso de tema ou mensagem.</p>\n  <div class=\"lesson-box\"><strong>As quatro ideias que atravessam Hugo Cabret:</strong><br><b>1. Propósito</b> — máquina não tem peça sobrando; se o mundo é uma máquina, cada pessoa está aqui por um motivo<br><b>2. Consertar</b> — o autômato, o ratinho, a mão de Hugo… e a vida de Georges<br><b>3. Segredos e confiança</b> — todo mundo esconde algo; a amizade começa quando alguém conta<br><b>4. Família escolhida</b> — dois órfãos e um casal sem filhos viram uma família</div>\n  <p>Repare como as quatro se cruzam numa cena só: Hugo conserta o autômato (2) para achar seu propósito (1), o que revela o segredo de Georges (3), e no fim todos vão para casa juntos (4). Quando uma alternativa fala de uma cena isolada, desconfie: tema é o que <b>se repete</b>.</p>\n  <h3>Hora de mexer · Cada frase carrega uma ideia</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Pergunta de tema costuma ter uma alternativa \"pequena\" (fala de um personagem só) e uma \"grande\" (vale para o livro inteiro). Fique com a grande.</div>"
+      },
+      "dados": {
+        "instrucao": "Toque em cada frase e veja qual ideia do livro ela carrega",
+        "texto": "Hugo diz que uma máquina nunca vem com peças sobrando, e que por isso cada pessoa também deve estar no mundo por algum motivo. | Quando Hugo conserta o autômato, ele acaba consertando a vida de Georges também. | Georges conta ao pequeno Tabard que os sonhos são feitos ali, no estúdio de cinema. | Isabelle diz que gosta de segredos, e Hugo decide contar o dele. | Os pais de Isabelle e o pai de Hugo morreram, e cada um guarda uma lembrança deles. | No fim, Georges, Jeanne, Isabelle e Hugo andam para casa juntos, como uma família.",
+        "alvos": [
+          {
+            "frase": "Hugo diz que uma máquina",
+            "papel": "propósito — cada um está no mundo por um motivo, como cada peça numa máquina"
+          },
+          {
+            "frase": "Quando Hugo conserta o a",
+            "papel": "consertar o que está quebrado — vale para máquinas e para pessoas"
+          },
+          {
+            "frase": "Georges conta ao pequeno",
+            "papel": "a magia do cinema — filmes são sonhos fabricados, e Méliès foi o primeiro a fabricá-los"
+          },
+          {
+            "frase": "Isabelle diz que gosta d",
+            "papel": "segredos e confiança — a amizade começa quando alguém se abre"
+          },
+          {
+            "frase": "Os pais de Isabelle e o ",
+            "papel": "perda — os dois são órfãos, e o que resta dos pais é lembrança e objeto (caderno, chave)"
+          },
+          {
+            "frase": "No fim, Georges, Jeanne,",
+            "papel": "família escolhida — ninguém ali nasceu junto; todos escolheram ficar"
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          3
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.TEMA.Q1",
+          "enunciado": "Hugo compara o mundo a uma grande máquina. Qual é a <mark>ideia</mark> dessa comparação?",
+          "figura": null,
+          "alternativas": [
+            "Assim como toda peça tem uma função, toda pessoa está no mundo por um motivo",
+            "Que o mundo é frio e mecânico",
+            "Que só quem sabe consertar máquinas tem valor",
+            "Que as pessoas deveriam trabalhar em estações de trem"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Máquina não vem com peça sobrando. E se cada pessoa for uma peça?",
+          "explicacao": "É o tema do <b>propósito</b>: se não existe peça sobrando numa máquina, também não existe pessoa sobrando no mundo. Hugo diz isso pensando em si — e em Georges, que se sentia uma peça quebrada."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q2",
+          "enunciado": "Qual dessas frases resume <mark>melhor</mark> uma mensagem do livro inteiro?",
+          "figura": null,
+          "alternativas": [
+            "O que está quebrado pode ser consertado, inclusive as pessoas",
+            "Roubar brinquedos é a melhor forma de conseguir peças",
+            "Crianças não devem entrar no cinema escondidas",
+            "Relógios de estação são difíceis de manter"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Tema é o que se repete: o autômato, o ratinho, a mão, Georges…",
+          "explicacao": "<b>Consertar</b> atravessa o livro: o ratinho, o autômato, a mão de Hugo e, no fim, a vida de Georges. As outras alternativas falam de uma cena só, não de uma ideia."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q3",
+          "enunciado": "Quando menino, René Tabard ouviu de Méliès que os sonhos eram feitos ali, no estúdio. O que Méliès quis dizer?",
+          "figura": null,
+          "alternativas": [
+            "Que o cinema fabrica sonhos: cria coisas impossíveis para as pessoas verem",
+            "Que as pessoas dormem no estúdio",
+            "Que Tabard deveria virar relojoeiro",
+            "Que o estúdio era um lugar assombrado"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Méliès era mágico antes de fazer filmes. O que um mágico fabrica?",
+          "explicacao": "Para Méliès, filme era <b>mágica</b>: um foguete na Lua, pessoas que somem. O estúdio era a fábrica desses sonhos. É por isso que perder os filmes doeu tanto — e por isso a homenagem no fim importa."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q4",
+          "enunciado": "Isabelle lê o mito de Prometeu, que roubou o fogo dos deuses para dar aos humanos. Por que o autor coloca essa história <mark>perto</mark> dos roubos de Hugo?",
+          "figura": null,
+          "alternativas": [
+            "Para o leitor pensar se roubar pode ser certo quando o motivo é bom",
+            "Para mostrar que Hugo gosta de mitologia",
+            "Para explicar de onde vem o fogo do incêndio do museu",
+            "Para provar que Hugo é um ladrão como qualquer outro"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Prometeu roubou por um motivo. Hugo também. O livro julga os dois?",
+          "explicacao": "O livro não diz \"Hugo está certo\" nem \"errado\". Ele põe Prometeu ao lado e deixa a pergunta com você: roubar peças para consertar o que o pai deixou é a mesma coisa que roubar por roubar? Isso é <b>tema</b>: uma pergunta, não uma resposta."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q5",
+          "enunciado": "Hugo, Isabelle, Georges e Jeanne não têm laço de sangue e, no fim, viram uma família. Que ideia do livro isso mostra?",
+          "figura": null,
+          "alternativas": [
+            "Família também é quem a gente escolhe e quem escolhe a gente",
+            "Que órfãos sempre acabam adotados",
+            "Que morar na estação era melhor do que morar numa casa",
+            "Que Georges precisava de ajuda na loja"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Cada um dos quatro perdeu alguém. O que eles fazem com isso?",
+          "explicacao": "Dois órfãos e um casal que perdeu tudo <b>escolhem</b> ficar juntos. O livro começa com Hugo sozinho nas paredes da estação e termina com ele andando para casa acompanhado. Esse arco é o tema."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q6",
+          "enunciado": "O <mark>autômato</mark> é a máquina do livro, mas também é um símbolo. Símbolo <mark>de quê</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Do próprio Georges: uma criação esquecida que só volta a funcionar quando alguém a conserta",
+            "Do Inspetor, que age como uma máquina sem sentimentos",
+            "Da estação de trem, cheia de engrenagens",
+            "Do tio Claude, que era relojoeiro"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Quem construiu o autômato? O que aconteceu com ele depois? Foi abandonado num sótão.",
+            "Quem construiu foi abandonado também? Georges, esquecido pelo mundo.",
+            "O que devolve o autômato à vida? Alguém que o conserta e gira a chave.",
+            "O que devolve Georges à vida? A mesma coisa. Máquina e homem seguem o mesmo caminho."
+          ],
+          "dica": "O que acontece com o autômato acontece com quem o construiu.",
+          "explicacao": "Autômato e Georges seguem o mesmo caminho: criados para encantar, abandonados, dados como mortos, e <b>consertados</b> por Hugo. Quando uma coisa e uma pessoa seguem o mesmo destino no livro, a coisa é símbolo da pessoa."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q7",
+          "enunciado": "Isabelle diz que gosta de segredos, e Hugo resolve contar o seu. Por que <mark>segredos</mark> são importantes neste livro?",
+          "figura": null,
+          "alternativas": [
+            "Porque a amizade e a família só nascem quando cada um deixa de esconder o seu",
+            "Porque todo segredo do livro é uma mentira",
+            "Porque só Hugo tem segredos",
+            "Porque o Inspetor descobre todos no final"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Liste os segredos: Hugo mora escondido; Georges foi cineasta; Jeanne guarda a chave.",
+            "O que acontece quando Hugo conta o seu a Isabelle? Eles viram amigos de verdade.",
+            "O que acontece quando Georges conta o seu? Ele volta a ser Méliès e acolhe Hugo.",
+            "Então: em cada segredo revelado, uma relação se forma."
+          ],
+          "dica": "O que muda entre duas pessoas quando uma conta um segredo à outra?",
+          "explicacao": "Todo mundo esconde algo — e cada vez que alguém revela, uma ligação nasce: Hugo e Isabelle, Georges e as crianças. <b>Confiança</b> é o que transforma estranhos em família."
+        }
+      ]
+    },
+    {
+      "missao_id": "vocabulario",
+      "icone": "🔧",
+      "titulo": "Palavras da estação",
+      "subtitulo": "Descobrir o sentido pelo contexto",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.VOCAB",
+      "subtema": "Vocabulário inferido pelo contexto",
+      "habilidade_bncc": "EF35LP05",
+      "ferramenta": "conector",
+      "regra": "<b>Autômato</b> — boneco mecânico que se move sozinho quando ganha corda<br><b>Engrenagem</b> — roda dentada que gira outra<br><b>Relojoeiro</b> — quem conserta relógios<br><b>Fotograma</b> — um quadro de um filme<br><b>Projetor</b> — máquina que joga o filme na parede",
+      "aula": {
+        "corpo": "<p>O livro usa palavras de relojoeiro e de cinema. Na prova, elas aparecem numa frase — e a frase em volta é a <mark>pista</mark> do sentido.</p>\n  <div class=\"lesson-box\"><strong>As que mais caem:</strong><br><b>Autômato</b> — o homem mecânico que escreve e desenha<br><b>Engrenagem</b> — as rodinhas dentadas que Hugo tira dos brinquedos<br><b>Dar corda</b> — girar a chave para a máquina ganhar energia<br><b>Relojoeiro</b> — o pai de Hugo e o tio Claude<br><b>Fotograma</b> — um único quadro de um filme, como o da Lua<br><b>Projetor</b> — o que Tabard leva à casa de Georges</div>\n  <p>O truque: se não lembrar a palavra, olhe o que ela <b>faz</b> na frase. Algo que \"gira dentro da outra\" é engrenagem. Algo que \"joga a imagem na parede\" é projetor. A frase entrega.</p>\n  <h3>Hora de mexer · A palavra que cabe</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Tente encaixar cada alternativa na frase e leia em voz baixa. A que soa estranha costuma estar errada.</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a palavra que cabe na lacuna e leia o que ela significa",
+        "pares": [
+          {
+            "a": "O pai de Hugo encontrou um",
+            "b": "abandonado no sótão do museu.",
+            "opcoes": [
+              {
+                "palavra": "autômato",
+                "sentido": "boneco mecânico que se move sozinho — é ele",
+                "ok": true
+              },
+              {
+                "palavra": "fotograma",
+                "sentido": "um quadro de filme — não é o que estava no sótão",
+                "ok": false
+              },
+              {
+                "palavra": "projetor",
+                "sentido": "máquina de exibir filme — o pai de Hugo achou um boneco, não um projetor",
+                "ok": false
+              }
+            ]
+          },
+          {
+            "a": "Hugo desmontou o ratinho de corda para tirar uma",
+            "b": "que faltava no autômato.",
+            "opcoes": [
+              {
+                "palavra": "engrenagem",
+                "sentido": "roda dentada que faz outra girar — peça que faltava",
+                "ok": true
+              },
+              {
+                "palavra": "chave",
+                "sentido": "abre e dá corda, mas não vem de dentro de um ratinho",
+                "ok": false
+              },
+              {
+                "palavra": "lente",
+                "sentido": "vidro de câmera ou projetor — não existe num ratinho de corda",
+                "ok": false
+              }
+            ]
+          },
+          {
+            "a": "No livro da Academia havia um",
+            "b": "do filme Viagem à Lua.",
+            "opcoes": [
+              {
+                "palavra": "fotograma",
+                "sentido": "um quadro do filme impresso na página — a Lua com o foguete",
+                "ok": true
+              },
+              {
+                "palavra": "autômato",
+                "sentido": "boneco mecânico — não cabe numa página de livro",
+                "ok": false
+              },
+              {
+                "palavra": "relojoeiro",
+                "sentido": "pessoa que conserta relógios — não é algo que fica num livro",
+                "ok": false
+              }
+            ]
+          },
+          {
+            "a": "René Tabard chegou à casa de Georges carregando um",
+            "b": "para exibir o filme na parede.",
+            "opcoes": [
+              {
+                "palavra": "projetor",
+                "sentido": "máquina que joga a imagem do filme na parede",
+                "ok": true
+              },
+              {
+                "palavra": "engrenagem",
+                "sentido": "roda dentada — não exibe filme nenhum",
+                "ok": false
+              },
+              {
+                "palavra": "caderno",
+                "sentido": "os desenhos do pai de Hugo — não têm nada a ver com a visita",
+                "ok": false
+              }
+            ]
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.VOCAB.Q1",
+          "enunciado": "No livro, o que é um <mark>autômato</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Um boneco mecânico que se move sozinho quando recebe corda",
+            "Um relógio muito grande da estação",
+            "Um tipo de câmera de filmar",
+            "Um trem que anda sem maquinista"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "É o homem mecânico que o pai de Hugo achou no museu.",
+          "explicacao": "<b>Autômato</b> é uma máquina em forma de pessoa ou animal que se move sozinha, por engrenagens. O do livro escreve e desenha — e existiu de verdade: o autômato de Maillardet, no Instituto Franklin."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q2",
+          "enunciado": "\"Hugo tirou uma <mark>engrenagem</mark> do ratinho de corda para usar no autômato.\" O que é uma engrenagem?",
+          "figura": {
+            "tipo": "svg",
+            "conteudo": "<svg viewBox=\"0 0 300 100\" width=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Duas engrenagens encaixadas\"><g stroke=\"#17324a\" stroke-width=\"2\"><g transform=\"translate(115 50)\"><path d=\"M32.0 0.0 L31.7 4.2 L38.6 10.4 L37.0 15.3 L27.7 16.0 L25.4 19.5 L28.3 28.3 L24.4 31.7 L16.0 27.7 L12.2 29.6 L10.4 38.6 L5.2 39.7 L0.0 32.0 L-4.2 31.7 L-10.4 38.6 L-15.3 37.0 L-16.0 27.7 L-19.5 25.4 L-28.3 28.3 L-31.7 24.4 L-27.7 16.0 L-29.6 12.2 L-38.6 10.4 L-39.7 5.2 L-32.0 0.0 L-31.7 -4.2 L-38.6 -10.4 L-37.0 -15.3 L-27.7 -16.0 L-25.4 -19.5 L-28.3 -28.3 L-24.4 -31.7 L-16.0 -27.7 L-12.2 -29.6 L-10.4 -38.6 L-5.2 -39.7 L-0.0 -32.0 L4.2 -31.7 L10.4 -38.6 L15.3 -37.0 L16.0 -27.7 L19.5 -25.4 L28.3 -28.3 L31.7 -24.4 L27.7 -16.0 L29.6 -12.2 L38.6 -10.4 L39.7 -5.2 Z\" fill=\"#2fae94\"/><circle r=\"8\" fill=\"#fdfaf3\"/></g><g transform=\"translate(183 50) rotate(15)\"><path d=\"M21.0 0.0 L20.7 3.6 L26.3 9.6 L24.2 14.0 L16.1 13.5 L13.5 16.1 L14.0 24.2 L9.6 26.3 L3.6 20.7 L0.0 21.0 L-4.9 27.6 L-9.6 26.3 L-10.5 18.2 L-13.5 16.1 L-21.4 18.0 L-24.2 14.0 L-19.7 7.2 L-20.7 3.6 L-28.0 0.0 L-27.6 -4.9 L-19.7 -7.2 L-18.2 -10.5 L-21.4 -18.0 L-18.0 -21.4 L-10.5 -18.2 L-7.2 -19.7 L-4.9 -27.6 L-0.0 -28.0 L3.6 -20.7 L7.2 -19.7 L14.0 -24.2 L18.0 -21.4 L16.1 -13.5 L18.2 -10.5 L26.3 -9.6 L27.6 -4.9 Z\" fill=\"#ffc857\"/><circle r=\"6\" fill=\"#fdfaf3\"/></g></g></svg>",
+            "legenda": "Os dentes de uma encaixam nos da outra: quando uma gira, a outra gira junto."
+          },
+          "alternativas": [
+            "Uma roda com dentes que faz outra roda girar",
+            "A chave que dá corda no brinquedo",
+            "O rabinho de metal do ratinho",
+            "Um parafuso comprido"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Olhe a figura: os dentes de uma entram nos espaços da outra.",
+          "explicacao": "<b>Engrenagem</b> é a roda dentada. Encaixada em outra, transmite o movimento: gira uma, gira a outra. É disso que o autômato e os relógios são feitos."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q3",
+          "enunciado": "\"Era um <mark>relojoeiro</mark> e trabalhava num museu.\" A frase fala do pai de Hugo. O que é um relojoeiro?",
+          "figura": null,
+          "alternativas": [
+            "Uma pessoa que conserta e cuida de relógios",
+            "Uma pessoa que vende brinquedos",
+            "Uma pessoa que dirige trens",
+            "Uma pessoa que faz filmes"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "A palavra tem \"relógio\" dentro dela.",
+          "explicacao": "<b>Relojoeiro</b> vem de relógio: é quem conserta e regula relógios. O pai de Hugo e o tio Claude eram relojoeiros — por isso Hugo sabe tanto de engrenagens."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q4",
+          "enunciado": "\"Na página havia um <mark>fotograma</mark> de Viagem à Lua: a Lua com um foguete cravado no olho.\" O que é um fotograma?",
+          "figura": null,
+          "alternativas": [
+            "Um único quadro de um filme, como uma foto parada",
+            "Um desenho feito a lápis",
+            "O nome do cinema da estação",
+            "Uma máquina de tirar fotos"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Um filme é feito de muitas imagens paradas. Como se chama uma delas?",
+          "explicacao": "Filme é uma sequência de imagens paradas que passam rápido. Cada uma é um <b>fotograma</b>. O livro usa fotogramas de filmes reais no meio das páginas."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q5",
+          "enunciado": "\"Hugo <mark>deu corda</mark> no autômato e esperou.\" O que significa dar corda?",
+          "figura": null,
+          "alternativas": [
+            "Girar a chave para a máquina guardar energia e funcionar",
+            "Amarrar a máquina com um barbante",
+            "Consertar uma peça quebrada",
+            "Ligar a máquina na tomada"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Não existia tomada nos relógios de 1931. De onde vinha a energia?",
+          "explicacao": "<b>Dar corda</b> é girar a chave para apertar uma mola dentro da máquina. Ao soltar devagar, a mola move as engrenagens. Hugo faz isso nos 27 relógios da estação, todo dia."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q6",
+          "enunciado": "\"Tabard ligou o <mark>projetor</mark>, e a parede da sala virou uma tela.\" Que pista da frase mostra o que é um projetor?",
+          "figura": null,
+          "alternativas": [
+            "\"A parede virou uma tela\": o projetor joga a imagem do filme na parede",
+            "\"Tabard ligou\": projetor é qualquer coisa que se liga",
+            "\"Da sala\": projetor é um móvel",
+            "Não há pista: é preciso saber a palavra de cor"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Separe a frase em duas partes: o que Tabard fez, e o que aconteceu depois.",
+            "O que aconteceu depois: a parede virou tela. Ou seja, apareceu uma imagem na parede.",
+            "Então o projetor é a máquina que faz a imagem aparecer na parede.",
+            "A pista está na consequência, não no nome."
+          ],
+          "dica": "Olhe o que acontece DEPOIS que ele liga a máquina.",
+          "explicacao": "A frase entrega o sentido pela <b>consequência</b>: ligou, e a parede virou tela. Projetor é a máquina que joga o filme na parede. É assim que se descobre palavra nova: pelo que ela faz na frase."
+        }
+      ]
+    },
+    {
+      "missao_id": "forma",
+      "icone": "🎬",
+      "titulo": "Um filme de papel",
+      "subtitulo": "Como o livro conta a história",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.FORMA",
+      "subtema": "Palavras e imagens, narrador, elementos reais",
+      "habilidade_bncc": "EF15LP18",
+      "ferramenta": "destacar",
+      "regra": "Neste livro, os desenhos <b>contam</b> a história, não enfeitam.<br>Quem narra é <b>Hugo adulto</b>, o \"Professor Alcofrisbas\".<br><b>Méliès</b>, <b>Viagem à Lua</b> e o <b>autômato</b> existiram de verdade. Hugo e Isabelle, não.",
+      "aula": {
+        "corpo": "<p>Abra o livro numa página qualquer: metade das vezes não há uma palavra. São 284 páginas de desenho a lápis. E elas não ilustram o texto — elas <mark>continuam</mark> o texto. Se pular os desenhos, perde-se pedaço da história.</p>\n  <div class=\"lesson-box\"><strong>O livro imita o cinema:</strong><br><b>Zoom</b> — as primeiras páginas começam na Lua, descem para Paris, entram na estação e chegam ao olho de Hugo, como uma câmera<br><b>Perseguição</b> — a fuga do Inspetor é só desenho, quadro a quadro, sem texto<br><b>Fotogramas reais</b> — no meio dos desenhos aparecem quadros de filmes de verdade, como a Lua de <i>Viagem à Lua</i> (1902)</div>\n  <p>E tem o truque do narrador. Na introdução, um tal \"Professor Alcofrisbas\" pede que você imagine estar num cinema. No fim, você descobre quem ele é: <b>Hugo, adulto</b>, que construiu um novo autômato — e o livro que você tem na mão é o que esse autômato \"escreveu\".</p>\n  <h3>Hora de mexer · O que é real e o que é invenção</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se a pergunta for \"o que acontece nas imagens\", lembre que elas mostram <b>ação</b>: alguém andando, olhando, fugindo. Descreva o movimento, não o cenário.</div>"
+      },
+      "dados": {
+        "instrucao": "Toque em cada frase e veja o que ela revela sobre como o livro foi feito",
+        "texto": "Boa parte da história de Hugo é contada só com desenhos a lápis, sem nenhuma palavra. | Nas primeiras páginas, a imagem se aproxima aos poucos: da Lua para Paris, da estação para o rosto de Hugo. | Georges Méliès existiu de verdade: foi mágico, fez centenas de filmes e terminou vendendo brinquedos numa estação. | O filme Viagem à Lua, de 1902, é real, e o quadro da Lua com o foguete aparece impresso no livro. | Um autômato que desenha, parecido com o do livro, existe até hoje num museu dos Estados Unidos. | Quem conta a história é o Professor Alcofrisbas, que no final se revela como o próprio Hugo, já adulto.",
+        "alvos": [
+          {
+            "frase": "Boa parte da história de",
+            "papel": "narrativa por imagens — os desenhos contam, não ilustram; sem eles falta pedaço da história"
+          },
+          {
+            "frase": "Nas primeiras páginas, a",
+            "papel": "técnica de cinema no papel — é um zoom de câmera, desenhado quadro a quadro"
+          },
+          {
+            "frase": "Georges Méliès existiu d",
+            "papel": "personagem real — o livro mistura história de verdade com invenção"
+          },
+          {
+            "frase": "O filme Viagem à Lua, de",
+            "papel": "fotograma real — quadros de filmes de verdade aparecem no meio dos desenhos"
+          },
+          {
+            "frase": "Um autômato que desenha,",
+            "papel": "inspiração real — o autômato de Maillardet, que também 'assinou' o nome do seu criador"
+          },
+          {
+            "frase": "Quem conta a história é ",
+            "papel": "narrador — a revelação de quem conta muda como se lê o livro inteiro"
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          3
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.FORMA.Q1",
+          "enunciado": "O que há de <mark>diferente</mark> na forma como A Invenção de Hugo Cabret conta a história?",
+          "figura": null,
+          "alternativas": [
+            "Grande parte da história é contada por desenhos, sem palavras",
+            "O livro é escrito todo em versos",
+            "Cada capítulo é contado por um personagem diferente",
+            "O livro não tem nenhuma imagem"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Lembre quantas páginas você virou sem ler uma palavra.",
+          "explicacao": "São 284 páginas de <b>desenho a lápis</b> que continuam a história. Por isso o livro é grosso e se lê rápido: metade dele se vê, não se lê."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q2",
+          "enunciado": "Quem é <mark>Georges Méliès</mark> fora do livro?",
+          "figura": null,
+          "alternativas": [
+            "Um mágico francês de verdade, um dos primeiros a fazer filmes",
+            "Um personagem inventado pelo autor",
+            "O autor do livro",
+            "O pai de Brian Selznick"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "O livro mistura invenção com história real. Méliès está em qual lado?",
+          "explicacao": "<b>Méliès existiu</b> (1861–1938): mágico, dono de teatro, fez centenas de filmes e, arruinado, vendeu brinquedos na estação Montparnasse. Hugo e Isabelle é que são invenção."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q3",
+          "enunciado": "As primeiras páginas mostram a Lua, depois Paris, depois a estação, depois o rosto de Hugo. Que técnica de <mark>cinema</mark> o livro imita?",
+          "figura": null,
+          "alternativas": [
+            "O zoom: a câmera se aproxima aos poucos até chegar ao personagem",
+            "O intervalo: a pausa no meio do filme",
+            "A legenda: o texto embaixo da imagem",
+            "O trailer: o resumo antes do filme"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "A cada página, a imagem chega mais perto. Como se chama isso numa câmera?",
+          "explicacao": "É um <b>zoom</b> desenhado: cada página é um quadro, e a \"câmera\" se aproxima até o olho de Hugo. O narrador até pede, na introdução, que você imagine estar num cinema."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q4",
+          "enunciado": "Quem é o <mark>narrador</mark> do livro, o \"Professor Alcofrisbas\"?",
+          "figura": null,
+          "alternativas": [
+            "O próprio Hugo, já adulto, contando a própria história",
+            "Georges Méliès",
+            "René Tabard, o professor de cinema",
+            "Brian Selznick, o autor"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Na homenagem final, Hugo faz mágica com um nome artístico. Qual?",
+          "explicacao": "No fim, Hugo se apresenta como <b>Professor Alcofrisbas</b> — o mesmo nome do narrador da introdução. Ou seja: quem conta tudo é Hugo, adulto, olhando para trás."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q5",
+          "enunciado": "Por que o autor coloca <mark>fotogramas reais</mark> de filmes antigos no meio dos desenhos?",
+          "figura": null,
+          "alternativas": [
+            "Para mostrar que a parte sobre Méliès e o cinema aconteceu de verdade",
+            "Porque ele não sabia desenhar aquelas cenas",
+            "Para deixar o livro mais colorido",
+            "Porque as fotos são mais baratas que os desenhos"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Desenho é invenção. Foto é registro. O que o autor quer que você acredite?",
+          "explicacao": "Os fotogramas são <b>prova</b>: a Lua com o foguete existe num filme de 1902. Ao misturá-los com os desenhos, o autor diz \"a parte de Méliès é história de verdade\". Invenção e realidade, na mesma página."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q6",
+          "enunciado": "No final, Hugo diz que construiu um novo autômato e que foi ele quem \"escreveu\" este livro. O que essa ideia <mark>muda</mark> na leitura?",
+          "figura": null,
+          "alternativas": [
+            "O livro inteiro passa a ser a mensagem que Hugo esperava do autômato desde o começo",
+            "Nada: é só uma brincadeira sem ligação com a história",
+            "Mostra que Hugo desistiu de mágica",
+            "Prova que Méliès escreveu o livro"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "O que Hugo queria, na Parte 1, quando consertava o autômato? Uma mensagem escrita.",
+            "O autômato do pai desenhou a Lua, não a mensagem. Hugo ficou sem ela.",
+            "No fim, Hugo constrói outro autômato que escreve… este livro.",
+            "Então a mensagem existiu: é a história toda, escrita por ele para nós."
+          ],
+          "dica": "O que Hugo esperava que o primeiro autômato escrevesse? Ele conseguiu no fim?",
+          "explicacao": "Hugo passou a Parte 1 esperando uma mensagem do autômato. No fim, ele mesmo constrói um que escreve a <b>história inteira</b>. O livro que você leu é a mensagem: começo e fim se fecham como uma engrenagem."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q7",
+          "enunciado": "Étienne perdeu um olho com fogos de artifício e usa tapa-olho. O autômato desenha uma Lua com um foguete no olho. Por que o autor <mark>repete</mark> essa imagem?",
+          "figura": null,
+          "alternativas": [
+            "O livro liga suas partes como engrenagens: uma imagem chama a outra",
+            "Porque Étienne é o personagem principal",
+            "Porque foi Étienne quem construiu o autômato",
+            "É coincidência sem intenção"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Liste as duas imagens: um olho perdido de verdade e um olho da Lua atingido por um foguete.",
+            "Lembre outras repetições: chave do relógio e chave do autômato; Hugo nos trilhos e o trem no cinema.",
+            "Quando o livro repete imagens de propósito, ele está ligando pedaços da história.",
+            "É a mesma ideia da máquina: nenhuma peça sobrando, tudo encaixa."
+          ],
+          "dica": "O livro é sobre engrenagens. Como as cenas se encaixam umas nas outras?",
+          "explicacao": "É construção de propósito: olho de Étienne e olho da Lua, chave do relógio e chave do autômato, o trem que Hugo quase leva nos trilhos e o trem que assusta a plateia no cinema. O livro funciona como a máquina de que fala: <b>tudo encaixa</b>."
+        }
+      ]
+    }
+  ]
+}

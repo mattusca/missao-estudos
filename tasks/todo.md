@@ -1,5 +1,17 @@
 # Pendências
 
+## Hugo Cabret (v1 em 07/09) — antes de a Alícia jogar
+- [ ] Conferir com o roteiro da professora: matéria (Português assumido), capítulos
+      cobrados, se livro × filme entra. Ajustar missões ao roteiro.
+- [ ] Revisão factual por adulto que leu a edição SM (nomes, "afilhada", Inspetor sem
+      nome, ordem dos eventos). Erro de fato numa prova de livro é pior que de gramática.
+- [ ] Criar `data/provas/2026-09-revisao-hugo-y5.json`: intercalada, `banco_de` a prova,
+      `por_tema: [1,2]`, cola com os 6 critérios de decisão. Calendário D-5, D-3, D-1.
+- [ ] Decidir ferramenta `fotogramas` (proposta §3.2). Sem ela, missão 6 fica em `destacar`.
+- [ ] Textos de apoio das missões Temas (533 chars) e Forma (616) passam do teto prático
+      de ~450: cabem com rolagem interna, mas vale encurtar.
+- [ ] Commit e push (publica no Pages) só depois da revisão factual.
+
 ## Escopo fechado em 25/08 — evolução do artefato
 
 **Todos os seis implementados, auditados e publicados em 25/08 (noite).**

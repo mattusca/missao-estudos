@@ -138,5 +138,65 @@
     "habilidade_bncc": null,
     "nivel_conteudo": "Y5",
     "bncc_conferida": false
+  },
+  {
+    "tema_id": "POR.LEI.PERS",
+    "materia": "Portugues",
+    "eixo": "Leitura",
+    "tema": "Quem e quem na historia",
+    "subtema": "Personagens: acoes, tracos e relacoes",
+    "habilidade_bncc": "EF35LP29",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "POR.LEI.SEQ",
+    "materia": "Portugues",
+    "eixo": "Leitura",
+    "tema": "A ordem dos acontecimentos",
+    "subtema": "Enredo: sequencia de eventos",
+    "habilidade_bncc": "EF35LP26",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "POR.LEI.CAUSA",
+    "materia": "Portugues",
+    "eixo": "Leitura",
+    "tema": "Por que aconteceu",
+    "subtema": "Causa e consequencia, inferencia sobre motivos",
+    "habilidade_bncc": "EF35LP04",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "POR.LEI.TEMA",
+    "materia": "Portugues",
+    "eixo": "Leitura",
+    "tema": "O que o livro quer dizer",
+    "subtema": "Temas e mensagens da narrativa",
+    "habilidade_bncc": "EF35LP03",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "POR.LEI.VOCAB",
+    "materia": "Portugues",
+    "eixo": "Leitura",
+    "tema": "Palavras no contexto",
+    "subtema": "Vocabulario inferido pelo contexto",
+    "habilidade_bncc": "EF35LP05",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "POR.LEI.FORMA",
+    "materia": "Portugues",
+    "eixo": "Leitura",
+    "tema": "Como o livro conta",
+    "subtema": "Palavras e imagens, narrador, elementos reais",
+    "habilidade_bncc": "EF15LP18",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
   }
 ]

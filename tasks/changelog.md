@@ -1,5 +1,45 @@
 # Changelog
 
+## 2026-09-07 — Prova de Hugo Cabret Y5 (primeira versão)
+
+Terceira prova do sistema, primeira de Português e primeira sobre um livro.
+Proposta em `tasks/proposta-hugo-cabret.md`; implementada sem roteiro da
+professora, a partir de guias de leitura (Scholastic, Ferguson Library, Reed Novel
+Studies grade 5, SM). **Ajustar ao roteiro quando ele chegar.**
+
+**Catálogo** — seis temas novos `POR.LEI.*` (PERS, SEQ, CAUSA, TEMA, VOCAB, FORMA),
+eixo Leitura, com códigos BNCC de 5º ano marcados `bncc_conferida: false`.
+
+**Conteúdo** — `data/provas/2026-09-hugo-cabret-y5.json`: 6 missões, 18 questões por
+sessão de um banco de 41, dificuldade média 1,95. Zero mudança no motor: as quatro
+ferramentas de língua cobriram tudo (`destacar` ×3, `montar`, `conector` ×2 — a segunda
+como lacuna de vocabulário). Duas figuras SVG próprias (Lua com foguete, engrenagens).
+Nenhum desenho do Selznick reproduzido; frases do livro em paráfrase. As questões são
+autossuficientes de propósito: nenhuma depende do texto do cartão, o que deixa os seis
+temas prontos para uma revisão intercalada.
+
+**Decisões da v1** — Português (não Language Arts); sem comparação livro × filme; sem
+ferramenta nova `fotogramas` (fica na proposta); sem áudio/audiobook (reexposição em vez
+de recuperação, direitos autorais e arquivo único offline); missão de abertura é
+Personagens, por ser a mais segura para não ancorar impressão negativa.
+
+**Corrigido durante o teste** — no celular a figura da Lua (viewBox 200×120) empurrava a
+1ª alternativa para y=816 numa tela de 812, o mesmo problema que o texto de leitura teve
+em LA. Figuras redesenhadas largas e baixas (320×100 e 300×100): 1ª alternativa em
+y=731 e y=762.
+
+**Verificado no navegador** (tablet e celular, `node scripts/servir.mjs`): identidade →
+mapa → aula fatiada → portão de um toque nas três ferramentas (`destacar`, `montar`,
+`conector`) → dois toques → +100 XP com explicação. Por script na página publicada: os
+18 alvos de `destacar` casam com as frases, as 3 ordens de `montar` batem com as fichas,
+os 8 pares de `conector` têm exatamente uma opção certa, `passos` presentes nas 11
+questões de nível 3, ids únicos. Retomada e telemetria são do motor, inalterado.
+
+**Não feito** — revisão intercalada (`2026-09-revisao-hugo-y5`), revisão factual por
+adulto que leu a edição SM, e commit/push: ficam para a próxima sessão.
+
+**Ferramental** — `.claude/launch.json` para subir `scripts/servir.mjs` pelo preview.
+
 ## 2026-08-25 (noite) — Prática intercalada, portão da aula e retenção
 
 Escopo fechado a partir de pesquisa, não de palpite. Três itens que estavam na lista
