@@ -13,12 +13,29 @@ if (!provaId) {
   process.exit(1);
 }
 
-const provaPath = path.join('data/provas', provaId + '.json');
+// Mantém endereços já compartilhados sem duplicar o conteúdo de uma prova.
+// O arquivo original continua disponível como fonte histórica; a rota pública
+// recebe o conteúdo atual, inclusive seu próprio prova_id e progresso.
+const rotasPublicacao = JSON.parse(fs.readFileSync('data/publication-routes.json','utf8'));
+if (!rotasPublicacao || typeof rotasPublicacao !== 'object' || Array.isArray(rotasPublicacao))
+  throw new Error('publication-routes.json precisa ser um mapa de arquivos');
+for (const [rota, fonte] of Object.entries(rotasPublicacao)) {
+  if (![rota,fonte].every(v=>typeof v==='string'&&/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(v)) ||
+      Object.hasOwn(rotasPublicacao,fonte) ||
+      !fs.existsSync(path.join('data/provas',fonte+'.json')))
+    throw new Error('Rota de publicação inválida: '+rota);
+}
+const fontePublicada = nome => Object.hasOwn(rotasPublicacao,nome) ? rotasPublicacao[nome] : nome;
+const provaPath = path.join('data/provas', fontePublicada(provaId) + '.json');
 if (!fs.existsSync(provaPath)) { console.error('Não encontrei ' + provaPath); process.exit(1); }
 
 const prova   = JSON.parse(fs.readFileSync(provaPath, 'utf8'));
 const catalogo = JSON.parse(fs.readFileSync('data/catalogo-temas.json', 'utf8'));
 const motor   = fs.readFileSync('src/motor.html', 'utf8');
+/* Arquivos que o build coletivo poderá gerar. A validação da trilha não depende
+   de já haver HTML em docs, porque o Actions cria uma página por vez. */
+const htmlDasProvas = new Set(fs.readdirSync('data/provas').filter(f => f.endsWith('.json'))
+  .map(f => f.replace(/\.json$/,'.html')));
 
 // --- validações que evitam publicar uma prova quebrada ---
 const erros = [];
@@ -47,8 +64,55 @@ if (!Array.isArray(prova.alunas) || !prova.alunas.length)
   erros.push('`alunas` precisa ser uma lista com ao menos um nome');
 else if (new Set(prova.alunas).size !== prova.alunas.length)
   erros.push('`alunas` tem nome repetido — viraria duas pessoas diferentes no log');
+else if (!prova.alunas.some(a => /\(teste\)/i.test(a)))
+  erros.push('`alunas` precisa incluir ao menos uma pessoa com "(teste)" para não misturar testes adultos ao progresso da aluna');
 if (prova.contexto && !['prova','revisao_espacada','treino_livre'].includes(prova.contexto))
   erros.push(`contexto inválido: ${prova.contexto}`);
+if (prova.filas_legadas != null && (!Array.isArray(prova.filas_legadas) ||
+    prova.filas_legadas.some(id=>typeof id!=='string'||!/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(id)||id===prova.prova_id)))
+  erros.push('filas_legadas precisa conter IDs de provas anteriores, diferentes da atual');
+
+/* A trilha só orienta encontros diferentes; não libera nada no motor. Os
+   nomes de arquivo são fechados aqui para que os links gerados continuem
+   relativos e não recebam URL, caminho ou HTML de dados da prova. */
+if (prova.trilha != null) {
+  const t = prova.trilha;
+  if (!t || typeof t !== 'object') erros.push('`trilha` precisa ser um objeto');
+  else {
+    if (!Number.isInteger(t.etapa) || ![1,2,3].includes(t.etapa))
+      erros.push('`trilha.etapa` precisa ser 1, 2 ou 3');
+    if (typeof t.orientacao !== 'string' || !t.orientacao.trim())
+      erros.push('`trilha.orientacao` precisa ser um texto não vazio');
+    for (const campo of ['anterior','proxima']) if (t[campo] != null &&
+      (typeof t[campo] !== 'string' || !/^[A-Za-z0-9][A-Za-z0-9._-]*\.html$/.test(t[campo])))
+      erros.push(`trilha.${campo} precisa ser um nome de arquivo .html relativo e seguro`);
+    else if (t[campo] != null && !htmlDasProvas.has(t[campo]))
+      erros.push(`trilha.${campo} aponta para uma prova JSON inexistente: ${t[campo]}`);
+  }
+}
+
+function validarInvestigacao(dados,missaoId){
+  const onde=`dados de investigar em ${missaoId}`;
+  if (!dados || typeof dados !== 'object') { erros.push(`${onde} ausentes`); return; }
+  if (typeof dados.instrucao !== 'string' || !dados.instrucao.trim())
+    erros.push(`${onde}: "instrucao" precisa ser texto não vazio`);
+  if (!Array.isArray(dados.exemplos) || !dados.exemplos.length) {
+    erros.push(`${onde}: "exemplos" precisa ser uma lista não vazia`); return;
+  }
+  dados.exemplos.forEach((ex,i)=>{
+    const item=`${onde}, exemplo ${i+1}`;
+    if (!ex || typeof ex !== 'object') { erros.push(`${item} precisa ser objeto`); return; }
+    for (const campo of ['contexto','pergunta','explicacao'])
+      if (typeof ex[campo] !== 'string' || !ex[campo].trim()) erros.push(`${item}: "${campo}" precisa ser texto não vazio`);
+    if (!Array.isArray(ex.alternativas) || ![2,3].includes(ex.alternativas.length) || ex.alternativas.some(a=>typeof a!=='string'||!a.trim()))
+      erros.push(`${item}: "alternativas" precisa ter 2 ou 3 textos`);
+    if (!Number.isInteger(ex.correta) || !Array.isArray(ex.alternativas) || ex.correta<0 || ex.correta>=ex.alternativas.length)
+      erros.push(`${item}: "correta" precisa apontar para uma alternativa`);
+    if (ex.figura != null && (typeof ex.figura !== 'object' || ex.figura.tipo!=='svg' ||
+      typeof ex.figura.conteudo!=='string' || !ex.figura.conteudo.trim()))
+      erros.push(`${item}: "figura" opcional precisa ser SVG com conteúdo`);
+  });
+}
 /* ---------- banco emprestado de outra prova ----------
    `banco_de` faz a revisão APONTAR para o banco da prova original em vez de
    copiar as questões para dentro do JSON dela. Duas cópias divergem, e a que
@@ -112,6 +176,10 @@ for (const m of prova.missoes) {
      continua exigindo as três. */
   const inter = !!m.intercalada;
   const temasDoPool = [...new Set(m.questoes.map(q => q.tema_id))];
+
+  /* Só a ferramenta nova tem contrato de dados próprio. As demais preservam
+     seus formatos legados enquanto são parametrizadas aos poucos. */
+  if (m.ferramenta === 'investigar') validarInvestigacao(m.dados,m.missao_id);
 
   if (m.tema_id != null && !catalogo.find(t => t.tema_id === m.tema_id))
     erros.push(`tema_id fora do catálogo: ${m.tema_id}`);
@@ -263,8 +331,24 @@ fs.writeFileSync(dest, out);
    porque docs/ é saída de build, não pasta de trabalho. */
 fs.writeFileSync(path.join('docs', 'robots.txt'), 'User-agent: *\nDisallow: /\n');
 
-/* Índice das provas geradas, para a raiz do Pages não ser um 404. */
-const publicadas = fs.readdirSync('docs').filter(f => f.endsWith('.html') && f !== 'index.html').sort();
+/* Índice das provas geradas, para a raiz do Pages não ser um 404. Ele nasce
+   dos metadados, não da ordem alfabética dos arquivos: encontros de uma trilha
+   ficam na etapa 1 → 2 → 3 mesmo quando o nome do arquivo mudar. */
+const escaparHTML = s => String(s).replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+const publicadas = fs.readdirSync('data/provas').filter(f => f.endsWith('.json')).flatMap(f => {
+  try {
+    const arquivo=f.replace(/\.json$/,'');
+    // O índice privilegia o endereço que já foi compartilhado, sem duas entradas
+    // para o mesmo encontro. A página com o nome da fonte também continua válida.
+    if (Object.entries(rotasPublicacao).some(([rota,fonte])=>fonte===arquivo&&fs.existsSync(path.join('docs',rota+'.html')))) return [];
+    const dadosIndice=JSON.parse(fs.readFileSync(path.join('data/provas',fontePublicada(arquivo)+'.json'),'utf8'));
+    return [{arquivo,titulo:dadosIndice.titulo||arquivo,trilha:dadosIndice.trilha}];
+  } catch (e) { return []; }
+}).sort((a,b) => {
+  const ea=Number.isInteger(a.trilha?.etapa)?a.trilha.etapa:99;
+  const eb=Number.isInteger(b.trilha?.etapa)?b.trilha.etapa:99;
+  return ea-eb || a.titulo.localeCompare(b.titulo,'pt-BR');
+}).filter(p => fs.existsSync(path.join('docs',p.arquivo+'.html')));
 fs.writeFileSync(path.join('docs', 'index.html'),
   `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -273,7 +357,7 @@ fs.writeFileSync(path.join('docs', 'index.html'),
 <style>body{font-family:system-ui,sans-serif;max-width:640px;margin:60px auto;padding:0 20px;color:#17324a;line-height:1.6}
 a{color:#2fae94}li{margin:6px 0}</style></head><body>
 <h1>Missão Estudos</h1><p>Revisões publicadas:</p><ul>
-${publicadas.map(f => `<li><a href="${f}">${f.replace('.html', '')}</a></li>`).join('\n')}
+${publicadas.map(p => `<li>${p.trilha?`<small>Etapa ${p.trilha.etapa} de 3 · </small>`:''}<a href="${p.arquivo}.html">${escaparHTML(p.titulo)}</a></li>`).join('\n')}
 </ul></body></html>\n`);
 
 console.log(`OK  ${dest}`);

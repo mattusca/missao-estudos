@@ -1,12 +1,69 @@
 # Pendências
 
+## 2026-09-07 — Publicação no mesmo endereço de Hugo
+- [x] Substituir a página antiga pelo encontro 1, preservando a URL compartilhada.
+- [x] Validar conteúdo gerado, continuidade dos encontros e separação do progresso.
+      Doze testes aprovados; auditor independente confirmou a correção da migração
+      da fila offline antiga, preservando eventos sem herdar XP ou medalhas.
+- [ ] Publicar no Pages e verificar a página entregue pela implantação.
+      Responsável: Codex; publicação explicitamente autorizada por Marco.
+
+## 2026-09-07 — Hugo: três encontros de estudo antes de 09/09
+- [x] Definir ensino guiado → aplicação em novas situações → recuperação espaçada,
+      com seis temas já existentes, progressos separados e terceiro encontro opcional.
+- [x] Redigir três arquivos de conteúdo, com aulas curtas, decisões nas ferramentas,
+      questões novas e figuras para leitura visual. Responsável: agente de conteúdo (Sol).
+- [x] Implementar ferramenta de investigação, navegação da sequência e identificação
+      do encontro no log, preservando as 28 colunas e as acomodações. Responsável: Terra.
+- [x] Preparar roteiro de uso do responsável e corrigir imprecisões da versão inicial.
+- [x] Executar builds, verificações de regressão e teste visual em tela estreita.
+      Sete builds; nove testes; três novos encontros com zero erros e avisos editoriais.
+- [x] Rodar auditor independente sobre o resultado, corrigir achados e conferir novamente.
+      Revisores técnico e pedagógico independentes; seis grupos pedagógicos corrigidos
+      e rechecados, além de dois destaques editoriais e ajustes de navegação/legibilidade.
+- [x] Registrar entregas, limitações e pendências após a verificação final.
+- [ ] Conferir o acesso no aparelho de estudo após a publicação acompanhada acima.
+- [ ] Após cada uso real, reler o log com identificação do encontro e o contexto
+      de ajuda/leitura antes de ajustar a passagem seguinte. A sequência não se adapta sozinha.
+- [ ] Planejar, em mudança própria do contrato, telemetria direta de aula, ferramenta,
+      leitura do feedback e tipo do primeiro toque; essas medidas ainda não existem no GSheet.
+
+## 2026-09-07 — Implementação da convivência e do guia narrativo
+- [x] Definir uma referência comum no `CLAUDE.md` e uma entrada curta no `AGENTS.md`.
+- [x] Escrever o guia editorial compartilhado e conectá-lo às instruções e ao README.
+- [x] Aplicar o exemplo de revisão à aula de Enredo de Hugo Cabret.
+- [x] Revisar os documentos, executar build/validação e conferir a aula no navegador.
+      Build OK; 0 erros e os mesmos 6 avisos de comprimento do validador;
+      convite, ferramenta e fechamento conferidos em 390 × 844, como Marco (teste).
+
+## 2026-09-07 — Papel complementar do Codex (análise)
+- [x] Ler as regras pedagógicas, o `CLAUDE.md`, o `AGENTS.md` e o histórico do projeto.
+- [x] Conferir a arquitetura e propor responsabilidades e um protocolo de convivência.
+- [x] Executar o build local dos quatro arquivos de prova/revisão, sem `SHEET_URL`.
+- [x] Ampliar a proposta para incluir coautoria narrativa e edição didática,
+      com leitura de exemplos de Hugo Cabret, Language Arts e Matemática.
+- [ ] Investigar o contrato de retenção: a seleção de campos de `getDashboardData`
+      em `apps-script/enviar.gs` omite `questao_id`, exigido pelo cálculo em
+      `apps-script/dashboard.html`. Achado estático; validar com dados sintéticos.
+- [x] Implementar a proposta de manter as regras comuns no `CLAUDE.md` e um
+      `AGENTS.md` curto que exija sua leitura e acrescente o papel do Codex,
+      incluindo coautoria narrativa. Autorizado e implementado em 07/09.
+- [ ] Conciliar pendências antigas com código e changelog: implantação registrada
+      como feita, expansão dos bancos, retenção e localização atual do validador.
+      Não considerar os registros históricos como verificação da implantação atual.
+- [x] Revisar o fechamento da aula de Enredo de Hugo Cabret: removida a referência
+      à "seta seguinte" no cartão; agora orienta recuperar a cena e o que ela
+      tornou possível. Convite à ferramenta também reescrito em tom de descoberta.
+
 ## Hugo Cabret (v1 em 07/09) — antes de a Alícia jogar
 - [ ] Conferir com o roteiro da professora: matéria (Português assumido), capítulos
       cobrados, se livro × filme entra. Ajustar missões ao roteiro.
 - [ ] Revisão factual por adulto que leu a edição SM (nomes, "afilhada", Inspetor sem
       nome, ordem dos eventos). Erro de fato numa prova de livro é pior que de gramática.
-- [ ] Criar `data/provas/2026-09-revisao-hugo-y5.json`: intercalada, `banco_de` a prova,
-      `por_tema: [1,2]`, cola com os 6 critérios de decisão. Calendário D-5, D-3, D-1.
+- [x] Criar revisão intercalada de Hugo: entregue em
+      `data/provas/2026-09-hugo-session-3-y5.json`, com banco do encontro 2,
+      `por_tema: [1,2]` e seis critérios. Calendário ajustado para 07–08/09;
+      o terceiro encontro é opcional e depende da base ensinada, conforme o guia.
 - [ ] Decidir ferramenta `fotogramas` (proposta §3.2). Sem ela, missão 6 fica em `destacar`.
 - [x] Textos de apoio de Temas e Forma encurtados para ≤450 chars (07/09 tarde).
 - [ ] Promover o validador de conteúdo (`validate_final.py`, no scratch desta sessão) para

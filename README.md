@@ -21,8 +21,12 @@ fora do repositório, que é público.
 | Caminho | O quê |
 |---|---|
 | `CLAUDE.md` | Pedagogia, esquema de dados e convenções. **Ler primeiro.** |
+| `AGENTS.md` | Entrada do Codex, com leitura obrigatória das regras comuns |
+| `guides/narrative-guide.md` | Roteiro, voz e revisão editorial para Claude e Codex |
+| `guides/hugo-study-sequence.md` | Sequência de três encontros de Hugo e critérios para ajustar o estudo |
 | `data/catalogo-temas.json` | Taxonomia de temas (tema_id, eixo, BNCC) |
 | `data/provas/*.json` | Conteúdo de cada prova |
+| `data/publication-routes.json` | Endereços públicos que passam a usar conteúdo de outro arquivo, sem cópia |
 | `src/motor.html` | Motor: XP, storage, navegação, envio |
 | `build.mjs` | Injeta o JSON no motor |
 | `docs/` | Saída de build — gerada, não versionada, não editar à mão |
@@ -61,3 +65,34 @@ o dash barra igual. Nenhuma senha no código, nenhum e-mail no repositório.
 Uma linha por questão respondida — nunca por missão. Resumo não se desagrega;
 detalhe se agrega com fórmula. As 28 colunas estão em `COLUNAS` (`src/motor.html`)
 e espelhadas em `CAMPOS` (`apps-script/enviar.gs`); mexeu numa, mexa na outra.
+
+Novas sessões incluem o `prova_id` no identificador da coluna Sessão. Isso permite
+distinguir os encontros de uma sequência mantendo as 28 colunas existentes;
+sessões antigas retomadas preservam o ID original até expirar.
+
+## Hugo Cabret — três encontros
+
+O [roteiro do responsável](guides/hugo-study-sequence.md) organiza ensino guiado,
+aplicação em situações novas e recuperação posterior. O terceiro encontro é
+opcional e pressupõe que os temas já tenham sido trabalhados. Cada arquivo tem
+progresso próprio por pessoa e 12 questões por passagem.
+
+```bash
+node build.mjs 2026-09-hugo-session-1-y5
+node build.mjs 2026-09-hugo-session-2-y5
+node build.mjs 2026-09-hugo-session-3-y5
+node scripts/servir.mjs
+```
+
+Abra o índice local e escolha **Encontro 1**. O teste inicial continua disponível
+no JSON original como referência histórica. Seu endereço público agora abre o
+primeiro encontro da sequência:
+[Hugo Cabret](https://mattusca.github.io/missao-estudos/2026-09-hugo-cabret-y5.html).
+O mapeamento em `data/publication-routes.json` preserva o link compartilhado e
+usa diretamente o conteúdo do encontro 1; não há redirecionamento nem duas cópias
+de conteúdo para manter. Os encontros seguintes são acessíveis pela própria página.
+
+Verificação da sequência e do motor: `node --test tests/motor.test.mjs tests/study-sequence.test.mjs`.
+O segundo teste gera os três HTMLs sem envio à planilha e verifica o banco emprestado,
+os sorteios e o contrato das 28 colunas. O validador editorial aceita um caminho:
+`python scripts/validar-conteudo.py data/provas/2026-09-hugo-session-1-y5.json`.

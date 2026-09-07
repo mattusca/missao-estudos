@@ -1,0 +1,101 @@
+{
+  "prova_id": "2026-09-HUGO-E3-Y5",
+  "titulo": "Hugo Cabret — encontro 3: recuperar e misturar",
+  "materia": "Português",
+  "alunas": [
+    "Alicia",
+    "Marco (teste)",
+    "Fernanda (teste)"
+  ],
+  "escola": "PD",
+  "ano_aluna": "Y5",
+  "nivel_conteudo": "Y5",
+  "bimestre": "3",
+  "contexto": "revisao_espacada",
+  "criado_em": "2026-09-07",
+  "origem": "Recuperação intercalada do banco de 2026-09-HUGO-E2-Y5, após base ensinada nos encontros 1 e 2. Escopo provisório sem roteiro da professora.",
+  "observacao": "Uso condicional: abrir somente depois de aprender e praticar os seis critérios nos encontros 1 e 2. Se faltar base em vários temas, voltar às missões guiadas do encontro 2. Esta recuperação tem 12 desafios por escolha editorial; não diagnostica domínio nem aumenta a dificuldade. Conteúdo ainda precisa ser conferido com o roteiro da professora e a edição usada.",
+  "trilha": {
+    "etapa": 3,
+    "orientacao": "Use este encontro depois de praticar a base no encontro 2. Os assuntos aparecem misturados; consulte os critérios e escolha qual deles ajuda em cada desafio.",
+    "anterior": "2026-09-hugo-session-2-y5.html"
+  },
+  "missoes": [
+    {
+      "missao_id": "mistura-cenas-e3",
+      "icone": "🧩",
+      "titulo": "Pistas nas cenas",
+      "subtitulo": "Personagem, ordem ou ligação?",
+      "intercalada": true,
+      "banco_de": {
+        "prova": "2026-09-HUGO-E2-Y5",
+        "temas": [
+          "POR.LEI.PERS",
+          "POR.LEI.SEQ",
+          "POR.LEI.CAUSA"
+        ]
+      },
+      "sorteio": {
+        "por_tema": [
+          1,
+          2
+        ]
+      },
+      "regras": [
+        {
+          "tema_id": "POR.LEI.PERS",
+          "rotulo": "O que a ação mostra",
+          "texto": "Junte <b>relação, ação e contexto</b>. Descreva o que o gesto mostra naquela cena; uma ação não define a pessoa inteira."
+        },
+        {
+          "tema_id": "POR.LEI.SEQ",
+          "rotulo": "O que veio antes",
+          "texto": "Monte <b>três eventos próximos</b>. Confira se cada evento já era possível naquele ponto. Estar antes não significa causar."
+        },
+        {
+          "tema_id": "POR.LEI.CAUSA",
+          "rotulo": "Por que aconteceu",
+          "texto": "Teste a ligação com <b>porque</b> ou <b>por causa disso</b>. A resposta precisa de uma pista do contexto, não apenas da ordem."
+        }
+      ]
+    },
+    {
+      "missao_id": "mistura-sentidos-e3",
+      "icone": "🎞️",
+      "titulo": "Pistas nos sentidos",
+      "subtitulo": "Mensagem, palavra ou imagem?",
+      "intercalada": true,
+      "banco_de": {
+        "prova": "2026-09-HUGO-E2-Y5",
+        "temas": [
+          "POR.LEI.TEMA",
+          "POR.LEI.VOCAB",
+          "POR.LEI.FORMA"
+        ]
+      },
+      "sorteio": {
+        "por_tema": [
+          1,
+          2
+        ]
+      },
+      "regras": [
+        {
+          "tema_id": "POR.LEI.TEMA",
+          "rotulo": "Da cena à mensagem",
+          "texto": "Comece na <b>cena</b>, descreva a <b>mudança</b> e só então formule o sentido que também cabe em outros momentos."
+        },
+        {
+          "tema_id": "POR.LEI.VOCAB",
+          "rotulo": "Palavra no contexto",
+          "texto": "Procure uma pista nas <b>partes da palavra</b> e outra na <b>ação descrita</b>. Decida se nomeia pessoa, peça, ação ou imagem."
+        },
+        {
+          "tema_id": "POR.LEI.FORMA",
+          "rotulo": "Como o livro mostra",
+          "texto": "Compare <b>o que muda entre quadros</b>. Confira a origem das imagens e separe quem escreve o livro, quem conta e quem vive a cena."
+        }
+      ]
+    }
+  ]
+}

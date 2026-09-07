@@ -204,10 +204,10 @@
       "subtema": "Enredo: sequência de eventos",
       "habilidade_bncc": "EF35LP26",
       "ferramenta": "montar",
-      "regra": "Cada acontecimento <b>abre a porta</b> do seguinte. Pergunte: <b>o que precisava ter acontecido antes?</b><br><b>Parte 1:</b> Hugo persegue o segredo do autômato · <b>Parte 2:</b> o segredo de Georges persegue Hugo",
+      "regra": "Para ordenar, localize <b>antes, durante e depois</b> na cena.<br>Se a pergunta pedir o motivo, procure também a ligação que <b>explica</b> o acontecimento.",
       "aula": {
-        "corpo": "<p>Hugo vê a chave em forma de coração no pescoço de Isabelle e pensa: é isso que falta para o autômato funcionar. Ele arma um truque simples para conseguir a chave sem que ela perceba. Mas e se pegar a chave for só o começo de tudo?</p>\n  <p>O livro tem duas partes, como um filme com intervalo. Na Parte 1, Hugo persegue um segredo; na Parte 2, o segredo persegue Hugo de volta. Isso tem nome: <mark>enredo</mark> — a corrente de acontecimentos em que um abre a porta do seguinte.</p>\n  <div class=\"lesson-box\"><strong>Duas partes, dois sentidos</strong><br><b>Parte 1:</b> Hugo busca o segredo do autômato<br><b>Parte 2:</b> o segredo de Georges vem à tona<br>Cada acontecimento <b>abre a porta</b> do próximo</div>\n  <p>Na prova, quem confunde a ordem confunde a história inteira: sem a chave não há desenho, sem o desenho ninguém descobre Méliès. Quer treinar a sequência com as próprias mãos? Toque nas fichas na ordem certa aí embaixo.</p>\n  <h3>Hora de mexer · Colocar a história em ordem</h3>",
-        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se a pergunta for \"o que aconteceu depois de…\", ache o acontecimento no cartão lá em cima e olhe a seta seguinte, sem pular nenhuma.</div>"
+        "corpo": "<p>Hugo vê a chave em forma de coração no pescoço de Isabelle e pensa: é isso que falta para o autômato funcionar. Ele arma um truque simples para conseguir a chave sem que ela perceba. Mas e se pegar a chave for só o começo de tudo?</p>\n  <p>O livro tem duas partes, como um filme com intervalo. Na Parte 1, Hugo persegue um segredo; na Parte 2, o segredo persegue Hugo de volta. Isso tem nome: <mark>enredo</mark> — a corrente de acontecimentos em que um abre a porta do seguinte.</p>\n  <div class=\"lesson-box\"><strong>Duas partes, dois sentidos</strong><br><b>Parte 1:</b> Hugo busca o segredo do autômato<br><b>Parte 2:</b> o segredo de Georges vem à tona<br>Cada acontecimento <b>abre a porta</b> do próximo</div>\n  <p>A ordem deixa pistas. Antes de escolher a próxima ficha, pergunte: <mark>o que aconteceu antes e o que veio depois?</mark> Toque nas fichas e reconstrua o caminho da história.</p>\n  <h3>Hora de mexer · Colocar a história em ordem</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Para lembrar</strong> Se a pergunta pedir \"o que aconteceu depois\", recupere a ordem da cena. Se pedir \"por quê\", procure o motivo. Vir antes, sozinho, não torna um fato a causa de outro.</div>"
       },
       "dados": {
         "instrucao": "Toque nas fichas e recoloque a história na ordem em que ela aconteceu",
@@ -408,9 +408,9 @@
       "subtema": "Causa e consequência, inferência sobre motivos",
       "habilidade_bncc": "EF35LP04",
       "ferramenta": "conector",
-      "regra": "<b>Causa</b> vem antes e explica: <i>X aconteceu <b>porque</b> Y</i>.<br><b>Consequência</b> vem depois: <i>Y aconteceu, <b>por isso</b> X</i>.<br>Quando o livro não diz o motivo, <b>junte duas pistas</b>.",
+      "regra": "<b>Causa</b> explica por que algo aconteceu.<br><b>Consequência</b> é um resultado desse acontecimento.<br>Use <b>porque</b> ou <b>por isso</b> e confira a ligação: vir antes não basta.",
       "aula": {
-        "corpo": "<p>Hugo dá corda em 27 relógios todos os dias, sozinho, sem que ninguém saiba que é ele. O livro não explica isso na hora. <mark>Por que</mark> será que ele faz tudo isso escondido?</p>\n  <p>Hugo continua dando corda porque, se um relógio parar, alguém vai notar que o tio sumiu — e ele vai para o orfanato. O motivo não vem numa frase só: fica espalhado em pistas. Isso tem nome: <b>causa</b>, o que veio antes e explica.</p>\n  <div class=\"lesson-box\"><strong>Duas perguntas que resolvem quase tudo:</strong><br><b>O que veio antes?</b> — isso é a causa<br><b>O que veio depois?</b> — isso é a consequência<br>Exemplo: o tio Claude some, <b>por isso</b> Hugo assume os relógios sozinho</div>\n  <p>Na prova, a pergunta \"por quê\" quase nunca tem resposta pronta numa linha: você junta o que aconteceu antes com o que veio depois. Quer treinar o olho para isso? Escolha a palavra que liga as frases aí embaixo.</p>\n  <h3>Hora de mexer · Ligar a causa ao efeito</h3>",
+        "corpo": "<p>Hugo dá corda em 27 relógios todos os dias, sozinho, sem que ninguém saiba que é ele. O livro não explica isso na hora. <mark>Por que</mark> será que ele faz tudo isso escondido?</p>\n  <p>Hugo continua dando corda porque, se um relógio parar, alguém vai notar que o tio sumiu — e ele vai para o orfanato. O motivo não vem numa frase só: fica espalhado em pistas. Isso tem nome: <b>causa</b>, o motivo que explica a ação.</p>\n  <div class=\"lesson-box\"><strong>Duas perguntas para investigar:</strong><br><b>Por que aconteceu?</b> — procure a causa<br><b>O que isso provocou?</b> — procure a consequência<br>Exemplo: o tio Claude some, <b>por isso</b> Hugo assume os relógios sozinho</div>\n  <p>Na prova, a pergunta \"por quê\" quase nunca tem resposta pronta numa linha: você procura pistas que expliquem a ação. Quer treinar o olho para isso? Escolha a palavra que liga as frases aí embaixo.</p>\n  <h3>Hora de mexer · Ligar a causa ao efeito</h3>",
         "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se duas alternativas parecem certas, fique com a que <b>explica</b> a ação — não com a que só conta outra coisa que também aconteceu.</div>"
       },
       "dados": {
@@ -645,10 +645,10 @@
       "subtema": "Temas e mensagens da narrativa",
       "habilidade_bncc": "EF35LP03",
       "ferramenta": "destacar",
-      "regra": "Tema é a ideia que <b>atravessa o livro todo</b>, não uma cena só.<br>Os grandes: <b>propósito</b> · <b>consertar o que está quebrado</b> · <b>segredos e confiança</b> · <b>família escolhida</b> · <b>o cinema fabrica sonhos</b>.",
+      "regra": "Para descobrir um tema, ligue <b>ações e mudanças</b> em mais de uma cena.<br>Pergunte: que ideia essas cenas ajudam a construir? Confira a ideia nas pistas da história.",
       "aula": {
         "corpo": "<p>No alto do relógio de vidro da estação, Hugo diz que o mundo é como uma grande máquina, e que nenhuma peça nela sobra à toa. É uma frase pequena — mas ela esconde a resposta para pergunta que toda história carrega: <mark>para que</mark> serve tudo isso?</p>\n  <p>Hugo passa o livro tentando consertar uma máquina — e sem perceber, ajuda a consertar um homem: Georges, que se sentia uma peça jogada fora. Quando uma ideia se repete página após página, em vez de aparecer numa cena só, ela ganha um nome: <b>tema</b>.</p>\n  <div class=\"lesson-box\"><strong>As quatro ideias que voltam sempre:</strong><br><b>Propósito</b> — nenhuma peça sobra à toa<br><b>Consertar</b> — vale para máquinas e para gente<br><b>Segredos e família escolhida</b> — confiar é o que aproxima, e ninguém ali nasceu junto</div>\n  <p>Uma pergunta de tema não pergunta \"o que aconteceu\": pergunta o que aquilo significa, e a resposta certa vale para o livro inteiro, nunca só para uma cena. Quer treinar o olho para isso? Toque nas frases aí embaixo.</p>\n  <h3>Hora de mexer · Cada frase carrega uma ideia</h3>",
-        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Pergunta de tema costuma trazer uma alternativa \"pequena\" (fala de um personagem só) e uma \"grande\" (vale pro livro inteiro). Fique com a grande.</div>"
+        "fechamento": "<div class=\"lesson-box\"><strong>Para lembrar</strong> Procure uma ideia apoiada pelas cenas. Uma alternativa ampla também pode estar errada: explique <b>qual pista da história</b> sustenta sua escolha.</div>"
       },
       "dados": {
         "instrucao": "Toque em cada frase e descubra qual ideia do livro ela carrega",
@@ -827,7 +827,7 @@
       "regra": "Não sabe a palavra? <b>Olhe o que ela faz na frase.</b><br><b>Máquinas:</b> autômato · engrenagem · dar corda<br><b>Cinema:</b> fotograma · projetor",
       "aula": {
         "corpo": "<p>Hugo passa o dia girando chaves nos relógios da estação e mexendo nas engrenagens do autômato do pai. O livro está cheio de palavras assim, de relojoeiro e de cinema. E se você esquecer uma dessas palavras bem na hora da prova?</p>\n  <p>Antes de entrar em pânico, olhe a frase inteira: \"Hugo tirou uma peça que girava dentro de outra.\" Você não precisa saber a palavra de cor — a frase mostra o que ela faz. Isso tem nome: <mark>pista de contexto</mark>.</p>\n  <div class=\"lesson-box\"><strong>As que mais caem:</strong><br><b>Autômato</b> — o boneco que escreve; <b>engrenagem</b> — a roda dentada que gira outra<br><b>Dar corda</b> — girar a chave para máquina funcionar<br><b>Fotograma</b> e <b>projetor</b> — o quadro do filme, e a máquina que o exibe</div>\n  <p>Na prova, a palavra difícil quase sempre vem cercada de pistas assim. Leia a frase de novo e ache o que a palavra está fazendo ali, não o que ela significa de cor. Quer treinar isso agora? Encaixe cada palavra na lacuna certa aí embaixo.</p>\n  <h3>Hora de mexer · A palavra que cabe</h3>",
-        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Encaixe cada alternativa na lacuna e leia baixinho: a que soa esquisita geralmente está errada.</div>"
+        "fechamento": "<div class=\"lesson-box\"><strong>Para lembrar</strong> Procure a pista na frase: a palavra nomeia uma pessoa, uma peça ou uma ação? Encaixe o significado e confira se ele explica o que está acontecendo.</div>"
       },
       "dados": {
         "instrucao": "Encontre a palavra que cabe na lacuna — e descubra o que ela quer dizer",
@@ -943,12 +943,12 @@
           "explicacao": "O <b>autômato</b> é o boneco mecânico de metal que o pai de Hugo tentava consertar antes de morrer. Não é o caderno nem a chave — é a máquina inteira, esperando escrever alguma coisa. Para Hugo, consertá-lo virou um jeito de não deixar o pai ir embora de vez."
         },
         {
-          "questao_id": "POR.LEI.VOCAB.Q2",
+          "questao_id": "POR.LEI.VOCAB.Q8",
           "enunciado": "Para consertar o autômato, Hugo desmontava brinquedos de corda e tirava peças de dentro deles — uma delas era a <mark>engrenagem</mark> da figura. O que ela faz?",
           "figura": {
             "tipo": "svg",
             "conteudo": "<svg viewBox=\"0 0 300 100\" width=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Duas engrenagens encaixadas\"><g stroke=\"#17324a\" stroke-width=\"2\"><g transform=\"translate(115 50)\"><path d=\"M32.0 0.0 L31.7 4.2 L38.6 10.4 L37.0 15.3 L27.7 16.0 L25.4 19.5 L28.3 28.3 L24.4 31.7 L16.0 27.7 L12.2 29.6 L10.4 38.6 L5.2 39.7 L0.0 32.0 L-4.2 31.7 L-10.4 38.6 L-15.3 37.0 L-16.0 27.7 L-19.5 25.4 L-28.3 28.3 L-31.7 24.4 L-27.7 16.0 L-29.6 12.2 L-38.6 10.4 L-39.7 5.2 L-32.0 0.0 L-31.7 -4.2 L-38.6 -10.4 L-37.0 -15.3 L-27.7 -16.0 L-25.4 -19.5 L-28.3 -28.3 L-24.4 -31.7 L-16.0 -27.7 L-12.2 -29.6 L-10.4 -38.6 L-5.2 -39.7 L-0.0 -32.0 L4.2 -31.7 L10.4 -38.6 L15.3 -37.0 L16.0 -27.7 L19.5 -25.4 L28.3 -28.3 L31.7 -24.4 L27.7 -16.0 L29.6 -12.2 L38.6 -10.4 L39.7 -5.2 Z\" fill=\"#2fae94\"/><circle r=\"8\" fill=\"#fdfaf3\"/></g><g transform=\"translate(183 50) rotate(15)\"><path d=\"M21.0 0.0 L20.7 3.6 L26.3 9.6 L24.2 14.0 L16.1 13.5 L13.5 16.1 L14.0 24.2 L9.6 26.3 L3.6 20.7 L0.0 21.0 L-4.9 27.6 L-9.6 26.3 L-10.5 18.2 L-13.5 16.1 L-21.4 18.0 L-24.2 14.0 L-19.7 7.2 L-20.7 3.6 L-28.0 0.0 L-27.6 -4.9 L-19.7 -7.2 L-18.2 -10.5 L-21.4 -18.0 L-18.0 -21.4 L-10.5 -18.2 L-7.2 -19.7 L-4.9 -27.6 L-0.0 -28.0 L3.6 -20.7 L7.2 -19.7 L14.0 -24.2 L18.0 -21.4 L16.1 -13.5 L18.2 -10.5 L26.3 -9.6 L27.6 -4.9 Z\" fill=\"#ffc857\"/><circle r=\"6\" fill=\"#fdfaf3\"/></g></g></svg>",
-            "legenda": "Encaixados, os dentes de uma engrenagem empurram os da outra: gira uma, gira a outra."
+            "legenda": "Desenho esquemático de duas rodas dentadas encaixadas."
           },
           "alternativas": [
             "Uma roda com dentes que faz outra roda girar",
@@ -992,7 +992,7 @@
           "dificuldade": 2,
           "tipo_raciocinio": "conceitual",
           "dica": "Um filme é feito de muitas imagens paradas que passam rápido, uma atrás da outra. Como se chama cada uma delas?",
-          "explicacao": "Um filme não passa de muitas imagens paradas, rápido demais para o olho separar. Cada uma dessas imagens é um <b>fotograma</b> — e o livro cola fotogramas de filmes reais entre os desenhos, como prova de que aquela parte aconteceu de verdade."
+          "explicacao": "Um <b>fotograma</b> é uma das imagens que compõem um filme. O livro inclui imagens de filmes que realmente existem; as aventuras mostradas nesses filmes podem ser inventadas."
         },
         {
           "questao_id": "POR.LEI.VOCAB.Q5",
@@ -1044,10 +1044,10 @@
       "subtema": "Palavras e imagens, narrador, elementos reais",
       "habilidade_bncc": "EF15LP18",
       "ferramenta": "destacar",
-      "regra": "Neste livro, os desenhos <b>contam</b> a história, não enfeitam.<br><b>Méliès</b>, <b>Viagem à Lua</b> e o <b>autômato</b> existiram de verdade. Hugo e Isabelle, não.<br>Quem conta a história? <b>Repare no nome do mágico do fim.</b>",
+      "regra": "Leia <b>o que muda entre as imagens</b> e o que elas acrescentam ao texto.<br>Separe quem narra, quem vive a cena e o que a imagem permite afirmar.",
       "aula": {
-        "corpo": "<p>Você vira uma página, depois outra, depois mais cinco, e não leu uma linha: só olhou desenho. São 284 páginas a lápis, e elas não enfeitam a história: elas <mark>continuam</mark> a história. Como um livro conta tanta coisa sem palavra nenhuma?</p>\n  <p>Copiando o cinema. Lembra das primeiras páginas? A Lua, depois Paris, depois a estação, depois o olho de Hugo: é uma câmera se aproximando, desenhada quadro a quadro.</p>\n  <div class=\"lesson-box\"><strong>O livro imita o cinema:</strong><br><b>Zoom</b> — da Lua ao olho de Hugo, sem uma palavra<br><b>Perseguição</b> — a fuga do Inspetor é só desenho, quadro a quadro<br><b>Fotograma real</b> — um quadro de filme de verdade colado entre os desenhos</div>\n  <p>E tem mais um truque: quem narra desde a primeira página é um tal Professor Alcofrisbas, e só no fim você descobre quem ele é. Na prova, o que mais cai é separar o que é <b>desenho</b>, o que é <b>real</b> e quem <b>conta</b>. Toque nas frases aí embaixo.</p>\n  <h3>Hora de mexer · O que é real e o que é invenção</h3>",
-        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Antes de responder, decida de que tipo é a pergunta: sobre o <b>desenho</b>, sobre o que é <b>real</b>, ou sobre quem <b>conta</b>. Isso já elimina metade das alternativas.</div>"
+        "corpo": "<p>Você vira páginas e acompanha ações pelas imagens. Isso também é leitura. São 284 páginas de desenhos originais, e elas não enfeitam a história: elas <mark>continuam</mark> a história. Como um livro conta tanta coisa sem palavra nenhuma?</p>\n  <p>Copiando o cinema. Lembra das primeiras páginas? A Lua, depois Paris, depois a estação, depois o olho de Hugo: é uma câmera se aproximando, desenhada quadro a quadro.</p>\n  <div class=\"lesson-box\"><strong>O livro imita o cinema:</strong><br><b>Zoom</b> — da Lua ao olho de Hugo, sem uma palavra<br><b>Perseguição</b> — a fuga do Inspetor é só desenho, quadro a quadro<br><b>Fotograma real</b> — um quadro de filme de verdade colado entre os desenhos</div>\n  <p>E tem mais um truque: quem narra desde a primeira página é um tal Professor Alcofrisbas, e só no fim você descobre quem ele é. Podemos investigar como as <b>imagens narram</b>, de onde elas vêm e quem <b>conta</b> a história. Toque nas frases aí embaixo.</p>\n  <h3>Hora de mexer · Imagens também narram</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Para lembrar</strong> Veja o que a imagem mostra e o que permite concluir. Um quadro de filme comprova que aquela imagem faz parte de um filme; não comprova que a aventura aconteceu na realidade.</div>"
       },
       "dados": {
         "instrucao": "Toque em cada frase e veja o que ela revela sobre como o livro foi feito",
@@ -1088,8 +1088,8 @@
       },
       "questoes": [
         {
-          "questao_id": "POR.LEI.FORMA.Q1",
-          "enunciado": "Você acabou de virar páginas inteiras do livro sem ler uma linha, só olhando desenho. O que há de <mark>diferente</mark> na forma como A Invenção de Hugo Cabret conta a história?",
+          "questao_id": "POR.LEI.FORMA.Q8",
+          "enunciado": "Você acompanha uma sequência de páginas sem palavras, lendo as ações nos desenhos. O que há de <mark>diferente</mark> na forma como A Invenção de Hugo Cabret conta a história?",
           "figura": null,
           "alternativas": [
             "Grande parte da história é contada por desenhos, sem palavras",
@@ -1101,7 +1101,7 @@
           "dificuldade": 1,
           "tipo_raciocinio": "interpretacao",
           "dica": "Pense em quantas páginas você virou sem ler uma palavra.",
-          "explicacao": "Das 284 páginas do livro, boa parte é só <b>desenho a lápis</b> — e esses desenhos não enfeitam, eles continuam a cena. É por isso que o livro é grosso e ainda assim se lê rápido: metade dele você vê, não lê."
+          "explicacao": "O livro combina texto e <b>284 páginas de desenhos originais</b>. As imagens fazem a história avançar: observar ações e mudanças entre elas também é ler."
         },
         {
           "questao_id": "POR.LEI.FORMA.Q2",
@@ -1117,7 +1117,7 @@
           "dificuldade": 1,
           "tipo_raciocinio": "interpretacao",
           "dica": "O livro mistura gente inventada com gente que existiu de verdade. De que lado fica Méliès?",
-          "explicacao": "<b>Méliès existiu</b> de verdade: mágico, dono de teatro, fez centenas de filmes e, arruinado, acabou vendendo brinquedos numa estação. Hugo e Isabelle é que são invenção de Selznick. O livro conta uma mentira dentro de uma verdade — e é isso que o fotograma real, colado na página, prova."
+          "explicacao": "<b>Georges Méliès existiu</b>: foi mágico e cineasta. Hugo e Isabelle são personagens criados por Selznick. A narrativa combina ficção com referências históricas, mas cada cena do romance não deve ser tomada como um fato comprovado."
         },
         {
           "questao_id": "POR.LEI.FORMA.Q3",
@@ -1152,11 +1152,11 @@
           "explicacao": "No final, Hugo vira o <b>Professor Alcofrisbas</b> — o mesmo nome do narrador lá da introdução. Quem contou a história inteira, desde o começo, foi o próprio Hugo, já adulto, olhando para trás."
         },
         {
-          "questao_id": "POR.LEI.FORMA.Q5",
+          "questao_id": "POR.LEI.FORMA.Q9",
           "enunciado": "No meio dos desenhos a lápis, aparece de repente uma página com um quadro de filme de verdade: a Lua com o foguete no olho. Por que o autor usa esses <mark>fotogramas reais</mark>?",
           "figura": null,
           "alternativas": [
-            "Para mostrar que a parte sobre Méliès e o cinema aconteceu de verdade",
+            "Para ligar a narrativa a imagens de filmes que Méliès realmente criou",
             "Porque ele não sabia desenhar aquelas cenas direito",
             "Porque são páginas que sobraram do caderno do pai de Hugo",
             "Porque são fotos que Isabelle tirou escondida"
@@ -1164,8 +1164,8 @@
           "correta": 0,
           "dificuldade": 2,
           "tipo_raciocinio": "interpretacao",
-          "dica": "Desenho é invenção. Foto de filme é registro do que aconteceu de verdade. O que o autor quer provar?",
-          "explicacao": "O fotograma é <b>prova</b>: aquela Lua com o foguete existe mesmo, num filme de 1902. Ao colar registro real no meio da invenção, o autor avisa que a parte de Méliès aconteceu de verdade — sem precisar escrever isso em nenhuma frase."
+          "dica": "Um fotograma é uma imagem retirada de um filme. O que sua presença liga à história de Hugo?",
+          "explicacao": "O fotograma liga a história ao filme <b>Viagem à Lua</b>, de Méliès. O filme existe, mas a viagem e a Lua com rosto são invenções cinematográficas. A imagem não prova que todas as cenas do romance aconteceram."
         },
         {
           "questao_id": "POR.LEI.FORMA.Q6",

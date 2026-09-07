@@ -1,5 +1,8 @@
 import json, re, sys
-P = r"C:/dev/pessoal/missao-estudos/data/provas/2026-09-hugo-cabret-y5.json"
+from pathlib import Path
+
+# Aceita qualquer prova; o caminho padrão acompanha o repositório em qualquer máquina.
+P = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parents[1] / "data/provas/2026-09-hugo-cabret-y5.json"
 d = json.load(open(P, encoding="utf-8"))
 erros, avisos = [], []
 def texto(h): return re.sub(r"<[^>]+>", "", h)
@@ -7,6 +10,9 @@ def nfr(h): return len([s for s in re.split(r"[.!?…]+(?:\s|$)", texto(h)) if s
 ids = []
 for m in d["missoes"]:
     mid = m["missao_id"]
+    # Intercaladas não têm aula: o build valida a cola e resolve o banco emprestado.
+    if m.get("intercalada"):
+        continue
     corpo = m["aula"]["corpo"]; pre = corpo.split("<h3>")[0]
     blocks = re.findall(r"<p[\s\S]*?</p>|<div class=\"lesson-box\">[\s\S]*?</div>", pre)
     telas, i = [], 0
@@ -14,8 +20,8 @@ for m in d["missoes"]:
         if blocks[i].startswith("<p") and i + 1 < len(blocks) and blocks[i + 1].startswith("<div"):
             telas.append(blocks[i] + blocks[i + 1]); i += 2
         else: telas.append(blocks[i]); i += 1
-    if len(telas) != 3: erros.append(f"{mid}: {len(telas)} telas")
-    if "lesson-box" in telas[0]: avisos.append(f"{mid}: lesson-box na tela 1")
+    if not 1 <= len(telas) <= 3: erros.append(f"{mid}: {len(telas)} telas (esperadas de 1 a 3)")
+    if telas and "lesson-box" in telas[0]: avisos.append(f"{mid}: lesson-box na tela 1")
     for t_i, t in enumerate(telas):
         p = re.findall(r"<p[\s\S]*?</p>", t)
         if p and nfr(p[0]) > 4: avisos.append(f"{mid}: tela {t_i+1} com {nfr(p[0])} frases")
@@ -37,7 +43,7 @@ for m in d["missoes"]:
     if m["ferramenta"] == "conector":
         for p in dd["pares"]:
             if sum(1 for o in p["opcoes"] if o.get("ok")) != 1: erros.append(f"{mid}: par sem 1 ok")
-    for q in m["questoes"]:
+    for q in m.get("questoes", []):
         qid = q["questao_id"]; ids.append(qid)
         if len(q["alternativas"]) != 4: erros.append(f"{qid}: alternativas")
         if not (0 <= q["correta"] < 4): erros.append(f"{qid}: correta")
@@ -56,4 +62,6 @@ for m in d["missoes"]:
 if len(set(ids)) != len(ids): erros.append("ids duplicados")
 print("\n".join("ERRO " + e for e in erros)); print("\n".join("aviso " + a for a in avisos))
 print(f"{len(erros)} erros, {len(avisos)} avisos")
+if any(m.get("banco_de") for m in d["missoes"]):
+    print("Bancos emprestados: executar também node build.mjs para resolver e validar as questões.")
 sys.exit(1 if erros else 0)

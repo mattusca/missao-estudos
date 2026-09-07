@@ -89,7 +89,7 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
    1ª alternativa para fora da dobra no celular. */
 .cola{max-height:26vh;overflow-y:auto;}
 .cola .cregra{margin:0 0 10px;line-height:1.55;}
-.cola .cregra b{font-family:'Fredoka',sans-serif;color:var(--violet);display:block;font-size:.92rem;}
+.cola .cregra > b:first-child{font-family:'Fredoka',sans-serif;color:var(--violet);display:block;font-size:.92rem;}
 @media(max-width:560px){ .cola{max-height:19vh;font-size:.95rem;} }
 #listaAlunas .mod.ultimo{border-color:var(--mint);}
 .ultimoTag{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--mint);text-transform:uppercase;letter-spacing:.05em;}
@@ -171,6 +171,11 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
 .quemlinha{font-size:.85rem;color:var(--ink-soft);margin:16px 0 0;display:flex;
   align-items:center;gap:8px;flex-wrap:wrap;}
 .quemlinha .btn{font-size:.75rem;padding:4px 11px;}
+.trilha{background:var(--mint-soft);border-left:5px solid var(--mint);border-radius:12px;padding:12px 14px;margin:16px 0;}
+.trilha strong{font-family:'Fredoka',sans-serif;display:block;margin-bottom:4px;}
+.trilha p{margin:0 0 8px;font-size:.93rem;line-height:1.5;}
+.trilha nav{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:700;}
+.trilha a{color:#1d7a66;}
 /* saída para o mapa: discreta de propósito, para ser porta e não convite */
 .navtop{margin:-4px 0 10px;}
 .navtop .btn{font-size:.82rem;padding:6px 13px;}
@@ -186,7 +191,6 @@ body.focus .pop{animation:none;}
 /* pausa sugerida */
 .pausebox{background:var(--violet-soft);border-radius:14px;padding:16px;margin:18px 0 4px;text-align:center;}
 .pausebox strong{font-family:'Fredoka',sans-serif;display:block;font-size:1.05rem;margin-bottom:6px;}
-.clock{font-family:'Fredoka',sans-serif;font-size:2.4rem;color:var(--violet);margin:8px 0;}
 figure.chart{margin:0 0 14px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 10px 6px;}
 figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center;margin-top:4px;font-weight:600;}
 .pop{animation:pop .4s cubic-bezier(.3,1.6,.5,1);}
@@ -215,6 +219,7 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
     <p class="eyebrow" id="mapEyebrow"></p>
     <h1 id="mapTitle"></h1>
     <p class="muted" id="mapIntro"></p>
+    <div id="trilhaMap"></div>
     <div class="mods" id="modList"></div>
     <p class="quemlinha" id="quemLinha"></p>
     <div class="rowend"><span class="muted" id="resumeNote"></span><button class="btn ghost small hidden" id="resetBtn">Recomeçar tudo</button></div>
@@ -288,8 +293,9 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
     <h1 id="finalTitle"></h1>
     <div class="big" id="finalXp"></div>
     <p class="muted" id="finalMsg"></p>
+    <div id="trilhaFinal"></div>
     <div id="finalReview"></div>
-    <div class="rowend"><button class="btn" id="restartBtn">Jogar de novo</button></div>
+    <div class="rowend"><button class="btn" id="restartBtn">Rever uma missão</button></div>
   </section>
 
 </div>
@@ -297,6 +303,94 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
 <script>
 /* ============================ FERRAMENTAS INTERATIVAS ============================ */
 const tools = {};
+
+/* A ferramenta de investigação usa um estado pequeno e explícito para que a
+   escolha nunca seja confundida com a confirmação. Além de evitar o toque
+   impulsivo, isto deixa a regra da segunda tentativa igual à dos desafios,
+   sem transformar a exploração em questão, XP ou telemetria. */
+function novoEstadoInvestigar(exemplo=0){
+  return {exemplo,escolha:null,tentativas:0,eliminadas:[],final:false,correta:false};
+}
+function selecionarInvestigar(estado,escolha){
+  return estado.final ? estado : {...estado,escolha};
+}
+function confirmarInvestigar(estado,dados){
+  if(estado.final||estado.escolha===null)return estado;
+  const ex=dados.exemplos[estado.exemplo], correta=estado.escolha===ex.correta;
+  if(!correta&&estado.tentativas===0)
+    return {...estado,tentativas:1,eliminadas:[...estado.eliminadas,estado.escolha],escolha:null};
+  return {...estado,final:true,correta,mostrarGabarito:!correta};
+}
+
+/* 0 · Investigar: exemplos independentes, cada um com uma decisão em dois
+   toques. A única ação que libera a aula é uma confirmação final — trocar de
+   exemplo ou apenas selecionar uma alternativa não abre o portão. */
+tools.investigar = () => `
+<div class="tool" id="investigarTool">
+  <p class="center" id="invInstrucao" style="font-weight:700;margin-bottom:10px"></p>
+  <div class="readout" id="invContexto" style="font-size:1rem;line-height:1.55"></div>
+  <div id="invFigura"></div>
+  <p id="invPergunta" style="font-weight:700;line-height:1.5"></p>
+  <div class="opts" id="invOpcoes" aria-label="Alternativas da investigação"></div>
+  <div class="feedback" id="invFeedback" aria-live="polite"></div>
+  <div class="rowend">
+    <button class="btn ghost small" id="invOutro" type="button">Outro exemplo</button>
+    <button class="btn mint" id="invConfirmar" type="button" disabled>Confirmar resposta</button>
+  </div>
+</div>`;
+tools.investigar.init = () => {
+  const dadosBrutos=missoes[S.mod]?.dados;
+  if(!dadosBrutos?.exemplos?.length)return;
+  /* Embaralhar uma vez ao abrir mantém a resposta estável para a 2ª tentativa,
+     mas impede que seis exemplos com gabarito 0 virem treino de apertar A. */
+  const d={...dadosBrutos,exemplos:dadosBrutos.exemplos.map(prepararAlternativas)};
+  const raiz=document.getElementById('investigarTool');
+  const instrucao=document.getElementById('invInstrucao'),contexto=document.getElementById('invContexto');
+  const figura=document.getElementById('invFigura'),pergunta=document.getElementById('invPergunta');
+  const opcoes=document.getElementById('invOpcoes'),feedback=document.getElementById('invFeedback');
+  const confirmar=document.getElementById('invConfirmar'),outro=document.getElementById('invOutro');
+  let estado=novoEstadoInvestigar();
+  const desenhar=()=>{
+    const ex=d.exemplos[estado.exemplo];
+    instrucao.textContent=d.instrucao;
+    contexto.innerHTML=ex.contexto;
+    figura.innerHTML=figuraHTML(ex.figura,null);
+    pergunta.textContent=ex.pergunta;
+    opcoes.innerHTML='';
+    ex.alternativas.forEach((alternativa,i)=>{
+      const b=document.createElement('button');b.type='button';b.className='opt';
+      b.innerHTML=`<span class="letter">${'ABC'[i]}</span><span></span>`;
+      b.lastElementChild.textContent=alternativa;
+      const eliminada=estado.eliminadas.includes(i);
+      b.disabled=estado.final||eliminada;
+      b.classList.toggle('chosen',estado.escolha===i);
+      b.classList.toggle('wrong',eliminada||(!estado.correta&&estado.final&&i===estado.escolha));
+      b.classList.toggle('correct',estado.final&&i===ex.correta);
+      b.setAttribute('aria-pressed',String(estado.escolha===i));
+      b.onclick=()=>{estado=selecionarInvestigar(estado,i);desenhar();};
+      opcoes.appendChild(b);
+    });
+    confirmar.disabled=estado.escolha===null||estado.final;
+    confirmar.textContent=estado.escolha===null?'Escolha uma alternativa':`Confirmar ${'ABC'[estado.escolha]}`;
+    outro.textContent=d.exemplos.length>1?'Outro exemplo':'Ver de novo';
+    feedback.className='feedback';feedback.innerHTML='';
+    if(estado.final){
+      feedback.className=`feedback ${estado.correta?'ok':'no'} show`;
+      feedback.innerHTML=estado.correta
+        ? `<strong>Você confirmou uma boa pista 👏</strong>${ex.explicacao}`
+        : `<strong>Agora a explicação mostra a pista decisiva</strong><b>Resposta:</b> ${ex.alternativas[ex.correta]}<br>${ex.explicacao}`;
+    }else if(estado.tentativas===1){
+      feedback.className='feedback no show';
+      feedback.innerHTML='<strong>Ainda dá para investigar mais uma vez 💪</strong>Essa alternativa saiu da lista. Releia o contexto e escolha outra.';
+    }
+  };
+  outro.onclick=()=>{estado=novoEstadoInvestigar((estado.exemplo+1)%d.exemplos.length);desenhar();};
+  confirmar.onclick=()=>{
+    const antes=estado.final;estado=confirmarInvestigar(estado,d);desenhar();
+    if(!antes&&estado.final)raiz.dispatchEvent(new Event('investigarfinal',{bubbles:true}));
+  };
+  desenhar();
+};
 
 /* 1 · Quadro de valor posicional + comparação */
 tools.valor = () => `
@@ -788,6 +882,29 @@ const COLUNAS = ['evento_id','sessao_id','timestamp','aluna','materia','eixo','t
 function lerFila(){try{return JSON.parse(localStorage.getItem(FILA)||'[]');}catch(e){return [];}}
 function salvarFila(f){try{localStorage.setItem(FILA,JSON.stringify(f));}catch(e){}}
 
+/* Uma URL pode passar a servir outro encontro. Resgata somente filas indicadas
+   no JSON, nunca XP/medalhas nem o progresso antigo. Só remove a origem depois
+   de gravar a união: se faltar espaço, os eventos antigos continuam guardados. */
+function migrarFilasLegadas(){
+  for(const id of PROVA.filas_legadas||[]){
+    const chave=`missao_fila_${id}_v2`;
+    if(chave===FILA)continue;
+    try{
+      const raw=localStorage.getItem(chave);if(!raw)continue;
+      const antigas=JSON.parse(raw),atuais=lerFila();
+      if(!Array.isArray(antigas)||!Array.isArray(atuais))continue;
+      const vistos=new Set(),unidas=[];
+      for(const row of [...atuais,...antigas]){
+        const evento=row?.evento_id||JSON.stringify(row);
+        if(vistos.has(evento))continue;
+        vistos.add(evento);unidas.push(row);
+      }
+      localStorage.setItem(FILA,JSON.stringify(unidas));
+      localStorage.removeItem(chave);
+    }catch(e){/* Falhou a cópia? Não apaga a fila de origem. */}
+  }
+}
+
 async function enviarLinha(row){
   linhas.push(row);
   if(!TEM_URL){salvarFila([...lerFila(),row]);return;}
@@ -853,17 +970,23 @@ function novoId(){ return Math.random().toString(36).slice(2,10); }
 
    3 horas: pausa para o almoço não parte a sessão, uma noite parte. */
 const PARADA_MAX = 3*60*60*1000;
+function novaSessaoId(provaId,agora,sufixo){
+  return `${provaId}:${new Date(agora).toISOString().slice(0,10)}-${sufixo}`;
+}
+function atualizarSessao(estado,provaId,agora,gerarId){
+  const proximo={...estado};
+  if(proximo.sessao&&proximo.ultimoEvento&&(agora-proximo.ultimoEvento)>PARADA_MAX){
+    proximo.sessao=null;proximo.posicao=0;proximo.retomou=false;
+  }
+  /* Uma sessão legada já armazenada continua opaca e válida até expirar.
+     Só sessões novas recebem o prefixo da prova, que diferencia etapas com
+     questões reaproveitadas sem alterar nenhuma das 28 colunas. */
+  if(!proximo.sessao)proximo.sessao=novaSessaoId(provaId,agora,gerarId());
+  return proximo;
+}
 function sessaoId(){
   const agora = Date.now();
-  if(S.sessao && S.ultimoEvento && (agora - S.ultimoEvento) > PARADA_MAX){
-    S.sessao = null;      // ocasião nova: id novo e posição do zero
-    S.posicao = 0;
-    /* E deixa de ser "retomada": estas linhas abrem uma sessão, não continuam
-       a anterior. Manter retomada=true aqui faria toda ocasião a partir da
-       segunda parecer interrompida. */
-    S.retomou = false;
-  }
-  if(!S.sessao) { S.sessao = new Date(agora).toISOString().slice(0,10)+'-'+novoId(); }
+  S=atualizarSessao(S,PROVA.prova_id,agora,novoId);
   return S.sessao;
 }
 
@@ -929,6 +1052,28 @@ const store={
 
 let S={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false,errors:[],unlocked:1,focus:false,shield:true};
 const el=id=>document.getElementById(id);
+
+/* A trilha é orientação entre encontros, não uma nova trava. Os links são
+   relativos e o motor confere o formato de novo mesmo que alguém abra o HTML
+   sem passar pelo build. */
+function linkTrilhaSeguro(nome){return typeof nome==='string'&&/^[A-Za-z0-9][A-Za-z0-9._-]*\.html$/.test(nome);}
+function desenharTrilha(id){
+  const caixa=el(id),t=PROVA.trilha;
+  caixa.innerHTML='';
+  if(!t||!Number.isInteger(t.etapa)||!t.orientacao){return;}
+  const bloco=document.createElement('aside');bloco.className='trilha';
+  const titulo=document.createElement('strong');titulo.textContent=`Sequência de estudo · etapa ${t.etapa} de 3`;
+  const orientacao=document.createElement('p');orientacao.textContent=t.orientacao;
+  bloco.append(titulo,orientacao);
+  if(linkTrilhaSeguro(t.anterior)||linkTrilhaSeguro(t.proxima)){
+    const aviso=document.createElement('p');aviso.textContent='Em outro momento:';bloco.appendChild(aviso);
+    const nav=document.createElement('nav');nav.setAttribute('aria-label','Outros encontros da trilha');
+    if(linkTrilhaSeguro(t.anterior)){const a=document.createElement('a');a.href=t.anterior;a.textContent='← Encontro anterior';nav.appendChild(a);}
+    if(linkTrilhaSeguro(t.proxima)){const a=document.createElement('a');a.href=t.proxima;a.textContent='Próximo encontro →';nav.appendChild(a);}
+    bloco.appendChild(nav);
+  }
+  caixa.appendChild(bloco);
+}
 
 /* Rótulos de tela vêm dos metadados da prova — nenhum número de missão
    ou de questão escrito à mão. */
@@ -1022,6 +1167,7 @@ el('lessonExit').onclick=()=>sairDaMissao(false);   // na aula não há o que pe
 el('quizExit').onclick=()=>sairDaMissao(true);      // nos desafios, o mesmo freio dos dois toques
 
 function drawMap(){
+  desenharTrilha('trilhaMap');
   el('modList').innerHTML=missoes.map((m,i)=>{
     const done=S.done[m.missao_id], open=isOpen(i);
     return `<button class="mod ${done?'done':''}" data-i="${i}" ${open?'':'disabled'}>
@@ -1082,7 +1228,7 @@ function drawLessonStep(){
   el('lessonBack').classList.toggle('hidden',lessonStep===0);
   el('lessonNext').classList.toggle('hidden',last);
   el('toQuizBtn').classList.toggle('hidden',!last);
-  armarPortao(temFerramenta);
+  armarPortao(temFerramenta,m.ferramenta==='investigar');
 }
 
 /* ====== PORTÃO DA AULA ======
@@ -1109,8 +1255,20 @@ function temControles(box){
   return !!box.querySelector(SEL_INTERATIVO)||[...box.querySelectorAll('*')].some(ehControle);
 }
 let portaoAberto=true;
-function armarPortao(temFerramenta){
+function armarPortao(temFerramenta,exigeDecisaoFinal=false){
   const box=temFerramenta?el('lessonBody').querySelector('.tool'):null;
+  /* Na investigação, clicar troca de hipótese e não significa que a decisão
+     acabou. Só o evento emitido depois de Confirmar (acerto ou 2ª tentativa)
+     abre o portão. Os widgets legados continuam com o freio de um toque. */
+  if(exigeDecisaoFinal&&box){
+    portaoAberto=false;pintarPortao();
+    const liberar=()=>{
+      portaoAberto=true;pintarPortao();
+      box.removeEventListener('investigarfinal',liberar);
+    };
+    box.addEventListener('investigarfinal',liberar);
+    return;
+  }
   portaoAberto=!(box&&temControles(box));
   pintarPortao();
   if(portaoAberto)return;
@@ -1219,10 +1377,13 @@ function sortearQuestoes(m){
 /* Embaralha as alternativas e remapeia o índice do gabarito. `alternativas_fixas`
    protege as questões cuja ordem carrega sentido — sequência de etapas, escala
    crescente, "nenhuma das anteriores". */
+function prepararAlternativas(item){
+  if(item.alternativas_fixas||!Array.isArray(item.alternativas)) return item;
+  const ordem=baralhar(item.alternativas.map((_,i)=>i));
+  return {...item, alternativas:ordem.map(i=>item.alternativas[i]), correta:ordem.indexOf(item.correta)};
+}
 function prepararQuestao(q){
-  if(q.alternativas_fixas||!Array.isArray(q.alternativas)) return q;
-  const ordem=baralhar(q.alternativas.map((_,i)=>i));
-  return {...q, alternativas:ordem.map(i=>q.alternativas[i]), correta:ordem.indexOf(q.correta)};
+  return prepararAlternativas(q);
 }
 
 /* As questões desta tentativa. Memória só: uma missão abandonada recomeça pela
@@ -1363,10 +1524,10 @@ function finishModule(){
   el('doneTitle').textContent=`Missão "${m.titulo}" concluída!`;
   /* Missão intercalada atravessa vários temas: "esse tema" mentiria sobre o
      que ela acabou de fazer, e o elogio específico é a metade que funciona. */
-  const oQue = m.intercalada ? 'Misturado desse jeito, você não errou nenhuma' : 'Esse tema você domina';
-  el('doneMsg').textContent = c===n?`${c} de ${n}. ${oQue} — pode marcar como resolvido.`
-    : c>=n-1?`${c} de ${n}. Muito perto do topo: reveja a explicação da que escapou e refaça quando quiser.`
-    : 'Missão cumprida. O importante é que agora você viu onde estava a pegadinha — refazer depois vale ouro.';
+  const oQue = m.intercalada ? 'Você terminou esse percurso misturado sem deixar nenhuma questão para trás' : 'Você terminou esta missão com todas as respostas certas';
+  el('doneMsg').textContent = c===n?`${c} de ${n}. ${oQue}. O esforço de revisar cada decisão apareceu.`
+    : c>=n-1?`${c} de ${n}. Você encontrou respostas e tem uma explicação para retomar. Escolha uma pista útil para a próxima vez.`
+    : 'Você concluiu os desafios. Releia uma explicação e conte qual pista ajudou; depois, pratique de novo quando quiser.';
   el('doneXp').textContent=`+${bonus} XP de bônus de missão · total ${S.xp} XP`;
   /* Nenhuma linha de resumo aqui: acertos, medalha e tempo por missão se
      calculam na planilha a partir das linhas por questão. */
@@ -1375,25 +1536,15 @@ function finishModule(){
   show('moduleDone');
 }
 
-/* Pausa sugerida depois da 2ª e da 4ª missão — descanso, nunca cronômetro de tarefa */
+/* Pausa sugerida depois da 2ª e da 4ª missão. A sugestão fica visível, mas
+   nenhuma contagem aparece: descansar não é outra tarefa para cumprir. */
 function offerPause(modIdx){
   const area=el('pauseArea');area.innerHTML='';
   if(modIdx!==1&&modIdx!==3)return;
   area.innerHTML=`<div class="pausebox">
     <strong>Hora de esticar as pernas 🌿</strong>
-    <span class="muted">Duas missões seguidas já é bastante. Cinco minutos longe da tela agora fazem o que você aprendeu grudar melhor — beba água, ande um pouco, olhe pela janela.</span>
-    <div class="clock hidden" id="clock"></div>
-    <div style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
-      <button class="btn small mint" id="pauseStart">Começar pausa de 5 min</button>
-    </div></div>`;
-  el('pauseStart').onclick=()=>{
-    let t=300;const c=el('clock');c.classList.remove('hidden');
-    el('pauseStart').classList.add('hidden');
-    const tick=()=>{c.textContent=`${Math.floor(t/60)}:${String(t%60).padStart(2,'0')}`;
-      if(t--<=0){clearInterval(iv);c.textContent='Pronto! 🌟';
-        c.insertAdjacentHTML('afterend','<p class="muted" style="margin-top:6px">Descanso feito. Quando quiser, siga para a próxima missão.</p>');}};
-    tick();const iv=setInterval(tick,1000);
-  };
+    <span class="muted">Duas missões seguidas já é bastante. Quando puder, beba água, ande um pouco ou olhe pela janela. Depois, siga no seu ritmo.</span>
+  </div>`;
 }
 el('backToMap').onclick=()=>{
   descartarParcial();save();          // missão concluída: não deixa resto de posição para trás
@@ -1406,12 +1557,13 @@ function showFinal(){
      as duas afirmações têm de olhar o conteúdo, não a contagem de missões. */
   const temas=new Set(missoes.flatMap(m=>m.intercalada?m.questoes.map(q=>q.tema_id):[m.tema_id])).size;
   const comFerramenta=missoes.some(m=>m.ferramenta);
-  el('finalMsg').textContent=`Nível ${levelOf(S.xp)+1} · ${LEVELS[levelOf(S.xp)][1]} · maior sequência de acertos: ${S.best}. `+
-    `Você atravessou ${temas===1?'o tema':`os ${temas} temas`} da prova${comFerramenta?', com ferramenta e explicação em cada um':''}.`;
+  el('finalMsg').textContent=`Nesta sessão, você percorreu ${temas===1?'um tema':`${temas} temas`}${comFerramenta?', usando as ferramentas e explicações do caminho':''}. `+
+    `Você conquistou ${S.xp} XP por tentar, revisar e seguir até o fim.`;
+  desenharTrilha('trilhaFinal');
   const uniq=[];S.errors.forEach(e=>{if(!uniq.find(u=>u.q===e.q))uniq.push(e);});
   el('finalReview').innerHTML = uniq.length
     ? `<h3>Vale reler antes da prova</h3>`+uniq.map(e=>`<div class="review-item"><b>${e.mod}</b><br>${e.q}<br><b>Resposta:</b> ${e.ans}<br>${e.why}</div>`).join('')
-    : `<div class="lesson-box"><strong>Nenhum erro para revisar</strong> Você acertou tudo de primeira. Impressionante.</div>`;
+    : `<div class="lesson-box"><strong>Nenhum erro para revisar</strong> Você chegou ao fim com todas as respostas certas nesta sessão.</div>`;
   /* Idem: sem linha "jornada-completa". Um resumo não se desagrega depois. */
   el('finalReview').insertAdjacentHTML('beforeend',
     '<div class="center" style="margin-top:14px"><button class="btn ghost small" id="copyBtn">📋 Copiar resultados</button></div>');
@@ -1419,7 +1571,7 @@ function showFinal(){
   if(!S.focus)confetti(60);show('final');
 }
 
-el('restartBtn').onclick=()=>reset();
+el('restartBtn').onclick=()=>{descartarParcial();save();drawMap();};
 el('resetBtn').onclick=()=>{if(confirm('Isso apaga o XP e as medalhas. Recomeçar do zero?'))reset();};
 function reset(){const f=S.focus;
   S={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false,errors:[],unlocked:1,focus:f,shield:true};
@@ -1453,6 +1605,7 @@ async function carregarEEntrar(){
   /* A fila é drenada em toda abertura, inclusive quando ela está retomando.
      Antes só esvaziava no começo do zero, e uma sessão retomada segurava as
      linhas indefinidamente. */
+  migrarFilasLegadas();
   esvaziarFila();
   entrarNoMapa(carregado);
 }

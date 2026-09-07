@@ -1,5 +1,148 @@
 # Changelog
 
+## 2026-09-07 — Substituição de Hugo preservando o link público
+
+Marco autorizou publicar e manter o endereço
+`https://mattusca.github.io/missao-estudos/2026-09-hugo-cabret-y5.html`.
+O build usa `data/publication-routes.json` para gerar nesse caminho o conteúdo
+do encontro 1, sem redirecionamento e sem duplicação do JSON. A fonte histórica
+permanece preservada, e o novo `prova_id` mantém o progresso separado do teste
+anterior. O índice apresenta essa entrada uma vez; o encontro 2 retorna para
+o endereço compartilhado. Guias e README refletem a substituição.
+
+Doze testes locais aprovados, incluindo igualdade entre os HTMLs do endereço
+antigo e do primeiro encontro, navegação de volta e identidade do progresso.
+O auditor independente identificou uma fila offline que ficaria sem reenvio
+após a troca de identidade. Corrigido: o encontro 1 migra os eventos antigos,
+deduplica por identidade e só remove a origem após gravar a nova fila. Uma falha
+de armazenamento preserva a origem. A correção foi rechecada e aprovada pelo auditor.
+A implantação usa o workflow existente com o segredo de telemetria; o estado
+da publicação e a conferência do endereço público são acompanhados em `tasks/todo.md`.
+
+## 2026-09-07 — Hugo: ensino, aplicação e recuperação em três encontros
+
+Implementada, com autorização de Marco, sequência para 07–08/09 antes da prova
+de 09/09. Cada novo arquivo tem `prova_id` próprio e 12 questões. Encontros 1 e 2
+trabalham os seis temas em blocos, com 24 questões inéditas cada; o terceiro
+mistura três temas por missão e usa o banco do segundo, preservando identidades.
+O uso do terceiro encontro depende de base e disposição, não do placar.
+O roteiro `guides/hugo-study-sequence.md` orienta leitura do livro, conversa
+breve, intervalos e ajustes após a leitura do próximo log. Não há adaptação automática.
+
+Conteúdo escrito por agente Sol e implementação delimitada por Terra, em paralelo.
+Revisores independentes examinaram conteúdo e engenharia após a implementação.
+Os seis grupos de achados pedagógicos foram corrigidos e rechecados: ambiguidade
+de gabarito, ordem já entregue no enunciado, definições no cartão de apoio,
+confusão entre imagem e comprovação histórica, distratores pouco plausíveis,
+abstrações sem explicação e cronologia não confirmada. A auditoria também conferiu
+as três fontes do guia. Dois destaques que fragmentavam palavras foram corrigidos.
+
+Nova ferramenta `investigar`: escolha e confirmação separadas, segunda tentativa
+antes da explicação, avanço permitido após concluir mesmo sem acerto, alternativas
+embaralhadas e nenhum XP ou evento de questão por usar a ferramenta. Aulas curtas,
+fechamentos orais e SVGs originais para enquadramento e sequência de ações.
+As demais acomodações foram preservadas. Removido o contador visível da pausa,
+mantendo a sugestão de descanso. Mensagens finais deixam de afirmar domínio;
+“Rever uma missão” retorna ao mapa sem zerar o progresso. Negritos dentro da cola
+deixaram de quebrar o texto em linhas como se fossem títulos.
+
+Novas sessões incluem o `prova_id` no identificador; sessões antigas retomadas
+mantêm o ID até expirar. As 28 colunas e o Apps Script não mudaram. Tempos de aula,
+ferramenta e leitura do feedback continuam sem medição direta. O build valida a
+ferramenta, o perfil de teste e a trilha; o índice apresenta títulos e encontros
+em ordem, listando somente HTMLs gerados. O validador editorial passou a aceitar
+arquivos por argumento, aulas de uma a três telas e missões intercaladas.
+
+Na versão inicial, corrigidas explicações sobre imagens e fotogramas, distinção
+entre ordem e causa e heurísticas de escolha. Alterações que mudaram a demanda
+ou o apoio de itens antigos receberam IDs novos (`VOCAB.Q8`, `FORMA.Q8/Q9`);
+os novos encontros usam `Q101–Q104` e `Q201–Q204`. Nada reescreve o log histórico.
+
+**Verificação final:** sete builds aprovados, nove testes Node aprovados,
+zero erros e avisos editoriais nos três encontros novos. Testes exercitam
+tentativas, portão, embaralhamento, sessão legada e nova, banco emprestado,
+50 sorteios por encontro e payload de 28 campos. Navegador em 390 × 844,
+perfil Marco (teste): encontro 1 completo, interações de revisão e parte do
+encontro 3; escolhas, segunda tentativa, ferramentas, figuras, pausas sem contador,
+retomada de missão incompleta, XP/medalhas/foco e progresso separado no encontro 2.
+Conferidos títulos/links e ausência de transbordamento horizontal nas telas
+inspecionadas. Testes locais sem `SHEET_URL`; servidor de teste encerrado e
+dimensão do navegador restaurada. Nenhum commit, push ou publicação realizado.
+
+O roteiro da professora e a conferência dos episódios na edição utilizada
+continuam pendentes. Não se registraram resultados individuais nesta entrega pública.
+
+## 2026-09-07 — Convivência implementada e guia narrativo compartilhado
+
+Com autorização de Marco, `AGENTS.md` passou a ser uma entrada curta que exige a
+leitura do `CLAUDE.md`. A nova seção 0 do arquivo comum define responsabilidades,
+passagem de trabalho, preservação das edições existentes e alternância de autoria
+e revisão. Ambos podem liderar a narrativa completa; Codex também tem como frente
+preferencial engenharia e verificação. As regras pedagógicas anteriores foram preservadas.
+
+Criado `guides/narrative-guide.md`, ligado a ambos os arquivos e ao README: percurso
+da missão, voz, função de cada apoio, questões autossuficientes, continuidade com a
+interface, verificação factual e fluxo editorial. Revisão independente identificou
+uma ambiguidade na missão de referência: corrigida para que revisões intercaladas
+continuem sem aula e sem ferramenta. Ajustes pequenos mantêm revisão proporcional.
+
+**Aplicação em Hugo Cabret** — apenas `aula.corpo` e `aula.fechamento` da missão
+Enredo foram alterados. O convite às fichas agora começa por "A ordem deixa pistas";
+o fechamento orienta lembrar a cena e o que ela tornou possível, removendo a
+instrução de consultar uma seta que já não existia no cartão.
+
+**Verificado** — build de Hugo com `SHEET_URL` vazia; validador com 0 erros e os
+mesmos 6 avisos de comprimento anteriores à edição; comparação estrutural confirmou
+que os dois campos da aula foram as únicas mudanças no JSON; 7 links locais dos
+documentos resolvidos. Navegador em 390 × 844, perfil Marco (teste): missão inicial
+concluída para abrir Enredo, confirmação em dois toques observada, novo convite e
+fechamento legíveis, ferramenta bloqueia avanço até interação. Janela de teste
+fechada e tamanho do navegador restaurado; servidor local encerrado ao final.
+Conferência factual do livro e alinhamento ao roteiro seguem pendentes. Sem publicação.
+
+## 2026-09-07 — Complemento: papel do Codex na narrativa dos artefatos
+
+Leitura editorial de exemplos das aulas, questões, dicas e explicações de Hugo
+Cabret, Language Arts e Matemática. A proposta de responsabilidade foi ampliada:
+Codex também pode assumir direção narrativa, coautoria e edição didática, com
+alternância entre autor e revisor conforme o artefato. A divisão anterior não
+deve ser interpretada como exclusividade de conteúdo para o Claude.
+
+Critérios propostos: cena com função no conteúdo; uma ideia por tela; ligação
+entre aula e interação; feedback que explica o raciocínio; voz consistente;
+questões autossuficientes para sorteio e intercalação. Revisões intercaladas
+preservam recuperação direta, sem acrescentar aula. Exemplo de continuidade
+identificado: fechamento de Enredo manda consultar a sequência e a seta seguinte
+no cartão, embora a regra atual não apresente essa sequência. Registrado em
+pendências. Verificação por leitura dos JSONs e do histórico; conteúdo das provas
+e instruções dos agentes não foram alterados.
+
+## 2026-09-07 — Leitura do projeto e proposta de convivência Codex/Claude
+
+Leitura das orientações, README, pendências e histórico, com exploração estática
+da arquitetura por subagente. Papel proposto para o Codex: engenharia e revisão
+independente de integração, persistência, telemetria e acomodações; continuidade
+de conteúdo com o Claude e decisões pedagógicas com Marco. É uma recomendação,
+não uma alteração das responsabilidades ou das instruções do repositório.
+
+`CLAUDE.md` e `AGENTS.md` têm conteúdo idêntico (SHA-256 conferido); `AGENTS.md`
+já estava não versionado no início. Proposta: manter a referência comum no
+`CLAUDE.md`, como orienta o README, e futuramente usar `AGENTS.md` como entrada
+curta que exija essa leitura e acrescente instruções operacionais do Codex.
+Referência oficial consultada: https://learn.chatgpt.com/docs/agent-configuration/agents-md
+
+**Oportunidades identificadas** — contrato de retenção entre servidor e dashboard
+(`questao_id` ausente na seleção de campos do servidor); validador de conteúdo
+existente, mas com caminho absoluto e prova fixa, fora do workflow; exemplos de
+matemática ainda embutidos no motor. Pendências antigas também divergem do código
+e do histórico. Achados registrados para trabalho posterior, sem correção nesta sessão.
+
+**Verificação** — build dos quatro JSONs concluído com sucesso e `SHEET_URL` vazia
+no processo; saída local em `docs/`. Comparação das instruções e inspeção do diff
+dos registros. Sem teste de navegador ou da implantação: o achado de retenção é
+estático e o build não verifica esse contrato. Atualizados somente os registros
+em `tasks/`, além das saídas locais geradas. Nenhum commit, push ou envio de eventos.
+
 ## 2026-09-07 (tarde) — Hugo Cabret: reescrita narrativa e auditoria
 
 A v1 estava correta e fria: aula em lista, enunciado de gabarito, distrator bobo,

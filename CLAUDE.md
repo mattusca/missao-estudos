@@ -5,6 +5,33 @@ Cada prova nova é **um arquivo de dados**, nunca uma reescrita do motor.
 
 Responsável: Marco. Contexto da aluna e dos dados: `CONTEXTO-PRIVADO.md` (não versionado).
 
+Este arquivo é a referência comum de **Claude e Codex** para pedagogia, arquitetura
+e dados. O [AGENTS.md](AGENTS.md) orienta a entrada do Codex e exige esta leitura.
+Ao criar ou revisar conteúdo, ler também o [guia narrativo](guides/narrative-guide.md).
+
+## 0. Colaboração entre agentes
+
+- **Marco** define prioridades, fornece o contexto e decide mudanças pedagógicas.
+- **Claude e Codex** podem assumir roteiro, redação, edição didática e implementação.
+  A autoria é definida por entrega, sem exclusividade de conteúdo por agente.
+- **Codex** tem como frente preferencial a engenharia e a verificação de integração,
+  persistência, telemetria e preservação das acomodações. Também pode liderar a
+  construção narrativa completa de um artefato.
+- Em um artefato novo ou uma reescrita ampla, definir uma missão de referência,
+  com os elementos previstos para seu tipo: aula e ferramenta nas missões de prova;
+  cola e recuperação direta nas intercaladas; questões e feedbacks em ambas.
+  Um agente escreve e outro revisa antes da expansão; os papéis podem se inverter.
+  Ajustes pequenos recebem revisão proporcional, sem exigir uma segunda rodada de agentes.
+- Registrar escopo, responsável e verificação em `tasks/todo.md`; fechar a entrega
+  em `tasks/changelog.md`. Ao passar trabalho, indicar arquivos alterados, decisões,
+  testes executados e pendências. Consultar o código ao encontrar status divergentes.
+- Em trabalho simultâneo, separar arquivos ou usar checkouts isolados. Preservar
+  alterações do outro agente e revisar o diff antes de integrar. Publicação segue
+  a autorização da tarefa e as condições registradas para a prova.
+- Manter as regras comuns aqui e as regras editoriais no guia, evitando cópias
+  independentes. Instruções explícitas de Marco para a tarefa orientam o escopo;
+  conflitos que afetem acomodações ou conteúdo factual devem ser apontados.
+
 ---
 
 ## 1. Contexto pedagógico — leia antes de qualquer alteração
@@ -123,6 +150,19 @@ envenena a calibragem da prova seguinte.
 - `contexto`: `prova` | `revisao_espacada` | `treino_livre`. Véspera de prova e sábado à toa
   não são comparáveis.
 
+### Encontros de uma sequência
+Cada encontro tem `prova_id` próprio: o progresso de uma passagem não conclui a
+seguinte. `trilha` pode declarar `etapa` (1–3), `orientacao` e links relativos
+`anterior`/`proxima` para arquivos HTML da sequência. Esses links não prescrevem
+fazer os encontros em seguida; a orientação do responsável determina o intervalo
+e se há base para a revisão intercalada. Não adaptar dificuldade automaticamente.
+
+A ferramenta `investigar` recebe `dados.exemplos` com contexto, pergunta,
+alternativas, gabarito, explicação e figura opcional. Ela exige escolher e
+confirmar uma decisão, oferecendo uma segunda tentativa antes da explicação.
+Concluir a tentativa libera o avanço mesmo sem acerto; a atividade não altera XP.
+As ferramentas anteriores preservam seu portão de interação.
+
 ### Dificuldade
 Declarada na criação (1–3), nunca inferida do desempenho — senão não é possível provar
 evolução, apenas que as questões ficaram fáceis.
@@ -225,6 +265,12 @@ Marcar `tempo_valido = false` se houve saída de tela (Page Visibility API) ou s
 abre sessão nova (vira `retomada = true`); voltar no dia seguinte abre, e `posicao_na_sessao`
 recomeça em 1. Sem esse teto, duas ocasiões de estudo viravam uma só e a exigência de
 **3 sessões distintas** da seção 2 nunca era satisfeita honestamente.
+
+Novos IDs de sessão incluem o `prova_id` como prefixo, para distinguir encontros
+na planilha sem alterar suas 28 colunas. IDs antigos retomados ficam como estão
+até a expiração. A coluna continua sendo um identificador opaco para o dashboard.
+Primeiro toque inclui alternativa, dica ou andaime. O tempo total termina antes
+da leitura do feedback final; intervalos entre eventos não medem diretamente aula.
 
 Envio: `fetch` com `mode:'no-cors'` para o Apps Script. Falha ou ausência de URL → fila em
 `localStorage`, reenviada na próxima abertura. Sempre existe fallback manual de cópia.
