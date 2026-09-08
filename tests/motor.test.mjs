@@ -163,3 +163,77 @@ test('falha ao persistir a migração mantém a fila antiga disponível para out
   assert.equal(dados.get('missao_fila_ANTIGA_v2'),original);
   assert.equal(dados.has('missao_fila_NOVA_v2'),false);
 });
+
+function paginaDaTrilha({arquivo='primeiro.html',id='E1',passagens=new Map(),nomes=new Map(),alunas=['Marco (teste)','Fernanda (teste)']}={}){
+  const armazenamento=dados=>({getItem:k=>dados.get(k)||null,setItem:(k,v)=>dados.set(k,v),removeItem:k=>dados.delete(k)});
+  const c={URL,Date,PROVA:{prova_id:id,alunas,trilha:{anterior:'primeiro.html',proxima:'segundo.html'}},
+    location:{href:`https://exemplo.test/estudos/${arquivo}`,pathname:`/estudos/${arquivo}`},
+    sessionStorage:armazenamento(passagens),localStorage:armazenamento(nomes)};
+  const identidade=trecho(motor,'const ALUNAS','/* Fila por prova');
+  const trilha=trecho(motor,'function linkTrilhaSeguro','function desenharTrilha');
+  const chave=motor.match(/const KEY=\(\)=>[^;]+;/)[0];
+  vm.runInNewContext(`${identidade}\n${trilha}\n${chave};globalThis.api={gravarAluna,alunaAtual,prepararTrocaDeEtapa,consumirTrocaDeEtapa,KEY};`,c);
+  return {api:c.api,c,passagens,nomes};
+}
+
+test('ida e volta entre etapas mantêm a pessoa, mas carregam chaves de progresso distintas',()=>{
+  const primeiro=paginaDaTrilha();
+  primeiro.api.gravarAluna('Marco (teste)');
+  assert.equal(primeiro.api.prepararTrocaDeEtapa('segundo.html'),true);
+  const segundo=paginaDaTrilha({...primeiro,arquivo:'segundo.html',id:'E2'});
+  segundo.api.gravarAluna(segundo.api.consumirTrocaDeEtapa());
+  assert.equal(segundo.api.alunaAtual(),'Marco (teste)');
+  assert.notEqual(primeiro.api.KEY(),segundo.api.KEY());
+  assert.equal(segundo.api.consumirTrocaDeEtapa(),'','o passe não pode ser usado numa recarga');
+  segundo.api.gravarAluna('Fernanda (teste)');
+  assert.equal(segundo.api.prepararTrocaDeEtapa('primeiro.html'),true);
+  const volta=paginaDaTrilha(segundo);
+  volta.api.gravarAluna(volta.api.consumirTrocaDeEtapa());
+  assert.equal(volta.api.alunaAtual(),'Fernanda (teste)');
+  assert.equal(volta.api.KEY(),'missao_progresso_E1_Fernanda (teste)_v2');
+});
+
+test('último nome do aparelho não pula a escolha numa abertura independente nem cria passagem',()=>{
+  const {api,passagens}=paginaDaTrilha({nomes:new Map([['missao_aluna_v1','Marco (teste)']])});
+  assert.equal(api.consumirTrocaDeEtapa(),'');
+  assert.equal(api.prepararTrocaDeEtapa('segundo.html'),false);
+  api.gravarAluna('Marco (teste)');
+  assert.equal(api.prepararTrocaDeEtapa('fora-da-trilha.html'),false);
+  assert.equal(api.prepararTrocaDeEtapa('https://outro.test/segundo.html'),false);
+  assert.equal(passagens.size,0);
+});
+
+test('passagem inválida, antiga ou de outra pessoa/destino volta à escolha e é descartada',()=>{
+  const valido={aluna:'Marco (teste)',destino:'/estudos/segundo.html',criada:Date.now()};
+  for(const raw of [
+    JSON.stringify({...valido,aluna:'Pessoa ausente'}),
+    JSON.stringify({...valido,destino:'/outra-pasta/segundo.html'}),
+    JSON.stringify({...valido,criada:Date.now()-61000}),
+    JSON.stringify({...valido,criada:Date.now()+60000}),
+    JSON.stringify({...valido,criada:undefined}), 'null', '{corrompido'
+  ]){
+    const {api,passagens}=paginaDaTrilha({arquivo:'segundo.html',passagens:new Map([['missao_troca_etapa_v1',raw]])});
+    assert.equal(api.consumirTrocaDeEtapa(),'');
+    assert.equal(passagens.size,0);
+  }
+});
+
+test('armazenamento indisponível permite voltar à escolha sem interromper a navegação',()=>{
+  const {api,c}=paginaDaTrilha();
+  c.sessionStorage={getItem:()=>{throw new Error('bloqueado');},setItem:()=>{throw new Error('bloqueado');}};
+  api.gravarAluna('Marco (teste)');
+  assert.equal(api.prepararTrocaDeEtapa('segundo.html'),false);
+  assert.equal(api.consumirTrocaDeEtapa(),'');
+});
+
+test('escolha feita em outra aba não muda a identidade ativa nem o progresso desta página',()=>{
+  const pagina=paginaDaTrilha();
+  pagina.api.gravarAluna('Marco (teste)');
+  const outra=paginaDaTrilha({nomes:pagina.nomes});
+  outra.api.gravarAluna('Fernanda (teste)');
+  assert.equal(pagina.api.alunaAtual(),'Marco (teste)');
+  assert.equal(pagina.api.KEY(),'missao_progresso_E1_Marco (teste)_v2');
+  pagina.api.prepararTrocaDeEtapa('segundo.html');
+  const destino=paginaDaTrilha({...pagina,arquivo:'segundo.html',id:'E2'});
+  assert.equal(destino.api.consumirTrocaDeEtapa(),'Marco (teste)');
+});

@@ -177,11 +177,11 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
 .trilha nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:700;}
 .trilha a{color:#1d7a66;}
 .trilha a:focus-visible{outline:3px solid var(--ink);outline-offset:3px;}
-.trilha .trilha-next{display:inline-flex;align-items:center;justify-content:center;
+.trilha .trilha-button{display:inline-flex;align-items:center;justify-content:center;
   min-height:54px;padding:12px 22px;border:2px solid #166653;border-radius:12px;
   background:#166653;color:#fff;font-size:1.08rem;font-weight:800;text-decoration:none;text-align:center;}
-.trilha .trilha-next:hover{background:#104f41;border-color:#104f41;}
-@media(max-width:480px){.trilha .trilha-next{width:100%;}}
+.trilha .trilha-button:hover{background:#104f41;border-color:#104f41;}
+@media(max-width:480px){.trilha .trilha-button{width:100%;}}
 /* saída para o mapa: discreta de propósito, para ser porta e não convite */
 .navtop{margin:-4px 0 10px;}
 .navtop .btn{font-size:.82rem;padding:6px 13px;}
@@ -862,12 +862,12 @@ const TEM_URL   = !!SHEET_URL && !SHEET_URL.startsWith('__');
    coisas são exatamente as métricas da tabela de calibragem. Um teste gravado
    como se fosse ela envenena a decisão da próxima prova.
 
-   A escolha é por APARELHO, não por prova: o tablet dela é dela em toda prova
-   futura. Por isso a chave não leva o prova_id. */
+   A última escolha sugerida é por aparelho. A identidade em uso fica nesta
+   página, para a escolha feita em outra aba não mudar a autoria dos eventos. */
 const ALUNAS    = (Array.isArray(PROVA.alunas) && PROVA.alunas.length) ? PROVA.alunas : ['Aluna'];
 const KEY_ALUNA = 'missao_aluna_v1';
 let alunaMem    = '';
-function lerAluna(){ try{ return localStorage.getItem(KEY_ALUNA)||alunaMem; }catch(e){ return alunaMem; } }
+function lerAluna(){ if(alunaMem)return alunaMem;try{ return localStorage.getItem(KEY_ALUNA)||''; }catch(e){ return ''; } }
 function gravarAluna(n){ alunaMem=n; try{ localStorage.setItem(KEY_ALUNA,n); }catch(e){} }
 /* Nome guardado que não está nesta prova (prova de outra filha, nome renomeado)
    volta a perguntar, em vez de gravar linha no nome errado. */
@@ -1063,6 +1063,35 @@ const el=id=>document.getElementById(id);
    relativos e o motor confere o formato de novo mesmo que alguém abra o HTML
    sem passar pelo build. */
 function linkTrilhaSeguro(nome){return typeof nome==='string'&&/^[A-Za-z0-9][A-Za-z0-9._-]*\.html$/.test(nome);}
+/* Passe de uso único, restrito a esta aba e ao destino clicado. Não põe nomes
+   na URL nem transforma a última pessoa do aparelho em seleção automática. */
+const KEY_TRILHA='missao_troca_etapa_v1';
+const TROCA_ETAPA_MAX=60*1000;
+function prepararTrocaDeEtapa(nome){
+  if(!linkTrilhaSeguro(nome)||![PROVA.trilha?.anterior,PROVA.trilha?.proxima].includes(nome)||!ALUNAS.includes(alunaMem))return false;
+  try{
+    const destino=new URL(nome,location.href).pathname;
+    sessionStorage.setItem(KEY_TRILHA,JSON.stringify({aluna:alunaMem,destino,criada:Date.now()}));
+    return true;
+  }catch(e){return false;}
+}
+function consumirTrocaDeEtapa(){
+  try{
+    const raw=sessionStorage.getItem(KEY_TRILHA);
+    sessionStorage.removeItem(KEY_TRILHA);
+    if(!raw||!PROVA.trilha)return '';
+    const passe=JSON.parse(raw),idade=Date.now()-passe?.criada;
+    if(passe?.destino!==location.pathname||!Number.isFinite(idade)||idade<0||idade>TROCA_ETAPA_MAX||!ALUNAS.includes(passe.aluna))return '';
+    return passe.aluna;
+  }catch(e){return '';}
+}
+function criarLinkTrilha(nome,texto){
+  const a=document.createElement('a');a.href=nome;a.className='trilha-button';a.textContent=texto;
+  a.addEventListener('click',e=>{
+    if(e.button===0&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&!e.altKey)prepararTrocaDeEtapa(nome);
+  });
+  return a;
+}
 function desenharTrilha(id){
   const caixa=el(id),t=PROVA.trilha;
   caixa.innerHTML='';
@@ -1074,8 +1103,8 @@ function desenharTrilha(id){
   if(linkTrilhaSeguro(t.anterior)||linkTrilhaSeguro(t.proxima)){
     const aviso=document.createElement('p');aviso.textContent='Em outro momento:';bloco.appendChild(aviso);
     const nav=document.createElement('nav');nav.setAttribute('aria-label','Outros encontros da trilha');
-    if(linkTrilhaSeguro(t.anterior)){const a=document.createElement('a');a.href=t.anterior;a.textContent='← Encontro anterior';nav.appendChild(a);}
-    if(linkTrilhaSeguro(t.proxima)){const a=document.createElement('a');a.href=t.proxima;a.className='trilha-next';a.textContent='Próximo encontro →';nav.appendChild(a);}
+    if(linkTrilhaSeguro(t.anterior))nav.appendChild(criarLinkTrilha(t.anterior,'← Encontro anterior'));
+    if(linkTrilhaSeguro(t.proxima))nav.appendChild(criarLinkTrilha(t.proxima,'Próximo encontro →'));
     bloco.appendChild(nav);
   }
   caixa.appendChild(bloco);
@@ -1619,12 +1648,11 @@ async function carregarEEntrar(){
 (async()=>{
   rotulos();
   applyFocus();
-  /* Quem está estudando é SEMPRE a primeira tela, não só na estreia do
-     aparelho: o tablet é dividido entre a Alícia e quem testa. Perguntar uma
-     vez só significaria gravar linha no nome errado — e, pior, entregar a ela
-     o progresso de outra pessoa. O progresso só pode ser lido depois daqui,
-     porque a chave depende de quem respondeu. */
-  pedirAluna(carregarEEntrar);
+  /* A navegação direta entre etapas mantém a escolha feita nesta aba. Uma
+     abertura independente continua pedindo o nome antes de ler o progresso. */
+  const pessoa=consumirTrocaDeEtapa();
+  if(pessoa){gravarAluna(pessoa);await carregarEEntrar();}
+  else pedirAluna(carregarEEntrar);
 })();
 
 function entrarNoMapa(carregado){

@@ -1,5 +1,15 @@
 # Pendências
 
+## 2026-09-07 — Voltar de encontro e manter a pessoa selecionada
+- [x] Dar ao encontro anterior o mesmo destaque visual do avanço.
+- [x] Repassar a identidade apenas na navegação entre etapas, com progresso por pessoa
+      e por prova e escolha explícita na abertura independente. Responsável: Codex;
+      escopo: `src/motor.html`, testes, `CLAUDE.md` e registros desta entrega.
+- [x] Verificar ida, volta, troca de pessoa, abertura independente e telas estreitas.
+      Dezessete testes e sete builds aprovados; revisão independente sem achados.
+      Navegador em 390 e 1100 px, ida/volta, troca explícita e reabertura conferidas.
+      Publicação pelo workflow existente, mantendo o endereço original.
+
 ## 2026-09-07 — Destaque do próximo encontro
 - [x] Dar ao link de avanço aparência de botão, com contraste e área de toque maiores.
       Responsável: Codex; escopo: `src/motor.html` e registros da entrega.

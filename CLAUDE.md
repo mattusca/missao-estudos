@@ -131,8 +131,13 @@ quando a mesma questão reaparece semanas depois.
 
 ### Quem está estudando
 `prova.alunas` é uma lista (`["Alicia", "Marco (teste)", "Fernanda (teste)"]`).
-A tela "Quem está estudando?" é a **primeira de toda sessão**, não só da estreia do
-aparelho: o tablet é dividido entre ela e quem testa. O último nome vem marcado, para
+A tela "Quem está estudando?" é a **primeira de toda abertura independente**, não só da estreia do
+aparelho: o tablet é dividido entre ela e quem testa. Ao clicar nos botões anterior/próximo
+da sequência, manter a pessoa já selecionada na mesma aba, sem perguntar novamente
+(alteração solicitada por Marco em 07/09). Essa passagem é de uso único, vinculada
+ao destino e válida por um minuto; não deve selecionar automaticamente pelo último
+nome salvo no aparelho. Sem armazenamento da passagem, pedir a escolha normalmente.
+O último nome vem marcado, para
 o caminho de sempre custar um toque. O escolhido vai para a coluna `aluna` de cada linha.
 
 **O progresso é por prova E por pessoa** — `missao_progresso_<prova_id>_<aluna>_v2`.
@@ -156,6 +161,8 @@ seguinte. `trilha` pode declarar `etapa` (1–3), `orientacao` e links relativos
 `anterior`/`proxima` para arquivos HTML da sequência. Esses links não prescrevem
 fazer os encontros em seguida; a orientação do responsável determina o intervalo
 e se há base para a revisão intercalada. Não adaptar dificuldade automaticamente.
+Os dois links têm aparência de botão e preservam a identidade da página de origem.
+O controle "trocar" continua disponível; outra aba não muda a pessoa desta página.
 
 A ferramenta `investigar` recebe `dados.exemplos` com contexto, pergunta,
 alternativas, gabarito, explicação e figura opcional. Ela exige escolher e

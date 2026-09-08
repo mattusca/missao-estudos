@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-09-07 — Botão anterior e identidade mantida entre encontros
+
+O botão anterior agora tem o mesmo tamanho, contraste e comportamento visual
+do próximo. Na navegação pelos dois botões, a pessoa selecionada é repassada
+ao encontro de destino por uma passagem de uso único na mesma aba, válida por
+um minuto. Nome ausente da prova, destino diferente, passagem inválida ou falha
+de armazenamento devolvem à escolha normal. Abertura independente e recarga
+continuam pedindo a pessoa; o controle "trocar" permanece disponível.
+
+A identidade ativa fica na página: uma escolha em outra aba não muda a autoria
+de seus eventos. O progresso continua separado por prova e pessoa. O CLAUDE.md
+registra a exceção de navegação solicitada por Marco.
+
+Verificação: 17 testes e sete builds aprovados; auditor independente sem achados.
+No navegador, conferidos avanço e retorno sem nova escolha, retomada do progresso
+do encontro anterior, troca explícita de pessoa, reabertura com escolha e botões
+em 390 e 1100 px, inclusive no modo foco. Publicação no mesmo endereço do Pages.
+
 ## 2026-09-07 — Próximo encontro com mais destaque
 
 A pedido de Marco, o link de avanço no mapa e no encerramento ganhou aparência
