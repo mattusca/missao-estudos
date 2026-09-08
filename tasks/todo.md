@@ -1,5 +1,16 @@
 # Pendências
 
+## 2026-09-08 — Comparativo privado das duas sessões de Hugo
+- [ ] Transformar o comparativo em HTML independente com apresentação editorial,
+      em pasta temporária externa ao repositório; conferir desktop e celular.
+- [x] Ler os registros de 07/09, separar sessões/pessoa e conferir métricas e versões.
+- [x] Criar dashboard comparativo privado, com resultados observados e limites da amostra.
+- [x] Auditar cálculos e conferir a visualização no navegador.
+      Responsável: Codex; dados e visual fora do repositório público, somente leitura
+      da planilha. Sem alterar o artefato escolar ou publicar no Pages.
+      Revisão independente dos cálculos e do contrato histórico da telemetria;
+      visual conferido em tela estreita/larga e em temas claro/escuro.
+
 ## 2026-09-08 — Auditoria da implementação 5158477
 - [x] Auditar motor, dados, build/publicação e telemetria; reproduzir findings.
       Responsável: Codex, com revisores independentes de escopo separado.
@@ -12,6 +23,10 @@
       legada após a primeira importação; barrar IDs duplicados dentro de missão emprestada.
 
 ## 2026-09-08 — Plano do painel infantil de evolução
+- [ ] **Marco: criar a aba Recentes** — no editor do Apps Script, colar o `enviar.gs`
+      atual, escolher a função `criarRecorte` e clicar em Run (sem reimplantar). Ou
+      reimplantar: a aba nasce sozinha na próxima gravação. Conferir que "Recentes" é a
+      primeira aba e mostra as sessões de 7/9.
 - [x] Plano revisado por Claude (08/09) e implementado no mesmo dia: trilha única em
       capítulos, cartão de recuperação opcional, "Minhas pistas", coluna 29, rotas.
 - [x] Apps Script reimplantado por Marco em 08/09 às 17:09 (versão 4, mesma URL do

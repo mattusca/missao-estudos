@@ -1,5 +1,38 @@
 # Changelog
 
+## 2026-09-08 — Aba "Recentes": leitura do log sem limite de crescimento
+
+O leitor do Drive usado nas análises devolve ~33 mil caracteres da planilha a partir
+da primeira aba e para; com 29 colunas isso dá uns 85 registros, e a segunda sessão
+da Alícia em Hugo ficou fora da leitura. Como Eventos é um log e só cresce, o Apps
+Script passa a manter a aba `Recentes` em primeiro lugar: fórmula QUERY sobre
+Eventos com os últimos 14 dias, no máximo 120 linhas e 20 colunas, da mais nova para
+a mais antiga. Nada é copiado; a fórmula se recalcula. `garantirRecorte_` roda a cada
+gravação e é idempotente; `criarRecorte` pode ser executada à mão no editor, sem
+reimplantar. Fórmula conferida por avaliação local do código; a sintaxe do QUERY
+(`where C >= date 'aaaa-mm-dd' order by C desc limit 120`) é a documentada pelo Sheets.
+CLAUDE.md e o guia do responsável passam a apontar a aba Recentes como fonte de análise.
+
+Dashboard do dia: comparativo das duas sessões de 7/9 publicado como artefato privado,
+no molde do comparativo de Language Arts.
+
+
+## 2026-09-08 — Comparativo privado das sessões de Hugo
+
+- Leitura da planilha somente para consulta, com pessoa/data/sessão delimitadas,
+  testes de adultos excluídos e conferência de unicidade dos eventos.
+- Dashboard na conversa, fora do repositório: resultados, apoios registrados,
+  medianas de tempos válidos, comparação por tema e detalhe verificável da fonte.
+  Nenhum dado individual de desempenho inserido nos arquivos versionáveis.
+- Revisores independentes conferiram os cálculos e as versões históricas: itens,
+  quantidade, dificuldade e exposição ao ensino diferem entre as aplicações.
+  Comparação apresentada como observação, sem diagnóstico ou atribuição causal.
+- Conferência no Chrome em larguras de 360 e 736 px, temas claro/escuro, sem
+  erros de JavaScript ou overflow horizontal; detalhes e fonte conferidos.
+- Nenhuma alteração no motor, conteúdo, planilha ou publicação. Navegadores de
+  teste encerrados; nenhum servidor iniciado. Somente registros desta tarefa
+  alterados no repositório.
+
 ## 2026-09-08 — Trilha: oito achados da auditoria do Codex
 
 Auditoria do Codex sobre `5158477`, tratada como hipóteses e reproduzida antes de mexer.

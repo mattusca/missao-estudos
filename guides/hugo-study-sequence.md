@@ -88,6 +88,10 @@ guiada dos temas pendentes. Não use a mistura como exame final de aprovação.
 
 ## Como ler o próximo log
 
+- Leia pela aba **Recentes** (primeira aba da planilha): últimos 14 dias, até 120 linhas,
+  ordenadas da mais nova para a mais antiga. A aba Eventos é o log completo, mas os
+  leitores automáticos cortam a leitura por volta da linha 85.
+
 - Desde 08/09 cada linha traz uma 29ª coluna, **Capítulo** (`cap-1`, `cap-2`, `cap-3`),
   e o **Contexto** vem do capítulo: `prova` no 1, `revisao_espacada` no 2 e no 3. A coluna
   só aparece depois de reimplantar o Apps Script; até lá o servidor descarta o campo, e as
