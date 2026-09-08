@@ -9,11 +9,8 @@
 - [ ] Confirmar o aparelho usado e inspecionar a fila/aba da sessão relatada;
       ausência na planilha não prova ausência de respostas. Copiar resultados de
       uma aba antiga ainda aberta antes de recarregar: ela pode ter dados só em RAM.
-- [ ] No próximo ajuste do receptor, isolar a criação de `Recentes` da gravação
-      principal: erro na aba auxiliar não deve impedir o append em `Eventos`.
-      Responsável: Codex; motor, testes e integração estritamente necessária.
-      Preservar dados locais e alterações existentes; não inserir dados pessoais
-      ou URL privada nos arquivos versionáveis.
+- [x] Item do Codex sobre isolar a aba `Recentes` da gravação: sem objeto, a aba foi
+      revertida em 08/09 (commit 2cdd11a). Aba Eventos segue como único destino do receptor.
 
 ## 2026-09-08 — Comparativo privado das duas sessões de Hugo
 - [x] Transformar o comparativo em HTML independente com apresentação editorial,
