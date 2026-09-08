@@ -187,6 +187,7 @@ const bancoOrigem = new Map();   // bastidor do resumo, fora do JSON injetado
    `missao_id::questao_id` — nunca vira campo da questão, então não entra no
    JSON injetado nem no que a aluna recebe. */
 const copiasPermitidas = new Set();
+const copiasObjetos = new Set();   // os próprios objetos copiados: uma questão própria com o mesmo id não passa por cópia
 const indiceMissao = new Map((prova.missoes || []).map((m, i) => [m.missao_id, i]));
 const porProvaId = f => {
   const caminho = 'data/provas/' + f + '.json';
@@ -244,8 +245,10 @@ for (let i = 0; i < (prova.missoes || []).length; i++) {
         continue;
       }
       for (const q of mo.questoes) {
-        emprestadas.push({ ...q, tema_id: mo.tema_id, eixo: mo.eixo, subtema: mo.subtema,
-                           habilidade_bncc: mo.habilidade_bncc ?? null });
+        const copia = { ...q, tema_id: mo.tema_id, eixo: mo.eixo, subtema: mo.subtema,
+                        habilidade_bncc: mo.habilidade_bncc ?? null };
+        emprestadas.push(copia);
+        copiasObjetos.add(copia);
         copiasPermitidas.add(`${m.missao_id}::${q.questao_id}`);
       }
     }
@@ -376,8 +379,11 @@ for (const m of prova.missoes) {
       }
     }
   }
+  const idsDaMissao = new Set();
   for (const q of m.questoes) {
-    const copiaLegitima = copiasPermitidas.has(`${m.missao_id}::${q.questao_id}`);
+    const copiaLegitima = copiasObjetos.has(q) && copiasPermitidas.has(`${m.missao_id}::${q.questao_id}`);
+    if (idsDaMissao.has(q.questao_id)) erros.push(`questao_id repetido dentro de ${m.missao_id}: ${q.questao_id}`);
+    idsDaMissao.add(q.questao_id);
     if (ids.has(q.questao_id) && !copiaLegitima) erros.push(`questao_id duplicado: ${q.questao_id}`);
     if (!copiaLegitima) ids.add(q.questao_id);
     if (q.correta == null || !q.alternativas[q.correta]) erros.push(`gabarito inválido: ${q.questao_id}`);

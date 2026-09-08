@@ -90,7 +90,9 @@ guiada dos temas pendentes. Não use a mistura como exame final de aprovação.
 
 - Desde 08/09 cada linha traz uma 29ª coluna, **Capítulo** (`cap-1`, `cap-2`, `cap-3`),
   e o **Contexto** vem do capítulo: `prova` no 1, `revisao_espacada` no 2 e no 3. A coluna
-  só aparece depois de reimplantar o Apps Script; até lá o campo é ignorado pelo servidor.
+  só aparece depois de reimplantar o Apps Script; até lá o servidor descarta o campo, e as
+  linhas gravadas nesse intervalo ficam sem capítulo para sempre (o reenvio é deduplicado).
+  Para elas, `POR.LEI.*.Q1xx` é capítulo 1; `Q2xx` pode ser capítulo 2 ou 3.
 
 - A coluna **Sessão** passa a identificar o artefato nas sessões novas, por
   exemplo `2026-09-HUGO-E1-Y5:2026-09-07-…` (o prefixo exato é o `prova_id`

@@ -55,7 +55,8 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
    e a barra ficava 0x0 — invisivel em qualquer XP. */
 .hud .xpfill{display:block;height:100%;width:0;background:linear-gradient(90deg,#57c9b1,var(--mint));transition:width .5s cubic-bezier(.3,1.4,.5,1);}
 .hud .xpnum{font-family:'Fredoka',sans-serif;font-size:.85rem;color:var(--mint);white-space:nowrap;}
-.medals{display:flex;gap:4px;font-size:1.05rem;}
+.medals{display:flex;flex-wrap:wrap;gap:4px;font-size:1.05rem;max-width:100%;}
+@media(max-width:480px){.medals{font-size:.9rem;gap:3px;}}
 .medals span{opacity:.22;filter:grayscale(1);transition:opacity .3s,filter .3s;}
 .medals span.on{opacity:1;filter:none;}
 .streak{font-family:'Fredoka',sans-serif;font-size:.85rem;color:var(--coral);white-space:nowrap;}
@@ -330,7 +331,7 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
     <div id="trilhaFinal"></div>
     <div id="finalCapitulo"></div>
     <div id="finalReview"></div>
-    <div class="rowend"><button class="btn" id="restartBtn">Rever uma missão</button></div>
+    <div class="rowend"><button class="btn ghost" id="pararFinalBtn">Parar por hoje</button><button class="btn" id="restartBtn">Rever uma missão</button></div>
   </section>
 
   <!-- MINHAS PISTAS -->
@@ -1333,6 +1334,11 @@ function drawMap(){
   desenharTrilha('trilhaMap');
   el('capituloArea').innerHTML='';
   const caps=capitulosDe();
+  /* O cartão de fim de capítulo fica no mapa até ela escolher "Parar por hoje"
+     ou "Continuar": abrir as pistas ou trocar de tela não o apaga. Some quando
+     tudo está concluído, porque aí a tela final é quem fala. */
+  const pendente=(caps.length&&!missoes.every(m=>S.done[m.missao_id]))
+    ?[...caps].reverse().find(c=>capituloConcluido(c.capitulo_id)&&!S.capitulosFechados?.[c.capitulo_id]):null;
   el('modList').innerHTML = caps.length ? mapaEmCapitulos(caps) : missoes.map(botaoMissao).join('');
   // escopado ao mapa: a tela de escolha de aluna também usa .mod
   document.querySelectorAll('#modList .mod').forEach(b=>b.onclick=()=>openModule(+b.dataset.i));
@@ -1347,9 +1353,12 @@ function drawMap(){
   const temPistas=missoes.some(m=>S.done[m.missao_id]);
   el('quemLinha').innerHTML=`Estudando como <b>${alunaAtual()}</b>`+
     `<button class="btn ghost small" id="trocarAluna">trocar</button>`+
-    (temPistas?`<button class="btn ghost small" id="pistasBtn">🔎 Minhas pistas</button>`:'');
+    (temPistas?`<button class="btn ghost small" id="pistasBtn">🔎 Minhas pistas</button>`:'')+
+    ((lerFila().length+linhas.length)?`<button class="btn ghost small" id="copiarMapa">📋 Copiar resultados</button>`:'');
   el('trocarAluna').onclick=()=>pedirAluna(carregarEEntrar);
   if(temPistas)el('pistasBtn').onclick=abrirPistas;
+  if(el('copiarMapa'))el('copiarMapa').onclick=copiarResultados;
+  if(pendente)mostrarCartaoCapitulo(pendente.capitulo_id);
   show('map');
 }
 
@@ -1822,16 +1831,12 @@ function blocoRecuperacao(caixa,c){
 }
 
 el('backToMap').onclick=()=>{
-  const m=missoes[S.mod];
-  const cid=m?.capitulo_id||null;
-  const fechouCapitulo=!!cid&&!S.refezMissao&&capituloConcluido(cid)&&!S.capitulosFechados?.[cid];
   descartarParcial();save();          // missão concluída: não deixa resto de posição para trás
   /* A celebração do percurso inteiro acontece uma vez por pessoa e artefato.
      Voltar ao mapa depois de refazer uma missão cai no mapa, não numa segunda
      "jornada completa" que não houve. */
   if(missoes.every(x=>S.done[x.missao_id])&&!S.percursoConcluido){showFinal();return;}
   drawMap();
-  if(fechouCapitulo)mostrarCartaoCapitulo(cid);
 };
 
 function showFinal(){
@@ -1870,6 +1875,8 @@ function showFinal(){
 }
 
 el('restartBtn').onclick=()=>{descartarParcial();save();drawMap();};
+/* Parar é uma saída tão digna quanto rever: volta ao mapa, sem navegar para lugar nenhum. */
+el('pararFinalBtn').onclick=()=>{descartarParcial();save();drawMap();el('resumeNote').textContent='Até a próxima! Seu progresso fica salvo.';};
 el('resetBtn').onclick=()=>{if(confirm('Isso apaga o XP e as medalhas. Recomeçar do zero?'))reset();};
 /* Recomeçar do zero apaga XP e medalhas, mas o registro de importação fica:
    senão a próxima abertura traria de volta, sozinha, o progresso legado que
@@ -1901,27 +1908,44 @@ const PADRAO={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false
    antigo continua onde estava. O carimbo em `S.importados` é o que impede
    somar o mesmo XP duas vezes numa segunda abertura. Medalha já conquistada
    aqui nunca é sobrescrita pela antiga. */
-function importarProgressoLegado(){
+/* Lê uma chave qualquer pela mesma cascata do store: window.storage,
+   localStorage, memória. Sem isso a importação enxergava só o localStorage. */
+async function lerChaveBruta(k){
+  try{if(window.storage?.get){const r=await window.storage.get(k);if(r?.value)return r.value;}}catch(e){}
+  try{const r=localStorage.getItem(k);if(r)return r;}catch(e){}
+  try{return (typeof mem!=='undefined'&&mem[k])||null;}catch(e){return null;}
+}
+async function importarProgressoLegado(){
   const ids=Array.isArray(PROVA.progresso_legado)?PROVA.progresso_legado:[];
   let mudou=false;
   for(const id of ids){
     const chave=`missao_progresso_${id}_${alunaAtual()}_v2`;
-    if(chave===KEY()||S.importados?.[id])continue;
+    if(chave===KEY())continue;
     let antigo=null;
     try{
-      const raw=localStorage.getItem(chave);
+      const raw=await lerChaveBruta(chave);
       if(!raw)continue;
       antigo=JSON.parse(raw);
     }catch(e){continue;}   // sem armazenamento ou JSON quebrado: segue em silêncio
     if(!antigo||typeof antigo!=='object')continue;
-    S.importados={...(S.importados||{}),[id]:true};
-    mudou=true;
-    const done={...(antigo.done||{})};
+    /* Registro por origem: quanto XP já foi creditado e quais medalhas já vieram.
+       Uma aba antiga que continuar em uso ainda entrega o que fizer depois, e
+       nada é somado duas vezes. `true` é o carimbo da primeira versão: naquela
+       hora tudo o que havia foi creditado, então parte-se do que há agora. */
+    let reg=S.importados?.[id];
+    if(reg===true)reg={xp:typeof antigo.xp==='number'?antigo.xp:0,done:Object.keys(antigo.done||{})};
+    if(!reg||typeof reg!=='object')reg={xp:0,done:[]};
+    const vistas=new Set(Array.isArray(reg.done)?reg.done:[]);
     for(const missao of missoes){
-      const medalha=done[missao.missao_id];
-      if(medalha&&!S.done[missao.missao_id])S.done[missao.missao_id]=medalha;
+      const medalha=(antigo.done||{})[missao.missao_id];
+      if(!medalha||vistas.has(missao.missao_id))continue;
+      vistas.add(missao.missao_id);mudou=true;
+      if(!S.done[missao.missao_id])S.done[missao.missao_id]=medalha;
     }
-    if(typeof antigo.xp==='number'&&antigo.xp>0)S.xp=(S.xp||0)+antigo.xp;
+    const xpAntigo=typeof antigo.xp==='number'?antigo.xp:0,creditado=typeof reg.xp==='number'?reg.xp:0;
+    if(xpAntigo>creditado){S.xp=(S.xp||0)+(xpAntigo-creditado);reg.xp=xpAntigo;mudou=true;}
+    reg.done=[...vistas];
+    S.importados={...(S.importados||{}),[id]:reg};
   }
   return mudou;
 }
@@ -1939,7 +1963,7 @@ async function carregarEEntrar(){
     else if(S.screen!=='map')S.screen='map';
     carregado=true;
   }
-  if(importarProgressoLegado()){save();carregado=true;}
+  if(await importarProgressoLegado()){save();carregado=true;}
   hud();applyFocus();
   /* A fila é drenada em toda abertura, inclusive quando ela está retomando.
      Antes só esvaziava no começo do zero, e uma sessão retomada segurava as

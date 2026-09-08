@@ -1,10 +1,23 @@
 # Pendências
 
+## 2026-09-08 — Auditoria da implementação 5158477
+- [x] Auditar motor, dados, build/publicação e telemetria; reproduzir findings.
+      Responsável: Codex, com revisores independentes de escopo separado.
+      Somente auditoria e registros; sem corrigir código ou publicar.
+- [ ] Resolver a perda de capitulo_id enquanto o receptor publicado declara 28
+      campos; revisar o intervalo afetado sem presumir recuperação por reenvio.
+- [ ] Corrigir exportação após o primeiro final, overflow de medalhas em 390 px,
+      recuperação apagada ao voltar das pistas e ausência de saída de descanso no final.
+- [ ] Corrigir importação de window.storage e de progresso atualizado numa aba
+      legada após a primeira importação; barrar IDs duplicados dentro de missão emprestada.
+
 ## 2026-09-08 — Plano do painel infantil de evolução
 - [x] Plano revisado por Claude (08/09) e implementado no mesmo dia: trilha única em
       capítulos, cartão de recuperação opcional, "Minhas pistas", coluna 29, rotas.
 - [ ] **Marco: reimplantar o Apps Script** (`apps-script/enviar.gs`) para a planilha
-      ganhar a coluna Capítulo. Até lá o campo é ignorado pelo servidor.
+      ganhar a coluna Capítulo. Prioridade alta: cada linha gravada antes disso fica sem
+      capítulo para sempre (o reenvio é deduplicado). Depois, testar com um perfil de
+      teste e conferir a coluna na aba.
 - [ ] Mapa em SVG da estação (etapa D do plano), depois da prova.
 - [ ] Observar com a Alícia: ela encontra o capítulo 2 sem perguntar? aceita a pergunta
       de recuperação? Sem cobrar resposta.

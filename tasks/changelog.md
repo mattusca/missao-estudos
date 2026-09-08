@@ -1,5 +1,60 @@
 # Changelog
 
+## 2026-09-08 — Trilha: oito achados da auditoria do Codex
+
+Auditoria do Codex sobre `5158477`, tratada como hipóteses e reproduzida antes de mexer.
+Todas as oito se confirmaram.
+
+1. **Planilha sem capítulo até reimplantar o Apps Script** (alta). O servidor em
+   produção tem 28 campos e descarta o 29º; como o reenvio é deduplicado por
+   `evento_id`, as linhas gravadas antes da reimplantação ficam sem capítulo para
+   sempre. Correção de código não existe: a ação é de Marco (reimplantar). Guia e
+   plano passaram a dizer isso sem eufemismo; `Q1xx` identifica o capítulo 1, `Q2xx`
+   fica ambíguo entre 2 e 3.
+2. "Copiar resultados" também no mapa, quando há linhas locais: a tela final aparece
+   uma vez só e o fallback manual não podia depender dela.
+3. Medalhas quebram linha e encolhem no celular: 16 numa linha estouravam 390 px.
+4. O cartão de fim de capítulo passa a ser desenhado pelo próprio mapa enquanto
+   estiver pendente: abrir "Minhas pistas" ou trocar de tela não o apaga mais.
+5. Tela final ganhou "Parar por hoje" ao lado de "Rever uma missão".
+6. A importação de progresso legado lê pela mesma cascata do armazenamento
+   (`window.storage`, `localStorage`, memória), não só pelo `localStorage`.
+7. A importação virou incremental por origem: guarda quanto XP já foi creditado e
+   quais medalhas já vieram, então uma aba antiga que continuar em uso ainda entrega
+   o que fizer depois, sem somar duas vezes. O carimbo `true` da versão anterior é
+   convertido sem recréditos.
+8. O build passa a rejeitar uma questão própria com o id de uma cópia emprestada na
+   mesma missão (checagem por objeto e por missão), provado com um JSON temporário.
+
+Verificação: 31 testes (quatro novos de importação), oito páginas construídas, e no
+navegador: cartão sobrevive às pistas e some ao continuar, "Copiar resultados" no
+mapa, "Parar por hoje" na tela final, medalhas sem rolagem horizontal a 390 px.
+
+
+## 2026-09-08 — Auditoria do commit 5158477
+
+- Auditoria somente de leitura da implementação, com revisores separados para
+  integração, persistência e pedagogia. Sem correção de código ou publicação.
+- Os 28 testes existentes passaram. Os quatro endereços públicos responderam
+  HTTP 200 com HTML idêntico; banco atual e conteúdo das 16 missões preservados.
+- GET de diagnóstico do endpoint publicado confirmou 28 campos. O cliente novo
+  envia o capítulo, mas o receptor antigo o descarta; mock confirmou que reenviar
+  o mesmo evento após atualizar o receptor retorna duplicado, sem preencher o campo.
+  Não foram enviados POSTs reais nem consultados resultados individuais.
+- Cenários sintéticos no Chrome local: em 390 px o documento mede 458 px por causa
+  das 16 medalhas; consultar pistas e voltar remove o cartão de capítulo; a tela
+  final não oferece saída de descanso equivalente à revisão. Passagem 7→8 e
+  preservação da pessoa funcionaram. Servidor local encerrado após a conferência.
+- O build aceita colisão de questao_id dentro da missão quando coincide com um
+  item emprestado; reproduzido em memória, sem alterar o banco real.
+- Confirmado no navegador: após sair da primeira tela final e refazer uma missão,
+  Copiar resultados permanece oculto e não há outra entrada de exportação no mapa.
+- Revisão de persistência reproduziu em VM: importação ignora dados de
+  window.storage e o carimbo único ignora avanços posteriores de uma aba legada.
+  Esses cenários são condicionais; não se afirmou perda de progresso real da aluna.
+- Findings entregues com referências de código. Somente todo/changelog alterados;
+  plano, aplicação e dados de prova permanecem como no commit auditado.
+
 ## 2026-09-08 — Hugo: trilha em capítulos num artefato só
 
 Implementação do plano `guides/student-progress-dashboard-plan.md` (Codex + revisão

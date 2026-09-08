@@ -99,7 +99,8 @@ Ficam fora: comparação de acertos entre tentativas, gráfico de nota, tendênc
 
 *Claude, revisão final:* a ordem servidor-antes-do-HTML não é necessária. O receptor monta a
 linha por `CAMPOS`, então um cliente que envia 29 campos a um servidor de 28 tem o 29º
-ignorado, sem perda das outras colunas; e um servidor de 29 recebendo payload antigo grava
+ignorado, sem perda das outras colunas, mas as linhas gravadas antes da reimplantação
+ficam sem capítulo para sempre, porque o reenvio é deduplicado por `evento_id`; e um servidor de 29 recebendo payload antigo grava
 célula vazia. O que era verdade: o cabeçalho de uma aba existente não ganhava a coluna nova.
 Isso foi resolvido em `enviar.gs` com `garantirCabecalho_`, idempotente, chamada a cada
 gravação. Resta a Marco reimplantar o Apps Script; até lá, `capitulo_id` não é gravado.

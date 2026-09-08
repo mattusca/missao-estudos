@@ -342,43 +342,76 @@ test('o contexto da linha vem da missão, depois do capítulo, depois da prova �
   assert.equal(antiga.capitulo_id,null,'sem capítulo a célula sai vazia, não inventada');
 });
 
-function logicaImportacao({guardado=new Map(),S={xp:0,done:{},importados:{}},pessoa='Alicia'}={}){
-  const codigo=trecho(motor,'function importarProgressoLegado','/* fim da importação legada */');
+function logicaImportacao({guardado=new Map(),S={xp:0,done:{},importados:{}},pessoa='Alicia',viaWindowStorage=false}={}){
+  const codigo=trecho(motor,'async function lerChaveBruta','/* fim da importação legada */');
   const contexto={
     PROVA:{prova_id:'NOVA',progresso_legado:['E2','E3']},
     missoes:[{missao_id:'m1'},{missao_id:'m2'},{missao_id:'m3'}],
-    S,alunaAtual:()=>pessoa,KEY:()=>`missao_progresso_NOVA_${pessoa}_v2`,
-    localStorage:{getItem:k=>guardado.get(k)||null,setItem:(k,v)=>guardado.set(k,v),removeItem:k=>guardado.delete(k)}
+    S,alunaAtual:()=>pessoa,KEY:()=>`missao_progresso_NOVA_${pessoa}_v2`,mem:{},
+    window:viaWindowStorage?{storage:{get:async k=>({value:guardado.get(k)||''})}}:{},
+    localStorage:viaWindowStorage?undefined:{getItem:k=>guardado.get(k)||null,setItem:(k,v)=>guardado.set(k,v),removeItem:k=>guardado.delete(k)}
   };
   vm.runInNewContext(`${codigo};globalThis.api={importarProgressoLegado};`,contexto);
   return {importar:contexto.api.importarProgressoLegado,S:contexto.S,guardado};
 }
 
-test('progresso das páginas antigas entra uma vez só e nunca rebaixa uma medalha já conquistada',()=>{
+test('progresso das páginas antigas entra uma vez só e nunca rebaixa uma medalha já conquistada',async()=>{
   const guardado=new Map([
     ['missao_progresso_E2_Alicia_v2',JSON.stringify({xp:300,done:{m1:'🥉',m2:'🥇',fora:'🥇'}})],
     ['missao_progresso_E3_Alicia_v2',JSON.stringify({xp:200,done:{m3:'🥈'}})]
   ]);
   const caso=logicaImportacao({guardado,S:{xp:100,done:{m1:'🥇'},importados:{}}});
-  assert.equal(caso.importar(),true);
+  assert.equal(await caso.importar(),true);
   assert.equal(caso.S.xp,600);
   assert.deepEqual(caso.S.done,{m1:'🥇',m2:'🥇',m3:'🥈'},'a medalha atual fica e missão inexistente não entra');
 
-  assert.equal(caso.importar(),false,'a segunda abertura não soma de novo');
+  assert.equal(await caso.importar(),false,'a segunda abertura não soma de novo');
   assert.equal(caso.S.xp,600);
   assert.ok(guardado.has('missao_progresso_E2_Alicia_v2'),'a chave de origem nunca é apagada');
 });
 
-test('sem chave antiga, com JSON quebrado ou com outra pessoa, a importação não faz nada',()=>{
+test('avanço posterior numa aba antiga ainda chega, e só a diferença é creditada',async()=>{
+  const guardado=new Map([['missao_progresso_E2_Alicia_v2',JSON.stringify({xp:300,done:{m1:'🥇'}})]]);
+  const caso=logicaImportacao({guardado,S:{xp:0,done:{},importados:{}}});
+  assert.equal(await caso.importar(),true);
+  assert.equal(caso.S.xp,300);
+  guardado.set('missao_progresso_E2_Alicia_v2',JSON.stringify({xp:450,done:{m1:'🥇',m2:'🥈'}}));
+  assert.equal(await caso.importar(),true,'a origem avançou: importa de novo');
+  assert.equal(caso.S.xp,450,'só os 150 novos entram');
+  assert.deepEqual(caso.S.done,{m1:'🥇',m2:'🥈'});
+  assert.equal(await caso.importar(),false);
+  assert.equal(caso.S.xp,450);
+});
+
+test('o carimbo antigo (true) não faz somar de novo o que já foi creditado',async()=>{
+  const guardado=new Map([['missao_progresso_E2_Alicia_v2',JSON.stringify({xp:300,done:{m1:'🥇'}})]]);
+  const caso=logicaImportacao({guardado,S:{xp:300,done:{m1:'🥇'},importados:{E2:true}}});
+  assert.equal(await caso.importar(),false);
+  assert.equal(caso.S.xp,300);
+  guardado.set('missao_progresso_E2_Alicia_v2',JSON.stringify({xp:380,done:{m1:'🥇',m3:'🥉'}}));
+  assert.equal(await caso.importar(),true);
+  assert.equal(caso.S.xp,380);
+  assert.deepEqual(caso.S.done,{m1:'🥇',m3:'🥉'});
+});
+
+test('a importação lê window.storage quando é essa a camada em uso',async()=>{
+  const guardado=new Map([['missao_progresso_E3_Alicia_v2',JSON.stringify({xp:120,done:{m3:'🥇'}})]]);
+  const caso=logicaImportacao({guardado,viaWindowStorage:true});
+  assert.equal(await caso.importar(),true);
+  assert.equal(caso.S.xp,120);
+  assert.deepEqual(caso.S.done,{m3:'🥇'});
+});
+
+test('sem chave antiga, com JSON quebrado ou com outra pessoa, a importação não faz nada',async()=>{
   const vazio=logicaImportacao();
-  assert.equal(vazio.importar(),false);
+  assert.equal(await vazio.importar(),false);
   assert.equal(vazio.S.xp,0);
 
   const quebrado=logicaImportacao({guardado:new Map([['missao_progresso_E2_Alicia_v2','{corrompido']])});
-  assert.equal(quebrado.importar(),false);
+  assert.equal(await quebrado.importar(),false);
   assert.deepEqual(quebrado.S.done,{});
 
   const deOutra=logicaImportacao({guardado:new Map([['missao_progresso_E2_Alicia_v2',JSON.stringify({xp:500,done:{m1:'🥇'}})]]),pessoa:'Marco (teste)'});
-  assert.equal(deOutra.importar(),false,'o progresso de outra pessoa não vira o desta');
+  assert.equal(await deOutra.importar(),false,'o progresso de outra pessoa não vira o desta');
   assert.equal(deOutra.S.xp,0);
 });
