@@ -45,9 +45,7 @@ jobs:
         env:
           SHEET_URL: ${{ secrets.SHEET_URL }}
         run: |
-          for f in data/provas/*.json; do
-            node build.mjs "$(basename "$f" .json)"
-          done
+          node scripts/build-all.mjs
 
       - uses: actions/upload-pages-artifact@v3
         with:

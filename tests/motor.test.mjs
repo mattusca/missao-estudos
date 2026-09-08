@@ -247,3 +247,138 @@ test('missão concluída continua aberta quando uma missão nova é inserida ant
   assert.equal(contexto.api.isOpen(2),true,'a medalha já conquistada não pode ficar trancada');
   assert.equal(contexto.api.isOpen(3),true,'a seguinte continua liberada pela concluída');
 });
+
+/* ---------- trilha em capítulos ---------- */
+const CAPITULOS=[
+  {capitulo_id:'cap-1',titulo:'Aprender as pistas',contexto:'prova'},
+  {capitulo_id:'cap-2',titulo:'Aplicar em cenas novas',contexto:'revisao_espacada'}
+];
+const MISSOES_CAP=[
+  {missao_id:'m1',capitulo_id:'cap-1'},{missao_id:'m2',capitulo_id:'cap-1'},
+  {missao_id:'m3',capitulo_id:'cap-1'},{missao_id:'m4',capitulo_id:'cap-1'},
+  {missao_id:'m5',capitulo_id:'cap-1'},
+  {missao_id:'m6',capitulo_id:'cap-2'},{missao_id:'m7',capitulo_id:'cap-2'},
+  {missao_id:'m8',capitulo_id:'cap-2'}
+];
+
+function logicaCapitulos({capitulos=CAPITULOS,missoes=MISSOES_CAP,done={}}={}){
+  const codigo=trecho(motor,'function capitulosDe','/* fim dos helpers de capítulo */');
+  const pausa=trecho(motor,'function offerPause','/* ====== CARTÃO DE FIM DE CAPÍTULO');
+  const area={innerHTML:'x'};
+  const contexto={PROVA:{capitulos},missoes,S:{done},el:()=>area};
+  vm.runInNewContext(`${codigo}\n${pausa};globalThis.api={capitulosDe,capituloDe,missoesDoCapitulo,capituloConcluido,indiceNoCapitulo,ultimaDoCapitulo,capituloAtualId,offerPause};`,contexto);
+  return {...contexto.api,area};
+}
+
+test('a posição da missão é contada dentro do capítulo, e sem capítulos continua global',()=>{
+  const c=logicaCapitulos();
+  assert.equal(c.indiceNoCapitulo(0),0);
+  assert.equal(c.indiceNoCapitulo(6),1,'a 7ª missão é a 2ª do capítulo 2');
+  assert.equal(c.ultimaDoCapitulo(4),true);
+  assert.equal(c.ultimaDoCapitulo(3),false);
+  assert.equal(c.missoesDoCapitulo('cap-2').length,3);
+
+  const sem=logicaCapitulos({capitulos:[],missoes:[{missao_id:'a'},{missao_id:'b'}]});
+  assert.deepEqual(sem.capitulosDe(),[]);
+  assert.equal(sem.indiceNoCapitulo(1),1);
+  assert.equal(sem.capituloDe({missao_id:'a'}),null);
+});
+
+test('a pausa é sugerida pela posição no capítulo e nunca na missão que o fecha',()=>{
+  const c=logicaCapitulos();
+  const sugeriu=i=>{c.offerPause(i);return c.area.innerHTML.includes('pausebox');};
+  assert.equal(sugeriu(1),true,'2ª missão do capítulo 1');
+  assert.equal(sugeriu(2),false);
+  assert.equal(sugeriu(6),true,'2ª missão do capítulo 2, mesmo sendo a 7ª do mapa');
+  assert.equal(sugeriu(5),false,'a 1ª do capítulo não sugere pausa');
+  assert.equal(sugeriu(7),false,'a última do capítulo fica com o cartão de capítulo');
+
+  const sem=logicaCapitulos({capitulos:[],missoes:[{missao_id:'a'},{missao_id:'b'},{missao_id:'c'},{missao_id:'d'}]});
+  assert.equal(sem.area.innerHTML.includes('pausebox'),false);
+  sem.offerPause(1);
+  assert.ok(sem.area.innerHTML.includes('pausebox'),'prova sem capítulos mantém a pausa global');
+  sem.offerPause(2);
+  assert.equal(sem.area.innerHTML.includes('pausebox'),false);
+});
+
+test('capítulo só conta como concluído com todas as suas missões, e o atual é o primeiro em aberto',()=>{
+  const parcial=logicaCapitulos({done:{m1:'🥇',m2:'🥈',m3:'🥉',m4:'🥇'}});
+  assert.equal(parcial.capituloConcluido('cap-1'),false);
+  assert.equal(parcial.capituloAtualId(),'cap-1');
+
+  const fechado=logicaCapitulos({done:{m1:'🥇',m2:'🥇',m3:'🥇',m4:'🥇',m5:'🥇'}});
+  assert.equal(fechado.capituloConcluido('cap-1'),true);
+  assert.equal(fechado.capituloConcluido('cap-2'),false);
+  assert.equal(fechado.capituloAtualId(),'cap-2','concluir um capítulo abre o seguinte no mesmo mapa');
+  assert.equal(fechado.capituloConcluido('cap-inexistente'),false);
+});
+
+function logicaRegistro({missao,prova={}}){
+  const codigo=trecho(motor,'function registrarQuestao','/* ============================ ESTADO');
+  const helpers=trecho(motor,'function capitulosDe','/* fim dos helpers de capítulo */');
+  const enviadas=[];
+  const contexto={
+    PROVA:{materia:'Português',escola:'PD',ano_aluna:'Y5',nivel_conteudo:'Y5',bimestre:'3',
+      contexto:'prova',capitulos:CAPITULOS,...prova},
+    missoes:[missao],S:{done:{}},relogio:null,stepsShown:0,LIMITE_SEG:180,
+    Date,enviarLinha:r=>enviadas.push(r),sessaoId:()=>'sessao-1',
+    alunaAtual:()=>'Marco (teste)',dispositivo:()=>'tablet'
+  };
+  vm.runInNewContext(`${helpers}\n${codigo};globalThis.api={registrarQuestao};`,contexto);
+  contexto.api.registrarQuestao(missao,{questao_id:'Q1',dificuldade:2,tipo_raciocinio:'interpretacao'},'acerto_1a');
+  return enviadas[0];
+}
+
+test('o contexto da linha vem da missão, depois do capítulo, depois da prova — e o capítulo vai junto',()=>{
+  const doCapitulo=logicaRegistro({missao:{missao_id:'m6',capitulo_id:'cap-2'}});
+  assert.equal(doCapitulo.contexto,'revisao_espacada');
+  assert.equal(doCapitulo.capitulo_id,'cap-2');
+
+  const daMissao=logicaRegistro({missao:{missao_id:'m6',capitulo_id:'cap-2',contexto:'treino_livre'}});
+  assert.equal(daMissao.contexto,'treino_livre','a missão manda mais que o capítulo');
+
+  const antiga=logicaRegistro({missao:{missao_id:'m1'},prova:{capitulos:undefined}});
+  assert.equal(antiga.contexto,'prova','prova sem capítulos continua usando o contexto dela');
+  assert.equal(antiga.capitulo_id,null,'sem capítulo a célula sai vazia, não inventada');
+});
+
+function logicaImportacao({guardado=new Map(),S={xp:0,done:{},importados:{}},pessoa='Alicia'}={}){
+  const codigo=trecho(motor,'function importarProgressoLegado','/* fim da importação legada */');
+  const contexto={
+    PROVA:{prova_id:'NOVA',progresso_legado:['E2','E3']},
+    missoes:[{missao_id:'m1'},{missao_id:'m2'},{missao_id:'m3'}],
+    S,alunaAtual:()=>pessoa,KEY:()=>`missao_progresso_NOVA_${pessoa}_v2`,
+    localStorage:{getItem:k=>guardado.get(k)||null,setItem:(k,v)=>guardado.set(k,v),removeItem:k=>guardado.delete(k)}
+  };
+  vm.runInNewContext(`${codigo};globalThis.api={importarProgressoLegado};`,contexto);
+  return {importar:contexto.api.importarProgressoLegado,S:contexto.S,guardado};
+}
+
+test('progresso das páginas antigas entra uma vez só e nunca rebaixa uma medalha já conquistada',()=>{
+  const guardado=new Map([
+    ['missao_progresso_E2_Alicia_v2',JSON.stringify({xp:300,done:{m1:'🥉',m2:'🥇',fora:'🥇'}})],
+    ['missao_progresso_E3_Alicia_v2',JSON.stringify({xp:200,done:{m3:'🥈'}})]
+  ]);
+  const caso=logicaImportacao({guardado,S:{xp:100,done:{m1:'🥇'},importados:{}}});
+  assert.equal(caso.importar(),true);
+  assert.equal(caso.S.xp,600);
+  assert.deepEqual(caso.S.done,{m1:'🥇',m2:'🥇',m3:'🥈'},'a medalha atual fica e missão inexistente não entra');
+
+  assert.equal(caso.importar(),false,'a segunda abertura não soma de novo');
+  assert.equal(caso.S.xp,600);
+  assert.ok(guardado.has('missao_progresso_E2_Alicia_v2'),'a chave de origem nunca é apagada');
+});
+
+test('sem chave antiga, com JSON quebrado ou com outra pessoa, a importação não faz nada',()=>{
+  const vazio=logicaImportacao();
+  assert.equal(vazio.importar(),false);
+  assert.equal(vazio.S.xp,0);
+
+  const quebrado=logicaImportacao({guardado:new Map([['missao_progresso_E2_Alicia_v2','{corrompido']])});
+  assert.equal(quebrado.importar(),false);
+  assert.deepEqual(quebrado.S.done,{});
+
+  const deOutra=logicaImportacao({guardado:new Map([['missao_progresso_E2_Alicia_v2',JSON.stringify({xp:500,done:{m1:'🥇'}})]]),pessoa:'Marco (teste)'});
+  assert.equal(deOutra.importar(),false,'o progresso de outra pessoa não vira o desta');
+  assert.equal(deOutra.S.xp,0);
+});

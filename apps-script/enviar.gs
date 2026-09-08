@@ -45,8 +45,20 @@ var CAMPOS = [
   'subtema', 'questao_id', 'habilidade_bncc', 'escola', 'ano_aluna', 'nivel_conteudo',
   'bimestre', 'contexto', 'resultado', 'usou_dica', 'usou_andaime', 'dificuldade',
   'tipo_raciocinio', 'seg_ate_1o_toque', 'seg_total', 'saiu_da_tela', 'tempo_valido',
-  'retomada', 'posicao_na_sessao', 'modo_foco', 'dispositivo'
+  'retomada', 'posicao_na_sessao', 'modo_foco', 'dispositivo',
+  'capitulo_id'   // 29º campo (08/09): capítulo da trilha; vazio em eventos antigos
 ];
+
+/** Cabeçalho de aba já existente: colunas novas entram à direita, sem tocar nas
+ *  anteriores. Idempotente — chamar em toda gravação custa uma leitura de linha. */
+function garantirCabecalho_(sh) {
+  var atual = sh.getRange(1, 1, 1, Math.max(sh.getLastColumn(), 1)).getValues()[0];
+  var largura = 0;
+  for (var i = 0; i < atual.length; i++) if (atual[i] !== '') largura = i + 1;
+  if (largura >= CABECALHO.length) return;
+  var faltam = CABECALHO.slice(largura);
+  sh.getRange(1, largura + 1, 1, faltam.length).setValues([faltam]).setFontWeight('bold');
+}
 
 /** Cabeçalho legível, na mesma ordem de CAMPOS. */
 var CABECALHO = [
@@ -54,7 +66,8 @@ var CABECALHO = [
   'Subtema', 'Questão', 'BNCC', 'Escola', 'Ano da aluna', 'Nível do conteúdo',
   'Bimestre', 'Contexto', 'Resultado', 'Usou dica', 'Usou andaime', 'Dificuldade',
   'Tipo de raciocínio', 'Seg até 1º toque', 'Seg total', 'Saiu da tela', 'Tempo válido',
-  'Retomada', 'Posição na sessão', 'Modo foco', 'Dispositivo'
+  'Retomada', 'Posição na sessão', 'Modo foco', 'Dispositivo',
+  'Capítulo'
 ];
 
 /**
@@ -88,6 +101,8 @@ function doPost(e) {
       sh.appendRow(CABECALHO);
       sh.getRange(1, 1, 1, CABECALHO.length).setFontWeight('bold');
       sh.setFrozenRows(1);
+    } else {
+      garantirCabecalho_(sh);   // aba antiga: acrescenta só as colunas novas, à direita
     }
 
     // Mesma questão reenviada pela fila local não vira linha duplicada.

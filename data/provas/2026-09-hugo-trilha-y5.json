@@ -1,0 +1,1713 @@
+{
+  "prova_id": "2026-09-HUGO-E1-Y5",
+  "filas_legadas": [
+    "2026-09-HUGO-Y5",
+    "2026-09-HUGO-E2-Y5",
+    "2026-09-HUGO-E3-Y5"
+  ],
+  "progresso_legado": [
+    "2026-09-HUGO-E2-Y5",
+    "2026-09-HUGO-E3-Y5"
+  ],
+  "titulo": "Hugo Cabret — trilha de estudo",
+  "materia": "Português",
+  "alunas": [
+    "Alicia",
+    "Marco (teste)",
+    "Fernanda (teste)"
+  ],
+  "escola": "PD",
+  "ano_aluna": "Y5",
+  "nivel_conteudo": "Y5",
+  "bimestre": "3",
+  "contexto": "prova",
+  "criado_em": "2026-09-08",
+  "origem": "Fusão dos encontros 1, 2 e 3 de 07/09 num artefato só, em capítulos, conforme guides/student-progress-dashboard-plan.md. Escopo provisório sem roteiro da professora. Referências gerais verificadas: https://www.scholastic.ca/our-books/book/the-invention-of-hugo-cabret-9780439813785 e https://www.theinventionofhugocabret.com/about_hugo_intro.htm. Estratégias de leitura: https://ies.ed.gov/ncee/WWC/PracticeGuide/29/Published.",
+  "observacao": "Três capítulos no mesmo mapa: aprender (prova), aplicar e misturar (revisão espaçada). O contexto de cada linha da planilha vem do capítulo. Concluir um capítulo abre o seguinte sem trocar de página; a pausa sugerida de fim de capítulo lembra que o próximo rende mais em outra ocasião. Conteúdo ainda a conferir com o roteiro da professora e com a edição usada. Figuras são desenhos esquemáticos originais.",
+  "capitulos": [
+    {
+      "capitulo_id": "cap-1",
+      "titulo": "Aprender as pistas",
+      "funcao": "Aula, ferramenta e primeiros desafios de cada tema.",
+      "contexto": "prova",
+      "recuperacao": {
+        "pergunta": "O que Hugo quer fazer com o autômato, e o que atrapalha?",
+        "referencia": "Consertá-lo para ler a mensagem do pai; faltam peças e ele precisa agir escondido. Outras dificuldades da história também valem."
+      }
+    },
+    {
+      "capitulo_id": "cap-2",
+      "titulo": "Aplicar em cenas novas",
+      "funcao": "Os mesmos critérios em situações diferentes, com os apoios de sempre.",
+      "contexto": "revisao_espacada",
+      "recuperacao": {
+        "pergunta": "Como a estação ajuda Hugo e também o coloca em risco?",
+        "referencia": "Ela esconde Hugo nas paredes, mas ali estão o Inspetor e a cela; um relógio parado chamaria atenção."
+      }
+    },
+    {
+      "capitulo_id": "cap-3",
+      "titulo": "Misturar tudo",
+      "funcao": "Recuperar as ideias com os temas misturados.",
+      "contexto": "revisao_espacada",
+      "recuperacao": {
+        "pergunta": "Como a vida de Hugo muda do começo para o fim do livro?",
+        "referencia": "Do esconderijo e do segredo para uma família e um palco. Uma cena ajuda a explicar: a homenagem na Academia."
+      }
+    }
+  ],
+  "missoes": [
+    {
+      "missao_id": "personagens-e1",
+      "icone": "👥",
+      "titulo": "Quem é quem",
+      "subtitulo": "Relações e ações revelam personagens",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.PERS",
+      "subtema": "Personagens: ações, traços e relações",
+      "habilidade_bncc": "EF35LP29",
+      "ferramenta": "investigar",
+      "regra": "Para entender um personagem, una <b>relação + ação + contexto</b>. Um gesto dá pista; não define a pessoa inteira.",
+      "aula": {
+        "corpo": "<p>Os relógios continuam andando. Quem cuida deles escondido? Hugo vive na estação e faz esse trabalho. Isabelle mora com seus padrinhos: ela é afilhada de Georges e Jeanne.</p><p>Agora siga as ações. Hugo mantém os relógios; Isabelle procura respostas; Georges evita lembranças. Pergunte o que cada ação mostra naquela cena. Um gesto sozinho não transforma alguém em ‘bom’ ou ‘mau’.</p><h3>Hora de decidir · Que pista apoia a conclusão?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> escolha um personagem e diga: ‘Ele/ela é ___ porque, na cena, ___.’ Use uma ação como prova.</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a conclusão sustentada pelas duas pistas e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Isabelle é afilhada de Georges e Jeanne. Mesmo quando os adultos evitam o passado, ela faz perguntas e ajuda Hugo a procurar pistas.",
+            "pergunta": "O que as ações mostram sobre Isabelle nessa situação?",
+            "alternativas": [
+              "Ela é curiosa e participa da investigação",
+              "Ela conhece desde o início todas as respostas",
+              "Ela quer impedir Hugo de descobrir o passado"
+            ],
+            "correta": 0,
+            "explicacao": "Perguntar e procurar pistas sustentam curiosidade e participação; não provam que ela já saiba tudo."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.PERS.Q101",
+          "enunciado": "Isabelle mora com Georges e Jeanne, que cuidam dela como padrinhos. Qual <mark>relação</mark> está descrita?",
+          "figura": null,
+          "alternativas": [
+            "Isabelle é afilhada de Georges e Jeanne",
+            "Isabelle é filha de Georges e Jeanne",
+            "Isabelle é sobrinha de Georges e Jeanne",
+            "Isabelle é neta de Georges e Jeanne"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Procure a palavra que nomeia a relação com padrinhos.",
+          "explicacao": "Quem tem padrinhos é afilhada. Georges e Jeanne são os padrinhos de Isabelle."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q102",
+          "enunciado": "Hugo mantém os relógios da estação funcionando todos os dias, mesmo vivendo sozinho e com medo de ser descoberto. O que essa <mark>ação</mark> mostra melhor?",
+          "figura": null,
+          "alternativas": [
+            "Ele assume uma tarefa difícil com habilidade",
+            "Ele repete a tarefa sem entender o mecanismo",
+            "Ele cuida dos relógios para receber elogios",
+            "Ele precisa que Isabelle complete cada relógio"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Use o que ele consegue fazer repetidamente, mesmo em uma situação difícil.",
+          "explicacao": "Manter os relógios mostra responsabilidade e habilidade prática nessa situação."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q103",
+          "enunciado": "Hugo busca peças para o autômato; Isabelle faz perguntas e entra na busca por respostas. O que os <mark>aproxima</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Os dois agem para desvendar um mistério",
+            "Os dois querem abandonar a estação imediatamente",
+            "Os dois conhecem toda a história de Georges",
+            "Os dois consertam relógios como profissão"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Compare o objetivo das ações, não a profissão dos dois.",
+          "explicacao": "Cada um age de um jeito, mas ambos procuram compreender o mistério."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q104",
+          "enunciado": "Georges evita falar do passado, mas aceita contar sua história quando suas obras voltam a ser vistas e reconhecidas. Que <mark>mudança</mark> aparece?",
+          "figura": null,
+          "alternativas": [
+            "Ele volta a se aproximar de sua própria história",
+            "Ele troca a loja pelo trabalho de relojoeiro",
+            "Ele passa a esconder também suas obras novas",
+            "Ele deixa de reconhecer as pessoas ao seu redor"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Compare a atitude de Georges no começo e depois.",
+            "Diga o que mudou sem julgar a pessoa inteira."
+          ],
+          "dica": "Observe o contraste entre evitar e aceitar contar.",
+          "explicacao": "Georges volta a olhar para uma parte da vida que antes evitava."
+        }
+      ],
+      "capitulo_id": "cap-1"
+    },
+    {
+      "missao_id": "sequencia-e1",
+      "icone": "🧭",
+      "titulo": "Antes e depois",
+      "subtitulo": "Três eventos, uma ordem possível",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.SEQ",
+      "subtema": "Enredo: sequência de eventos",
+      "habilidade_bncc": "EF35LP26",
+      "ferramenta": "investigar",
+      "regra": "Para ordenar, procure o que cada evento torna <b>possível</b>. Estar antes não prova que um evento causou o outro.",
+      "aula": {
+        "corpo": "<p>Uma sequência responde ‘o que veio antes e depois?’. Use três eventos próximos. A chave precisa entrar no autômato antes de ele começar a desenhar; o desenho precisa aparecer antes de a assinatura ser lida.</p><p>Ordem e causa são perguntas diferentes. Duas cenas podem aparecer em sequência sem que a primeira provoque a segunda. Primeiro monte a linha; depois, se a pergunta pedir, procure uma ligação causal.</p><h3>Hora de decidir · Qual linha de três eventos funciona?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> conte uma sequência do livro usando ‘primeiro’, ‘depois’ e ‘por fim’.</div>"
+      },
+      "dados": {
+        "instrucao": "Leia as três linhas, escolha a ordem coerente e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Isabelle mostra a chave em forma de coração. A chave é usada no autômato, que começa a desenhar e termina com uma assinatura.",
+            "pergunta": "Qual ordem organiza esses três acontecimentos?",
+            "alternativas": [
+              "chave usada → desenho começa → assinatura aparece",
+              "assinatura aparece → chave usada → desenho começa",
+              "desenho começa → assinatura aparece → chave usada"
+            ],
+            "correta": 0,
+            "explicacao": "A chave põe o mecanismo em ação; só então o desenho e a assinatura aparecem."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.SEQ.Q101",
+          "enunciado": "As fichas estão misturadas: assinatura aparece • chave é usada • máquina desenha. Qual é a <mark>ordem</mark> da cena do autômato?",
+          "figura": null,
+          "alternativas": [
+            "chave usada → máquina trabalha → assinatura aparece",
+            "máquina trabalha → assinatura aparece → chave usada",
+            "assinatura aparece → chave usada → máquina trabalha",
+            "chave usada → assinatura aparece → máquina trabalha"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Pergunte o que precisa acontecer para o mecanismo começar.",
+          "explicacao": "A chave vem antes do movimento; a assinatura só aparece ao final."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q102",
+          "enunciado": "Hugo é detido por Georges após tentar pegar um brinquedo; antes da tentativa, ele observava a loja. Qual ação fica no <mark>meio</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Hugo tenta pegar o brinquedo",
+            "Hugo é detido por Georges",
+            "Hugo observa a loja",
+            "Georges observa a vitrine antes de Hugo chegar"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Encontre o que vem depois de observar e antes de ser detido.",
+          "explicacao": "Entre observar e ser detido, Hugo tenta pegar o brinquedo."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q103",
+          "enunciado": "Fichas misturadas: Hugo tenta recuperar o caderno • Georges guarda o caderno • Georges encontra o caderno no bolso de Hugo. Qual <mark>ordem</mark> organiza a cena?",
+          "figura": null,
+          "alternativas": [
+            "encontra o caderno → guarda o caderno → Hugo tenta recuperar",
+            "guarda o caderno → Hugo tenta recuperar → encontra o caderno",
+            "Hugo tenta recuperar → encontra o caderno → guarda o caderno",
+            "encontra o caderno → Hugo tenta recuperar → guarda o caderno"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Localize a descoberta do objeto.",
+            "Pense quando o caderno passa a ficar com Georges e quando Hugo precisa recuperá-lo."
+          ],
+          "dica": "Recuperar é tentar ter de volta algo que ficou com outra pessoa.",
+          "explicacao": "Georges encontra e guarda o caderno. Hugo então tenta tê-lo de volta."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q104",
+          "enunciado": "Hugo e Isabelle começam pesquisando o nome encontrado. <mark>Organize</mark> estas fichas: Georges relata seu passado • pesquisa do nome • exibição das obras.",
+          "figura": null,
+          "alternativas": [
+            "pesquisa → exibição das obras → relato do passado",
+            "relato do passado → pesquisa → exibição das obras",
+            "exibição das obras → relato do passado → pesquisa",
+            "pesquisa → relato do passado → exibição das obras"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Localize a investigação.",
+            "Depois, diferencie o que é mostrado do que Georges decide contar."
+          ],
+          "dica": "A pesquisa abre caminho para reencontrar as obras.",
+          "explicacao": "A descoberta leva à exibição; depois, Georges consegue narrar seu passado."
+        }
+      ],
+      "capitulo_id": "cap-1"
+    },
+    {
+      "missao_id": "estrutura-e1",
+      "icone": "🗺️",
+      "titulo": "O mapa da história",
+      "subtitulo": "Nomear os marcos da história",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.ESTR",
+      "subtema": "Estrutura narrativa: situação inicial, situação-problema, cenário, clímax, desfecho",
+      "habilidade_bncc": "EF35LP29",
+      "ferramenta": "investigar",
+      "regra": "<b>Situação inicial:</b> como encontramos os personagens. <b>Situação-problema:</b> o que quer + o que impede.<br><b>Clímax:</b> maior tensão, quando tudo pode virar. <b>Desfecho:</b> como termina.<br><b>Cenário:</b> onde e quando.",
+      "aula": {
+        "corpo": "<p>Toda história acontece em algum lugar e algum tempo. A de Hugo se passa em Paris, no inverno de 1931, dentro de uma estação cheia de relógios e passagens escondidas. Esse lugar e esse tempo têm nome: <mark>cenário</mark>.</p><p>No começo, encontramos Hugo escondido nas paredes, dando corda nos relógios no lugar do tio que sumiu: é a <b>situação inicial</b>, com as dificuldades que já existem. Logo aparece o que ele quer, consertar o autômato do pai, e o que impede: faltam peças e ninguém pode vê-lo. Querer algo e ter algo no caminho é a <mark>situação-problema</mark>.</p><p>A tensão cresce até a noite nos trilhos, quando tudo pode virar: esse é o <mark>clímax</mark>. E o <b>desfecho</b> é como o problema termina: Hugo ganha uma família, sobe ao palco da Academia como mágico e constrói um novo autômato, que escreve este livro.</p><h3>Hora de decidir · Qual marco é qual?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> conte em voz alta, na ordem, o cenário, a situação-problema, o clímax e o desfecho do livro.</div>"
+      },
+      "dados": {
+        "instrucao": "Leia a cena, escolha a resposta certa e confirme sua decisão.",
+        "exemplos": [
+          {
+            "contexto": "Três cenas do livro: o autômato desenha a Lua; Hugo cai nos trilhos e é trancado na cela; a plateia assiste a Viagem à Lua na homenagem a Méliès.",
+            "pergunta": "Qual dessas cenas é o clímax da história?",
+            "alternativas": [
+              "O autômato desenha a Lua e assina Georges Méliès.",
+              "Hugo cai nos trilhos e é trancado na cela do Inspetor.",
+              "A plateia assiste a Viagem à Lua na homenagem a Méliès."
+            ],
+            "correta": 1,
+            "explicacao": "É o momento de maior tensão: ali tudo pode virar, e Hugo pode perder a liberdade, o autômato e a chance de uma família."
+          },
+          {
+            "contexto": "Três frases sobre Isabelle. Só uma junta o que ela quer com o que a impede; as outras são uma ação dela e um fato do começo da história.",
+            "pergunta": "Qual frase é a situação-problema, e não apenas uma consequência dela?",
+            "alternativas": [
+              "Isabelle abre a fechadura do quarto com um grampo de cabelo.",
+              "Isabelle quer entrar num cinema pela primeira vez, mas Georges nunca deixou.",
+              "Os pais de Isabelle morreram num acidente antes de a história começar."
+            ],
+            "correta": 1,
+            "explicacao": "Abrir a fechadura é uma ação; os pais terem morrido é parte da situação inicial. A situação-problema junta o que ela quer com o que a impede."
+          }
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.ESTR.Q102",
+          "enunciado": "A história de Hugo se passa numa estação cheia de relógios e passagens escondidas, no inverno. Qual é o <mark>cenário</mark> — onde e quando ela acontece?",
+          "figura": null,
+          "alternativas": [
+            "Paris, 1931, na estação de trem.",
+            "Londres, 1931, num museu de relógios.",
+            "Paris, 1902, no estúdio de Georges Méliès.",
+            "Nova York, hoje, numa estação de trem."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense na cidade e no ano em que Hugo mora escondido, não no ano do filme que o pai dele adorava.",
+          "explicacao": "O <b>cenário</b> é Paris em 1931, dentro da estação — não Londres, nem o ano de 1902 do filme Viagem à Lua."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q101",
+          "enunciado": "Toda noite Hugo enche os bolsos de peças na loja de brinquedos e volta para o esconderijo nas paredes. Qual é a <mark>situação-problema</mark> dele nessa parte do livro?",
+          "figura": null,
+          "alternativas": [
+            "Ele quer consertar o autômato para ler uma mensagem do pai, mas faltam peças e ele precisa se esconder.",
+            "Ele rouba peças de brinquedos de corda na loja da estação para consertar o autômato escondido.",
+            "O tio Claude sumiu da estação faz tempo, e ninguém mais sabe o que aconteceu com ele.",
+            "Papa Georges confisca o caderno de desenhos do pai de Hugo assim que o flagra roubando."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Procure a frase que junta o que ele quer com o que atrapalha, não só uma ação dele.",
+          "explicacao": "A <b>situação-problema</b> reúne desejo e obstáculo. As outras frases são pedaços da história, não o problema inteiro que Hugo enfrenta."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q103",
+          "enunciado": "Na noite da perseguição, tudo acontece em sequência: Hugo sabe que o tio foi encontrado morto, volta à estação, o Inspetor o vê, ele cai nos trilhos, Georges chega. Qual desses momentos é o <mark>clímax</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Hugo cai nos trilhos com um trem chegando, fugindo do Inspetor.",
+            "Hugo descobre que o corpo do tio Claude foi encontrado no rio.",
+            "Hugo volta à estação à noite para buscar o autômato de Georges.",
+            "Georges chega ao escritório do Inspetor e tira Hugo da cela."
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Coloque os momentos na ordem e marque onde a tensão é maior.",
+            "Confira: nesse momento tudo pode virar? Hugo pode perder a liberdade, o autômato e a família, ou ser salvo."
+          ],
+          "dica": "Pergunte em qual momento tudo pode virar de uma vez, para o bem ou para o mal.",
+          "explicacao": "A notícia do tio e a volta à estação preparam a tensão; a chegada de Georges já é a saída dele. O <b>clímax</b> é o instante nos trilhos, com o trem chegando: ali tudo pode virar."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q104",
+          "enunciado": "Hugo é tirado da cela por Georges e Isabelle logo depois do momento de maior tensão da história. Qual alternativa conta o <mark>desfecho</mark> — como o problema termina?",
+          "figura": null,
+          "alternativas": [
+            "Hugo ganha uma família com Georges e Isabelle e, seis meses depois, faz mágica na homenagem a Méliès.",
+            "Hugo é tirado da cela por Georges e Isabelle, escapando assim por pouco de ser preso pelo Inspetor.",
+            "Hugo e Isabelle descobrem, na Academia de Cinema, quem realmente fez o desenho assinado do autômato.",
+            "Hugo finalmente consegue ler a mensagem que o pai havia deixado escondida só para ele."
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Separe o que aconteceu no fim do clímax (ser tirado da cela) do que vem depois disso.",
+            "Procure a alternativa que mostra a vida de Hugo mudada de forma duradoura, não só o resgate."
+          ],
+          "dica": "O desfecho vem depois do resgate: pense no que muda na vida de Hugo dali para frente.",
+          "explicacao": "Ser tirado da cela ainda é o fim do clímax. O <b>desfecho</b> é a vida nova: família, palco da Academia e um novo autômato que escreve o livro."
+        }
+      ],
+      "capitulo_id": "cap-1"
+    },
+    {
+      "missao_id": "causa-e1",
+      "icone": "🔗",
+      "titulo": "O que provocou isso?",
+      "subtitulo": "Causa, consequência e motivo",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.CAUSA",
+      "subtema": "Causa e consequência, inferência sobre motivos",
+      "habilidade_bncc": "EF35LP04",
+      "ferramenta": "investigar",
+      "regra": "Causa responde <b>por quê?</b>; consequência responde <b>o que aconteceu por causa disso?</b>. Exija uma ligação, não só proximidade.",
+      "aula": {
+        "corpo": "<p>Hugo dá corda nos relógios para esconder a ausência do tio e continuar na estação. A causa é a necessidade de não ser descoberto; o resultado visível é que os relógios seguem funcionando.</p><p>Para descobrir um motivo, junte ação e contexto. Se duas cenas apenas vêm uma depois da outra, ainda falta mostrar a ligação entre elas.</p><h3>Hora de decidir · Qual ligação o contexto apoia?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> complete: ‘Hugo fez ___ porque ___. Por causa disso, ___.’</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a ligação apoiada pelo contexto e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Sem o tio, Hugo teme ser enviado a um orfanato. Ele mantém os relógios da estação funcionando para ninguém perceber a ausência do responsável.",
+            "pergunta": "Qual relação de causa e consequência está sustentada?",
+            "alternativas": [
+              "medo de ser descoberto → Hugo cuida dos relógios",
+              "relógios funcionando → o tio volta para casa",
+              "orfanato fechado → Hugo abandona os relógios"
+            ],
+            "correta": 0,
+            "explicacao": "O contexto liga o medo de ser descoberto à decisão de manter os relógios."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.CAUSA.Q101",
+          "enunciado": "Depois que o tio desaparece, Hugo continua cuidando dos relógios para que ninguém note a ausência dele. <mark>Por que</mark> Hugo faz isso?",
+          "figura": null,
+          "alternativas": [
+            "Para evitar ser descoberto e retirado da estação",
+            "Para ensinar Isabelle a fabricar relógios",
+            "Para fazer Georges vender mais brinquedos",
+            "Para convencer o tio a voltar ao trabalho"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Use o risco que Hugo enfrenta se descobrirem que está sozinho.",
+          "explicacao": "Hugo esconde a ausência para proteger sua permanência na estação."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q102",
+          "enunciado": "A chave em forma de coração é encaixada e girada no autômato. Qual <mark>consequência</mark> direta vem dessa ação?",
+          "figura": null,
+          "alternativas": [
+            "O mecanismo começa a completar seu desenho",
+            "Georges fecha a loja de brinquedos",
+            "Hugo aprende toda a história do cinema",
+            "Isabelle encontra um novo livro"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Procure o resultado mecânico imediato da chave.",
+          "explicacao": "Girar a chave aciona o mecanismo do autômato."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q103",
+          "enunciado": "Georges vê desenhos ligados ao autômato e reage com forte desconforto. Qual <mark>inferência</mark> é mais bem apoiada?",
+          "figura": null,
+          "alternativas": [
+            "Os desenhos despertam lembranças que ele evitava",
+            "Os desenhos provam que Hugo quebrou todos os relógios",
+            "Os desenhos mostram que Isabelle quer sair da cidade",
+            "Os desenhos revelam uma dívida da loja"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Observe a reação de Georges.",
+            "Relacione-a ao passado que ele evita, sem inventar um fato novo."
+          ],
+          "dica": "A reação aponta para o passado de Georges, não para um problema comercial.",
+          "explicacao": "O desconforto indica que os desenhos tocam em lembranças evitadas."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q104",
+          "enunciado": "Obras antigas de Georges voltam a ser vistas por pessoas que reconhecem sua importância. Que <mark>resultado</mark> isso ajuda a produzir na história?",
+          "figura": null,
+          "alternativas": [
+            "Georges volta a se aproximar de suas obras e das pessoas",
+            "Georges guarda os filmes para vê-los apenas sozinho",
+            "Georges troca suas obras por novos brinquedos da loja",
+            "Georges conta o passado sem rever nenhuma de suas obras"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense na mudança de Georges diante do próprio passado.",
+          "explicacao": "O reconhecimento ajuda Georges a voltar às obras e ao convívio com outras pessoas."
+        }
+      ],
+      "capitulo_id": "cap-1"
+    },
+    {
+      "missao_id": "tema-e1",
+      "icone": "💡",
+      "titulo": "Da cena à mensagem",
+      "subtitulo": "Repetições ajudam a encontrar temas",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.TEMA",
+      "subtema": "Temas e mensagens da narrativa",
+      "habilidade_bncc": "EF35LP03",
+      "ferramenta": "investigar",
+      "regra": "Tema nasce de <b>cena concreta + mudança + sentido</b>. É uma ideia sustentada pela história, não uma palavra solta.",
+      "aula": {
+        "corpo": "<p>O livro repete máquinas, criação, memória e pessoas formando vínculos. Para achar um tema, comece numa cena: o que muda e que ideia essa mudança sugere?</p><p>‘Sonhos’ pode significar projetos imaginados, como os mundos do cinema, e não apenas imagens durante o sono. Objetos quebrados podem ser consertados; pessoas precisam de cuidado, escuta e novas relações — não são máquinas defeituosas.</p><h3>Hora de decidir · Qual mensagem a mudança sustenta?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> cite uma cena e complete: ‘Essa mudança sugere que...’</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a mensagem que nasce da cena e da mudança.",
+        "exemplos": [
+          {
+            "contexto": "Georges evita suas antigas criações. Quando elas são reencontradas e valorizadas, ele volta a compartilhá-las e a conviver com outras pessoas.",
+            "pergunta": "Que mensagem essa mudança sustenta?",
+            "alternativas": [
+              "Reconhecer sua história pode aproximar alguém de outras pessoas",
+              "Toda lembrança deve permanecer escondida",
+              "Pessoas funcionam exatamente como máquinas"
+            ],
+            "correta": 0,
+            "explicacao": "A mudança vai do afastamento à aproximação; a mensagem precisa acompanhar esse movimento."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.TEMA.Q101",
+          "enunciado": "Hugo acredita que cada peça de uma máquina tem uma função e procura seu próprio lugar no mundo. Que <mark>tema</mark> essa ligação sustenta?",
+          "figura": null,
+          "alternativas": [
+            "Buscar algo importante a fazer e um lugar entre as pessoas",
+            "Achar que cada pessoa só pode ter uma função a vida inteira",
+            "Acreditar que precisamos resolver tudo sem a ajuda de ninguém",
+            "Pensar que qualquer pessoa pode ser substituída como uma peça"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Una a função das peças à busca de Hugo por um lugar.",
+          "explicacao": "Ter algo importante a fazer é buscar <b>propósito</b>; sentir que tem um lugar entre as pessoas é buscar <b>pertencimento</b>."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q102",
+          "enunciado": "Hugo e Isabelle criam confiança enquanto procuram respostas; Georges e Jeanne passam a acolher Hugo. Que <mark>mensagem</mark> aparece nessas mudanças?",
+          "figura": null,
+          "alternativas": [
+            "Vínculos de cuidado também podem formar uma família",
+            "Só relações de sangue permitem confiança",
+            "Mistérios sempre afastam todas as pessoas",
+            "A independência exige recusar qualquer ajuda"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Observe como as relações ficam no final da mudança.",
+          "explicacao": "O cuidado e a confiança constroem pertencimento entre os personagens."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q103",
+          "enunciado": "Filmes esquecidos voltam a ser vistos, e a história de seu criador volta a circular. Qual <mark>tema</mark> é apoiado por essa transformação?",
+          "figura": null,
+          "alternativas": [
+            "Preservar obras também preserva memória",
+            "Esquecer uma obra aumenta seu valor",
+            "Criar exige apagar o trabalho anterior",
+            "O passado impede qualquer novo vínculo"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Identifique o que estava esquecido.",
+            "Veja o que muda quando volta a ser visto."
+          ],
+          "dica": "Relacione o retorno dos filmes ao retorno da história do criador.",
+          "explicacao": "Quando as obras reaparecem, uma memória cultural e pessoal também reaparece."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q104",
+          "enunciado": "O cinema de Georges transforma ideias imaginadas em imagens que outras pessoas podem ver. Nesse contexto, o que <mark>significa</mark> ‘fabricar sonhos’?",
+          "figura": null,
+          "alternativas": [
+            "Dar forma artística a mundos imaginados",
+            "Controlar o que as pessoas sonham ao dormir",
+            "Reproduzir apenas sonhos que teve enquanto dormia",
+            "Copiar a vida sem usar imaginação"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Aqui, ‘sonhos’ está ligado à criação de filmes.",
+          "explicacao": "A expressão fala de transformar imaginação em cenas, não de sono."
+        }
+      ],
+      "capitulo_id": "cap-1"
+    },
+    {
+      "missao_id": "vocabulario-e1",
+      "icone": "🧰",
+      "titulo": "Palavras em funcionamento",
+      "subtitulo": "Partes da palavra e pistas da frase",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.VOCAB",
+      "subtema": "Vocabulário inferido pelo contexto",
+      "habilidade_bncc": "EF35LP05",
+      "ferramenta": "investigar",
+      "regra": "Observe <b>o gesto e seu efeito</b>: o que mudou na peça ou no funcionamento? Cruze essas pistas com as partes da palavra.",
+      "aula": {
+        "corpo": "<p>Em ‘relojoeiro’, a base ‘relógio’ aponta para o objeto do ofício. O final ‘-eiro’ pode indicar quem trabalha com algo. A própria palavra oferece uma pista.</p><p>O contexto completa o sentido: engrenagens transmitem movimento entre rodas dentadas. Dar corda armazena energia no mecanismo; isso não significa reparar uma peça quebrada.</p><h3>Hora de decidir · Qual pista explica a palavra?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> explique uma palavra usando ‘a parte ___ dá pista e, na frase, ela faz ___’.</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a explicação que usa a palavra e o contexto.",
+        "exemplos": [
+          {
+            "contexto": "O relojoeiro abre a caixa do relógio, regula as peças e devolve o mecanismo funcionando.",
+            "pergunta": "Que pistas ajudam a entender ‘relojoeiro’?",
+            "alternativas": [
+              "A base ‘relógio’ e as ações de regular o mecanismo",
+              "A palavra ‘caixa’ e o ato de vender brinquedos",
+              "A palavra ‘devolve’ e o ato de projetar filmes"
+            ],
+            "correta": 0,
+            "explicacao": "A base da palavra e as ações do contexto apontam para quem cuida de relógios."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.VOCAB.Q101",
+          "enunciado": "O pai de Hugo era ‘relojoeiro’: sabia abrir, regular e reparar relógios. Qual parte dessa <mark>palavra</mark> dá a pista principal sobre seu trabalho?",
+          "figura": null,
+          "alternativas": [
+            "A base ‘relógio’",
+            "O final de ‘Hugo’",
+            "A palavra ‘pai’",
+            "O verbo ‘sabia’"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Procure uma palavra conhecida dentro de ‘relojoeiro’.",
+          "explicacao": "A base ‘relógio’ liga o ofício ao objeto de trabalho."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q102",
+          "enunciado": "Duas rodas dentadas se encaixam: quando uma gira, empurra a outra. Nesse contexto, o que é uma <mark>engrenagem</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Uma roda dentada que transmite movimento",
+            "Uma chave usada para abrir uma porta",
+            "Uma tela branca para mostrar um filme",
+            "Uma caixa usada para guardar desenhos"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Use a forma da peça e o que acontece quando ela gira.",
+          "explicacao": "Os dentes se encaixam para passar movimento de uma roda à outra."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q103",
+          "enunciado": "Hugo gira a chave de um relógio para tensionar sua mola e fazê-lo continuar andando. O que <mark>‘dar corda’</mark> significa nessa frase?",
+          "figura": null,
+          "alternativas": [
+            "Fornecer energia ao mecanismo pela mola",
+            "Trocar uma peça quebrada por outra",
+            "Amarrar o relógio com um fio",
+            "Acertar apenas a hora no mostrador"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "passos": [
+            "Observe o gesto: girar a chave.",
+            "Observe o efeito: a mola guarda energia e o relógio anda."
+          ],
+          "dica": "A frase descreve energia armazenada, não reparo.",
+          "explicacao": "Dar corda prepara a mola para mover o mecanismo."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q104",
+          "enunciado": "O autômato é descrito como uma figura mecânica capaz de executar movimentos quando seu mecanismo funciona. Qual <mark>definição</mark> combina com o contexto?",
+          "figura": null,
+          "alternativas": [
+            "Máquina feita para executar certas ações",
+            "Pessoa que trabalha consertando relógios",
+            "Imagem parada retirada de um filme",
+            "Sala em que filmes são projetados"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Una ‘figura mecânica’ a ‘executar movimentos’.",
+          "explicacao": "Um autômato é uma máquina construída para executar certas ações."
+        }
+      ],
+      "capitulo_id": "cap-1"
+    },
+    {
+      "missao_id": "forma-e1",
+      "icone": "🎞️",
+      "titulo": "Imagens que narram",
+      "subtitulo": "Enquadramento, sequência e fonte",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.FORMA",
+      "subtema": "Palavras e imagens, narrador, elementos reais",
+      "habilidade_bncc": "EF15LP18",
+      "ferramenta": "investigar",
+      "regra": "Observe <b>o que muda entre quadros</b> e confira de onde vem a imagem. Separe o que ela mostra do que podemos concluir.",
+      "aula": {
+        "corpo": "<p>Em Hugo Cabret, sequências de desenhos fazem a narrativa avançar. Um plano amplo mostra o lugar; quadros cada vez mais próximos dirigem a atenção até um detalhe. Isso imita escolhas do cinema no papel.</p><p>O autor é a pessoa real que cria o livro; aqui, Brian Selznick. O narrador é a voz que conta a história. O personagem vive a ação. Um narrador pode contar algo que viveu ou falar de outras pessoas.</p><p>Um filme pode existir de verdade e mostrar uma aventura inventada. O livro usa imagens de filmes antigos junto de personagens criados pelo autor. Essa mistura não torna todas as cenas fatos reais.</p><h3>Hora de decidir · O que os três quadros fazem?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> diga o que o primeiro quadro mostra e para qual detalhe o último conduz o olhar.</div>"
+      },
+      "dados": {
+        "instrucao": "Observe os três quadros, escolha o efeito da mudança e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Desenho esquemático criado para estudar enquadramento; não reproduz uma página do livro.",
+            "figura": {
+              "tipo": "svg",
+              "conteudo": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 570 200\" role=\"img\" aria-label=\"Três quadros com a mesma criança na estação: o ambiente, o rosto e um olho.\"><defs><g id=\"study-tool-1\" stroke=\"#23384b\" stroke-width=\"2\"><path d=\"M-19 24Q0 15 19 24L24 46H-24Z\" fill=\"#368b88\"/><ellipse cy=\"-5\" rx=\"18\" ry=\"24\" fill=\"#edc69a\"/><path d=\"M-18 -9Q-25 -38 3 -32Q23 -31 18 -6L11 -20Q-4 -10 -16 -18Z\" fill=\"#39454c\"/><path d=\"M-13 -8h8M5 -8h8\" fill=\"none\"/><ellipse cx=\"-8\" cy=\"-2\" rx=\"4.5\" ry=\"3\" fill=\"white\"/><ellipse cx=\"8\" cy=\"-2\" rx=\"4.5\" ry=\"3\" fill=\"white\"/><circle cx=\"-8\" cy=\"-2\" r=\"1.6\" fill=\"#23384b\"/><circle cx=\"8\" cy=\"-2\" r=\"1.6\" fill=\"#23384b\"/><path d=\"M0 0l-2 8h4M-6 15q6 3 12 0\" fill=\"none\"/></g><clipPath id=\"study-tool-1-a\"><rect x=\"12\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></clipPath><clipPath id=\"study-tool-1-b\"><rect x=\"198\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></clipPath><clipPath id=\"study-tool-1-c\"><rect x=\"384\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></clipPath></defs><g font-family=\"sans-serif\" font-size=\"16\" fill=\"#23384b\" text-anchor=\"middle\"><text x=\"99\" y=\"20\">1</text><text x=\"285\" y=\"20\">2</text><text x=\"471\" y=\"20\">3</text></g><g fill=\"#f4eee1\" stroke=\"#23384b\" stroke-width=\"2\"><rect x=\"12\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/><rect x=\"198\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/><rect x=\"384\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></g><g clip-path=\"url(#study-tool-1-a)\"><path d=\"M30 170V85Q99 6 168 85V170M52 160V92Q99 45 146 92V160M12 171h174\" fill=\"none\" stroke=\"#83948d\" stroke-width=\"4\"/><circle cx=\"99\" cy=\"67\" r=\"19\" fill=\"#fff9eb\" stroke=\"#23384b\" stroke-width=\"2\"/><path d=\"M99 53v14l9 6\" fill=\"none\" stroke=\"#23384b\" stroke-width=\"2\"/><use href=\"#study-tool-1\" transform=\"translate(99 132) scale(.68)\"/></g><g clip-path=\"url(#study-tool-1-b)\"><use href=\"#study-tool-1\" transform=\"translate(285 123) scale(2.6)\"/></g><g clip-path=\"url(#study-tool-1-c)\"><use href=\"#study-tool-1\" transform=\"translate(359 138) scale(14)\"/></g></svg>",
+              "legenda": "Esquema original para este exercício. Observe os quadros da esquerda para a direita."
+            },
+            "pergunta": "Que efeito a passagem do primeiro ao terceiro quadro produz?",
+            "alternativas": [
+              "Aproxima o olhar até um detalhe importante",
+              "Volta no tempo para explicar o passado",
+              "Prova que o lugar desenhado existiu"
+            ],
+            "correta": 0,
+            "explicacao": "Cada quadro reduz o campo visível e conduz o olhar do lugar ao detalhe."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.FORMA.Q101",
+          "enunciado": "Observe os três quadros. O que a mudança de <mark>enquadramento</mark> faz?",
+          "figura": {
+            "tipo": "svg",
+            "conteudo": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 570 200\" role=\"img\" aria-label=\"Três quadros com a mesma criança na estação: o ambiente, o rosto e um olho.\"><defs><g id=\"study-question-1\" stroke=\"#23384b\" stroke-width=\"2\"><path d=\"M-19 24Q0 15 19 24L24 46H-24Z\" fill=\"#368b88\"/><ellipse cy=\"-5\" rx=\"18\" ry=\"24\" fill=\"#edc69a\"/><path d=\"M-18 -9Q-25 -38 3 -32Q23 -31 18 -6L11 -20Q-4 -10 -16 -18Z\" fill=\"#39454c\"/><path d=\"M-13 -8h8M5 -8h8\" fill=\"none\"/><ellipse cx=\"-8\" cy=\"-2\" rx=\"4.5\" ry=\"3\" fill=\"white\"/><ellipse cx=\"8\" cy=\"-2\" rx=\"4.5\" ry=\"3\" fill=\"white\"/><circle cx=\"-8\" cy=\"-2\" r=\"1.6\" fill=\"#23384b\"/><circle cx=\"8\" cy=\"-2\" r=\"1.6\" fill=\"#23384b\"/><path d=\"M0 0l-2 8h4M-6 15q6 3 12 0\" fill=\"none\"/></g><clipPath id=\"study-question-1-a\"><rect x=\"12\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></clipPath><clipPath id=\"study-question-1-b\"><rect x=\"198\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></clipPath><clipPath id=\"study-question-1-c\"><rect x=\"384\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></clipPath></defs><g font-family=\"sans-serif\" font-size=\"16\" fill=\"#23384b\" text-anchor=\"middle\"><text x=\"99\" y=\"20\">1</text><text x=\"285\" y=\"20\">2</text><text x=\"471\" y=\"20\">3</text></g><g fill=\"#f4eee1\" stroke=\"#23384b\" stroke-width=\"2\"><rect x=\"12\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/><rect x=\"198\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/><rect x=\"384\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></g><g clip-path=\"url(#study-question-1-a)\"><path d=\"M30 170V85Q99 6 168 85V170M52 160V92Q99 45 146 92V160M12 171h174\" fill=\"none\" stroke=\"#83948d\" stroke-width=\"4\"/><circle cx=\"99\" cy=\"67\" r=\"19\" fill=\"#fff9eb\" stroke=\"#23384b\" stroke-width=\"2\"/><path d=\"M99 53v14l9 6\" fill=\"none\" stroke=\"#23384b\" stroke-width=\"2\"/><use href=\"#study-question-1\" transform=\"translate(99 132) scale(.68)\"/></g><g clip-path=\"url(#study-question-1-b)\"><use href=\"#study-question-1\" transform=\"translate(285 123) scale(2.6)\"/></g><g clip-path=\"url(#study-question-1-c)\"><use href=\"#study-question-1\" transform=\"translate(359 138) scale(14)\"/></g></svg>",
+            "legenda": "Esquema de treino; não é uma reprodução do livro."
+          },
+          "alternativas": [
+            "Conduz o olhar do espaço até um detalhe",
+            "Apresenta três lugares sem relação",
+            "Transforma o desenho em documento histórico",
+            "Interrompe a narrativa para definir uma palavra"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Compare quanto do espaço cabe em cada quadro.",
+          "explicacao": "Os quadros mostram cada vez menos do lugar e mais do rosto. Assim, o olhar chega a um detalhe: o olho."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q102",
+          "enunciado": "Durante várias páginas, desenhos mostram um personagem atravessando a estação sem texto explicativo. Qual <mark>função</mark> esses desenhos exercem?",
+          "figura": null,
+          "alternativas": [
+            "Contam ações necessárias para acompanhar a história",
+            "Decoram páginas cuja leitura pode ser ignorada",
+            "Provam que cada personagem existiu de verdade",
+            "Substituem apenas a capa e o título do livro"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pergunte se você entenderia a ação pulando todas as imagens.",
+          "explicacao": "Os desenhos carregam acontecimentos; por isso fazem parte da narrativa."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q103",
+          "enunciado": "O livro coloca imagens ligadas a filmes antigos ao lado de personagens inventados. Qual <mark>conclusão</mark> é segura?",
+          "figura": null,
+          "alternativas": [
+            "A narrativa mistura ficção com referências da história do cinema",
+            "Toda cena com uma imagem antiga ocorreu exatamente como narrada",
+            "Hugo foi uma pessoa histórica fotografada na estação",
+            "O filme substitui a leitura de todas as imagens do livro"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Separe a origem histórica da imagem.",
+            "Depois, avalie o que ela não pode provar sobre personagens fictícios."
+          ],
+          "dica": "Uma fonte histórica pode estar dentro de uma história inventada.",
+          "explicacao": "A imagem cria uma ponte histórica, sem transformar toda a ficção em fato."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q104",
+          "enunciado": "Em uma cena de estudo, Hugo entra na estação e o narrador conta: ‘Hugo apertou o caderno contra o peito’. Quem vive a ação e <mark>quem</mark> a apresenta ao leitor?",
+          "figura": null,
+          "alternativas": [
+            "Hugo vive a ação; o narrador a conta",
+            "O narrador vive a ação; Hugo apenas observa",
+            "Hugo e o narrador são sempre a mesma voz",
+            "O leitor vive a ação; Hugo conta fora da cena"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Separe o nome de quem age da voz que conta sobre ele.",
+          "explicacao": "Hugo age dentro da cena; o narrador escolhe como apresentá-la ao leitor."
+        }
+      ],
+      "capitulo_id": "cap-1"
+    },
+    {
+      "missao_id": "personagens-e2",
+      "icone": "👥",
+      "titulo": "Personagens em novas cenas",
+      "subtitulo": "Ação, relação e contexto",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.PERS",
+      "subtema": "Personagens: ações, traços e relações",
+      "habilidade_bncc": "EF35LP29",
+      "ferramenta": "investigar",
+      "regra": "Conclusão sobre personagem pede <b>ação observável + contexto</b>. Relações ajudam a interpretar a ação.",
+      "aula": {
+        "corpo": "<p>Lembre o caminho: nomeie a relação, observe a ação e pergunte o que ela mostra naquela situação. Um gesto dá uma pista, mas não vira um rótulo para a pessoa inteira.</p><h3>Hora de decidir · Qual leitura usa a pista?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> diga qual ação foi sua prova, em uma frase.</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a conclusão apoiada pela ação e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Jeanne percebe o medo de Hugo, cuida dele e tenta evitar que a situação piore.",
+            "pergunta": "O que essa ação mostra?",
+            "alternativas": [
+              "Ela tenta proteger Hugo",
+              "Ela quer esconder tudo de Hugo",
+              "Ela espera que Isabelle cuide dele"
+            ],
+            "correta": 0,
+            "explicacao": "Perceber o medo e cuidar de Hugo mostram atenção e proteção nessa cena."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.PERS.Q201",
+          "enunciado": "Jeanne acolhe Hugo quando percebe que ele está ferido e assustado. O que essa <mark>ação</mark> mostra nessa cena?",
+          "figura": null,
+          "alternativas": [
+            "Ela tenta cuidar e proteger Hugo",
+            "Ela acha que Hugo deve resolver tudo sozinho",
+            "Ela quer fazer as perguntas no lugar de Hugo",
+            "Ela confia que Georges já cuidou do ferimento"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Concentre-se nos verbos ‘acolhe’ e ‘percebe’.",
+          "explicacao": "Acolher Hugo quando ele precisa mostra cuidado e proteção."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q202",
+          "enunciado": "Hugo estuda mecanismos, procura peças e testa reparos no autômato. O que esse conjunto de <mark>ações</mark> mostra?",
+          "figura": null,
+          "alternativas": [
+            "Ele insiste e usa o que sabe para resolver o problema",
+            "Ele espera encontrar uma máquina já pronta",
+            "Ele prefere pesquisar sem tocar no mecanismo",
+            "Ele deixa o reparo para os adultos da estação"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Veja o que se repete: estudar, procurar e testar.",
+          "explicacao": "As ações mostram que Hugo insiste e usa sua habilidade prática."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q203",
+          "enunciado": "Georges reage com dureza quando encontra o caderno, mas depois suas lembranças ajudam a explicar a reação. Qual <mark>leitura</mark> usa as duas pistas?",
+          "figura": null,
+          "alternativas": [
+            "A atitude foi dura, e o caderno tocou num passado doloroso",
+            "A atitude foi dura, então Georges nunca se importa com ninguém",
+            "O passado foi doloroso, então tomar o caderno não feriu Hugo",
+            "O caderno era importante, então Hugo já conhecia toda a história"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Descreva a ação sem rótulo.",
+            "Depois, acrescente o contexto que ajuda a entendê-la."
+          ],
+          "dica": "A resposta precisa reconhecer a dureza e também o passado.",
+          "explicacao": "O passado ajuda a entender a reação, sem apagar que ela foi dura para Hugo."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q204",
+          "enunciado": "Isabelle decide acompanhar Hugo na busca mesmo sem ter todas as respostas. O que melhor descreve sua <mark>participação</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Ela faz perguntas e também entra em ação",
+            "Ela observa a busca, mas evita fazer perguntas",
+            "Ela acredita que só os adultos podem investigar",
+            "Ela participa porque já conhece o final do mistério"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Ela pergunta e também participa; una essas duas ações.",
+          "explicacao": "Isabelle demonstra curiosidade e participa da investigação."
+        }
+      ],
+      "capitulo_id": "cap-2"
+    },
+    {
+      "missao_id": "sequencia-e2",
+      "icone": "🧭",
+      "titulo": "Novas linhas de eventos",
+      "subtitulo": "Ordenar sem inventar causa",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.SEQ",
+      "subtema": "Enredo: sequência de eventos",
+      "habilidade_bncc": "EF35LP26",
+      "ferramenta": "investigar",
+      "regra": "Monte a linha com <b>três eventos próximos</b>. Depois confira: cada passo já era possível naquele momento?",
+      "aula": {
+        "corpo": "<p>Para ordenar, procure dependências simples: descobrir uma pista vem antes de pesquisá-la; recuperar uma obra vem antes de apresentá-la ao público. A ordem não basta para afirmar causa.</p><h3>Hora de decidir · Qual linha não dá saltos?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> conte a linha escolhida com três marcadores de tempo.</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a linha em que cada evento já pode acontecer.",
+        "exemplos": [
+          {
+            "contexto": "Um nome aparece no desenho. Hugo e Isabelle pesquisam o nome. Depois encontram registros sobre o cineasta.",
+            "pergunta": "Qual linha preserva a ordem?",
+            "alternativas": [
+              "nome aparece → pesquisa → registros encontrados",
+              "pesquisa → registros encontrados → nome aparece",
+              "registros encontrados → nome aparece → pesquisa"
+            ],
+            "correta": 0,
+            "explicacao": "A pista aparece antes da busca que leva aos registros."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.SEQ.Q201",
+          "enunciado": "Nesta cena inventada para treino, uma sessão de cinema vai começar. <mark>Ordene</mark> as fichas: a imagem aparece na tela • o projetor é ligado • a película é colocada no projetor desligado.",
+          "figura": null,
+          "alternativas": [
+            "película colocada → projetor ligado → imagem na tela",
+            "projetor ligado → imagem na tela → película colocada",
+            "imagem na tela → película colocada → projetor ligado",
+            "película colocada → imagem na tela → projetor ligado"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "O aparelho precisa estar preparado antes de funcionar.",
+          "explicacao": "Nesta cena, primeiro se coloca a película com o aparelho desligado; depois ele é ligado e mostra a imagem."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q202",
+          "enunciado": "Hugo e Isabelle ligam o nome ao passado de Georges depois de ler informações num livro, que encontraram seguindo uma pista. Qual evento fica no <mark>meio</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Eles encontram informações sobre Méliès no livro",
+            "Eles seguem a pista até chegar ao livro",
+            "Eles ligam o nome encontrado ao passado de Georges",
+            "Eles mostram os filmes numa homenagem pública"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Procure o que vem depois de encontrar o livro e antes de ligar as informações.",
+          "explicacao": "As informações do livro ficam entre a busca e a ligação com Georges."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q203",
+          "enunciado": "<mark>Organize</mark> as fichas misturadas: homenagem a Georges • registros encontrados • filmes reconhecidos. A busca dos registros inicia esse caminho até a homenagem, meses depois, que é o desfecho.",
+          "figura": null,
+          "alternativas": [
+            "registros encontrados → filmes reconhecidos → homenagem",
+            "homenagem → registros encontrados → filmes reconhecidos",
+            "filmes reconhecidos → homenagem → registros encontrados",
+            "registros encontrados → homenagem → filmes reconhecidos"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Ache a descoberta inicial.",
+            "Depois, separe o reconhecimento das obras do evento público final."
+          ],
+          "dica": "Uma homenagem precisa vir depois de as obras serem reencontradas e reconhecidas.",
+          "explicacao": "A descoberta permite o reconhecimento, que prepara a homenagem."
+        },
+        {
+          "questao_id": "POR.LEI.SEQ.Q204",
+          "enunciado": "Hugo começa escondendo sua situação e precisa confiar antes de aceitar ajuda. <mark>Organize</mark> as fichas: acolhimento • segredo • construção de confiança.",
+          "figura": null,
+          "alternativas": [
+            "segredo → construção de confiança → acolhimento",
+            "acolhimento → segredo → construção de confiança",
+            "construção de confiança → acolhimento → segredo",
+            "segredo → acolhimento → construção de confiança"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "A confiança se constrói antes de Hugo aceitar um novo vínculo.",
+          "explicacao": "O percurso vai do isolamento secreto à confiança e ao acolhimento."
+        }
+      ],
+      "capitulo_id": "cap-2"
+    },
+    {
+      "missao_id": "estrutura-e2",
+      "icone": "🗺️",
+      "titulo": "O mapa em novas cenas",
+      "subtitulo": "Os mesmos marcos, cenas novas",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.ESTR",
+      "subtema": "Estrutura narrativa: situação inicial, situação-problema, cenário, clímax, desfecho",
+      "habilidade_bncc": "EF35LP29",
+      "ferramenta": "investigar",
+      "regra": "<b>Situação inicial</b>: como encontramos os personagens. <b>Situação-problema</b>: o que quer + o que impede.<br><b>Clímax</b>: maior tensão, quando tudo pode virar. <b>Desfecho</b>: como termina.<br><b>Cenário</b>: onde e quando.",
+      "aula": {
+        "corpo": "<p>Você já conhece os marcos da história. <mark>Cenário</mark> é onde e quando ela acontece. Situação inicial é como encontramos os personagens no começo, com o que já está acontecendo. Situação-problema é o que o personagem quer e o que impede.</p><p>Clímax é o momento de maior tensão, quando tudo pode virar. Desfecho é como o problema termina e o que muda. Agora você vai aplicar esse olhar em cenas novas, do livro e de fora dele.</p><h3>Hora de decidir · Qual marco é qual, em cenas novas?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> escolha uma cena nova do livro e diga a um adulto qual marco da história ela mostra.</div>"
+      },
+      "dados": {
+        "instrucao": "Leia a cena, escolha a resposta certa e confirme sua decisão.",
+        "exemplos": [
+          {
+            "contexto": "Três frases sobre Papa Georges. Só uma mostra o que ele quer e o que o impede; as outras mostram como o encontramos no começo.",
+            "pergunta": "Qual frase é a situação-problema, e não a situação inicial?",
+            "alternativas": [
+              "Georges vende brinquedos de corda numa loja dentro da estação.",
+              "Georges quer esquecer o passado de mágico, mas o caderno de Hugo o traz de volta.",
+              "Georges mora com Mama Jeanne e a afilhada Isabelle."
+            ],
+            "correta": 1,
+            "explicacao": "A loja e a casa são a situação inicial de Georges: o que já existe quando a história abre. Só a frase do caderno junta o que ele quer com o que o impede."
+          },
+          {
+            "contexto": "A estação tem 27 relógios que Hugo precisa manter funcionando sem falhar, e uma cela no escritório do Inspetor.",
+            "pergunta": "Por que Hugo não pode simplesmente parar de cuidar dos relógios?",
+            "alternativas": [
+              "Porque isso não mudaria nada na vida dele na estação.",
+              "Porque um relógio parado chamaria atenção e poria em risco o esconderijo dele.",
+              "Porque os relógios pertencem a Georges, não à estação."
+            ],
+            "correta": 1,
+            "explicacao": "O cenário participa da história: os mesmos relógios que escondem Hugo também podem denunciá-lo se pararem."
+          }
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.ESTR.Q201",
+          "enunciado": "No começo, Hugo mora escondido na estação e dá corda nos relógios no lugar do tio que sumiu. Isso descreve a <mark>situação inicial</mark> ou a situação-problema?",
+          "figura": null,
+          "alternativas": [
+            "Situação inicial: mostra como encontramos Hugo no começo, com o que já está acontecendo.",
+            "Situação-problema: mostra o que Hugo quer e o que o impede de conseguir.",
+            "Clímax: mostra o momento de maior tensão, quando tudo pode virar.",
+            "Desfecho: mostra como o problema termina e o que muda para Hugo."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pergunte se essa cena já mostra o que ele quer resolver, ou só como encontramos Hugo no começo.",
+          "explicacao": "Viver escondido e dar corda nos relógios é como encontramos Hugo quando a história abre: a <b>situação inicial</b>, mesmo já sendo difícil. A situação-problema só aparece quando sabemos o que ele quer e o que impede."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q202",
+          "enunciado": "Hugo dorme num quartinho dentro das paredes da estação, e é nessa mesma estação que fica a cela do Inspetor. O que esse <mark>cenário</mark> faz pela história?",
+          "figura": null,
+          "alternativas": [
+            "Esconde Hugo e, ao mesmo tempo, guarda o perigo de ele ser descoberto.",
+            "Serve só de pano de fundo, sem influenciar o que acontece com Hugo.",
+            "Mostra que Paris, em 1931, era uma cidade cheia de trens e relógios.",
+            "Marca o lugar onde Méliès filmou Viagem à Lua anos antes."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense em tudo que essas paredes fazem por Hugo, não só em escondê-lo.",
+          "explicacao": "O <b>cenário</b> não é só pano de fundo: a estação esconde Hugo e guarda, nas mesmas paredes, o risco de ele ser descoberto."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q203",
+          "enunciado": "Cena inventada: Lia perde o cachorro no parque e procura por horas, até encontrá-lo preso na beira do rio, com a água subindo, e puxá-lo a tempo. Qual momento é o <mark>clímax</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Lia encontra o cachorro preso na beira do rio, com a água subindo.",
+            "Lia perde o cachorro no parque, no começo da tarde.",
+            "Lia procura o cachorro por horas, chamando pelo nome.",
+            "À noite, os dois dormem juntos no sofá da sala."
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Separe o começo do problema, o caminho e o fim.",
+            "Entre os momentos do meio, qual é o de maior tensão, em que tudo pode virar?"
+          ],
+          "dica": "Procure o momento em que tudo pode virar: ela pode perder o cachorro de vez ou salvá-lo.",
+          "explicacao": "Perder o cachorro é o problema; procurar é o caminho; o sofá é o desfecho. O <b>clímax</b> é a beira do rio: o momento de maior tensão, em que a história pode virar para qualquer lado."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q204",
+          "enunciado": "No começo, Hugo vive sozinho e escondido nas paredes da estação. O que muda até o <mark>desfecho</mark> da história?",
+          "figura": null,
+          "alternativas": [
+            "Ele deixa de se esconder: mora com uma família e faz mágica num palco, diante de todos.",
+            "Ele continua escondido nas paredes da estação, dando corda nos relógios todo dia, sozinho.",
+            "Ele descobre, na Academia de Cinema, quem realmente desenhou a assinatura no autômato.",
+            "Ele é perseguido pelo Inspetor, cai perto dos trilhos e quase é atropelado pelo trem."
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Compare como Hugo vive no começo com como ele vive no final do livro.",
+            "Escolha a alternativa que mostra uma mudança que dura, não só um susto ou uma descoberta no meio da história."
+          ],
+          "dica": "Pense no que muda de verdade na vida de Hugo, não num susto ou numa descoberta no meio do caminho.",
+          "explicacao": "No <b>desfecho</b>, o isolamento do começo vira família e o esconderijo vira palco: Hugo faz mágica na Academia como Professor Alcofrisbas. É isso que o final muda."
+        }
+      ],
+      "capitulo_id": "cap-2"
+    },
+    {
+      "missao_id": "causa-e2",
+      "icone": "🔗",
+      "titulo": "Ligações sob teste",
+      "subtitulo": "Nem todo antes é causa",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.CAUSA",
+      "subtema": "Causa e consequência, inferência sobre motivos",
+      "habilidade_bncc": "EF35LP04",
+      "ferramenta": "investigar",
+      "regra": "Teste a ligação com <b>porque</b> ou <b>por causa disso</b>. Se a frase só disser ‘depois’, ainda não explicou a causa.",
+      "aula": {
+        "corpo": "<p>Uma boa inferência causal usa uma pista do contexto. Hugo procura peças porque precisa completar um mecanismo; a busca não acontece apenas porque uma cena veio antes dela.</p><h3>Hora de decidir · Há ligação ou só sequência?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> explique uma ligação sem usar apenas ‘aí aconteceu’.</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a explicação que mostra uma ligação sustentada.",
+        "exemplos": [
+          {
+            "contexto": "Faltam peças no autômato. Hugo desmonta brinquedos mecânicos para encontrar componentes compatíveis.",
+            "pergunta": "Por que ele busca os brinquedos?",
+            "alternativas": [
+              "Porque precisa de peças para reparar o autômato",
+              "Porque quer restaurar os brinquedos para a loja",
+              "Porque quer guardar peças para reparar relógios"
+            ],
+            "correta": 0,
+            "explicacao": "A necessidade de peças explica diretamente a busca."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.CAUSA.Q201",
+          "enunciado": "O autômato tem peças ausentes, e Hugo busca componentes em brinquedos mecânicos. Qual é o <mark>motivo</mark> da busca?",
+          "figura": null,
+          "alternativas": [
+            "Completar o mecanismo do autômato",
+            "Entender como funciona cada brinquedo da loja",
+            "Guardar peças para consertar os relógios depois",
+            "Descobrir quem fabricou todos os brinquedos"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Relacione o que falta ao que Hugo procura.",
+          "explicacao": "Ele busca componentes porque o autômato precisa deles para funcionar."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q202",
+          "enunciado": "Hugo evita contar que vive sozinho na estação. Qual <mark>motivo</mark> o contexto sustenta?",
+          "figura": null,
+          "alternativas": [
+            "Ele teme ser levado dali por não ter responsável",
+            "Ele quer receber um prêmio por guardar segredo",
+            "Ele acredita que Isabelle controla os relógios",
+            "Ele pretende vender a estação a Georges"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense no que pode acontecer a uma criança sozinha quando um adulto descobre.",
+          "explicacao": "O medo de perder seu abrigo sustenta o segredo de Hugo."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q203",
+          "enunciado": "Depois que a assinatura do desenho é identificada, Hugo e Isabelle procuram informações sobre esse nome. O que <mark>liga</mark> os eventos?",
+          "figura": null,
+          "alternativas": [
+            "A assinatura funciona como pista para a pesquisa",
+            "A pesquisa faz a assinatura surgir no papel",
+            "Os eventos são próximos, mas não têm ligação",
+            "O nome obriga Georges a fechar a loja"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Identifique a informação nova.",
+            "Pergunte qual ação ela torna necessária ou possível."
+          ],
+          "dica": "A pesquisa precisa de um nome para procurar.",
+          "explicacao": "A assinatura fornece a pista que orienta a investigação."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q204",
+          "enunciado": "Uma exibição reúne pessoas diante dos filmes de Georges e, depois, ele recebe reconhecimento público. Qual <mark>explicação</mark> usa o contexto sem tratar qualquer ‘antes’ como causa?",
+          "figura": null,
+          "alternativas": [
+            "A exibição ajuda o público a reconhecer o trabalho de Georges",
+            "A exibição causa o reconhecimento apenas porque veio primeiro",
+            "O reconhecimento anterior obriga a exibição a acontecer depois",
+            "Os dois fatos não podem ter ligação porque estão em sequência"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Escolha a frase que mostra como um evento contribui para o outro.",
+          "explicacao": "Ver os filmes ajuda o público a reconhecer o trabalho; a explicação usa mais do que a ordem."
+        }
+      ],
+      "capitulo_id": "cap-2"
+    },
+    {
+      "missao_id": "tema-e2",
+      "icone": "💡",
+      "titulo": "Mensagens em transformação",
+      "subtitulo": "Cena, mudança e sentido",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.TEMA",
+      "subtema": "Temas e mensagens da narrativa",
+      "habilidade_bncc": "EF35LP03",
+      "ferramenta": "investigar",
+      "regra": "Uma mensagem forte acompanha a <b>mudança da cena</b> e pode aparecer em mais de um momento da história.",
+      "aula": {
+        "corpo": "<p>Recupere três passos: localize a cena, descreva a mudança e formule o sentido. Se a mensagem não combina com a mudança, volte às pistas.</p><h3>Hora de decidir · Qual ideia atravessa a mudança?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> ligue uma cena a uma mensagem com ‘isso sugere que’.</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a mensagem que acompanha a mudança.",
+        "exemplos": [
+          {
+            "contexto": "Hugo começa sozinho, passa a confiar em Isabelle e termina acolhido por outras pessoas.",
+            "pergunta": "Qual tema acompanha esse caminho?",
+            "alternativas": [
+              "Confiança e cuidado ajudam alguém a encontrar um lugar",
+              "Um segredo protege melhor do que qualquer amizade",
+              "Receber ajuda impede uma pessoa de crescer"
+            ],
+            "correta": 0,
+            "explicacao": "A mudança vai da solidão para a construção de novos laços."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.TEMA.Q201",
+          "enunciado": "Hugo guarda tudo sozinho; depois divide pistas com Isabelle e aceita ajuda. Qual <mark>mensagem</mark> a mudança sustenta?",
+          "figura": null,
+          "alternativas": [
+            "Compartilhar e confiar pode romper o isolamento",
+            "Guardar qualquer segredo resolve os conflitos",
+            "Aceitar ajuda apaga a própria história",
+            "Investigar exige afastar todas as pessoas"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Compare a solidão inicial com a colaboração posterior.",
+          "explicacao": "A mudança mostra que confiança e ajuda criam conexão."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q202",
+          "enunciado": "As obras de Georges passam do esquecimento para uma nova exibição. Que <mark>ideia</mark> aparece nesse movimento?",
+          "figura": null,
+          "alternativas": [
+            "Criações podem recuperar memória e reconhecimento",
+            "Obras esquecidas nunca voltam a ter sentido",
+            "Uma obra só tem valor no momento em que é criada",
+            "Reconhecimento exige destruir os registros antigos"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Observe a passagem do esquecimento para a exibição.",
+          "explicacao": "Reencontrar as obras devolve visibilidade à criação e à história."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q203",
+          "enunciado": "Um objeto mecânico é reparado com peças; Georges melhora quando encontra escuta, companhia e reconhecimento. Que <mark>leitura</mark> respeita essa diferença?",
+          "figura": null,
+          "alternativas": [
+            "Objetos são consertados; pessoas podem melhorar com cuidado e companhia",
+            "Pessoas e máquinas voltam a funcionar quando recebem peças novas",
+            "Georges precisa apenas do mesmo tipo de reparo feito no autômato",
+            "Receber companhia faz Georges esquecer toda a sua história"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Separe o reparo material do autômato.",
+            "Depois, nomeie o que ajuda Georges."
+          ],
+          "dica": "Veja quais peças são reais e quais ajudas pertencem às relações humanas.",
+          "explicacao": "A comparação ajuda a ler a história sem tratar pessoas como máquinas quebradas."
+        },
+        {
+          "questao_id": "POR.LEI.TEMA.Q204",
+          "enunciado": "Georges cria viagens e criaturas para o cinema a partir da imaginação. Qual <mark>mensagem</mark> sobre sonhos cabe nesse contexto?",
+          "figura": null,
+          "alternativas": [
+            "A arte permite dividir com outras pessoas o que imaginamos",
+            "Filmes controlam os sonhos que acontecem durante o sono",
+            "Imaginar impede qualquer trabalho técnico",
+            "Criar consiste apenas em copiar o mundo visível"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "‘Sonhos’ aqui são projetos imaginados que ganham forma artística.",
+          "explicacao": "O cinema transforma imaginação em imagens que outras pessoas podem ver."
+        }
+      ],
+      "capitulo_id": "cap-2"
+    },
+    {
+      "missao_id": "vocabulario-e2",
+      "icone": "🧰",
+      "titulo": "Palavras em novos contextos",
+      "subtitulo": "Morfologia e função",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.VOCAB",
+      "subtema": "Vocabulário inferido pelo contexto",
+      "habilidade_bncc": "EF35LP05",
+      "ferramenta": "investigar",
+      "regra": "Cruze duas pistas: <b>partes da palavra</b> e <b>ação descrita</b>. Não troque energia, movimento e reparo.",
+      "aula": {
+        "corpo": "<p>Hoje a pista muda de frase. Pergunte: a palavra nomeia uma pessoa, uma peça, uma ação ou uma imagem? Depois veja o que ela faz no contexto.</p><h3>Hora de decidir · Que função a frase descreve?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> defina uma palavra sem repetir apenas o exemplo.</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a definição que explica a função descrita.",
+        "exemplos": [
+          {
+            "contexto": "A mola foi reparada; depois, Hugo girou a chave para dar corda e armazenar energia.",
+            "pergunta": "Qual diferença a frase mostra?",
+            "alternativas": [
+              "Consertar corrige a peça; dar corda prepara energia",
+              "Dar corda troca a mola; consertar só acerta a hora",
+              "As duas expressões significam limpar o relógio"
+            ],
+            "correta": 0,
+            "explicacao": "O reparo corrige o defeito; a corda fornece energia para o funcionamento."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.VOCAB.Q201",
+          "enunciado": "Uma roda dentada empurra outra e faz o movimento passar pelo mecanismo. Qual <mark>palavra</mark> nomeia essa peça?",
+          "figura": null,
+          "alternativas": [
+            "Engrenagem",
+            "Fotograma",
+            "Projetor",
+            "Relojoeiro"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Procure a palavra para uma peça, não para uma pessoa ou imagem.",
+          "explicacao": "Engrenagem é a roda dentada que transmite movimento."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q202",
+          "enunciado": "Uma pessoa desmonta o relógio, troca a mola danificada e regula o mecanismo. O que ela está <mark>fazendo</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Consertando o relógio",
+            "Apenas dando corda",
+            "Projetando um filme",
+            "Produzindo um fotograma"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Há uma peça danificada sendo trocada.",
+          "explicacao": "Trocar a peça defeituosa é consertar; dar corda apenas prepara energia."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q203",
+          "enunciado": "Um quadro isolado de uma película mostra a Lua com um objeto em seu olho. Nesse contexto, o que é <mark>‘fotograma’</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Uma imagem individual que compõe um filme",
+            "Uma máquina que lança luz sobre a parede",
+            "Uma roda dentada dentro de um relógio",
+            "Uma pessoa que restaura mecanismos"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "passos": [
+            "Observe que se trata de um quadro isolado.",
+            "Relacione esse quadro ao conjunto do filme."
+          ],
+          "dica": "Um filme é formado por muitas imagens sucessivas.",
+          "explicacao": "Fotograma é uma das imagens individuais de um filme."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q204",
+          "enunciado": "A máquina recebe luz e lança as imagens do filme numa tela. Qual é sua <mark>função</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Exibir as imagens numa superfície usando luz",
+            "Guardar cada fotograma dentro de uma moldura",
+            "Fazer a película se mover sem mostrar as imagens",
+            "Iluminar a sala enquanto o filme fica guardado"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "A pista principal é ‘lança as imagens numa tela’.",
+          "explicacao": "O projetor usa luz para exibir as imagens numa superfície."
+        }
+      ],
+      "capitulo_id": "cap-2"
+    },
+    {
+      "missao_id": "forma-e2",
+      "icone": "🎞️",
+      "titulo": "Ler o enquadramento",
+      "subtitulo": "O que a imagem escolhe mostrar",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.FORMA",
+      "subtema": "Palavras e imagens, narrador, elementos reais",
+      "habilidade_bncc": "EF15LP18",
+      "ferramenta": "investigar",
+      "regra": "Compare <b>campo, detalhe e sequência</b>. Para a voz da história, separe quem escreve o livro, quem conta e quem vive a cena.",
+      "aula": {
+        "corpo": "<p>Um plano amplo situa; um detalhe chama atenção; quadros sucessivos mostram mudança. Separe também quem vive os acontecimentos de quem os conta: o ponto de vista muda as informações que o leitor recebe.</p><p>Uma imagem pode vir de um filme que existe, mas mostrar uma aventura inventada. Para saber a origem, confira a informação que acompanha a imagem. Ela não prova sozinha que a aventura aconteceu.</p><h3>Hora de decidir · Que informação o quadro acrescenta?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> escolha uma imagem do livro e diga o que ela narra além do texto.</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a leitura que usa enquadramento e fonte.",
+        "exemplos": [
+          {
+            "contexto": "Observe esta sequência de treino, desenhada para a atividade.",
+            "pergunta": "O que a mudança acrescenta?",
+            "alternativas": [
+              "Situa o espaço e depois revela onde olhar",
+              "Prova que a figura foi uma pessoa real",
+              "Mostra que a segunda cena veio antes da primeira"
+            ],
+            "correta": 0,
+            "explicacao": "O plano amplo orienta; o recorte seguinte conduz ao personagem.",
+            "figura": {
+              "tipo": "svg",
+              "conteudo": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 570 200\" role=\"img\" aria-label=\"Três quadros com a mesma criança na estação: o ambiente, o rosto e um olho.\"><defs><g id=\"study-tool-2\" stroke=\"#23384b\" stroke-width=\"2\"><path d=\"M-19 24Q0 15 19 24L24 46H-24Z\" fill=\"#368b88\"/><ellipse cy=\"-5\" rx=\"18\" ry=\"24\" fill=\"#edc69a\"/><path d=\"M-18 -9Q-25 -38 3 -32Q23 -31 18 -6L11 -20Q-4 -10 -16 -18Z\" fill=\"#39454c\"/><path d=\"M-13 -8h8M5 -8h8\" fill=\"none\"/><ellipse cx=\"-8\" cy=\"-2\" rx=\"4.5\" ry=\"3\" fill=\"white\"/><ellipse cx=\"8\" cy=\"-2\" rx=\"4.5\" ry=\"3\" fill=\"white\"/><circle cx=\"-8\" cy=\"-2\" r=\"1.6\" fill=\"#23384b\"/><circle cx=\"8\" cy=\"-2\" r=\"1.6\" fill=\"#23384b\"/><path d=\"M0 0l-2 8h4M-6 15q6 3 12 0\" fill=\"none\"/></g><clipPath id=\"study-tool-2-a\"><rect x=\"12\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></clipPath><clipPath id=\"study-tool-2-b\"><rect x=\"198\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></clipPath><clipPath id=\"study-tool-2-c\"><rect x=\"384\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></clipPath></defs><g font-family=\"sans-serif\" font-size=\"16\" fill=\"#23384b\" text-anchor=\"middle\"><text x=\"99\" y=\"20\">1</text><text x=\"285\" y=\"20\">2</text><text x=\"471\" y=\"20\">3</text></g><g fill=\"#f4eee1\" stroke=\"#23384b\" stroke-width=\"2\"><rect x=\"12\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/><rect x=\"198\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/><rect x=\"384\" y=\"28\" width=\"174\" height=\"158\" rx=\"6\"/></g><g clip-path=\"url(#study-tool-2-a)\"><path d=\"M30 170V85Q99 6 168 85V170M52 160V92Q99 45 146 92V160M12 171h174\" fill=\"none\" stroke=\"#83948d\" stroke-width=\"4\"/><circle cx=\"99\" cy=\"67\" r=\"19\" fill=\"#fff9eb\" stroke=\"#23384b\" stroke-width=\"2\"/><path d=\"M99 53v14l9 6\" fill=\"none\" stroke=\"#23384b\" stroke-width=\"2\"/><use href=\"#study-tool-2\" transform=\"translate(99 132) scale(.68)\"/></g><g clip-path=\"url(#study-tool-2-b)\"><use href=\"#study-tool-2\" transform=\"translate(285 123) scale(2.6)\"/></g><g clip-path=\"url(#study-tool-2-c)\"><use href=\"#study-tool-2\" transform=\"translate(359 138) scale(14)\"/></g></svg>",
+              "legenda": "Três enquadramentos da mesma cena, da esquerda para a direita."
+            }
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.FORMA.Q201",
+          "enunciado": "Compare os dois quadros. Qual <mark>efeito</mark> o segundo produz?",
+          "figura": {
+            "tipo": "svg",
+            "conteudo": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 570 200\" role=\"img\" aria-label=\"Dois quadros: uma pessoa na plataforma e o sapato dessa pessoa perto dos trilhos.\"><defs><g id=\"shoe-detail\" stroke=\"#23384b\" stroke-width=\"2\"><path d=\"M-10 -30h16v25l16 9q5 9-5 10h-36V-1h9Z\" fill=\"#344e67\"/><path d=\"M-20 2H6q10 0 17 4v8h-43Z\" fill=\"#b7794e\"/><path d=\"M-19 10h41\" fill=\"none\"/></g><clipPath id=\"shoe-right\"><rect x=\"300\" y=\"28\" width=\"258\" height=\"158\"/></clipPath></defs><g fill=\"#f4eee1\" stroke=\"#23384b\" stroke-width=\"2\"><rect x=\"12\" y=\"28\" width=\"258\" height=\"158\" rx=\"6\"/><rect x=\"300\" y=\"28\" width=\"258\" height=\"158\" rx=\"6\"/></g><g font-family=\"sans-serif\" font-size=\"16\" text-anchor=\"middle\"><text x=\"141\" y=\"20\">1</text><text x=\"429\" y=\"20\">2</text></g><path d=\"M20 155h240M20 166h240M20 180h240M38 168v12m28-12v12m28-12v12m28-12v12m28-12v12m28-12v12m28-12v12\" fill=\"none\" stroke=\"#77867e\" stroke-width=\"3\"/><path d=\"M35 147V70h54v77M177 146V63h64v83M33 69h209\" fill=\"none\" stroke=\"#a3ada7\" stroke-width=\"3\"/><circle cx=\"131\" cy=\"68\" r=\"14\" fill=\"#edc69a\" stroke=\"#23384b\" stroke-width=\"2\"/><path d=\"M113 86h36l5 35h-47Z\" fill=\"#368b88\"/><use href=\"#shoe-detail\" transform=\"translate(127 142) scale(.7)\"/><g clip-path=\"url(#shoe-right)\"><path d=\"M300 145h258M300 163h258M300 182h258M320 164v18m45-18v18m45-18v18m45-18v18m45-18v18\" fill=\"none\" stroke=\"#77867e\" stroke-width=\"5\"/><use href=\"#shoe-detail\" transform=\"translate(427 98) scale(3.1)\"/></g></svg>",
+            "legenda": "Esquema de treino. Compare o primeiro quadro com o segundo."
+          },
+          "alternativas": [
+            "Destaca um detalhe que pode ganhar importância",
+            "Mostra melhor a estação inteira ao redor da pessoa",
+            "Muda para outro lugar sem relação com o primeiro",
+            "Repete a cena sem mudar o que conseguimos ver"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pergunte por que o campo visível ficou menor.",
+          "explicacao": "O recorte dirige a atenção ao sapato e cria expectativa sobre esse detalhe."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q202",
+          "enunciado": "Observe a chave nos três quadros. O que essa <mark>sequência</mark> comunica?",
+          "figura": {
+            "tipo": "svg",
+            "conteudo": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 570 180\" role=\"img\" aria-label=\"Três quadros de uma chave: fora da fechadura, encaixada e com a posição girada.\"><defs><g id=\"key-piece\" fill=\"#dba944\" stroke=\"#23384b\" stroke-width=\"2\"><circle cx=\"-50\" r=\"13\"/><circle cx=\"-50\" r=\"6\" fill=\"#f4eee1\"/><path d=\"M-37 -4H0V5H-12V11H-20V5H-37Z\"/></g></defs><g font-family=\"sans-serif\" font-size=\"16\" text-anchor=\"middle\"><text x=\"99\" y=\"20\">1</text><text x=\"285\" y=\"20\">2</text><text x=\"471\" y=\"20\">3</text></g><g fill=\"#f4eee1\" stroke=\"#23384b\" stroke-width=\"2\"><rect x=\"12\" y=\"28\" width=\"174\" height=\"138\" rx=\"6\"/><rect x=\"198\" y=\"28\" width=\"174\" height=\"138\" rx=\"6\"/><rect x=\"384\" y=\"28\" width=\"174\" height=\"138\" rx=\"6\"/><circle cx=\"133\" cy=\"94\" r=\"22\" fill=\"#bdc6c2\"/><circle cx=\"319\" cy=\"94\" r=\"22\" fill=\"#bdc6c2\"/><circle cx=\"505\" cy=\"94\" r=\"22\" fill=\"#bdc6c2\"/></g><g stroke=\"#23384b\" stroke-width=\"5\"><path d=\"M133 84v20M319 84v20M495 94h20\"/></g><use href=\"#key-piece\" transform=\"translate(91 94)\"/><use href=\"#key-piece\" transform=\"translate(319 94)\"/><use href=\"#key-piece\" transform=\"translate(505 94) rotate(-65)\"/></svg>",
+            "legenda": "Esquema de treino. Leia os quadros na ordem 1, 2 e 3."
+          },
+          "alternativas": [
+            "Uma ação que se desenvolve no tempo",
+            "Três objetos sem relação narrativa",
+            "Uma prova histórica sobre quem criou a chave",
+            "Uma explicação de como fabricar metal"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Compare onde a chave está e a posição em que ela aparece.",
+          "explicacao": "A chave aparece fora, depois encaixada e, por fim, girada. As mudanças contam uma ação no tempo."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q203",
+          "enunciado": "Imagine uma cena de treino: o texto diz que Hugo ouve um ruído; a imagem mostra uma sombra se aproximando por trás dele. <mark>Como</mark> os dois recursos trabalham juntos?",
+          "figura": null,
+          "alternativas": [
+            "Cada um acrescenta uma pista à tensão da cena",
+            "A imagem repete o texto sem acrescentar informação",
+            "O texto prova que a sombra pertence a pessoa histórica",
+            "A imagem elimina a necessidade de ler qualquer outra parte"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Liste a pista sonora do texto.",
+            "Liste a pista visual e una as duas."
+          ],
+          "dica": "Uma pista chega pelo som narrado; outra, pelo que o leitor vê.",
+          "explicacao": "Som e sombra se completam para construir a tensão."
+        },
+        {
+          "questao_id": "POR.LEI.FORMA.Q204",
+          "enunciado": "Em um exemplo de estudo, um narrador adulto escreve: ‘Quando eu era criança, escondia meus cadernos’. Quem conta e <mark>quem</mark> vive o acontecimento lembrado?",
+          "figura": null,
+          "alternativas": [
+            "O adulto conta; sua versão criança vive a lembrança",
+            "O adulto conta uma lembrança vivida por outra criança",
+            "A criança conta no momento em que esconde os cadernos",
+            "O adulto conta algo que fará quando voltar a ser criança"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "A expressão ‘quando eu era criança’ liga duas idades da mesma pessoa.",
+          "explicacao": "A mesma pessoa aparece em dois tempos: adulta ao narrar e criança no fato lembrado."
+        }
+      ],
+      "capitulo_id": "cap-2"
+    },
+    {
+      "missao_id": "mistura-cenas-marcos-e3",
+      "icone": "🧩",
+      "titulo": "Pistas nas cenas",
+      "subtitulo": "Personagem, ordem, ligação ou marco?",
+      "intercalada": true,
+      "banco_de": {
+        "missoes": [
+          "personagens-e2",
+          "sequencia-e2",
+          "causa-e2",
+          "estrutura-e2"
+        ]
+      },
+      "sorteio": {
+        "por_tema": [
+          1,
+          2
+        ]
+      },
+      "regras": [
+        {
+          "tema_id": "POR.LEI.PERS",
+          "rotulo": "O que a ação mostra",
+          "texto": "Junte <b>relação, ação e contexto</b>. Descreva o que o gesto mostra naquela cena; uma ação não define a pessoa inteira."
+        },
+        {
+          "tema_id": "POR.LEI.SEQ",
+          "rotulo": "O que veio antes",
+          "texto": "Monte <b>três eventos próximos</b>. Confira se cada evento já era possível naquele ponto. Estar antes não significa causar."
+        },
+        {
+          "tema_id": "POR.LEI.CAUSA",
+          "rotulo": "Por que aconteceu",
+          "texto": "Teste a ligação com <b>porque</b> ou <b>por causa disso</b>. A resposta precisa de uma pista do contexto, não apenas da ordem."
+        },
+        {
+          "tema_id": "POR.LEI.ESTR",
+          "rotulo": "O mapa da história",
+          "texto": "<b>Situação inicial:</b> como encontramos os personagens. <b>Situação-problema:</b> o que quer + o que impede. <b>Clímax:</b> maior tensão, quando tudo pode virar. <b>Desfecho:</b> como termina. <b>Cenário:</b> onde e quando."
+        }
+      ],
+      "capitulo_id": "cap-3"
+    },
+    {
+      "missao_id": "mistura-sentidos-e3",
+      "icone": "🎞️",
+      "titulo": "Pistas nos sentidos",
+      "subtitulo": "Mensagem, palavra ou imagem?",
+      "intercalada": true,
+      "banco_de": {
+        "missoes": [
+          "tema-e2",
+          "vocabulario-e2",
+          "forma-e2"
+        ]
+      },
+      "sorteio": {
+        "por_tema": [
+          1,
+          2
+        ]
+      },
+      "regras": [
+        {
+          "tema_id": "POR.LEI.TEMA",
+          "rotulo": "Da cena à mensagem",
+          "texto": "Comece na <b>cena</b>, descreva a <b>mudança</b> e só então formule o sentido que também cabe em outros momentos."
+        },
+        {
+          "tema_id": "POR.LEI.VOCAB",
+          "rotulo": "Palavra no contexto",
+          "texto": "Procure uma pista nas <b>partes da palavra</b> e outra na <b>ação descrita</b>. Decida se nomeia pessoa, peça, ação ou imagem."
+        },
+        {
+          "tema_id": "POR.LEI.FORMA",
+          "rotulo": "Como o livro mostra",
+          "texto": "Compare <b>o que muda entre quadros</b>. Confira a origem das imagens e separe quem escreve o livro, quem conta e quem vive a cena."
+        }
+      ],
+      "capitulo_id": "cap-3"
+    }
+  ]
+}

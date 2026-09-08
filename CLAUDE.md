@@ -155,14 +155,26 @@ envenena a calibragem da prova seguinte.
 - `contexto`: `prova` | `revisao_espacada` | `treino_livre`. Véspera de prova e sábado à toa
   não são comparáveis.
 
-### Encontros de uma sequência
-Cada encontro tem `prova_id` próprio: o progresso de uma passagem não conclui a
-seguinte. `trilha` pode declarar `etapa` (1–3), `orientacao` e links relativos
-`anterior`/`proxima` para arquivos HTML da sequência. Esses links não prescrevem
-fazer os encontros em seguida; a orientação do responsável determina o intervalo
-e se há base para a revisão intercalada. Não adaptar dificuldade automaticamente.
-Os dois links têm aparência de botão e preservam a identidade da página de origem.
-O controle "trocar" continua disponível; outra aba não muda a pessoa desta página.
+### Capítulos de uma trilha
+Uma sequência de estudo é **um artefato só, em capítulos** (`prova.capitulos`:
+`capitulo_id`, `titulo`, `funcao`, `contexto`, `recuperacao`), e cada missão traz
+`capitulo_id`. O mapa agrupa as missões por capítulo; concluir a última missão de um
+capítulo abre a primeira do seguinte no mesmo mapa, sem outro link nem nova escolha
+de pessoa. O `contexto` de cada linha da planilha vem da missão ou do capítulo
+(`prova` no capítulo de ensino, `revisao_espacada` nos de aplicação e mistura), e a
+29ª coluna `capitulo_id` distingue os capítulos na planilha.
+
+Ao fechar um capítulo, o mapa mostra um cartão com uma pergunta de recuperação
+opcional (`capitulo.recuperacao`: pergunta e resposta de referência), sem nota,
+sem registro e sem obrigação, e lembra que o próximo capítulo rende mais em outra
+ocasião. Não trancar capítulo por relógio ou data, não premiar emendar capítulos,
+não criar sessão nova por capítulo. A pausa sugerida da 2ª e da 4ª missão conta
+dentro do capítulo. "Minhas pistas" reúne os cartões de regra das missões concluídas.
+Uma missão intercalada pode emprestar o banco de missões anteriores do mesmo arquivo
+com `banco_de: {missoes: [ids]}`. Não adaptar dificuldade automaticamente.
+
+Provas antigas sem `capitulos` continuam funcionando como antes. `trilha` com links
+entre arquivos é o formato anterior, mantido só para compatibilidade.
 
 A ferramenta `investigar` recebe `dados.exemplos` com contexto, pergunta,
 alternativas, gabarito, explicação e figura opcional. Ela exige escolher e
@@ -262,7 +274,8 @@ Campos: `evento_id`, `sessao_id`, `timestamp`, `aluna`, `materia`, `eixo`, `tema
 `subtema`, `questao_id`, `habilidade_bncc`, `escola`, `ano_aluna`, `nivel_conteudo`,
 `bimestre`, `contexto`, `resultado` (`acerto_1a`|`acerto_2a`|`erro`), `usou_dica`,
 `usou_andaime`, `dificuldade`, `tipo_raciocinio`, `seg_ate_1o_toque`, `seg_total`,
-`saiu_da_tela`, `tempo_valido`, `retomada`, `posicao_na_sessao`, `modo_foco`, `dispositivo`.
+`saiu_da_tela`, `tempo_valido`, `retomada`, `posicao_na_sessao`, `modo_foco`, `dispositivo`
+e, desde 08/09, `capitulo_id` (29ª coluna, vazia em eventos antigos).
 
 **Sobre tempo:** medir até o **primeiro toque** (leitura + decisão); depois disso é ruído.
 Marcar `tempo_valido = false` se houve saída de tela (Page Visibility API) ou se passou de
@@ -274,7 +287,7 @@ recomeça em 1. Sem esse teto, duas ocasiões de estudo viravam uma só e a exig
 **3 sessões distintas** da seção 2 nunca era satisfeita honestamente.
 
 Novos IDs de sessão incluem o `prova_id` como prefixo, para distinguir encontros
-na planilha sem alterar suas 28 colunas. IDs antigos retomados ficam como estão
+na planilha sem alterar suas 28 colunas originais (a 29ª, `capitulo_id`, chegou em 08/09). IDs antigos retomados ficam como estão
 até a expiração. A coluna continua sendo um identificador opaco para o dashboard.
 Primeiro toque inclui alternativa, dica ou andaime. O tempo total termina antes
 da leitura do feedback final; intervalos entre eventos não medem diretamente aula.
@@ -348,4 +361,4 @@ Preview local: `node scripts/preview-dash.mjs [pasta] --servir` (saída nunca em
 - [ ] Ferramentas de matemática ainda vivem no motor e ainda embutem conteúdo de prova
       (`3,472` em `valor`, a sacola 3/5/2 em `prob`, os exemplos de `contas`).
       Só `grafico` já lê os dados da missão. Parametrizar as outras.
-- [x] Telemetria por questão — feito, 28 campos, uma linha por questão respondida.
+- [x] Telemetria por questão — feito, 29 campos (28 originais + `capitulo_id`), uma linha por questão respondida.

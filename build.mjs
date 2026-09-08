@@ -66,11 +66,70 @@ else if (new Set(prova.alunas).size !== prova.alunas.length)
   erros.push('`alunas` tem nome repetido — viraria duas pessoas diferentes no log');
 else if (!prova.alunas.some(a => /\(teste\)/i.test(a)))
   erros.push('`alunas` precisa incluir ao menos uma pessoa com "(teste)" para não misturar testes adultos ao progresso da aluna');
-if (prova.contexto && !['prova','revisao_espacada','treino_livre'].includes(prova.contexto))
+const CONTEXTOS = ['prova','revisao_espacada','treino_livre'];
+if (prova.contexto && !CONTEXTOS.includes(prova.contexto))
   erros.push(`contexto inválido: ${prova.contexto}`);
 if (prova.filas_legadas != null && (!Array.isArray(prova.filas_legadas) ||
     prova.filas_legadas.some(id=>typeof id!=='string'||!/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(id)||id===prova.prova_id)))
   erros.push('filas_legadas precisa conter IDs de provas anteriores, diferentes da atual');
+if (prova.progresso_legado != null && (!Array.isArray(prova.progresso_legado) ||
+    prova.progresso_legado.some(id=>typeof id!=='string'||!/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(id)||id===prova.prova_id)))
+  erros.push('progresso_legado precisa conter IDs de provas anteriores, diferentes da atual');
+
+/* ---------- trilha em capítulos ----------
+   Capítulo é o mapa único (aprender → aplicar → misturar) do guia de
+   student-progress-dashboard-plan.md §7. Com `capitulos`, toda missão precisa
+   apontar para um deles, e o mapa é sequencial: as missões de um capítulo
+   formam um bloco contíguo, na ordem em que os capítulos foram declarados —
+   nunca intercaladas entre capítulos nem fora de ordem. Sem `capitulos`, o
+   campo na missão não tem para onde apontar. */
+let capitulosPorId = null;
+if (prova.capitulos != null) {
+  if (!Array.isArray(prova.capitulos) || !prova.capitulos.length) {
+    erros.push('`capitulos` precisa ser uma lista não vazia');
+  } else {
+    capitulosPorId = new Map();
+    for (const c of prova.capitulos) {
+      if (!c || typeof c !== 'object') { erros.push('capítulo inválido: precisa ser objeto'); continue; }
+      const rotulo = typeof c.capitulo_id === 'string' ? c.capitulo_id : '(sem capitulo_id)';
+      if (typeof c.capitulo_id !== 'string' || !/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(c.capitulo_id))
+        erros.push(`capitulo_id inválido: ${rotulo}`);
+      else if (capitulosPorId.has(c.capitulo_id))
+        erros.push(`capitulo_id duplicado: ${c.capitulo_id}`);
+      else capitulosPorId.set(c.capitulo_id, c);
+      if (typeof c.titulo !== 'string' || !c.titulo.trim())
+        erros.push(`capítulo ${rotulo}: "titulo" precisa ser texto não vazio`);
+      if (typeof c.funcao !== 'string' || !c.funcao.trim())
+        erros.push(`capítulo ${rotulo}: "funcao" precisa ser texto não vazio`);
+      if (!CONTEXTOS.includes(c.contexto))
+        erros.push(`capítulo ${rotulo}: "contexto" precisa ser um de ${CONTEXTOS.join('|')}`);
+      if (!c.recuperacao || typeof c.recuperacao !== 'object' ||
+          typeof c.recuperacao.pergunta !== 'string' || !c.recuperacao.pergunta.trim() ||
+          typeof c.recuperacao.referencia !== 'string' || !c.recuperacao.referencia.trim())
+        erros.push(`capítulo ${rotulo}: "recuperacao" precisa de "pergunta" e "referencia" não vazias`);
+    }
+  }
+}
+if (capitulosPorId) {
+  const idsDeclarados = prova.capitulos.filter(c => c && typeof c.capitulo_id === 'string').map(c => c.capitulo_id);
+  let ultimoIdx = -1;
+  for (const m of prova.missoes || []) {
+    if (m.capitulo_id == null) { erros.push(`missão sem capitulo_id: ${m.missao_id} — a prova declara capítulos e toda missão precisa apontar para um`); continue; }
+    const idx = idsDeclarados.indexOf(m.capitulo_id);
+    if (idx === -1) { erros.push(`capitulo_id inexistente em ${m.missao_id}: ${m.capitulo_id}`); continue; }
+    if (idx < ultimoIdx)
+      erros.push(`missão ${m.missao_id} quebra a ordem/contiguidade dos capítulos: o capítulo ${m.capitulo_id} já havia sido encerrado antes dela`);
+    ultimoIdx = idx;
+  }
+} else {
+  for (const m of prova.missoes || [])
+    if (m.capitulo_id != null)
+      erros.push(`missão com capitulo_id mas a prova não declara "capitulos": ${m.missao_id}`);
+}
+// contexto por missão é independente de capítulo: mesma validade de valor, aceito com ou sem trilha em capítulos
+for (const m of prova.missoes || [])
+  if (m.contexto != null && !CONTEXTOS.includes(m.contexto))
+    erros.push(`contexto inválido em ${m.missao_id}: ${m.contexto}`);
 
 /* A trilha só orienta encontros diferentes; não libera nada no motor. Os
    nomes de arquivo são fechados aqui para que os links gerados continuem
@@ -123,6 +182,12 @@ function validarInvestigacao(dados,missaoId){
    questão: fora do bloco dela, é o único jeito de a linha da planilha continuar
    dizendo a verdade sobre o que foi praticado. */
 const bancoOrigem = new Map();   // bastidor do resumo, fora do JSON injetado
+/* Cópias legítimas de banco_de INTERNO: o mesmo questao_id existe de propósito
+   na missão de origem e na missão intercalada que a empresta. Guardado como
+   `missao_id::questao_id` — nunca vira campo da questão, então não entra no
+   JSON injetado nem no que a aluna recebe. */
+const copiasPermitidas = new Set();
+const indiceMissao = new Map((prova.missoes || []).map((m, i) => [m.missao_id, i]));
 const porProvaId = f => {
   const caminho = 'data/provas/' + f + '.json';
   if (fs.existsSync(caminho)) return caminho;
@@ -132,11 +197,65 @@ const porProvaId = f => {
   }
   return null;
 };
-for (const m of prova.missoes) {
+for (let i = 0; i < (prova.missoes || []).length; i++) {
+  const m = prova.missoes[i];
   if (m.banco_de == null) continue;
   const ref = m.banco_de;
+  const formaAntiga = ref.prova != null || ref.temas != null;
+  const formaNova = ref.missoes != null;
+  if (formaAntiga && formaNova) {
+    erros.push(`banco_de em ${m.missao_id}: use a forma antiga ("prova"+"temas") ou a nova ("missoes"), nunca as duas juntas`);
+    continue;
+  }
+  if (formaNova) {
+    /* Banco interno: empresta de outra missão DA MESMA PROVA, já escrita antes
+       dela no mapa. É o mesmo carimbo tema/eixo/subtema/BNCC do empréstimo
+       entre provas — a diferença é só de onde a questão vem. */
+    if (!m.intercalada) {
+      erros.push(`banco_de.missoes em ${m.missao_id}: só uma missão intercalada pode emprestar questões de outra missão da mesma prova`);
+      continue;
+    }
+    if (!Array.isArray(ref.missoes) || !ref.missoes.length) {
+      erros.push(`banco_de.missoes malformado em ${m.missao_id}: precisa de uma lista não vazia de missao_id`);
+      continue;
+    }
+    const emprestadas = [];
+    for (const origemId of ref.missoes) {
+      const idxOrigem = indiceMissao.get(origemId);
+      if (idxOrigem == null) {
+        erros.push(`banco_de.missoes em ${m.missao_id}: não achei a missão "${origemId}" nesta prova`);
+        continue;
+      }
+      if (idxOrigem >= i) {
+        erros.push(`banco_de.missoes em ${m.missao_id}: a missão "${origemId}" precisa vir ANTES dela no mapa`);
+        continue;
+      }
+      const mo = prova.missoes[idxOrigem];
+      if (mo.banco_de != null) {
+        erros.push(`banco_de.missoes em ${m.missao_id}: a missão "${origemId}" já é ela própria emprestada de outra — sem cadeias de empréstimo`);
+        continue;
+      }
+      if (!mo.questoes?.length) {
+        erros.push(`banco_de.missoes em ${m.missao_id}: a missão "${origemId}" está sem questões próprias`);
+        continue;
+      }
+      if (mo.tema_id == null) {
+        erros.push(`banco_de.missoes em ${m.missao_id}: a missão "${origemId}" não tem tema_id para carimbar as cópias`);
+        continue;
+      }
+      for (const q of mo.questoes) {
+        emprestadas.push({ ...q, tema_id: mo.tema_id, eixo: mo.eixo, subtema: mo.subtema,
+                           habilidade_bncc: mo.habilidade_bncc ?? null });
+        copiasPermitidas.add(`${m.missao_id}::${q.questao_id}`);
+      }
+    }
+    m.questoes = [...(m.questoes || []), ...emprestadas];
+    bancoOrigem.set(m.missao_id, { prova: prova.prova_id, questoes: emprestadas.length });
+    continue;
+  }
+  // forma antiga: empresta de outra prova, por tema
   if (!ref.prova || !Array.isArray(ref.temas) || !ref.temas.length) {
-    erros.push(`banco_de malformado em ${m.missao_id}: precisa de "prova" e de uma lista "temas"`);
+    erros.push(`banco_de malformado em ${m.missao_id}: precisa de "prova" e de uma lista "temas" (ou, na forma interna, de "missoes")`);
     continue;
   }
   const caminho = porProvaId(ref.prova);
@@ -258,8 +377,9 @@ for (const m of prova.missoes) {
     }
   }
   for (const q of m.questoes) {
-    if (ids.has(q.questao_id)) erros.push(`questao_id duplicado: ${q.questao_id}`);
-    ids.add(q.questao_id);
+    const copiaLegitima = copiasPermitidas.has(`${m.missao_id}::${q.questao_id}`);
+    if (ids.has(q.questao_id) && !copiaLegitima) erros.push(`questao_id duplicado: ${q.questao_id}`);
+    if (!copiaLegitima) ids.add(q.questao_id);
     if (q.correta == null || !q.alternativas[q.correta]) erros.push(`gabarito inválido: ${q.questao_id}`);
     if (!q.dica || !q.explicacao) erros.push(`sem dica ou explicação: ${q.questao_id}`);
     if (![1,2,3].includes(q.dificuldade)) erros.push(`dificuldade fora de 1-3: ${q.questao_id}`);

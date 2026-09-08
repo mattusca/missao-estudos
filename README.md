@@ -63,36 +63,35 @@ o dash barra igual. Nenhuma senha no código, nenhum e-mail no repositório.
 ## Telemetria
 
 Uma linha por questão respondida — nunca por missão. Resumo não se desagrega;
-detalhe se agrega com fórmula. As 28 colunas estão em `COLUNAS` (`src/motor.html`)
+detalhe se agrega com fórmula. As 29 colunas estão em `COLUNAS` (`src/motor.html`)
 e espelhadas em `CAMPOS` (`apps-script/enviar.gs`); mexeu numa, mexa na outra.
 
 Novas sessões incluem o `prova_id` no identificador da coluna Sessão. Isso permite
-distinguir os encontros de uma sequência mantendo as 28 colunas existentes;
+distinguir os encontros de uma sequência mantendo as 28 colunas anteriores e acrescentando a 29ª, `capitulo_id`;
 sessões antigas retomadas preservam o ID original até expirar.
 
 ## Hugo Cabret — três encontros
 
 O [roteiro do responsável](guides/hugo-study-sequence.md) organiza ensino guiado,
-aplicação em situações novas e recuperação posterior. O terceiro encontro é
-opcional e pressupõe que os temas já tenham sido trabalhados. Cada arquivo tem
-progresso próprio por pessoa e 14 a 16 questões por passagem.
+aplicação em situações novas e recuperação posterior. Desde 08/09 os três encontros
+são **capítulos de um artefato só** (`data/provas/2026-09-hugo-trilha-y5.json`):
+concluir o último desafio de um capítulo abre o seguinte no mesmo mapa, sem outro
+link e sem escolher a pessoa de novo. O capítulo 3 é opcional e pressupõe que os
+temas já tenham sido trabalhados. O progresso é por pessoa; a passagem completa tem
+46 questões (16 + 16 + 14).
 
 ```bash
-node build.mjs 2026-09-hugo-session-1-y5
-node build.mjs 2026-09-hugo-session-2-y5
-node build.mjs 2026-09-hugo-session-3-y5
+node build.mjs 2026-09-hugo-trilha-y5
 node scripts/servir.mjs
 ```
 
-Abra o índice local e escolha **Encontro 1**. O teste inicial continua disponível
-no JSON original como referência histórica. Seu endereço público agora abre o
-primeiro encontro da sequência:
+O endereço público continua o mesmo e abre a trilha:
 [Hugo Cabret](https://mattusca.github.io/missao-estudos/2026-09-hugo-cabret-y5.html).
-O mapeamento em `data/publication-routes.json` preserva o link compartilhado e
-usa diretamente o conteúdo do encontro 1; não há redirecionamento nem duas cópias
-de conteúdo para manter. Os encontros seguintes são acessíveis pela própria página.
+`data/publication-routes.json` aponta esse nome e os antigos `session-1/2/3` para o
+mesmo conteúdo, sem redirecionamento e sem cópias. O teste inicial de 07/09 continua
+no JSON `2026-09-hugo-cabret-y5.json` como referência histórica, não publicado.
 
 Verificação da sequência e do motor: `node --test tests/motor.test.mjs tests/study-sequence.test.mjs`.
-O segundo teste gera os três HTMLs sem envio à planilha e verifica o banco emprestado,
-os sorteios e o contrato das 28 colunas. O validador editorial aceita um caminho:
-`python scripts/validar-conteudo.py data/provas/2026-09-hugo-session-1-y5.json`.
+O segundo teste gera a trilha e as rotas sem envio à planilha e verifica o banco
+interno, os capítulos, os sorteios e o contrato das 29 colunas. O validador editorial aceita um caminho:
+`python scripts/validar-conteudo.py data/provas/2026-09-hugo-trilha-y5.json`.

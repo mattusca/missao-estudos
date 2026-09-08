@@ -1,5 +1,79 @@
 # Changelog
 
+## 2026-09-08 — Hugo: trilha em capítulos num artefato só
+
+Implementação do plano `guides/student-progress-dashboard-plan.md` (Codex + revisão
+final de Claude), autorizada por Marco em 08/09.
+
+- **Conteúdo**: `data/provas/2026-09-hugo-trilha-y5.json` funde os encontros 1, 2 e 3
+  em 16 missões e três capítulos (`capitulos` com `capitulo_id`, `funcao`, `contexto`
+  e `recuperacao`), mantendo o `prova_id` do encontro 1 e todos os ids de missão e
+  questão. Os três JSONs antigos saíram; `publication-routes.json` aponta os quatro
+  nomes públicos para a trilha, então nenhum link quebra.
+- **Motor**: mapa por capítulo (atual expandido, outros recolhidos, estado por ícone e
+  palavra); concluir a última missão de um capítulo abre a primeira do seguinte no
+  mesmo mapa; pausa da 2ª/4ª missão conta dentro do capítulo; cartão de fim de
+  capítulo com pergunta de recuperação opcional e "Conferir uma possibilidade";
+  "Parar por hoje" e "Continuar no mapa" com o mesmo peso; "Minhas pistas" reúne os
+  cartões de regra das missões concluídas; tela final só uma vez, com "XP acumulado
+  neste artefato", sem lista de erros antigos e com no máximo uma sugestão de releitura
+  da última missão; importação idempotente do progresso legado dos encontros 2 e 3;
+  fila legada das três provas anteriores. Correção achada no caminho: `rotulos()`
+  quebrava com mais de dez missões.
+- **Telemetria**: 29ª coluna `capitulo_id`; `contexto` vem da missão ou do capítulo.
+  `enviar.gs` ganha o campo e `garantirCabecalho_`, que acrescenta a coluna numa aba
+  existente. **Pendente de Marco: reimplantar o Apps Script**; até lá o servidor de 28
+  campos ignora o 29º sem perder nada.
+- **Build**: `capitulos` validados (contíguos, ids únicos, contexto no enum);
+  `banco_de: {missoes}` interno com carimbo da missão de origem; duplicidade de
+  `questao_id` liberada só para cópias emprestadas; `progresso_legado` validado.
+- Guia do responsável, README e CLAUDE.md descrevem capítulos, cartão, pistas e a coluna 29.
+
+Produção: JSON, rotas, Apps Script e docs por Claude; motor por agente Opus e build/testes
+por agente Sonnet, em paralelo e em arquivos separados. Verificação: 27 testes, seis
+builds (trilha, quatro rotas e provas antigas), e no navegador: cartão de capítulo,
+"Parar por hoje", desbloqueio da missão 8, "Minhas pistas", tela final uma vez e volta
+ao mapa com a nota de percurso concluído.
+Auditoria independente (dois agentes Sonnet): 8 achados, todos corrigidos. O mais grave
+era de publicação: o workflow só construía JSONs existentes, e os nomes antigos dos
+encontros dariam 404 no próximo deploy; agora `scripts/build-all.mjs` gera provas e
+rotas, e o workflow e o teste usam o mesmo script. Os demais: contagem de colunas na
+documentação, cadeado reaproveitado no capítulo futuro, frase do intervalo no último
+capítulo, placeholder no changelog.
+
+
+## 2026-09-08 — Plano do painel infantil de evolução
+
+- Visão final consolidada no mesmo plano após a revisão do Claude e análise
+  adversarial técnica/pedagógica. Retirados histórico de rodadas e comparação
+  infantil; mantidos progresso acumulado, capítulos, recuperação oral opcional
+  com conferência, pistas e compatibilidade limitada dos dados existentes.
+- Corrigidas premissas sobre ausência de dados no Sheets, banco interno por
+  missão de origem, aliases, implantação prévia da 29ª coluna e frases do final.
+  Recomendação de executor fundamentada em continuidade e preços-base oficiais,
+  sem alegar comparação controlada entre modelos. Nenhum arquivo novo criado;
+  sem alteração da aplicação ou publicação.
+- Atualização a partir da conversa com Claude enviada por Marco: artefato único
+  com 3 capítulos e 16 missões, mapa persistente autoral, transições internas,
+  identidade mantida, pausas por capítulo e fechamento leve antes do painel final.
+- Planejadas migração por pessoa, preservação da URL pública e de rotas antigas,
+  contexto efetivo por missão e contrato de telemetria a discutir. Consulta
+  independente de arquitetura incluiu o reuso de IDs de questão entre capítulos;
+  critérios de aceitação e fases ajustados. Conferidas contagens no JSON,
+  estrutura do Markdown e diff; nenhum código ou conteúdo de prova alterado.
+- Documento `guides/student-progress-dashboard-plan.md` preparado para discussão
+  com Claude: quatro blocos de encerramento, álbum de ideias e comparação factual
+  por artefato e pessoa. Exemplos fictícios, sem dados individuais reais.
+- Recompensas previsíveis por participação, apoios acolhidos, saída satisfatória
+  e animação dispensável; referências primárias para orientar o feedback.
+- Contrato proposto de histórico local separado da fila, rodadas e tentativas,
+  versões, deduplicação, atualização de conteúdo e estados sem comparação.
+- Revisões de pedagogia e arquitetura em paralelo. Incorporadas distinção entre
+  estabilidade e dificuldade, data/hora original da resposta e política para
+  atualização incompatível com uma rodada aberta.
+- Entrega apenas documental. Nenhuma alteração de aplicação, build, commit ou
+  publicação. Implementação aguarda a discussão solicitada pelo Marco.
+
 ## 2026-09-08 — Hugo: revisão pedagógica do Codex sobre a estrutura narrativa
 
 O Codex auditou o commit `62ba9c9` e levantou seis hipóteses pedagógicas e duas

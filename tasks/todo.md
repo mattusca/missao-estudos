@@ -1,5 +1,31 @@
 # Pendências
 
+## 2026-09-08 — Plano do painel infantil de evolução
+- [x] Plano revisado por Claude (08/09) e implementado no mesmo dia: trilha única em
+      capítulos, cartão de recuperação opcional, "Minhas pistas", coluna 29, rotas.
+- [ ] **Marco: reimplantar o Apps Script** (`apps-script/enviar.gs`) para a planilha
+      ganhar a coluna Capítulo. Até lá o campo é ignorado pelo servidor.
+- [ ] Mapa em SVG da estação (etapa D do plano), depois da prova.
+- [ ] Observar com a Alícia: ela encontra o capítulo 2 sem perguntar? aceita a pergunta
+      de recuperação? Sem cobrar resposta.
+- [x] Consolidar a visão final sobre a revisão do Claude, com crítica adversarial
+      e recomendação de executor; editar o mesmo plano, sem criar arquivos.
+      Responsável: Codex; escopo documental, sem implementar ou publicar.
+- [x] Integrar a discussão enviada por Marco: artefato único em capítulos, mapa
+      visual persistente e transições com pausas; conciliar histórico e migração.
+      Responsável: Codex; escopo documental no plano e nos registros desta tarefa.
+- [x] Definir experiência, recompensas positivas e regras de comparação por artefato/pessoa.
+- [x] Especificar dados mínimos, estados sem histórico e critérios de validação.
+- [x] Revisar o plano e entregar documento para discussão com Claude.
+      Responsável: Codex; apenas `guides/student-progress-dashboard-plan.md` e
+      registros de planejamento. Sem implementação, build, commit ou publicação.
+- [x] Incorporar a devolutiva do Claude e fechar a recomendação no mesmo plano.
+      Escopo reduzido: progresso acumulado, capítulos, recuperação opcional,
+      pistas e compatibilidade mínima; sem histórico de rodadas.
+- [ ] Implementar o plano consolidado após autorização de Marco; sem nova rodada
+      conceitual prevista. Recomendação de autoria: Claude/Opus, com auditoria
+      independente, correções e validação do receptor antes da publicação.
+
 ## 2026-09-07 — Voltar de encontro e manter a pessoa selecionada
 - [x] Dar ao encontro anterior o mesmo destaque visual do avanço.
 - [x] Repassar a identidade apenas na navegação entre etapas, com progresso por pessoa

@@ -1,30 +1,41 @@
 # Hugo Cabret — sequência de estudo até 09/09
 
-Roteiro para o responsável, elaborado em 07/09/2026. Os três encontros cobrem os
-sete temas do artefato: personagens, sequência, estrutura da história (situação-problema,
-cenário, clímax e desfecho), causa, temas, vocabulário e forma narrativa. O roteiro da professora ainda precisa ser conferido; estes
-arquivos não representam uma confirmação do conteúdo exato da prova.
+Roteiro para o responsável, elaborado em 07/09/2026 e atualizado em 08/09. Os três
+capítulos cobrem os sete temas do artefato: personagens, sequência, estrutura da
+história (situação-problema, cenário, clímax e desfecho), causa, temas, vocabulário
+e forma narrativa. O roteiro da professora ainda precisa ser conferido; este material
+não confirma o conteúdo exato da prova.
 
 **Entrada pelo mesmo link já compartilhado:**
 [Hugo Cabret no GitHub Pages](https://mattusca.github.io/missao-estudos/2026-09-hugo-cabret-y5.html).
-Esse endereço passa a exibir o encontro 1 diretamente. Os links da sequência
-levam aos encontros 2 e 3; o nome antigo do endereço não reaproveita o progresso
-do teste inicial.
+Desde 08/09 os três encontros são **capítulos de um mapa só**. Terminar o último
+desafio de um capítulo abre o primeiro do seguinte, sem outro link e sem escolher a
+pessoa de novo. Os links antigos dos encontros 2 e 3 abrem o mesmo mapa.
 
-| Ocasião sugerida | Arquivo | Trabalho principal |
+| Ocasião sugerida | Capítulo | Trabalho principal |
 |---|---|---|
-| Segunda, 07/09, em outro momento do dia | `2026-09-hugo-session-1-y5.html` | Ler trechos do livro, observar uma explicação e praticar com apoio. |
-| Terça, 08/09, pela manhã ou no primeiro período disponível | `2026-09-hugo-session-2-y5.html` | Aplicar as mesmas ideias em questões novas, com explicações mais curtas. |
-| Terça, 08/09, mais tarde, se houver disposição e base | `2026-09-hugo-session-3-y5.html` | Recuperar as ideias em dois blocos que misturam os temas. |
+| Segunda, 07/09, em outro momento do dia | 1 · Aprender as pistas | Ler trechos do livro, observar uma explicação e praticar com apoio. |
+| Terça, 08/09, pela manhã ou no primeiro período disponível | 2 · Aplicar em cenas novas | Aplicar as mesmas ideias em questões novas, com explicações mais curtas. |
+| Terça, 08/09, mais tarde, se houver disposição e base | 3 · Misturar tudo | Recuperar as ideias em dois blocos que misturam os temas. |
 
-Os encontros 1 e 2 aplicam 16 questões (a missão de estrutura da história aplica os
-quatro marcos sem sorteio) e o encontro 3 aplica 14. Os dois primeiros têm sete missões e pausas
-sugeridas depois da segunda e da quarta. O terceiro é opcional: se houver apenas
-duas boas ocasiões, priorize os encontros 1 e 2. Deixe um intervalo real entre
-eles; abrir três arquivos em seguida não equivale a estudar em três ocasiões.
-Na quarta, evite acrescentar conteúdo novo ou exigir outra rodada inteira.
+Os capítulos 1 e 2 aplicam 16 questões cada (a missão de estrutura da história aplica
+os quatro marcos sem sorteio) e o capítulo 3 aplica 14. Os dois primeiros têm sete
+missões e pausas sugeridas depois da segunda e da quarta missão do capítulo. O
+terceiro é opcional: com apenas duas boas ocasiões, priorize os capítulos 1 e 2.
 
-## Antes e durante o encontro 1
+**Ao fechar um capítulo, o mapa mostra um cartão** com uma pergunta de recuperação
+("Se quiser, pense ou conte uma resposta…"), um botão para conferir uma resposta
+possível e a lembrança de que o próximo capítulo rende mais em outra hora do dia.
+Nada ali é obrigatório e nada é registrado. O aplicativo não tranca o capítulo
+seguinte por horário: o intervalo entre capítulos é decisão de vocês, e o horário
+das sessões na planilha mostra se houve intervalo. Fazer os três capítulos em seguida
+não equivale a estudar em três ocasiões.
+
+No mapa, **Minhas pistas** abre os cartões de regra das missões já concluídas. É a
+cola que ela viu durante os desafios, útil na véspera; consultar não é prova de
+retenção.
+
+## Antes e durante o capítulo 1
 
 Use o livro como fonte. Localize uma sequência de imagens da abertura, o episódio
 do autômato desenhando e uma passagem em que o passado de Georges é reconhecido.
@@ -61,29 +72,33 @@ percentual de uma sessão curta.
 | O que observar | Ajuste concreto antes do encontro seguinte |
 |---|---|
 | Não consegue explicar uma resposta, mesmo depois do feedback | Releia uma cena, mostre uma pista e construam juntos uma explicação. Volte à missão desse tema antes de avançar. |
-| Entende com apoio, mas se perde ao explicar sozinha | Mantenha o tema e pratique um exemplo curto com as mesmas perguntas orientadoras. O encontro 2 oferece novas situações no mesmo nível declarado. |
-| Consegue recuperar a ideia e apontar a pista | Siga para novas questões; deixe os apoios disponíveis. Para o encontro 3, isso precisa ocorrer nos temas que serão misturados. |
+| Entende com apoio, mas se perde ao explicar sozinha | Mantenha o tema e pratique um exemplo curto com as mesmas perguntas orientadoras. O capítulo 2 oferece novas situações no mesmo nível declarado. |
+| Consegue recuperar a ideia e apontar a pista | Siga para novas questões; deixe os apoios disponíveis. Para o capítulo 3, isso precisa ocorrer nos temas que serão misturados. |
 | Respostas cada vez mais rápidas, com erros ou pouca leitura do feedback | Encerre o bloco, descanse e retome depois. Tempo baixo sozinho não prova pressa nem domínio. |
-| Cansaço, irritação ou esforço desproporcional | Faça apenas duas missões, mantenha a pausa e considere dispensar o terceiro encontro. |
+| Cansaço, irritação ou esforço desproporcional | Faça apenas duas missões, mantenha a pausa e considere dispensar o terceiro capítulo. |
 
 Para rever um tema, toque na missão já concluída no mapa. Ela abre uma nova
 passagem com aula e sorteio; os registros anteriores continuam no histórico.
 Na tela final, **Rever uma missão** leva ao mapa sem apagar XP ou medalhas.
 Não use “Recomeçar tudo” para isso. Missões ainda fechadas abrem em sequência.
 
-O encontro 3 não apresenta aula antes das questões: ele serve para recuperar algo
+O capítulo 3 não apresenta aula antes das questões: ele serve para recuperar algo
 já aprendido. Se faltar base em vários temas, substitua-o por leitura e prática
 guiada dos temas pendentes. Não use a mistura como exame final de aprovação.
 
 ## Como ler o próximo log
+
+- Desde 08/09 cada linha traz uma 29ª coluna, **Capítulo** (`cap-1`, `cap-2`, `cap-3`),
+  e o **Contexto** vem do capítulo: `prova` no 1, `revisao_espacada` no 2 e no 3. A coluna
+  só aparece depois de reimplantar o Apps Script; até lá o campo é ignorado pelo servidor.
 
 - A coluna **Sessão** passa a identificar o artefato nas sessões novas, por
   exemplo `2026-09-HUGO-E1-Y5:2026-09-07-…` (o prefixo exato é o `prova_id`
   do arquivo). IDs antigos continuam válidos e não são reescritos.
 - Os encontros têm progressos separados por pessoa. Uma medalha no teste inicial
   não conclui nenhum dos novos encontros; adultos continuam usando o perfil de teste.
-- O encontro 1 usa questões novas `Q101` a `Q104` por tema. O encontro 2 usa
-  `Q201` a `Q204`. O encontro 3 sorteia do mesmo banco do encontro 2, preservando
+- O capítulo 1 usa questões novas `Q101` a `Q104` por tema. O capítulo 2 usa
+  `Q201` a `Q204`. O capítulo 3 sorteia do mesmo banco do capítulo 2, preservando
   os IDs. O sorteio não garante que toda questão reapareça: compare retenção
   somente quando o mesmo ID realmente voltar após um intervalo.
 - Separe primeiro acerto sem dica/andaime de acerto após apoio ou segunda

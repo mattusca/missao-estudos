@@ -72,6 +72,32 @@ button:focus-visible,.opt:focus-visible{outline:3px solid var(--sun);outline-off
 .mod .st{font-size:.85rem;color:var(--ink-soft);}
 .mod .badge{margin-left:auto;font-size:1.3rem;}
 
+/* capítulos do mapa: cabeçalho + lista. O capítulo atual nasce aberto, os
+   outros recolhidos — nunca escondidos: os três títulos ficam sempre à vista.
+   O estado (concluído, atual, ainda por vir) é dito por palavra e por ícone,
+   nunca só por cor. */
+.capbox{border:1.5px solid var(--line);border-radius:16px;background:var(--mint-soft);
+  padding:2px 10px 4px;margin:0;}
+.capbox.feito{background:var(--sun-soft);}
+.capbox.futuro{background:transparent;}
+.capbox > summary{cursor:pointer;list-style:none;padding:12px 30px 12px 4px;display:block;position:relative;}
+.capbox > summary::-webkit-details-marker{display:none;}
+.capbox > summary::after{content:'▾';position:absolute;right:6px;top:12px;transition:transform .2s;}
+.capbox[open] > summary::after{transform:rotate(180deg);}
+.capbox > summary:focus-visible{outline:3px solid var(--violet);outline-offset:2px;border-radius:10px;}
+.capbox .cap-tt{font-family:'Fredoka',sans-serif;font-size:1.02rem;font-weight:600;display:block;}
+.capbox .cap-fn{font-size:.85rem;color:var(--ink-soft);display:block;margin-top:2px;}
+.capbox .cap-st{font-size:.82rem;font-weight:700;color:var(--ink-soft);display:block;margin-top:4px;}
+.capbox .mods{margin:4px 0 12px;}
+#capituloArea:empty{display:none;}
+.capcard > span{display:block;margin-top:10px;}
+.capcard > .btn{margin-top:10px;}
+.capcard .capref{margin-top:8px;font-size:.92rem;line-height:1.55;text-align:left;
+  background:#fff;border-radius:10px;padding:10px 12px;}
+.capcard .caprow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+.capcard .caprow .btn{flex:1 1 auto;}
+.pistas-lista{display:flex;flex-direction:column;gap:10px;margin:16px 0;}
+
 /* aula */
 .lesson-box{background:var(--violet-soft);border-left:5px solid var(--violet);border-radius:12px;padding:14px 16px;margin:14px 0;}
 .lesson-box strong{font-family:'Fredoka',sans-serif;}
@@ -226,6 +252,7 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
     <h1 id="mapTitle"></h1>
     <p class="muted" id="mapIntro"></p>
     <div id="trilhaMap"></div>
+    <div id="capituloArea"></div>
     <div class="mods" id="modList"></div>
     <p class="quemlinha" id="quemLinha"></p>
     <div class="rowend"><span class="muted" id="resumeNote"></span><button class="btn ghost small hidden" id="resetBtn">Recomeçar tudo</button></div>
@@ -298,10 +325,21 @@ figure.chart figcaption{font-size:.83rem;color:var(--ink-soft);text-align:center
     <p class="eyebrow">Jornada completa</p>
     <h1 id="finalTitle"></h1>
     <div class="big" id="finalXp"></div>
+    <p class="muted" id="finalXpLabel">XP acumulado neste artefato</p>
     <p class="muted" id="finalMsg"></p>
     <div id="trilhaFinal"></div>
+    <div id="finalCapitulo"></div>
     <div id="finalReview"></div>
     <div class="rowend"><button class="btn" id="restartBtn">Rever uma missão</button></div>
+  </section>
+
+  <!-- MINHAS PISTAS -->
+  <section id="pistas" class="card hidden">
+    <div class="navtop"><button class="btn ghost small" id="pistasVoltar">← Voltar ao mapa</button></div>
+    <h2>Minhas pistas</h2>
+    <p class="muted">As pistas das missões que você percorreu. Consultar é apoio, sempre que quiser.</p>
+    <div class="pistas-lista" id="pistasLista"></div>
+    <div class="rowend"><button class="btn" id="pistasVoltarFim">Voltar ao mapa</button></div>
   </section>
 
 </div>
@@ -883,7 +921,10 @@ const COLUNAS = ['evento_id','sessao_id','timestamp','aluna','materia','eixo','t
   'subtema','questao_id','habilidade_bncc','escola','ano_aluna','nivel_conteudo','bimestre',
   'contexto','resultado','usou_dica','usou_andaime','dificuldade','tipo_raciocinio',
   'seg_ate_1o_toque','seg_total','saiu_da_tela','tempo_valido','retomada',
-  'posicao_na_sessao','modo_foco','dispositivo'];
+  'posicao_na_sessao','modo_foco','dispositivo',
+  /* 29ª e última coluna. As 28 anteriores ficam onde estavam: fila antiga e
+     página antiga continuam gravando por posição, e a célula nova sai vazia. */
+  'capitulo_id'];
 
 function lerFila(){try{return JSON.parse(localStorage.getItem(FILA)||'[]');}catch(e){return [];}}
 function salvarFila(f){try{localStorage.setItem(FILA,JSON.stringify(f));}catch(e){}}
@@ -1020,7 +1061,12 @@ function registrarQuestao(m,q,resultado){
     eixo:q.eixo ?? m.eixo, tema_id:q.tema_id ?? m.tema_id, subtema:q.subtema ?? m.subtema,
     questao_id:q.questao_id, habilidade_bncc:q.habilidade_bncc ?? m.habilidade_bncc ?? null,
     escola:PROVA.escola, ano_aluna:PROVA.ano_aluna, nivel_conteudo:PROVA.nivel_conteudo,
-    bimestre:PROVA.bimestre, contexto:PROVA.contexto,
+    bimestre:PROVA.bimestre,
+    /* Véspera de prova e revisão espaçada não se comparam, e num artefato de
+       capítulos as duas coisas convivem no mesmo mapa. O contexto efetivo é o
+       da missão; na falta dele, o do capítulo; na falta dos dois, o da prova —
+       que é o único que os arquivos antigos têm. */
+    contexto:m.contexto ?? capituloDe(m)?.contexto ?? PROVA.contexto,
     resultado,
     usou_dica:!!S.usedHint,
     usou_andaime:stepsShown>0,
@@ -1031,7 +1077,8 @@ function registrarQuestao(m,q,resultado){
     retomada:!!S.retomou,
     posicao_na_sessao:S.posicao,
     modo_foco:!!S.focus,
-    dispositivo:dispositivo()
+    dispositivo:dispositivo(),
+    capitulo_id:m.capitulo_id ?? null
   });
 }
 
@@ -1056,7 +1103,7 @@ const store={
     try{localStorage.removeItem(k);}catch(e){} delete mem[k];}
 };
 
-let S={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false,errors:[],unlocked:1,focus:false,shield:true};
+let S={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false,errors:[],unlocked:1,focus:false,shield:true,capitulosFechados:{},importados:{},percursoConcluido:false,ultimaSugestao:null};
 const el=id=>document.getElementById(id);
 
 /* A trilha é orientação entre encontros, não uma nova trava. Os links são
@@ -1122,7 +1169,8 @@ function rotulos(){
   const comAula=missoes.some(m=>!m.intercalada);
   // prova de missão única já existe (a revisão intercalada), e "Uma missões" não
   const uma=N_MISSOES===1;
-  el('mapIntro').innerHTML=`${uma?'Uma missão':(NUM[N_MISSOES]||N_MISSOES).replace(/^./,c=>c.toUpperCase())+' missões'}. `+
+  // acima de dez o nome por extenso acaba: String() para o número não quebrar o replace
+  el('mapIntro').innerHTML=`${uma?'Uma missão':String(NUM[N_MISSOES]||N_MISSOES).replace(/^./,c=>c.toUpperCase())+' missões'}. `+
     (comAula
       ? `Em cada uma, primeiro você <strong>aprende com uma ferramenta que dá para mexer</strong>, e só depois responde ${desafios}. `
       : `Em cada uma, a <strong>cola com as regras fica no topo da tela</strong> o tempo todo — é consultar e responder ${desafios}. `)+
@@ -1154,7 +1202,7 @@ function applyFocus(){
   el('focusBtn').textContent=S.focus?'🎯 Foco ligado':'🎯 Modo foco';
 }
 
-function show(id){['map','quemEstuda','lesson','quiz','moduleDone','final'].forEach(s=>el(s).classList.add('hidden'));el(id).classList.remove('hidden');
+function show(id){['map','quemEstuda','lesson','quiz','moduleDone','final','pistas'].forEach(s=>el(s).classList.add('hidden'));el(id).classList.remove('hidden');
   /* O HUD some enquanto ninguém foi escolhido: XP, nível e medalhas pertencem a
      uma pessoa, e mostrar "Nível 1 · 0 XP" antes da escolha exibe o placar de
      ninguém — que ainda por cima muda sozinho assim que o progresso carrega. */
@@ -1175,6 +1223,46 @@ function pedirAluna(depois){
     b.onclick=()=>{gravarAluna(ALUNAS[+b.dataset.n]);depois();});
   show('quemEstuda');
 }
+
+/* ============================ CAPÍTULOS ============================
+   Um artefato pode reunir vários encontros num mapa só, agrupados em
+   capítulos. É agrupamento, não trava nova: quem abre a missão continua sendo
+   `isOpen`, e a numeração das missões segue contínua, de 1 até a última.
+
+   Prova antiga não tem `capitulos`: todas as funções abaixo devolvem lista
+   vazia ou null, e o mapa continua exatamente como era. */
+function capitulosDe(){return Array.isArray(PROVA.capitulos)?PROVA.capitulos:[];}
+function capituloDe(m){
+  if(!m?.capitulo_id)return null;
+  return capitulosDe().find(c=>c.capitulo_id===m.capitulo_id)||null;
+}
+function missoesDoCapitulo(cid){return missoes.filter(m=>m.capitulo_id===cid);}
+function capituloConcluido(cid){
+  const ms=missoesDoCapitulo(cid);
+  return ms.length>0&&ms.every(m=>!!S.done[m.missao_id]);
+}
+/* Posição da missão DENTRO do capítulo dela (0-based). É esta contagem, e não
+   a global, que decide a pausa sugerida: no capítulo 2 a segunda missão
+   continua sendo a segunda de uma ocasião de estudo. */
+function indiceNoCapitulo(i){
+  const m=missoes[i];
+  if(!m)return -1;
+  if(!m.capitulo_id)return i;
+  return missoesDoCapitulo(m.capitulo_id).findIndex(x=>x.missao_id===m.missao_id);
+}
+function ultimaDoCapitulo(i){
+  const m=missoes[i];
+  if(!m?.capitulo_id)return false;
+  const ms=missoesDoCapitulo(m.capitulo_id);
+  return ms.length>0&&ms[ms.length-1].missao_id===m.missao_id;
+}
+/* O capítulo atual é o primeiro que ainda tem missão por concluir. */
+function capituloAtualId(){
+  const caps=capitulosDe();
+  const aberto=caps.find(c=>!capituloConcluido(c.capitulo_id));
+  return (aberto||caps[caps.length-1])?.capitulo_id||null;
+}
+/* fim dos helpers de capítulo */
 
 /* uma missão abre quando a anterior da lista atual estiver concluída */
 /* Uma missão concluída fica sempre aberta: inserir uma missão nova antes dela
@@ -1203,25 +1291,85 @@ function sairDaMissao(pedirConfirmacao){
 el('lessonExit').onclick=()=>sairDaMissao(false);   // na aula não há o que perder
 el('quizExit').onclick=()=>sairDaMissao(true);      // nos desafios, o mesmo freio dos dois toques
 
-function drawMap(){
-  desenharTrilha('trilhaMap');
-  el('modList').innerHTML=missoes.map((m,i)=>{
-    const done=S.done[m.missao_id], open=isOpen(i);
-    return `<button class="mod ${done?'done':''}" data-i="${i}" ${open?'':'disabled'}>
+/* O botão da missão é o mesmo com ou sem capítulos: mesma classe, mesmo
+   data-i e a mesma numeração contínua. Só a moldura ao redor mudou. */
+function botaoMissao(m,i){
+  const done=S.done[m.missao_id], open=isOpen(i);
+  return `<button class="mod ${done?'done':''}" data-i="${i}" ${open?'':'disabled'}>
       <span class="ic">${open?m.icone:'🔒'}</span>
       <span><span class="tt">${i+1}. ${m.titulo}</span><br><span class="st">${open?m.subtitulo:'Complete a missão anterior para abrir'}</span></span>
-      <span class="badge">${done||''}</span></button>`;}).join('');
+      <span class="badge">${done||''}</span></button>`;
+}
+/* Nenhum suspense: os títulos dos capítulos aparecem todos, inclusive os que
+   ela ainda não abriu. O que muda é só o que está desdobrado. Cor nunca é a
+   única diferença entre concluído, atual e por vir — cada cabeçalho diz por
+   escrito em que pé está. */
+function mapaEmCapitulos(caps){
+  const atual=capituloAtualId();
+  const usadas=new Set();
+  const blocos=caps.map(c=>{
+    const daqui=missoes.map((m,i)=>[m,i]).filter(([m])=>m.capitulo_id===c.capitulo_id);
+    daqui.forEach(([m])=>usadas.add(m.missao_id));
+    const total=daqui.length, feitas=daqui.filter(([m])=>S.done[m.missao_id]).length;
+    const concluido=total>0&&feitas===total;
+    const ehAtual=c.capitulo_id===atual;
+    const estado=concluido?{cls:'feito',ic:'✅',txt:'Capítulo concluído'}
+      :ehAtual?{cls:'atual',ic:'📍',txt:`Você está aqui · ${feitas} de ${total} ${total===1?'missão':'missões'}`}
+      :{cls:'futuro',ic:'🔜',txt:`Depois · ${feitas} de ${total} ${total===1?'missão':'missões'}`};
+    return `<details class="capbox ${estado.cls}" ${ehAtual?'open':''}>
+      <summary><span class="cap-tt">${estado.ic} ${c.titulo}</span>
+        ${c.funcao?`<span class="cap-fn">${c.funcao}</span>`:''}
+        <span class="cap-st">${estado.txt}</span></summary>
+      <div class="mods">${daqui.map(([m,i])=>botaoMissao(m,i)).join('')}</div>
+    </details>`;
+  });
+  // missão sem capítulo declarado continua listada, sem cabeçalho inventado
+  const soltas=missoes.map((m,i)=>[m,i]).filter(([m])=>!usadas.has(m.missao_id));
+  if(soltas.length)blocos.push(`<div class="mods">${soltas.map(([m,i])=>botaoMissao(m,i)).join('')}</div>`);
+  return blocos.join('');
+}
+
+function drawMap(){
+  desenharTrilha('trilhaMap');
+  el('capituloArea').innerHTML='';
+  const caps=capitulosDe();
+  el('modList').innerHTML = caps.length ? mapaEmCapitulos(caps) : missoes.map(botaoMissao).join('');
   // escopado ao mapa: a tela de escolha de aluna também usa .mod
   document.querySelectorAll('#modList .mod').forEach(b=>b.onclick=()=>openModule(+b.dataset.i));
   const allDone=missoes.every(m=>S.done[m.missao_id]);
   el('resetBtn').classList.toggle('hidden',S.xp===0);
-  el('resumeNote').textContent = allDone ? 'Todas as missões concluídas! Você pode refazer qualquer uma.' :
-    (S.xp>0?'Seu progresso fica salvo automaticamente.':'');
+  /* Terminar tudo não é "esta sessão inteira agora": o mapa guarda o percurso
+     acumulado desta pessoa neste artefato. A frase diz o que está registrado,
+     sem prometer que aconteceu hoje. */
+  const fechados=caps.length?`No seu mapa, ${caps.length===1?'o capítulo está concluído':`os ${NUM[caps.length]||caps.length} capítulos estão concluídos`}. Você pode refazer qualquer missão.`
+    :'No seu mapa, todas as missões estão concluídas. Você pode refazer qualquer uma.';
+  el('resumeNote').textContent = allDone ? fechados : (S.xp>0?'Seu progresso fica salvo automaticamente.':'');
+  const temPistas=missoes.some(m=>S.done[m.missao_id]);
   el('quemLinha').innerHTML=`Estudando como <b>${alunaAtual()}</b>`+
-    `<button class="btn ghost small" id="trocarAluna">trocar</button>`;
+    `<button class="btn ghost small" id="trocarAluna">trocar</button>`+
+    (temPistas?`<button class="btn ghost small" id="pistasBtn">🔎 Minhas pistas</button>`:'');
   el('trocarAluna').onclick=()=>pedirAluna(carregarEEntrar);
+  if(temPistas)el('pistasBtn').onclick=abrirPistas;
   show('map');
 }
+
+/* ====== MINHAS PISTAS ======
+   As regras das missões já percorridas, recolhidas — consulta, não mural, e
+   nunca aberta sozinha: abrir por conta própria durante a recuperação
+   entregaria de graça o que ela está tentando lembrar. */
+function abrirPistas(){
+  const feitas=missoes.filter(m=>S.done[m.missao_id]);
+  el('pistasLista').innerHTML=feitas.map(m=>{
+    const corpo=m.regras?.length
+      ? `<div class="cola">${m.regras.map(r=>`<div class="cregra"><b>${r.rotulo}</b>${r.texto}</div>`).join('')}</div>`
+      : (m.regra||'');
+    return `<details class="rulecard"><summary>${m.icone||'📌'} ${m.titulo}</summary>
+      <div class="rtext">${corpo}</div></details>`;
+  }).join('');
+  show('pistas');
+}
+el('pistasVoltar').onclick=()=>drawMap();
+el('pistasVoltarFim').onclick=()=>drawMap();
 
 /* Quebra o texto da aula em passos: um bloco por tela, o penúltimo com a ferramenta. */
 function buildSteps(m){
@@ -1241,6 +1389,7 @@ let lessonSteps=[],lessonStep=0;
 function openModule(i){
   const m=missoes[i];
   S.mod=i;S.modId=m.missao_id;S.q=0;S.usedHint=false;S.shield=true;
+  errosDaMissao=[];
   qsAtivas=sortearQuestoes(m).map(prepararQuestao);
   /* Missão intercalada entra direto nos desafios. Revisão é prática de
      recuperação: reensinar antes de recuperar anula o efeito, e uma aula aqui
@@ -1429,6 +1578,9 @@ function prepararQuestao(q){
 let qsAtivas=[];
 
 let chosen=null, stepsShown=0, attempts=0;
+/* Os erros DESTA tentativa de missão. `S.errors` continua guardando o
+   histórico; daqui sai a única sugestão oferecida no fim. */
+let errosDaMissao=[];
 
 function renderQ(){
   const m=missoes[S.mod],q=qsAtivas[S.q];
@@ -1531,7 +1683,8 @@ function answer(choice){
     if(!S.focus&&(S.streak===3||S.streak===6))confetti(14);
   }else{
     gained=20;S.xp+=gained;
-    S.errors.push({mod:m.titulo,q:q.enunciado.replace(/<\/?mark>|<\/?b>|<\/?i>/g,''),ans:q.alternativas[q.correta],why:q.explicacao});
+    const erro={mod:m.titulo,questao_id:q.questao_id,q:q.enunciado.replace(/<\/?mark>|<\/?b>|<\/?i>/g,''),ans:q.alternativas[q.correta],why:q.explicacao};
+    S.errors.push(erro);errosDaMissao.push(erro);
     let shieldMsg='';
     if(S.shield){S.shield=false;shieldMsg='<br><b>🛡️ Escudo usado:</b> sua sequência de acertos continua de pé.';}
     else S.streak=0;
@@ -1554,6 +1707,14 @@ el('nextBtn').onclick=()=>{
 function finishModule(){
   const m=missoes[S.mod],c=S.correctInMod||0,n=qsAtivas.length;
   const medal=c===n?'🥇':c>=n-1?'🥈':'🥉';
+  /* Refazer uma missão não é conquistar o capítulo de novo: quem já estava
+     concluída não dispara o cartão de fim de capítulo nem a celebração. */
+  S.refezMissao=!!S.done[m.missao_id];
+  /* Uma sugestão, da missão que ela acabou de fazer — não uma lista de tudo
+     que já errou neste artefato. Guarda o `questao_id` porque o banco muda:
+     se a questão sair da missão, a sugestão é omitida em vez de mentir. */
+  const primeiro=errosDaMissao[0]||null;
+  S.ultimaSugestao=primeiro?{...primeiro,missao_id:m.missao_id}:null;
   S.done[m.missao_id]=medal;
   const bonus=c===n?150:c>=n-1?90:60;S.xp+=bonus;
   S.screen='map';save();hud();
@@ -1574,33 +1735,133 @@ function finishModule(){
 }
 
 /* Pausa sugerida depois da 2ª e da 4ª missão. A sugestão fica visível, mas
-   nenhuma contagem aparece: descansar não é outra tarefa para cumprir. */
+   nenhuma contagem aparece: descansar não é outra tarefa para cumprir.
+
+   Com capítulos, a conta é dentro do capítulo — e a última missão dele não
+   recebe convite nenhum: quem cuida daquele momento é o cartão de fim de
+   capítulo, e dois convites de descanso empilhados viram ruído. */
 function offerPause(modIdx){
   const area=el('pauseArea');area.innerHTML='';
-  if(modIdx!==1&&modIdx!==3)return;
+  const temCapitulo=capitulosDe().length>0&&!!missoes[modIdx]?.capitulo_id;
+  if(temCapitulo&&ultimaDoCapitulo(modIdx))return;
+  const pos=temCapitulo?indiceNoCapitulo(modIdx):modIdx;
+  if(pos!==1&&pos!==3)return;
   area.innerHTML=`<div class="pausebox">
     <strong>Hora de esticar as pernas 🌿</strong>
     <span class="muted">Duas missões seguidas já é bastante. Quando puder, beba água, ande um pouco ou olhe pela janela. Depois, siga no seu ritmo.</span>
   </div>`;
 }
+
+/* ====== CARTÃO DE FIM DE CAPÍTULO ======
+   Uma frase do que aconteceu, uma pergunta opcional para ela recuperar em voz
+   alta e duas saídas do mesmo tamanho. Nada aqui é obrigatório: os botões só
+   marcam que o cartão já foi mostrado, e tocar direto na próxima missão com o
+   cartão aberto continua valendo. Nenhum botão começa missão nenhuma. */
+function mostrarCartaoCapitulo(cid){
+  const c=capitulosDe().find(x=>x.capitulo_id===cid);
+  if(!c)return;
+  const area=el('capituloArea');area.innerHTML='';
+  const cartao=document.createElement('div');
+  cartao.className='pausebox capcard';cartao.id='capituloCard';
+  const titulo=document.createElement('strong');
+  titulo.textContent=`Você concluiu ${c.titulo}.`;
+  cartao.appendChild(titulo);
+  if(c.recuperacao?.pergunta){
+    const conv=document.createElement('span');conv.className='muted';
+    conv.textContent=`Se quiser, pense ou conte uma resposta: ${c.recuperacao.pergunta}`;
+    cartao.appendChild(conv);
+  }
+  if(c.recuperacao?.referencia){
+    const ref=document.createElement('div');ref.className='capref';ref.hidden=true;
+    ref.textContent=c.recuperacao.referencia;
+    const verBtn=document.createElement('button');
+    verBtn.className='btn ghost small';verBtn.textContent='Conferir uma possibilidade';
+    /* Conferir não registra nada e não é etapa: é um toque para ver e outro
+       para esconder de novo. */
+    verBtn.onclick=()=>{ref.hidden=!ref.hidden;verBtn.textContent=ref.hidden?'Conferir uma possibilidade':'Esconder a possibilidade';};
+    cartao.append(verBtn,ref);
+  }
+  /* A frase do intervalo só faz sentido quando existe um próximo capítulo. */
+  const caps=capitulosDe(),ehUltimo=caps.length&&caps[caps.length-1].capitulo_id===cid;
+  if(!ehUltimo){
+    const quando=document.createElement('span');quando.className='muted';
+    quando.textContent='O próximo capítulo rende mais em outra hora do dia.';
+    cartao.appendChild(quando);
+  }
+  const linha=document.createElement('div');linha.className='caprow';
+  const fechar=()=>{
+    S.capitulosFechados={...(S.capitulosFechados||{}),[cid]:true};
+    save();area.innerHTML='';
+  };
+  const parar=document.createElement('button');parar.className='btn ghost';parar.textContent='Parar por hoje';
+  parar.onclick=()=>{fechar();el('resumeNote').textContent='Até a próxima! Seu progresso fica salvo.';};
+  const seguir=document.createElement('button');seguir.className='btn ghost';seguir.textContent='Continuar no mapa';
+  seguir.onclick=fechar;
+  linha.append(parar,seguir);
+  cartao.appendChild(linha);
+  area.appendChild(cartao);
+}
+
+/* A pergunta de recuperação do capítulo, no mesmo formato, para a tela final. */
+function blocoRecuperacao(caixa,c){
+  caixa.innerHTML='';
+  if(!c?.recuperacao?.pergunta)return;
+  const bloco=document.createElement('div');bloco.className='pausebox capcard';
+  const conv=document.createElement('strong');
+  conv.textContent=`Se quiser, pense ou conte uma resposta: ${c.recuperacao.pergunta}`;
+  bloco.appendChild(conv);
+  if(c.recuperacao.referencia){
+    const ref=document.createElement('div');ref.className='capref';ref.hidden=true;
+    ref.textContent=c.recuperacao.referencia;
+    const verBtn=document.createElement('button');
+    verBtn.className='btn ghost small';verBtn.textContent='Conferir uma possibilidade';
+    verBtn.onclick=()=>{ref.hidden=!ref.hidden;verBtn.textContent=ref.hidden?'Conferir uma possibilidade':'Esconder a possibilidade';};
+    bloco.append(verBtn,ref);
+  }
+  caixa.appendChild(bloco);
+}
+
 el('backToMap').onclick=()=>{
+  const m=missoes[S.mod];
+  const cid=m?.capitulo_id||null;
+  const fechouCapitulo=!!cid&&!S.refezMissao&&capituloConcluido(cid)&&!S.capitulosFechados?.[cid];
   descartarParcial();save();          // missão concluída: não deixa resto de posição para trás
-  if(missoes.every(x=>S.done[x.missao_id]))showFinal();else drawMap();};
+  /* A celebração do percurso inteiro acontece uma vez por pessoa e artefato.
+     Voltar ao mapa depois de refazer uma missão cai no mapa, não numa segunda
+     "jornada completa" que não houve. */
+  if(missoes.every(x=>S.done[x.missao_id])&&!S.percursoConcluido){showFinal();return;}
+  drawMap();
+  if(fechouCapitulo)mostrarCartaoCapitulo(cid);
+};
 
 function showFinal(){
+  S.percursoConcluido=true;save();
   el('finalXp').textContent=`${S.xp} XP`;
   /* "os N temas" vinha do número de missões. Numa missão intercalada são seis
      temas dentro de uma missão só, e a prova pode não ter ferramenta nenhuma —
      as duas afirmações têm de olhar o conteúdo, não a contagem de missões. */
   const temas=new Set(missoes.flatMap(m=>m.intercalada?m.questoes.map(q=>q.tema_id):[m.tema_id])).size;
   const comFerramenta=missoes.some(m=>m.ferramenta);
-  el('finalMsg').textContent=`Nesta sessão, você percorreu ${temas===1?'um tema':`${temas} temas`}${comFerramenta?', usando as ferramentas e explicações do caminho':''}. `+
+  /* "Nesta sessão" era falso: o mapa acumula o percurso da pessoa neste
+     artefato, que pode ter levado três ocasiões de estudo. */
+  el('finalMsg').textContent=`No seu mapa, você percorreu ${temas===1?'um tema':`${temas} temas`}${comFerramenta?', usando as ferramentas e explicações do caminho':''}. `+
     `Você conquistou ${S.xp} XP por tentar, revisar e seguir até o fim.`;
   desenharTrilha('trilhaFinal');
-  const uniq=[];S.errors.forEach(e=>{if(!uniq.find(u=>u.q===e.q))uniq.push(e);});
-  el('finalReview').innerHTML = uniq.length
-    ? `<h3>Vale reler antes da prova</h3>`+uniq.map(e=>`<div class="review-item"><b>${e.mod}</b><br>${e.q}<br><b>Resposta:</b> ${e.ans}<br>${e.why}</div>`).join('')
-    : `<div class="lesson-box"><strong>Nenhum erro para revisar</strong> Você chegou ao fim com todas as respostas certas nesta sessão.</div>`;
+  const caps=capitulosDe();
+  blocoRecuperacao(el('finalCapitulo'),caps[caps.length-1]);
+  /* No máximo UMA sugestão, e só da última missão concluída. A lista de tudo
+     que ela já errou no artefato virava um mural de fracassos no momento em
+     que ela mais merecia fechar em paz — e sugeria domínio ou lacuna a partir
+     de erros antigos, que podem ter sido revisados desde então.
+
+     Se a questão não existir mais na missão (o banco muda, questão ruim é
+     aposentada), a sugestão some: melhor nenhuma que uma sem lastro. */
+  const sug=S.ultimaSugestao;
+  const missaoSug=sug&&missoes.find(m=>m.missao_id===sug.missao_id);
+  const valida=!!missaoSug&&(missaoSug.questoes||[]).some(q=>q.questao_id===sug.questao_id);
+  el('finalReview').innerHTML = valida
+    ? `<h3>Vale reler: ${missaoSug.titulo}</h3><div class="review-item">${sug.q}<br><b>Resposta:</b> ${sug.ans}<br>${sug.why}</div>`
+    : '';
   /* Idem: sem linha "jornada-completa". Um resumo não se desagrega depois. */
   el('finalReview').insertAdjacentHTML('beforeend',
     '<div class="center" style="margin-top:14px"><button class="btn ghost small" id="copyBtn">📋 Copiar resultados</button></div>');
@@ -1610,9 +1871,13 @@ function showFinal(){
 
 el('restartBtn').onclick=()=>{descartarParcial();save();drawMap();};
 el('resetBtn').onclick=()=>{if(confirm('Isso apaga o XP e as medalhas. Recomeçar do zero?'))reset();};
-function reset(){const f=S.focus;
-  S={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false,errors:[],unlocked:1,focus:f,shield:true};
-  store.clear();hud();applyFocus();drawMap();}
+/* Recomeçar do zero apaga XP e medalhas, mas o registro de importação fica:
+   senão a próxima abertura traria de volta, sozinha, o progresso legado que
+   ela acabou de mandar apagar. */
+function reset(){const f=S.focus,imp=S.importados||{};
+  S={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false,errors:[],unlocked:1,focus:f,shield:true,capitulosFechados:{},importados:imp,percursoConcluido:false,ultimaSugestao:null};
+  // grava DEPOIS de limpar: apagar e salvar ao mesmo tempo podia perder a ordem
+  store.clear().then(save);hud();applyFocus();drawMap();}
 
 function confetti(n){
   if(S.focus)return;
@@ -1624,7 +1889,43 @@ function confetti(n){
 }
 
 /* ---------- retomar de onde parou ---------- */
-const PADRAO={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false,errors:[],unlocked:1,focus:false,shield:true};
+const PADRAO={xp:0,streak:0,best:0,done:{},screen:'map',mod:0,q:0,usedHint:false,errors:[],unlocked:1,focus:false,shield:true,capitulosFechados:{},importados:{},percursoConcluido:false,ultimaSugestao:null};
+
+/* ====== PROGRESSO DE PÁGINAS ANTERIORES ======
+   Três URLs viraram uma. O progresso da MESMA pessoa nas páginas antigas
+   entra aqui: medalhas das missões que continuam existindo e o XP já ganho.
+   Nada é reconstruído — medalha não vira resposta, e o que não corresponde a
+   uma missão desta prova é ignorado.
+
+   A chave de origem nunca é apagada: se esta gravação falhar, o progresso
+   antigo continua onde estava. O carimbo em `S.importados` é o que impede
+   somar o mesmo XP duas vezes numa segunda abertura. Medalha já conquistada
+   aqui nunca é sobrescrita pela antiga. */
+function importarProgressoLegado(){
+  const ids=Array.isArray(PROVA.progresso_legado)?PROVA.progresso_legado:[];
+  let mudou=false;
+  for(const id of ids){
+    const chave=`missao_progresso_${id}_${alunaAtual()}_v2`;
+    if(chave===KEY()||S.importados?.[id])continue;
+    let antigo=null;
+    try{
+      const raw=localStorage.getItem(chave);
+      if(!raw)continue;
+      antigo=JSON.parse(raw);
+    }catch(e){continue;}   // sem armazenamento ou JSON quebrado: segue em silêncio
+    if(!antigo||typeof antigo!=='object')continue;
+    S.importados={...(S.importados||{}),[id]:true};
+    mudou=true;
+    const done={...(antigo.done||{})};
+    for(const missao of missoes){
+      const medalha=done[missao.missao_id];
+      if(medalha&&!S.done[missao.missao_id])S.done[missao.missao_id]=medalha;
+    }
+    if(typeof antigo.xp==='number'&&antigo.xp>0)S.xp=(S.xp||0)+antigo.xp;
+  }
+  return mudou;
+}
+/* fim da importação legada */
 
 /* Carrega o progresso DA PESSOA escolhida e entra no mapa. */
 async function carregarEEntrar(){
@@ -1638,6 +1939,7 @@ async function carregarEEntrar(){
     else if(S.screen!=='map')S.screen='map';
     carregado=true;
   }
+  if(importarProgressoLegado()){save();carregado=true;}
   hud();applyFocus();
   /* A fila é drenada em toda abertura, inclusive quando ela está retomando.
      Antes só esvaziava no começo do zero, e uma sessão retomada segurava as
