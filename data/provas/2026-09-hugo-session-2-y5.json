@@ -245,27 +245,27 @@
       "subtitulo": "Os mesmos marcos, cenas novas",
       "eixo": "Leitura",
       "tema_id": "POR.LEI.ESTR",
-      "subtema": "Estrutura narrativa: situação-problema, cenário, clímax, desfecho",
-      "habilidade_bncc": "EF35LP26",
+      "subtema": "Estrutura narrativa: situação inicial, situação-problema, cenário, clímax, desfecho",
+      "habilidade_bncc": "EF35LP29",
       "ferramenta": "investigar",
-      "regra": "<b>Situação inicial</b>: como tudo está antes. <b>Situação-problema</b>: o que quer + o que impede.<br><b>Clímax</b>: o maior perigo. <b>Desfecho</b>: como termina.<br><b>Cenário</b>: onde e quando.",
+      "regra": "<b>Situação inicial</b>: como encontramos os personagens. <b>Situação-problema</b>: o que quer + o que impede.<br><b>Clímax</b>: maior tensão, quando tudo pode virar. <b>Desfecho</b>: como termina.<br><b>Cenário</b>: onde e quando.",
       "aula": {
-        "corpo": "<p>Você já conhece os marcos da história. <mark>Cenário</mark> é onde e quando ela acontece. Situação inicial é como tudo está antes do problema. Situação-problema é o que o personagem quer e o que impede.</p><p>Clímax é o momento de maior perigo, e desfecho é como tudo termina. Agora você vai aplicar esse olhar em cenas novas do livro.</p><h3>Hora de decidir · Qual marco é qual, em cenas novas?</h3>",
+        "corpo": "<p>Você já conhece os marcos da história. <mark>Cenário</mark> é onde e quando ela acontece. Situação inicial é como encontramos os personagens no começo, com o que já está acontecendo. Situação-problema é o que o personagem quer e o que impede.</p><p>Clímax é o momento de maior tensão, quando tudo pode virar. Desfecho é como o problema termina e o que muda. Agora você vai aplicar esse olhar em cenas novas, do livro e de fora dele.</p><h3>Hora de decidir · Qual marco é qual, em cenas novas?</h3>",
         "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> escolha uma cena nova do livro e diga a um adulto qual marco da história ela mostra.</div>"
       },
       "dados": {
         "instrucao": "Leia a cena, escolha a resposta certa e confirme sua decisão.",
         "exemplos": [
           {
-            "contexto": "Duas frases sobre o começo da história: uma mostra como tudo está antes de qualquer problema aparecer; a outra já mostra o que alguém quer e o que a impede.",
+            "contexto": "Três frases sobre Papa Georges. Só uma mostra o que ele quer e o que o impede; as outras mostram como o encontramos no começo.",
             "pergunta": "Qual frase é a situação-problema, e não a situação inicial?",
             "alternativas": [
-              "Isabelle mora com os padrinhos Georges e Mama Jeanne desde que os pais morreram.",
-              "Isabelle quer entrar no cinema pela primeira vez, mas Georges nunca deixou.",
-              "Georges tem uma loja de brinquedos dentro da estação de trem."
+              "Georges vende brinquedos de corda numa loja dentro da estação.",
+              "Georges quer esquecer o passado de mágico, mas o caderno de Hugo o traz de volta.",
+              "Georges mora com Mama Jeanne e a afilhada Isabelle."
             ],
             "correta": 1,
-            "explicacao": "As frases sobre onde Isabelle mora e sobre a loja mostram como tudo estava antes do problema. Só a frase sobre o cinema junta o que ela quer com o que a impede."
+            "explicacao": "A loja e a casa são a situação inicial de Georges: o que já existe quando a história abre. Só a frase do caderno junta o que ele quer com o que o impede."
           },
           {
             "contexto": "A estação tem 27 relógios que Hugo precisa manter funcionando sem falhar, e uma cela no escritório do Inspetor.",
@@ -280,28 +280,22 @@
           }
         ]
       },
-      "sorteio": {
-        "dificuldades": [
-          1,
-          2
-        ]
-      },
       "questoes": [
         {
           "questao_id": "POR.LEI.ESTR.Q201",
           "enunciado": "No começo, Hugo mora escondido na estação e dá corda nos relógios no lugar do tio que sumiu. Isso descreve a <mark>situação inicial</mark> ou a situação-problema?",
           "figura": null,
           "alternativas": [
-            "Situação inicial: mostra como tudo está antes de o problema aparecer.",
-            "Situação-problema: mostra o que Hugo quer e o que o impede.",
-            "Clímax: mostra o momento de maior perigo da história.",
-            "Desfecho: mostra como o problema termina."
+            "Situação inicial: mostra como encontramos Hugo no começo, com o que já está acontecendo.",
+            "Situação-problema: mostra o que Hugo quer e o que o impede de conseguir.",
+            "Clímax: mostra o momento de maior tensão, quando tudo pode virar.",
+            "Desfecho: mostra como o problema termina e o que muda para Hugo."
           ],
           "correta": 0,
           "dificuldade": 1,
           "tipo_raciocinio": "interpretacao",
-          "dica": "Pergunte se essa cena já mostra o que ele quer resolver, ou só como as coisas estavam antes disso.",
-          "explicacao": "Dar corda nos relógios e viver escondido é como tudo está antes de qualquer problema aparecer — isso é a <b>situação inicial</b>, ainda não a situação-problema."
+          "dica": "Pergunte se essa cena já mostra o que ele quer resolver, ou só como encontramos Hugo no começo.",
+          "explicacao": "Viver escondido e dar corda nos relógios é como encontramos Hugo quando a história abre: a <b>situação inicial</b>, mesmo já sendo difícil. A situação-problema só aparece quando sabemos o que ele quer e o que impede."
         },
         {
           "questao_id": "POR.LEI.ESTR.Q202",
@@ -321,30 +315,30 @@
         },
         {
           "questao_id": "POR.LEI.ESTR.Q203",
-          "enunciado": "Quatro cenas fortes do livro: o autômato desenhando, a briga pelo desenho, Georges vendo o próprio filme, Hugo caído nos trilhos. Qual delas é o <mark>clímax</mark> da história?",
+          "enunciado": "Cena inventada: Lia perde o cachorro no parque e procura por horas, até encontrá-lo preso na beira do rio, com a água subindo, e puxá-lo a tempo. Qual momento é o <mark>clímax</mark>?",
           "figura": null,
           "alternativas": [
-            "Hugo caído nos trilhos com o trem chegando, fugindo do Inspetor.",
-            "O autômato desenhando a Lua com o foguete no olho e assinando Méliès.",
-            "Isabelle e Hugo brigando pelo desenho do autômato até ele rasgar.",
-            "Georges vendo o próprio filme antigo na projeção que Tabard traz."
+            "Lia encontra o cachorro preso na beira do rio, com a água subindo.",
+            "Lia perde o cachorro no parque, no começo da tarde.",
+            "Lia procura o cachorro por horas, chamando pelo nome.",
+            "À noite, os dois dormem juntos no sofá da sala."
           ],
           "correta": 0,
           "dificuldade": 2,
           "tipo_raciocinio": "multi-etapa",
           "passos": [
-            "Em cada cena, pergunte: Hugo corre risco real de perder tudo, ou só sente uma emoção forte?",
-            "Fique com a única cena em que a liberdade e o futuro dele estão em jogo ao mesmo tempo."
+            "Separe o começo do problema, o caminho e o fim.",
+            "Entre os momentos do meio, qual é o de maior tensão, em que tudo pode virar?"
           ],
-          "dica": "Três cenas emocionam, mas em qual delas Hugo pode perder tudo de verdade?",
-          "explicacao": "Emoção forte não é a mesma coisa que perigo. O <b>clímax</b> é a cena em que Hugo pode perder a liberdade, o autômato e a família de uma vez."
+          "dica": "Procure o momento em que tudo pode virar: ela pode perder o cachorro de vez ou salvá-lo.",
+          "explicacao": "Perder o cachorro é o problema; procurar é o caminho; o sofá é o desfecho. O <b>clímax</b> é a beira do rio: o momento de maior tensão, em que a história pode virar para qualquer lado."
         },
         {
           "questao_id": "POR.LEI.ESTR.Q204",
-          "enunciado": "No começo, Hugo vive sozinho e escondido. Qual alternativa mostra o que muda até o <mark>desfecho</mark> da história?",
+          "enunciado": "No começo, Hugo vive sozinho e escondido nas paredes da estação. O que muda até o <mark>desfecho</mark> da história?",
           "figura": null,
           "alternativas": [
-            "Ele ganha uma família com Georges e Isabelle e constrói um novo autômato, que escreve o livro.",
+            "Ele deixa de se esconder: mora com uma família e faz mágica num palco, diante de todos.",
             "Ele continua escondido nas paredes da estação, dando corda nos relógios todo dia, sozinho.",
             "Ele descobre, na Academia de Cinema, quem realmente desenhou a assinatura no autômato.",
             "Ele é perseguido pelo Inspetor, cai perto dos trilhos e quase é atropelado pelo trem."
@@ -357,7 +351,7 @@
             "Escolha a alternativa que mostra uma mudança que dura, não só um susto ou uma descoberta no meio da história."
           ],
           "dica": "Pense no que muda de verdade na vida de Hugo, não num susto ou numa descoberta no meio do caminho.",
-          "explicacao": "No <b>desfecho</b>, o isolamento do começo vira família: Hugo passa a morar com Georges e Isabelle, e o autômato que ele constrói ajuda a contar a própria história."
+          "explicacao": "No <b>desfecho</b>, o isolamento do começo vira família e o esconderijo vira palco: Hugo faz mágica na Academia como Professor Alcofrisbas. É isso que o final muda."
         }
       ]
     },

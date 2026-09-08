@@ -251,12 +251,12 @@
       "subtitulo": "Nomear os marcos da história",
       "eixo": "Leitura",
       "tema_id": "POR.LEI.ESTR",
-      "subtema": "Estrutura narrativa: situação-problema, cenário, clímax, desfecho",
-      "habilidade_bncc": "EF35LP26",
+      "subtema": "Estrutura narrativa: situação inicial, situação-problema, cenário, clímax, desfecho",
+      "habilidade_bncc": "EF35LP29",
       "ferramenta": "investigar",
-      "regra": "<b>Situação-problema</b>: o que o personagem quer + o que impede.<br><b>Clímax</b>: o maior perigo. <b>Desfecho</b>: como termina.<br><b>Cenário</b>: onde e quando.",
+      "regra": "<b>Situação inicial:</b> como encontramos os personagens. <b>Situação-problema:</b> o que quer + o que impede.<br><b>Clímax:</b> maior tensão, quando tudo pode virar. <b>Desfecho:</b> como termina.<br><b>Cenário:</b> onde e quando.",
       "aula": {
-        "corpo": "<p>Toda história acontece em algum lugar e algum tempo. A de Hugo se passa em Paris, no inverno de 1931, dentro de uma estação cheia de relógios e passagens escondidas. Esse pano de fundo tem nome: <mark>cenário</mark>.</p><p>No começo, Hugo já mora escondido ali, dando corda nos relógios no lugar do tio Claude, que sumiu. Essa fotografia de como tudo está antes de qualquer problema aparecer é a <b>situação inicial</b>.</p><p>Hugo quer consertar o autômato do pai, mas faltam peças e o Inspetor pode descobrir o segredo. Um personagem querer algo e algo impedir é a <mark>situação-problema</mark>. Mais à frente vêm o <b>clímax</b>, o momento de maior perigo, e o <b>desfecho</b>, como tudo termina.</p><h3>Hora de decidir · Qual marco é qual?</h3>",
+        "corpo": "<p>Toda história acontece em algum lugar e algum tempo. A de Hugo se passa em Paris, no inverno de 1931, dentro de uma estação cheia de relógios e passagens escondidas. Esse lugar e esse tempo têm nome: <mark>cenário</mark>.</p><p>No começo, encontramos Hugo escondido nas paredes, dando corda nos relógios no lugar do tio que sumiu: é a <b>situação inicial</b>, com as dificuldades que já existem. Logo aparece o que ele quer, consertar o autômato do pai, e o que impede: faltam peças e ninguém pode vê-lo. Querer algo e ter algo no caminho é a <mark>situação-problema</mark>.</p><p>A tensão cresce até a noite nos trilhos, quando tudo pode virar: esse é o <mark>clímax</mark>. E o <b>desfecho</b> é como o problema termina: Hugo ganha uma família, sobe ao palco da Academia como mágico e constrói um novo autômato, que escreve este livro.</p><h3>Hora de decidir · Qual marco é qual?</h3>",
         "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> conte em voz alta, na ordem, o cenário, a situação-problema, o clímax e o desfecho do livro.</div>"
       },
       "dados": {
@@ -271,10 +271,10 @@
               "A plateia assiste a Viagem à Lua na homenagem a Méliès."
             ],
             "correta": 1,
-            "explicacao": "É o momento de maior perigo: Hugo pode perder a liberdade, o autômato e a chance de uma família ao mesmo tempo."
+            "explicacao": "É o momento de maior tensão: ali tudo pode virar, e Hugo pode perder a liberdade, o autômato e a chance de uma família."
           },
           {
-            "contexto": "Duas frases sobre Isabelle: uma junta o que ela quer com o que a impede; a outra é só algo que ela faz por causa disso.",
+            "contexto": "Três frases sobre Isabelle. Só uma junta o que ela quer com o que a impede; as outras são uma ação dela e um fato do começo da história.",
             "pergunta": "Qual frase é a situação-problema, e não apenas uma consequência dela?",
             "alternativas": [
               "Isabelle abre a fechadura do quarto com um grampo de cabelo.",
@@ -282,33 +282,11 @@
               "Os pais de Isabelle morreram num acidente antes de a história começar."
             ],
             "correta": 1,
-            "explicacao": "Abrir a fechadura é uma ação que ela faz por outro motivo. A situação-problema junta o que ela quer com o que a impede."
+            "explicacao": "Abrir a fechadura é uma ação; os pais terem morrido é parte da situação inicial. A situação-problema junta o que ela quer com o que a impede."
           }
         ]
       },
-      "sorteio": {
-        "dificuldades": [
-          1,
-          2
-        ]
-      },
       "questoes": [
-        {
-          "questao_id": "POR.LEI.ESTR.Q101",
-          "enunciado": "Toda noite Hugo enche os bolsos de peças na loja de brinquedos e volta para o esconderijo nas paredes. Qual é a <mark>situação-problema</mark> dele nessa parte do livro?",
-          "figura": null,
-          "alternativas": [
-            "Ele quer consertar o autômato para ler uma mensagem do pai, mas faltam peças e ele precisa se esconder.",
-            "Ele rouba peças de brinquedos de corda na loja da estação para consertar o autômato escondido.",
-            "O tio Claude sumiu da estação faz tempo, e ninguém mais sabe o que aconteceu com ele.",
-            "Papa Georges confisca o caderno de desenhos do pai de Hugo assim que o flagra roubando."
-          ],
-          "correta": 0,
-          "dificuldade": 1,
-          "tipo_raciocinio": "interpretacao",
-          "dica": "Procure a frase que junta o que ele quer com o que atrapalha, não só uma ação dele.",
-          "explicacao": "A <b>situação-problema</b> reúne desejo e obstáculo. As outras frases são pedaços da história, não o problema inteiro que Hugo enfrenta."
-        },
         {
           "questao_id": "POR.LEI.ESTR.Q102",
           "enunciado": "A história de Hugo se passa numa estação cheia de relógios e passagens escondidas, no inverno. Qual é o <mark>cenário</mark> — onde e quando ela acontece?",
@@ -326,6 +304,22 @@
           "explicacao": "O <b>cenário</b> é Paris em 1931, dentro da estação — não Londres, nem o ano de 1902 do filme Viagem à Lua."
         },
         {
+          "questao_id": "POR.LEI.ESTR.Q101",
+          "enunciado": "Toda noite Hugo enche os bolsos de peças na loja de brinquedos e volta para o esconderijo nas paredes. Qual é a <mark>situação-problema</mark> dele nessa parte do livro?",
+          "figura": null,
+          "alternativas": [
+            "Ele quer consertar o autômato para ler uma mensagem do pai, mas faltam peças e ele precisa se esconder.",
+            "Ele rouba peças de brinquedos de corda na loja da estação para consertar o autômato escondido.",
+            "O tio Claude sumiu da estação faz tempo, e ninguém mais sabe o que aconteceu com ele.",
+            "Papa Georges confisca o caderno de desenhos do pai de Hugo assim que o flagra roubando."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Procure a frase que junta o que ele quer com o que atrapalha, não só uma ação dele.",
+          "explicacao": "A <b>situação-problema</b> reúne desejo e obstáculo. As outras frases são pedaços da história, não o problema inteiro que Hugo enfrenta."
+        },
+        {
           "questao_id": "POR.LEI.ESTR.Q103",
           "enunciado": "Na noite da perseguição, tudo acontece em sequência: Hugo sabe que o tio foi encontrado morto, volta à estação, o Inspetor o vê, ele cai nos trilhos, Georges chega. Qual desses momentos é o <mark>clímax</mark>?",
           "figura": null,
@@ -339,18 +333,18 @@
           "dificuldade": 2,
           "tipo_raciocinio": "multi-etapa",
           "passos": [
-            "Coloque os momentos na ordem e marque onde o perigo é maior.",
-            "Confira: nesse momento Hugo pode perder a liberdade, o autômato e a família ao mesmo tempo?"
+            "Coloque os momentos na ordem e marque onde a tensão é maior.",
+            "Confira: nesse momento tudo pode virar? Hugo pode perder a liberdade, o autômato e a família, ou ser salvo."
           ],
-          "dica": "Pergunte em qual momento Hugo pode perder tudo de uma vez, e não só levar um susto.",
-          "explicacao": "A notícia do tio e a volta à estação preparam o perigo; a chegada de Georges já é a saída dele. O <b>clímax</b> é o instante nos trilhos, com o trem chegando e a liberdade de Hugo em jogo."
+          "dica": "Pergunte em qual momento tudo pode virar de uma vez, para o bem ou para o mal.",
+          "explicacao": "A notícia do tio e a volta à estação preparam a tensão; a chegada de Georges já é a saída dele. O <b>clímax</b> é o instante nos trilhos, com o trem chegando: ali tudo pode virar."
         },
         {
           "questao_id": "POR.LEI.ESTR.Q104",
-          "enunciado": "Hugo é tirado da cela por Georges e Isabelle logo depois do maior perigo da história. Qual alternativa conta o <mark>desfecho</mark> — como o problema termina?",
+          "enunciado": "Hugo é tirado da cela por Georges e Isabelle logo depois do momento de maior tensão da história. Qual alternativa conta o <mark>desfecho</mark> — como o problema termina?",
           "figura": null,
           "alternativas": [
-            "Hugo ganha uma família com Georges e Isabelle e constrói um novo autômato, que escreve o livro.",
+            "Hugo ganha uma família com Georges e Isabelle e, seis meses depois, faz mágica na homenagem a Méliès.",
             "Hugo é tirado da cela por Georges e Isabelle, escapando assim por pouco de ser preso pelo Inspetor.",
             "Hugo e Isabelle descobrem, na Academia de Cinema, quem realmente fez o desenho assinado do autômato.",
             "Hugo finalmente consegue ler a mensagem que o pai havia deixado escondida só para ele."
@@ -363,7 +357,7 @@
             "Procure a alternativa que mostra a vida de Hugo mudada de forma duradoura, não só o resgate."
           ],
           "dica": "O desfecho vem depois do resgate: pense no que muda na vida de Hugo dali para frente.",
-          "explicacao": "Ser tirado da cela ainda é o fim do clímax. O <b>desfecho</b> é morar com a nova família e transformar a espera pela mensagem do pai num livro inteiro."
+          "explicacao": "Ser tirado da cela ainda é o fim do clímax. O <b>desfecho</b> é a vida nova: família, palco da Academia e um novo autômato que escreve o livro."
         }
       ]
     },

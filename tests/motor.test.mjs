@@ -237,3 +237,13 @@ test('escolha feita em outra aba não muda a identidade ativa nem o progresso de
   const destino=paginaDaTrilha({...pagina,arquivo:'segundo.html',id:'E2'});
   assert.equal(destino.api.consumirTrocaDeEtapa(),'Marco (teste)');
 });
+
+test('missão concluída continua aberta quando uma missão nova é inserida antes dela',()=>{
+  const codigo=trecho(motor,'function isOpen','\n');
+  const contexto={S:{done:{'causa-e1':true}},missoes:[{missao_id:'personagens-e1'},{missao_id:'estrutura-e1'},{missao_id:'causa-e1'},{missao_id:'tema-e1'}]};
+  vm.runInNewContext(`${codigo};globalThis.api={isOpen};`,contexto);
+  assert.equal(contexto.api.isOpen(0),true);
+  assert.equal(contexto.api.isOpen(1),false,'a missão nova segue a ordem normal');
+  assert.equal(contexto.api.isOpen(2),true,'a medalha já conquistada não pode ficar trancada');
+  assert.equal(contexto.api.isOpen(3),true,'a seguinte continua liberada pela concluída');
+});

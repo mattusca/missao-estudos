@@ -17,7 +17,8 @@ do teste inicial.
 | Terça, 08/09, pela manhã ou no primeiro período disponível | `2026-09-hugo-session-2-y5.html` | Aplicar as mesmas ideias em questões novas, com explicações mais curtas. |
 | Terça, 08/09, mais tarde, se houver disposição e base | `2026-09-hugo-session-3-y5.html` | Recuperar as ideias em dois blocos que misturam os temas. |
 
-Cada encontro aplica 14 questões. Os dois primeiros têm sete missões e pausas
+Os encontros 1 e 2 aplicam 16 questões (a missão de estrutura da história aplica os
+quatro marcos sem sorteio) e o encontro 3 aplica 14. Os dois primeiros têm sete missões e pausas
 sugeridas depois da segunda e da quarta. O terceiro é opcional: se houver apenas
 duas boas ocasiões, priorize os encontros 1 e 2. Deixe um intervalo real entre
 eles; abrir três arquivos em seguida não equivale a estudar em três ocasiões.
@@ -29,6 +30,9 @@ Use o livro como fonte. Localize uma sequência de imagens da abertura, o episó
 do autômato desenhando e uma passagem em que o passado de Georges é reconhecido.
 As páginas variam conforme a edição; não use numeração emprestada de outra edição.
 Se o roteiro da professora delimitar outros trechos, essa delimitação prevalece.
+
+Localize também as últimas páginas: a homenagem na Academia e o novo autômato que
+"escreve" o livro. O desfecho é cobrado nas questões e precisa vir do livro, não do filme.
 
 Leia um trecho curto por vez, alternando leitura compartilhada e leitura da aluna.
 Peça que conte o essencial com suas palavras e mostre a pista no texto ou na

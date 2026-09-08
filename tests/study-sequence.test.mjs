@@ -20,6 +20,9 @@ test('os encontros preservam banco alternativo por nível e o terceiro reutiliza
   const [primeiro,segundo,terceiro]=encontros;
   assert.equal(new Set(encontros.map(p=>p.prova_id)).size,3,'progresso precisa pertencer ao encontro');
   for(const p of [primeiro,segundo]) for(const m of p.missoes){
+    if(!m.sorteio){ // missão sem sorteio aplica todas as questões: os quatro marcos precisam ser praticados
+      assert.equal(m.tema_id,'POR.LEI.ESTR');assert.equal(m.questoes.length,4);continue;
+    }
     for(const d of new Set(m.sorteio.dificuldades)){
       const pedidos=m.sorteio.dificuldades.filter(x=>x===d).length;
       assert.ok(m.questoes.filter(q=>q.dificuldade===d).length>=2*pedidos,`${m.missao_id}: banco insuficiente para variar`);
@@ -54,7 +57,8 @@ test('o endereço antigo publica o primeiro encontro sem redirecionar nem reutil
   assert.equal(encontros[1].trilha.anterior,`${nomeAntigo}.html`);
 });
 
-test('sorteios reais mantêm 14 questões, níveis declarados e mistura sem repetição de tema adjacente',()=>{
+test('sorteios reais mantêm 16, 16 e 14 questões, níveis declarados e mistura sem repetição de tema adjacente',()=>{
+  const esperado={'2026-09-HUGO-E1-Y5':16,'2026-09-HUGO-E2-Y5':16,'2026-09-HUGO-E3-Y5':14};
   for(let tentativa=0;tentativa<50;tentativa++) for(const p of encontros){
     let total=0;
     for(const m of p.missoes){
@@ -64,9 +68,10 @@ test('sorteios reais mantêm 14 questões, níveis declarados e mistura sem repe
         qs.forEach((q,i)=>{if(i)assert.notEqual(q.tema_id,qs[i-1].tema_id);});
         for(const tema of new Set(qs.map(q=>q.tema_id)))
           assert.deepEqual(Array.from(qs.filter(q=>q.tema_id===tema),q=>q.dificuldade).sort(),[1,2]);
-      }else assert.deepEqual(Array.from(qs,q=>q.dificuldade),m.sorteio.dificuldades);
+      }else if(m.sorteio) assert.deepEqual(Array.from(qs,q=>q.dificuldade),m.sorteio.dificuldades);
+      else assert.deepEqual(qs.map(q=>q.questao_id),m.questoes.map(q=>q.questao_id));
     }
-    assert.equal(total,14);
+    assert.equal(total,esperado[p.prova_id]);
   }
 });
 

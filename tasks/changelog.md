@@ -1,5 +1,47 @@
 # Changelog
 
+## 2026-09-08 — Hugo: revisão pedagógica do Codex sobre a estrutura narrativa
+
+O Codex auditou o commit `62ba9c9` e levantou seis hipóteses pedagógicas e duas
+técnicas. Todas foram confirmadas e corrigidas; nada foi tratado como certo sem
+reproduzir no código ou no conteúdo.
+
+- **Clímax** deixa de ser "maior perigo" e passa a "momento de maior tensão, quando
+  tudo pode virar", em cartões, aulas, cola do encontro 3, dicas e explicações. A
+  cena dos trilhos continua sendo a resposta para Hugo, mas pelo critério certo.
+- **Situação inicial** deixa de ser "antes de qualquer problema" (contradizia um Hugo
+  já escondido) e vira "como encontramos os personagens, com as dificuldades que
+  já existem". Cartão do encontro 2, cola do encontro 3, aulas e Q201 alinhados.
+- **Desfecho ensinado antes de ser cobrado**: a aula do encontro 1 agora conta o
+  final (família, palco da Academia, novo autômato que escreve o livro); o guia do
+  responsável pede localizar essas páginas no livro.
+- **Prática dos quatro marcos**: as missões de estrutura dos encontros 1 e 2 deixam
+  de sortear 2 de 4 e aplicam as quatro questões, na ordem cenário → problema →
+  clímax → desfecho. Encontros 1 e 2 passam a 16 questões; o 3 segue com 14. É a
+  única missão sem sorteio; as alternativas continuam embaralhadas.
+- **Variação no encontro 2**: Q203 passa a identificar o clímax numa cena inventada
+  (transferência do conceito); Q204 pergunta o que muda do começo ao fim.
+- **Exemplo de Isabelle** corrigido: "três frases", e a explicação separa ação,
+  fato do começo e situação-problema.
+- **BNCC**: o tema passa a EF35LP29 (cenário, personagem central, conflito,
+  resolução), ainda `bncc_conferida: false`.
+- **motor**: `isOpen` passa a considerar aberta toda missão já concluída. Inserir
+  uma missão antes de outra não tranca mais uma medalha conquistada. Teste novo.
+- **encontro 3**: o bloco ampliado com o tema novo ganhou id novo
+  (`mistura-cenas-marcos-e3`), para uma conclusão antiga não valer pelo conteúdo novo.
+- Testes ajustados (missão sem sorteio, totais por encontro) e arquivos editados por
+  script devolvidos a LF: o teste do payload fatia o motor por `
+` e quebrava com CRLF.
+
+Verificação: validador sem erros, build dos quatro HTMLs e da prova original, 18
+testes, e no navegador: progresso simulado com Causa concluída antes da inserção
+continua aberto com medalha; a missão nova aplica os quatro desafios na ordem.
+Auditoria independente da rodada (Sonnet): 5 achados, todos corrigidos: cartão de
+enredo ainda dizia "maior perigo"; cartões da prova original e do encontro 1 sem
+"situação inicial"; "maior perigo" no enunciado de Q104; exemplo de Isabelle repetido
+nos dois encontros (o do encontro 2 passou a Georges); enunciado de Q203 encadeado demais.
+
+
 ## 2026-09-07 — Hugo: estrutura narrativa a pedido da psicopedagoga
 
 A psicopedagoga da Alícia testou o encontro 1 (perfil "Fernanda (teste)") e pediu

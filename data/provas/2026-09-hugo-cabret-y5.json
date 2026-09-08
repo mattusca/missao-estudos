@@ -207,7 +207,7 @@
       "regra": "Para ordenar, localize <b>antes, durante e depois</b> na cena.<br>Se a pergunta pedir o motivo, procure também a ligação que <b>explica</b> o acontecimento.",
       "aula": {
         "corpo": "<p>Hugo vê a chave em forma de coração no pescoço de Isabelle e pensa: é isso que falta para o autômato funcionar. Ele arma um truque simples para conseguir a chave sem que ela perceba. Mas e se pegar a chave for só o começo de tudo?</p>\n  <p>O livro tem duas partes, como um filme com intervalo. Na Parte 1, Hugo persegue um segredo; na Parte 2, o segredo persegue Hugo de volta. Isso tem nome: <mark>enredo</mark> — a corrente de acontecimentos em que um abre a porta do seguinte.</p>\n  <div class=\"lesson-box\"><strong>Duas partes, dois sentidos</strong><br><b>Parte 1:</b> Hugo busca o segredo do autômato<br><b>Parte 2:</b> o segredo de Georges vem à tona<br>Cada acontecimento <b>abre a porta</b> do próximo</div>\n  <p>A ordem deixa pistas. Antes de escolher a próxima ficha, pergunte: <mark>o que aconteceu antes e o que veio depois?</mark> Toque nas fichas e reconstrua o caminho da história.</p>\n  <h3>Hora de mexer · Colocar a história em ordem</h3>",
-        "fechamento": "<div class=\"lesson-box\"><strong>Para lembrar</strong> Se a pergunta pedir \"o que aconteceu depois\", recupere a ordem da cena. Se pedir \"por quê\", procure o motivo. Se pedir <b>situação-problema</b>, <b>clímax</b> ou <b>desfecho</b>, é o mapa da história: o que ele quer, o momento de maior perigo, como termina.</div>"
+        "fechamento": "<div class=\"lesson-box\"><strong>Para lembrar</strong> Se a pergunta pedir \"o que aconteceu depois\", recupere a ordem da cena. Se pedir \"por quê\", procure o motivo. Se pedir <b>situação-problema</b>, <b>clímax</b> ou <b>desfecho</b>, é o mapa da história: o que ele quer, o momento de maior tensão, como termina.</div>"
       },
       "dados": {
         "instrucao": "Toque nas fichas e recoloque a história na ordem em que ela aconteceu",
@@ -405,13 +405,13 @@
       "subtitulo": "Do começo ao fim da história",
       "eixo": "Leitura",
       "tema_id": "POR.LEI.ESTR",
-      "subtema": "Estrutura narrativa: situação-problema, cenário, clímax, desfecho",
-      "habilidade_bncc": "EF35LP26",
+      "subtema": "Estrutura narrativa: situação inicial, situação-problema, cenário, clímax, desfecho",
+      "habilidade_bncc": "EF35LP29",
       "ferramenta": "montar",
-      "regra": "<b>Situação-problema:</b> o que o personagem quer + o que impede.<br><b>Clímax:</b> o maior perigo. <b>Desfecho:</b> como termina.<br><b>Cenário:</b> onde e quando a história acontece.",
+      "regra": "<b>Situação inicial:</b> como encontramos os personagens. <b>Situação-problema:</b> o que quer + o que impede.<br><b>Clímax:</b> maior tensão, quando tudo pode virar. <b>Desfecho:</b> como termina.<br><b>Cenário:</b> onde e quando.",
       "aula": {
-        "corpo": "<p>Hugo dá corda nos 27 relógios da estação e ninguém percebe que ele vive escondido nas paredes. É assim que a história começa. Mas ela vai crescer até um momento em que Hugo pode perder tudo: a liberdade, o autômato, a família que está prestes a ganhar.</p>\n  <p>Toda história tem um mapa assim: primeiro como as coisas estão, depois o que dá errado. Hugo órfão e escondido é a <b>situação inicial</b>. O que ele quer e o que atrapalha vira a <b>situação-problema</b>.</p>\n  <div class=\"lesson-box\"><strong>Os marcos da história</strong><br><b>Situação inicial:</b> como tudo está antes<br><b>Situação-problema:</b> o que quer + o que impede<br><b>Cenário:</b> onde e quando</div>\n  <p>Na prova, o enunciado pode pedir exatamente o <b>clímax</b> ou o <b>desfecho</b> de uma história. Clímax é o momento de maior perigo; desfecho é como o problema termina. Quer treinar esse mapa? Toque nas cenas e organize a viagem completa de Hugo.</p>\n  <h3>Hora de mexer · Montar o mapa da viagem</h3>",
-        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se o enunciado nomear um marco, releia o critério: situação-problema pede o que quer + o que impede; clímax pede o maior perigo; desfecho pede como termina.</div>"
+        "corpo": "<p>Hugo dá corda nos 27 relógios da estação e ninguém percebe que ele vive escondido nas paredes. É assim que a história começa. Mas ela vai crescer até um momento em que tudo pode virar: Hugo pode perder a liberdade, o autômato e a família que está prestes a ganhar.</p>\n  <p>Hugo órfão, escondido e cuidando dos relógios é a <b>situação inicial</b>: como encontramos os personagens, com as dificuldades que já existem. Querer consertar o autômato sem peças e sem ser visto é a <mark>situação-problema</mark>.</p>\n  <div class=\"lesson-box\"><strong>Os marcos da história</strong><br><b>Situação inicial:</b> como encontramos os personagens<br><b>Situação-problema:</b> o que quer + o que impede<br><b>Cenário:</b> onde e quando</div>\n  <p>Depois vem o <mark>clímax</mark>: o momento de maior tensão, quando o problema chega ao ponto de virar. Para Hugo, é a noite nos trilhos. E o <b>desfecho</b> é como o problema termina: ele ganha uma família e sobe ao palco da Academia. Toque nas cenas e organize a viagem completa de Hugo.</p>\n  <h3>Hora de mexer · Montar o mapa da viagem</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se o enunciado nomear um marco, releia o critério: situação-problema pede o que quer + o que impede; clímax pede o momento de maior tensão, quando tudo pode virar; desfecho pede como termina e o que muda.</div>"
       },
       "dados": {
         "instrucao": "Toque nas cenas e organize a viagem de Hugo, do começo ao fim",
@@ -429,7 +429,7 @@
               "Perseguido pelo Inspetor, Hugo cai nos trilhos com um trem chegando.",
               "Hugo ganha uma família e, seis meses depois, faz mágica na Academia."
             ],
-            "porque": "cada marco puxa o seguinte: início, problema, perigo maior, solução"
+            "porque": "início, problema, tensão máxima, solução: cada marco puxa o seguinte"
           },
           {
             "fichas": [
@@ -444,7 +444,7 @@
               "O Inspetor o vê e sai atrás dele pela plataforma.",
               "Hugo cai nos trilhos e é puxado pelo colarinho, preso na cela."
             ],
-            "porque": "cada perigo cresce sobre o anterior, até o pior momento possível"
+            "porque": "a tensão cresce a cada passo, até o ponto em que tudo vira"
           },
           {
             "fichas": [
@@ -505,7 +505,7 @@
         },
         {
           "questao_id": "POR.LEI.ESTR.Q3",
-          "enunciado": "Várias cenas da Parte 2 têm emoção forte, mas só uma é o momento de maior perigo da história. Qual delas é o <mark>clímax</mark>?",
+          "enunciado": "Várias cenas da Parte 2 têm emoção forte, mas só uma é o momento de maior tensão, em que tudo pode virar. Qual delas é o <mark>clímax</mark>?",
           "figura": null,
           "alternativas": [
             "Hugo cai nos trilhos fugindo do Inspetor e é puxado pelo colarinho",
@@ -516,8 +516,8 @@
           "correta": 0,
           "dificuldade": 2,
           "tipo_raciocinio": "interpretacao",
-          "dica": "Pense em qual cena coloca a liberdade de Hugo em risco de verdade, não só o coração dele.",
-          "explicacao": "O <b>clímax</b> é quando Hugo, fugindo do Inspetor, cai nos trilhos com um trem chegando e quase perde tudo. As outras cenas doem, mas nenhuma coloca Hugo em perigo real. Perigo de verdade é o que separa o clímax das cenas só emocionantes."
+          "dica": "Pense em qual cena o problema inteiro de Hugo chega ao ponto de virar, para o bem ou para o mal.",
+          "explicacao": "O <b>clímax</b> é quando Hugo, fugindo do Inspetor, cai nos trilhos com um trem chegando: ali ele pode perder tudo ou ganhar tudo. As outras cenas emocionam, mas não decidem a história. Clímax é a virada, não só a emoção."
         },
         {
           "questao_id": "POR.LEI.ESTR.Q4",
@@ -578,7 +578,7 @@
           "enunciado": "O Inspetor aparece cedo, rondando a estação, e reaparece bem na hora em que tudo pode dar errado. Que papel ele cumpre para levar a história até o <mark>clímax</mark>?",
           "figura": null,
           "alternativas": [
-            "Ele é o obstáculo que transforma o medo de Hugo em perigo real, na perseguição",
+            "Ele é o obstáculo que leva a tensão ao ponto máximo, na perseguição",
             "Ele é o vilão da história, que só quer prejudicar Hugo sem motivo",
             "Ele é quem manda Hugo trabalhar na loja para pagar pelo caderno",
             "Ele é quem ajuda Hugo a recuperar o caderno de desenhos"
@@ -590,10 +590,10 @@
             "O que o Inspetor faz na estação, bem antes da perseguição começar?",
             "O que ele representa para Hugo, que vive escondido e sem família à vista?",
             "O que acontece quando o Inspetor vê Hugo voltando à estação à noite?",
-            "Esse encontro transforma a situação-problema em qual outro momento da história?"
+            "Esse encontro leva a situação-problema a qual outro momento da história?"
           ],
           "dica": "Pense no trabalho normal de um inspetor de estação, não em maldade pessoal.",
-          "explicacao": "O Inspetor só está fazendo o trabalho dele: manter a ordem e mandar crianças sem família para o orfanato. É justamente esse trabalho comum que, ao encontrar Hugo na hora errada, transforma a <b>situação-problema</b> no <b>clímax</b>. Nem todo obstáculo de uma história precisa ser um vilão de propósito."
+          "explicacao": "O Inspetor só está fazendo o trabalho dele: manter a ordem e mandar crianças sem família para o orfanato. É justamente esse trabalho comum que, ao encontrar Hugo na hora errada, leva a <b>situação-problema</b> ao <b>clímax</b>, o ponto em que tudo vira. Nem todo obstáculo de uma história precisa ser um vilão de propósito."
         }
       ]
     },

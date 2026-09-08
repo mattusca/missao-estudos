@@ -22,7 +22,7 @@
   },
   "missoes": [
     {
-      "missao_id": "mistura-cenas-e3",
+      "missao_id": "mistura-cenas-marcos-e3",
       "icone": "🧩",
       "titulo": "Pistas nas cenas",
       "subtitulo": "Personagem, ordem, ligação ou marco?",
@@ -61,7 +61,7 @@
         {
           "tema_id": "POR.LEI.ESTR",
           "rotulo": "O mapa da história",
-          "texto": "<b>Situação inicial:</b> como tudo está antes. <b>Situação-problema:</b> o que quer + o que impede. <b>Clímax:</b> o maior perigo. <b>Desfecho:</b> como termina. <b>Cenário:</b> onde e quando."
+          "texto": "<b>Situação inicial:</b> como encontramos os personagens. <b>Situação-problema:</b> o que quer + o que impede. <b>Clímax:</b> maior tensão, quando tudo pode virar. <b>Desfecho:</b> como termina. <b>Cenário:</b> onde e quando."
         }
       ]
     },

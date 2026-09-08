@@ -86,6 +86,12 @@
       "Clímax" e "desfecho" nomeados em SEQ.Q6, SEQ.Q7 e SEQ.Q203.
 - [ ] Conferir `POR.LEI.ESTR` com o roteiro da professora: se ela usar outros nomes
       ("conflito", "situação inicial", "resolução"), alinhar o vocabulário das questões.
+- [ ] Revisão do Codex de 08/09 aplicada (clímax como tensão/virada, situação inicial com
+      dificuldades, desfecho ensinado antes de cobrado, quatro marcos praticados, `isOpen`).
+      Ficou de fora, por decisão: a ferramenta `investigar` libera o avanço após um exemplo;
+      o segundo pode ser pulado. Decidir se o portão deve exigir todos os exemplos.
+- [ ] Encontro 3 sorteia 1 questão por nível e por tema: pratica 2 dos 4 marcos. Aceito
+      por ser recuperação opcional; rever se virar sessão obrigatória.
 - [ ] Conferir com o roteiro da professora: matéria (Português assumido), capítulos
       cobrados, se livro × filme entra. Ajustar missões ao roteiro.
 - [ ] Revisão factual por adulto que leu a edição SM (nomes, "afilhada", Inspetor sem

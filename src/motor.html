@@ -1177,7 +1177,9 @@ function pedirAluna(depois){
 }
 
 /* uma missão abre quando a anterior da lista atual estiver concluída */
-function isOpen(i){return i===0 || !!S.done[missoes[i-1]?.missao_id];}
+/* Uma missão concluída fica sempre aberta: inserir uma missão nova antes dela
+   não pode trancar uma medalha já conquistada. */
+function isOpen(i){return i===0 || !!S.done[missoes[i]?.missao_id] || !!S.done[missoes[i-1]?.missao_id];}
 
 /* ====== SAIR DE UMA MISSÃO PELA METADE ======
    Uma missão só conta quando termina. Sair — pelo botão ou fechando a aba —
