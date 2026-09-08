@@ -14,10 +14,9 @@
 ## 2026-09-08 — Plano do painel infantil de evolução
 - [x] Plano revisado por Claude (08/09) e implementado no mesmo dia: trilha única em
       capítulos, cartão de recuperação opcional, "Minhas pistas", coluna 29, rotas.
-- [ ] **Marco: reimplantar o Apps Script** (`apps-script/enviar.gs`) para a planilha
-      ganhar a coluna Capítulo. Prioridade alta: cada linha gravada antes disso fica sem
-      capítulo para sempre (o reenvio é deduplicado). Depois, testar com um perfil de
-      teste e conferir a coluna na aba.
+- [x] Apps Script reimplantado por Marco em 08/09 às 17:09 (versão 4, mesma URL do
+      segredo). Endpoint responde "29 campos por evento". A coluna Capítulo entra na
+      aba na primeira gravação; conferir na planilha após a próxima resposta.
 - [ ] Mapa em SVG da estação (etapa D do plano), depois da prova.
 - [ ] Observar com a Alícia: ela encontra o capítulo 2 sem perguntar? aceita a pergunta
       de recuperação? Sem cobrar resposta.
