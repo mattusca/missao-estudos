@@ -202,7 +202,7 @@
         },
         {
           "questao_id": "POR.LEI.SEQ.Q203",
-          "enunciado": "<mark>Organize</mark> as fichas misturadas: homenagem a Georges • registros encontrados • filmes reconhecidos. A busca dos registros inicia esse caminho até a homenagem.",
+          "enunciado": "<mark>Organize</mark> as fichas misturadas: homenagem a Georges • registros encontrados • filmes reconhecidos. A busca dos registros inicia esse caminho até a homenagem, meses depois, que é o desfecho.",
           "figura": null,
           "alternativas": [
             "registros encontrados → filmes reconhecidos → homenagem",
@@ -235,6 +235,129 @@
           "tipo_raciocinio": "interpretacao",
           "dica": "A confiança se constrói antes de Hugo aceitar um novo vínculo.",
           "explicacao": "O percurso vai do isolamento secreto à confiança e ao acolhimento."
+        }
+      ]
+    },
+    {
+      "missao_id": "estrutura-e2",
+      "icone": "🗺️",
+      "titulo": "O mapa em novas cenas",
+      "subtitulo": "Os mesmos marcos, cenas novas",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.ESTR",
+      "subtema": "Estrutura narrativa: situação-problema, cenário, clímax, desfecho",
+      "habilidade_bncc": "EF35LP26",
+      "ferramenta": "investigar",
+      "regra": "<b>Situação inicial</b>: como tudo está antes. <b>Situação-problema</b>: o que quer + o que impede.<br><b>Clímax</b>: o maior perigo. <b>Desfecho</b>: como termina.<br><b>Cenário</b>: onde e quando.",
+      "aula": {
+        "corpo": "<p>Você já conhece os marcos da história. <mark>Cenário</mark> é onde e quando ela acontece. Situação inicial é como tudo está antes do problema. Situação-problema é o que o personagem quer e o que impede.</p><p>Clímax é o momento de maior perigo, e desfecho é como tudo termina. Agora você vai aplicar esse olhar em cenas novas do livro.</p><h3>Hora de decidir · Qual marco é qual, em cenas novas?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> escolha uma cena nova do livro e diga a um adulto qual marco da história ela mostra.</div>"
+      },
+      "dados": {
+        "instrucao": "Leia a cena, escolha a resposta certa e confirme sua decisão.",
+        "exemplos": [
+          {
+            "contexto": "Duas frases sobre o começo da história: uma mostra como tudo está antes de qualquer problema aparecer; a outra já mostra o que alguém quer e o que a impede.",
+            "pergunta": "Qual frase é a situação-problema, e não a situação inicial?",
+            "alternativas": [
+              "Isabelle mora com os padrinhos Georges e Mama Jeanne desde que os pais morreram.",
+              "Isabelle quer entrar no cinema pela primeira vez, mas Georges nunca deixou.",
+              "Georges tem uma loja de brinquedos dentro da estação de trem."
+            ],
+            "correta": 1,
+            "explicacao": "As frases sobre onde Isabelle mora e sobre a loja mostram como tudo estava antes do problema. Só a frase sobre o cinema junta o que ela quer com o que a impede."
+          },
+          {
+            "contexto": "A estação tem 27 relógios que Hugo precisa manter funcionando sem falhar, e uma cela no escritório do Inspetor.",
+            "pergunta": "Por que Hugo não pode simplesmente parar de cuidar dos relógios?",
+            "alternativas": [
+              "Porque isso não mudaria nada na vida dele na estação.",
+              "Porque um relógio parado chamaria atenção e poria em risco o esconderijo dele.",
+              "Porque os relógios pertencem a Georges, não à estação."
+            ],
+            "correta": 1,
+            "explicacao": "O cenário participa da história: os mesmos relógios que escondem Hugo também podem denunciá-lo se pararem."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.ESTR.Q201",
+          "enunciado": "No começo, Hugo mora escondido na estação e dá corda nos relógios no lugar do tio que sumiu. Isso descreve a <mark>situação inicial</mark> ou a situação-problema?",
+          "figura": null,
+          "alternativas": [
+            "Situação inicial: mostra como tudo está antes de o problema aparecer.",
+            "Situação-problema: mostra o que Hugo quer e o que o impede.",
+            "Clímax: mostra o momento de maior perigo da história.",
+            "Desfecho: mostra como o problema termina."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pergunte se essa cena já mostra o que ele quer resolver, ou só como as coisas estavam antes disso.",
+          "explicacao": "Dar corda nos relógios e viver escondido é como tudo está antes de qualquer problema aparecer — isso é a <b>situação inicial</b>, ainda não a situação-problema."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q202",
+          "enunciado": "Hugo dorme num quartinho dentro das paredes da estação, e é nessa mesma estação que fica a cela do Inspetor. O que esse <mark>cenário</mark> faz pela história?",
+          "figura": null,
+          "alternativas": [
+            "Esconde Hugo e, ao mesmo tempo, guarda o perigo de ele ser descoberto.",
+            "Serve só de pano de fundo, sem influenciar o que acontece com Hugo.",
+            "Mostra que Paris, em 1931, era uma cidade cheia de trens e relógios.",
+            "Marca o lugar onde Méliès filmou Viagem à Lua anos antes."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense em tudo que essas paredes fazem por Hugo, não só em escondê-lo.",
+          "explicacao": "O <b>cenário</b> não é só pano de fundo: a estação esconde Hugo e guarda, nas mesmas paredes, o risco de ele ser descoberto."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q203",
+          "enunciado": "Quatro cenas fortes do livro: o autômato desenhando, a briga pelo desenho, Georges vendo o próprio filme, Hugo caído nos trilhos. Qual delas é o <mark>clímax</mark> da história?",
+          "figura": null,
+          "alternativas": [
+            "Hugo caído nos trilhos com o trem chegando, fugindo do Inspetor.",
+            "O autômato desenhando a Lua com o foguete no olho e assinando Méliès.",
+            "Isabelle e Hugo brigando pelo desenho do autômato até ele rasgar.",
+            "Georges vendo o próprio filme antigo na projeção que Tabard traz."
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Em cada cena, pergunte: Hugo corre risco real de perder tudo, ou só sente uma emoção forte?",
+            "Fique com a única cena em que a liberdade e o futuro dele estão em jogo ao mesmo tempo."
+          ],
+          "dica": "Três cenas emocionam, mas em qual delas Hugo pode perder tudo de verdade?",
+          "explicacao": "Emoção forte não é a mesma coisa que perigo. O <b>clímax</b> é a cena em que Hugo pode perder a liberdade, o autômato e a família de uma vez."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q204",
+          "enunciado": "No começo, Hugo vive sozinho e escondido. Qual alternativa mostra o que muda até o <mark>desfecho</mark> da história?",
+          "figura": null,
+          "alternativas": [
+            "Ele ganha uma família com Georges e Isabelle e constrói um novo autômato, que escreve o livro.",
+            "Ele continua escondido nas paredes da estação, dando corda nos relógios todo dia, sozinho.",
+            "Ele descobre, na Academia de Cinema, quem realmente desenhou a assinatura no autômato.",
+            "Ele é perseguido pelo Inspetor, cai perto dos trilhos e quase é atropelado pelo trem."
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Compare como Hugo vive no começo com como ele vive no final do livro.",
+            "Escolha a alternativa que mostra uma mudança que dura, não só um susto ou uma descoberta no meio da história."
+          ],
+          "dica": "Pense no que muda de verdade na vida de Hugo, não num susto ou numa descoberta no meio do caminho.",
+          "explicacao": "No <b>desfecho</b>, o isolamento do começo vira família: Hugo passa a morar com Georges e Isabelle, e o autômato que ele constrói ajuda a contar a própria história."
         }
       ]
     },

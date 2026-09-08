@@ -75,7 +75,7 @@ sessões antigas retomadas preservam o ID original até expirar.
 O [roteiro do responsável](guides/hugo-study-sequence.md) organiza ensino guiado,
 aplicação em situações novas e recuperação posterior. O terceiro encontro é
 opcional e pressupõe que os temas já tenham sido trabalhados. Cada arquivo tem
-progresso próprio por pessoa e 12 questões por passagem.
+progresso próprio por pessoa e 14 questões por passagem.
 
 ```bash
 node build.mjs 2026-09-hugo-session-1-y5

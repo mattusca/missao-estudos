@@ -54,7 +54,7 @@ test('o endereço antigo publica o primeiro encontro sem redirecionar nem reutil
   assert.equal(encontros[1].trilha.anterior,`${nomeAntigo}.html`);
 });
 
-test('sorteios reais mantêm 12 questões, níveis declarados e mistura sem repetição de tema adjacente',()=>{
+test('sorteios reais mantêm 14 questões, níveis declarados e mistura sem repetição de tema adjacente',()=>{
   for(let tentativa=0;tentativa<50;tentativa++) for(const p of encontros){
     let total=0;
     for(const m of p.missoes){
@@ -66,7 +66,7 @@ test('sorteios reais mantêm 12 questões, níveis declarados e mistura sem repe
           assert.deepEqual(Array.from(qs.filter(q=>q.tema_id===tema),q=>q.dificuldade).sort(),[1,2]);
       }else assert.deepEqual(Array.from(qs,q=>q.dificuldade),m.sorteio.dificuldades);
     }
-    assert.equal(total,12);
+    assert.equal(total,14);
   }
 });
 

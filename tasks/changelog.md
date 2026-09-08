@@ -1,5 +1,49 @@
 # Changelog
 
+## 2026-09-07 — Hugo: estrutura narrativa a pedido da psicopedagoga
+
+A psicopedagoga da Alícia testou o encontro 1 (perfil "Fernanda (teste)") e pediu
+que toda proposta sobre livro cubra enredo, personagens principais,
+situação-problema, cenário, clímax e desfecho. Enredo e personagens já tinham
+missão; os outros quatro não apareciam nomeados em nenhum arquivo de Hugo.
+
+- **catálogo**: tema `POR.LEI.ESTR` (estrutura narrativa, EF35LP26, `bncc_conferida: false`).
+- **prova original** (`2026-09-hugo-cabret-y5.json`, fonte histórica, não publicada
+  pela rota atual): missão "O painel de partidas" em 3ª posição, ferramenta `montar`
+  com três itens (os quatro marcos; a noite do clímax; o desfecho até o novo
+  autômato), banco de 7 questões `POR.LEI.ESTR.Q1–Q7`, sorteio [1,2,3]. Passa a
+  7 missões e 21 questões por sessão.
+- **encontros 1 e 2**: missões `estrutura-e1` e `estrutura-e2` (ferramenta
+  `investigar`, dois exemplos cada), questões `Q101–Q104` e `Q201–Q204`. Cada
+  encontro passa a 7 missões e 14 questões; pausas continuam após a 2ª e a 4ª.
+- **encontro 3**: `mistura-cenas-e3` sorteia também do tema novo (banco do
+  encontro 2) e ganha o critério na cola. Total do encontro: 14 questões.
+- **vocabulário nos itens existentes**: "clímax" em SEQ.Q7, "desfecho" em SEQ.Q6 e
+  SEQ.Q203, marcos na "Dica de prova" da missão de enredo. IDs preservados: a
+  exigência das questões não mudou.
+- Guia da sequência, README e teste de sorteio atualizados para 7 temas / 14 questões.
+
+Produção: dois redatores em paralelo (Sonnet), revisão minha antes da mesclagem
+(regra ambígua, distrator inventado, dica e enunciado que entregavam a resposta,
+inconsistência entre ficha do montar e a questão de desfecho). Auditoria
+independente em duas frentes (fatos/coerência e didática/vazamentos):
+17 achados, todos corrigidos. Fatos (3): "situação inicial" cobrada no encontro 2
+sem constar do cartão e da cola; três distratores que inventavam fatos, trocados
+por confusões entre elementos reais; "próximos" impreciso em SEQ.Q203. Didática
+(14): exemplos da ferramenta `investigar` que repetiam quase palavra por palavra
+a resposta de Q101, Q201 e Q202 (reescritos com cenas de Isabelle e dos relógios);
+andaime de SEQ.Q6 que entregava a ordem pronta (virou perguntas); alternativa
+correta de desfecho mais longa que os distratores em Q4, Q104 e Q204; dicas de Q5
+e Q202 que entregavam o raciocínio; distrator defensável em Q1; Q4 e Q6 apoiadas
+no mesmo fato (Q4 passou a família + homenagem); aula do encontro 2 em duas telas;
+cartões em três linhas; cola do encontro 3 enxugada.
+
+Verificação: validador de conteúdo (0 erros nos quatro arquivos), build dos
+quatro HTMLs e da prova original por cópia temporária, 17 testes aprovados,
+encontro 1 e prova original conferidos no navegador (3 telas de aula, portão da
+ferramenta, fechamento, cartão de regra e primeira questão).
+
+
 ## 2026-09-07 — Botão anterior e identidade mantida entre encontros
 
 O botão anterior agora tem o mesmo tamanho, contraste e comportamento visual

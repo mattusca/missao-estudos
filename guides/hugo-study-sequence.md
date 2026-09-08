@@ -1,8 +1,8 @@
 # Hugo Cabret — sequência de estudo até 09/09
 
 Roteiro para o responsável, elaborado em 07/09/2026. Os três encontros cobrem os
-seis temas do artefato inicial: personagens, sequência, causa, temas, vocabulário
-e forma narrativa. O roteiro da professora ainda precisa ser conferido; estes
+sete temas do artefato: personagens, sequência, estrutura da história (situação-problema,
+cenário, clímax e desfecho), causa, temas, vocabulário e forma narrativa. O roteiro da professora ainda precisa ser conferido; estes
 arquivos não representam uma confirmação do conteúdo exato da prova.
 
 **Entrada pelo mesmo link já compartilhado:**
@@ -17,7 +17,7 @@ do teste inicial.
 | Terça, 08/09, pela manhã ou no primeiro período disponível | `2026-09-hugo-session-2-y5.html` | Aplicar as mesmas ideias em questões novas, com explicações mais curtas. |
 | Terça, 08/09, mais tarde, se houver disposição e base | `2026-09-hugo-session-3-y5.html` | Recuperar as ideias em dois blocos que misturam os temas. |
 
-Cada encontro aplica 12 questões. Os dois primeiros têm seis missões e pausas
+Cada encontro aplica 14 questões. Os dois primeiros têm sete missões e pausas
 sugeridas depois da segunda e da quarta. O terceiro é opcional: se houver apenas
 duas boas ocasiões, priorize os encontros 1 e 2. Deixe um intervalo real entre
 eles; abrir três arquivos em seguida não equivale a estudar em três ocasiões.

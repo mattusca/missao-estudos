@@ -207,7 +207,7 @@
       "regra": "Para ordenar, localize <b>antes, durante e depois</b> na cena.<br>Se a pergunta pedir o motivo, procure também a ligação que <b>explica</b> o acontecimento.",
       "aula": {
         "corpo": "<p>Hugo vê a chave em forma de coração no pescoço de Isabelle e pensa: é isso que falta para o autômato funcionar. Ele arma um truque simples para conseguir a chave sem que ela perceba. Mas e se pegar a chave for só o começo de tudo?</p>\n  <p>O livro tem duas partes, como um filme com intervalo. Na Parte 1, Hugo persegue um segredo; na Parte 2, o segredo persegue Hugo de volta. Isso tem nome: <mark>enredo</mark> — a corrente de acontecimentos em que um abre a porta do seguinte.</p>\n  <div class=\"lesson-box\"><strong>Duas partes, dois sentidos</strong><br><b>Parte 1:</b> Hugo busca o segredo do autômato<br><b>Parte 2:</b> o segredo de Georges vem à tona<br>Cada acontecimento <b>abre a porta</b> do próximo</div>\n  <p>A ordem deixa pistas. Antes de escolher a próxima ficha, pergunte: <mark>o que aconteceu antes e o que veio depois?</mark> Toque nas fichas e reconstrua o caminho da história.</p>\n  <h3>Hora de mexer · Colocar a história em ordem</h3>",
-        "fechamento": "<div class=\"lesson-box\"><strong>Para lembrar</strong> Se a pergunta pedir \"o que aconteceu depois\", recupere a ordem da cena. Se pedir \"por quê\", procure o motivo. Vir antes, sozinho, não torna um fato a causa de outro.</div>"
+        "fechamento": "<div class=\"lesson-box\"><strong>Para lembrar</strong> Se a pergunta pedir \"o que aconteceu depois\", recupere a ordem da cena. Se pedir \"por quê\", procure o motivo. Se pedir <b>situação-problema</b>, <b>clímax</b> ou <b>desfecho</b>, é o mapa da história: o que ele quer, o momento de maior perigo, como termina.</div>"
       },
       "dados": {
         "instrucao": "Toque nas fichas e recoloque a história na ordem em que ela aconteceu",
@@ -354,7 +354,7 @@
         },
         {
           "questao_id": "POR.LEI.SEQ.Q6",
-          "enunciado": "Filme na parede, queda nos trilhos, a história de Georges, a festa na Academia: tudo isso é da Parte 2. Qual desses acontecimentos vem <mark>por último</mark> no livro?",
+          "enunciado": "Filme na parede, queda nos trilhos, a história de Georges, a festa na Academia: tudo isso é da Parte 2. Qual desses acontecimentos é o desfecho, o que vem <mark>por último</mark> no livro?",
           "figura": null,
           "alternativas": [
             "A homenagem a Méliès na Academia, com Hugo fazendo mágica",
@@ -366,17 +366,17 @@
           "dificuldade": 3,
           "tipo_raciocinio": "multi-etapa",
           "passos": [
-            "Georges conta a história logo depois de ver o filme que Tabard trouxe.",
-            "Só depois disso Hugo vai buscar o autômato e é perseguido até os trilhos.",
-            "A homenagem acontece seis meses depois do resgate.",
-            "Então: filme → história → trilhos → homenagem."
+            "O filme que Tabard traz e a confissão de Georges acontecem quase juntos: qual vem primeiro?",
+            "Depois da confissão, o que Hugo vai buscar na estação, e o que acontece com ele lá?",
+            "A homenagem na Academia acontece logo depois disso ou bem mais tarde?",
+            "Entre os quatro momentos, qual só pode vir depois de todos os outros já terem acontecido?"
           ],
           "dica": "Três desses acontecem quase colados, na mesma semana. Um acontece muito depois.",
           "explicacao": "A homenagem na Academia fecha o livro: seis meses depois de Hugo ganhar uma família, ele sobe ao palco como <b>Professor Alcofrisbas</b>. A história termina onde o cinema e a magia se encontram de novo."
         },
         {
           "questao_id": "POR.LEI.SEQ.Q7",
-          "enunciado": "É noite, Hugo volta à estação para buscar o autômato e, minutos depois, está caído nos <mark>trilhos</mark> com um trem chegando. Como ele foi parar ali?",
+          "enunciado": "É noite, Hugo volta à estação para buscar o autômato e, minutos depois, está caído nos <mark>trilhos</mark> com um trem chegando: é o clímax do livro. Como ele foi parar ali?",
           "figura": null,
           "alternativas": [
             "Ele fugia do Inspetor, tropeçou e caiu da plataforma",
@@ -395,6 +395,205 @@
           ],
           "dica": "Alguém estava correndo atrás dele, e a plataforma é estreita.",
           "explicacao": "Hugo volta para buscar o autômato, o Inspetor o flagra, e na <b>correria</b> ele cai nos trilhos. É o próprio Inspetor quem o puxa pelo colarinho — e o leva direto para a cela."
+        }
+      ]
+    },
+    {
+      "missao_id": "estrutura",
+      "icone": "🗺️",
+      "titulo": "O painel de partidas",
+      "subtitulo": "Do começo ao fim da história",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.ESTR",
+      "subtema": "Estrutura narrativa: situação-problema, cenário, clímax, desfecho",
+      "habilidade_bncc": "EF35LP26",
+      "ferramenta": "montar",
+      "regra": "<b>Situação-problema:</b> o que o personagem quer + o que impede.<br><b>Clímax:</b> o maior perigo. <b>Desfecho:</b> como termina.<br><b>Cenário:</b> onde e quando a história acontece.",
+      "aula": {
+        "corpo": "<p>Hugo dá corda nos 27 relógios da estação e ninguém percebe que ele vive escondido nas paredes. É assim que a história começa. Mas ela vai crescer até um momento em que Hugo pode perder tudo: a liberdade, o autômato, a família que está prestes a ganhar.</p>\n  <p>Toda história tem um mapa assim: primeiro como as coisas estão, depois o que dá errado. Hugo órfão e escondido é a <b>situação inicial</b>. O que ele quer e o que atrapalha vira a <b>situação-problema</b>.</p>\n  <div class=\"lesson-box\"><strong>Os marcos da história</strong><br><b>Situação inicial:</b> como tudo está antes<br><b>Situação-problema:</b> o que quer + o que impede<br><b>Cenário:</b> onde e quando</div>\n  <p>Na prova, o enunciado pode pedir exatamente o <b>clímax</b> ou o <b>desfecho</b> de uma história. Clímax é o momento de maior perigo; desfecho é como o problema termina. Quer treinar esse mapa? Toque nas cenas e organize a viagem completa de Hugo.</p>\n  <h3>Hora de mexer · Montar o mapa da viagem</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Dica de prova</strong> Se o enunciado nomear um marco, releia o critério: situação-problema pede o que quer + o que impede; clímax pede o maior perigo; desfecho pede como termina.</div>"
+      },
+      "dados": {
+        "instrucao": "Toque nas cenas e organize a viagem de Hugo, do começo ao fim",
+        "itens": [
+          {
+            "fichas": [
+              "Hugo vive escondido nas paredes e dá corda nos relógios no lugar do tio.",
+              "Ele quer consertar o autômato para receber uma mensagem do pai.",
+              "Perseguido pelo Inspetor, Hugo cai nos trilhos com um trem chegando.",
+              "Hugo ganha uma família e, seis meses depois, faz mágica na Academia."
+            ],
+            "ordem": [
+              "Hugo vive escondido nas paredes e dá corda nos relógios no lugar do tio.",
+              "Ele quer consertar o autômato para receber uma mensagem do pai.",
+              "Perseguido pelo Inspetor, Hugo cai nos trilhos com um trem chegando.",
+              "Hugo ganha uma família e, seis meses depois, faz mágica na Academia."
+            ],
+            "porque": "cada marco puxa o seguinte: início, problema, perigo maior, solução"
+          },
+          {
+            "fichas": [
+              "Hugo descobre que o corpo do tio Claude foi encontrado.",
+              "Ele volta à estação à noite para buscar o autômato.",
+              "O Inspetor o vê e sai atrás dele pela plataforma.",
+              "Hugo cai nos trilhos e é puxado pelo colarinho, preso na cela."
+            ],
+            "ordem": [
+              "Hugo descobre que o corpo do tio Claude foi encontrado.",
+              "Ele volta à estação à noite para buscar o autômato.",
+              "O Inspetor o vê e sai atrás dele pela plataforma.",
+              "Hugo cai nos trilhos e é puxado pelo colarinho, preso na cela."
+            ],
+            "porque": "cada perigo cresce sobre o anterior, até o pior momento possível"
+          },
+          {
+            "fichas": [
+              "Georges e Isabelle tiram Hugo da cela do Inspetor.",
+              "Hugo passa a morar com Georges, Isabelle e Mama Jeanne.",
+              "Seis meses depois, ele faz mágica na Academia como Professor Alcofrisbas.",
+              "Um novo autômato, construído por Hugo, escreve o livro que você leu."
+            ],
+            "ordem": [
+              "Georges e Isabelle tiram Hugo da cela do Inspetor.",
+              "Hugo passa a morar com Georges, Isabelle e Mama Jeanne.",
+              "Seis meses depois, ele faz mágica na Academia como Professor Alcofrisbas.",
+              "Um novo autômato, construído por Hugo, escreve o livro que você leu."
+            ],
+            "porque": "o desfecho fecha o círculo: o autômato consertado vira o autômato construído"
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          3
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.ESTR.Q1",
+          "enunciado": "Hugo rouba peças de brinquedos de corda escondido na loja da estação. O que essa cena revela sobre a <mark>situação-problema</mark> de Hugo?",
+          "figura": null,
+          "alternativas": [
+            "Ele quer consertar o autômato para receber a mensagem do pai, mas faltam peças",
+            "Roubar peças de brinquedos é o problema principal que Hugo enfrenta na história",
+            "O tio Claude ter sumido é o problema que Hugo precisa resolver agora",
+            "Ele quer que o velho da loja esqueça o roubo do ratinho de corda"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense no que falta para o autômato funcionar, não em quem persegue Hugo depois.",
+          "explicacao": "O que Hugo <b>quer</b> é fazer o autômato escrever a mensagem do pai. O que <b>impede</b> são as peças que faltam, o caderno confiscado e o Inspetor rondando. Roubar não é o problema — é o jeito que ele encontra de tentar resolvê-lo."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q2",
+          "enunciado": "Hugo mora escondido nas paredes de um lugar cheio de relógios e trens passando o tempo todo. Esse é o <mark>cenário</mark> da história: onde e quando ela acontece?",
+          "figura": null,
+          "alternativas": [
+            "Paris, em 1931, dentro de uma grande estação de trem",
+            "Londres, em 1931, dentro de uma estação de trem",
+            "Paris, hoje em dia, dentro de um museu de ciências",
+            "Paris, em 1902, dentro do estúdio de cinema de Méliès"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense no lugar onde os relógios e os trens nunca param, bem antes de hoje.",
+          "explicacao": "A história acontece em <b>Paris</b>, em <b>1931</b>, dentro da estação de trem onde Hugo vive escondido. O cenário não é só pano de fundo: é cheio de relógios porque o próprio Hugo cuida deles. Um lugar assim guarda segredos tão bem quanto guarda o tempo."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q3",
+          "enunciado": "Várias cenas da Parte 2 têm emoção forte, mas só uma é o momento de maior perigo da história. Qual delas é o <mark>clímax</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Hugo cai nos trilhos fugindo do Inspetor e é puxado pelo colarinho",
+            "O autômato desenha a Lua com um foguete no olho",
+            "Isabelle e Hugo brigam e o desenho da Lua rasga ao meio",
+            "Georges assiste ao próprio filme na parede e se tranca no quarto"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense em qual cena coloca a liberdade de Hugo em risco de verdade, não só o coração dele.",
+          "explicacao": "O <b>clímax</b> é quando Hugo, fugindo do Inspetor, cai nos trilhos com um trem chegando e quase perde tudo. As outras cenas doem, mas nenhuma coloca Hugo em perigo real. Perigo de verdade é o que separa o clímax das cenas só emocionantes."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q4",
+          "enunciado": "Depois de tanta correria, a história ainda precisa fechar as pontas. Qual dessas opções mostra o <mark>desfecho</mark>, como o problema realmente termina?",
+          "figura": null,
+          "alternativas": [
+            "Hugo ganha uma família e, seis meses depois, faz mágica na homenagem a Méliès",
+            "Georges e Isabelle tiram Hugo da cela do Inspetor, e a história termina ali",
+            "Hugo descobre, na Academia, quem é Papa Georges de verdade",
+            "O Inspetor prende Hugo na cela depois da perseguição pelos trilhos"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense no que acontece bem depois de a cela se abrir, não só nesse momento.",
+          "explicacao": "O <b>desfecho</b> não é só a porta da cela se abrindo: é Hugo ganhando uma família e, seis meses depois, subindo ao palco da Academia como Professor Alcofrisbas. O resgate fecha o clímax; o desfecho fecha a história inteira."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q5",
+          "enunciado": "A estação de trem não é só onde a história acontece: ela também empurra a trama para frente. Por que o <mark>cenário</mark> importa tanto nesse livro?",
+          "figura": null,
+          "alternativas": [
+            "Porque as paredes da estação escondem Hugo, mas também guardam a cela que o prende",
+            "Porque a estação só aparece para mostrar que Hugo entende de relógios",
+            "Porque foi na estação que o pai de Hugo encontrou o autômato abandonado",
+            "Porque a estação é o único lugar de Paris que aparece no livro"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense em mais de uma coisa que a estação faz por Hugo, além de só escondê-lo.",
+          "explicacao": "A estação é uma <b>máquina de relógios</b> que Hugo mantém funcionando, e suas paredes escondem o esconderijo dele — mas as mesmas paredes guardam a cela do Inspetor. O cenário não é pano de fundo: ele participa da história. O lugar que protege Hugo é o mesmo que quase o prende para sempre."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q6",
+          "enunciado": "No começo, Hugo quer que o autômato quebrado escreva uma mensagem do pai. Como essa espera se liga ao <mark>desfecho</mark> da história?",
+          "figura": null,
+          "alternativas": [
+            "O livro inteiro que você leu é a mensagem, escrita pelo novo autômato que Hugo constrói",
+            "O autômato original nunca funciona, e Hugo nunca recebe mensagem nenhuma",
+            "A mensagem era o caderno de desenhos do pai, que Georges confiscou",
+            "O autômato desenha a Lua, e esse desenho já é a mensagem completa do pai"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "O que o autômato original devia fazer, segundo o que Hugo esperava?",
+            "Esse autômato chega a escrever aquela mensagem durante a história?",
+            "O que Hugo faz depois de crescer e ganhar uma família?",
+            "Quem, no fim, realmente escreve o livro que você acabou de ler?"
+          ],
+          "dica": "Pense em quem constrói o segundo autômato, bem no final, e no que essa máquina faz.",
+          "explicacao": "Hugo passa o livro inteiro esperando que o autômato do pai escreva uma mensagem, e ela nunca vem daquela máquina. No <b>desfecho</b>, é Hugo adulto quem constrói um novo autômato, e é esse que escreve o livro. A mensagem do pai virou a própria história que você segurou nas mãos."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q7",
+          "enunciado": "O Inspetor aparece cedo, rondando a estação, e reaparece bem na hora em que tudo pode dar errado. Que papel ele cumpre para levar a história até o <mark>clímax</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Ele é o obstáculo que transforma o medo de Hugo em perigo real, na perseguição",
+            "Ele é o vilão da história, que só quer prejudicar Hugo sem motivo",
+            "Ele é quem manda Hugo trabalhar na loja para pagar pelo caderno",
+            "Ele é quem ajuda Hugo a recuperar o caderno de desenhos"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "O que o Inspetor faz na estação, bem antes da perseguição começar?",
+            "O que ele representa para Hugo, que vive escondido e sem família à vista?",
+            "O que acontece quando o Inspetor vê Hugo voltando à estação à noite?",
+            "Esse encontro transforma a situação-problema em qual outro momento da história?"
+          ],
+          "dica": "Pense no trabalho normal de um inspetor de estação, não em maldade pessoal.",
+          "explicacao": "O Inspetor só está fazendo o trabalho dele: manter a ordem e mandar crianças sem família para o orfanato. É justamente esse trabalho comum que, ao encontrar Hugo na hora errada, transforma a <b>situação-problema</b> no <b>clímax</b>. Nem todo obstáculo de uma história precisa ser um vilão de propósito."
         }
       ]
     },

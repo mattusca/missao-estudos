@@ -76,6 +76,16 @@
       tornou possível. Convite à ferramenta também reescrito em tom de descoberta.
 
 ## Hugo Cabret (v1 em 07/09) — antes de a Alícia jogar
+- [x] **Retorno da psicopedagoga (07/09, testou o encontro 1 no celular como "Fernanda (teste)")**:
+      interativo e apropriado para a idade. Pede que toda proposta cubra **enredo,
+      personagens principais, situação-problema, cenário, clímax e desfecho**.
+      Feito em 07/09 (noite): tema `POR.LEI.ESTR` no catálogo; missão "O painel de
+      partidas" na prova original (montar, banco de 7, sorteio [1,2,3]); missões
+      `estrutura-e1`/`estrutura-e2` nos encontros (investigar, Q101–Q104, Q201–Q204);
+      tema e critério na cola do encontro 3. Encontros passam a 7 missões e 14 questões.
+      "Clímax" e "desfecho" nomeados em SEQ.Q6, SEQ.Q7 e SEQ.Q203.
+- [ ] Conferir `POR.LEI.ESTR` com o roteiro da professora: se ela usar outros nomes
+      ("conflito", "situação inicial", "resolução"), alinhar o vocabulário das questões.
 - [ ] Conferir com o roteiro da professora: matéria (Português assumido), capítulos
       cobrados, se livro × filme entra. Ajustar missões ao roteiro.
 - [ ] Revisão factual por adulto que leu a edição SM (nomes, "afilhada", Inspetor sem

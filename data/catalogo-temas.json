@@ -160,6 +160,16 @@
     "bncc_conferida": false
   },
   {
+    "tema_id": "POR.LEI.ESTR",
+    "materia": "Portugues",
+    "eixo": "Leitura",
+    "tema": "O mapa da história",
+    "subtema": "Estrutura narrativa: situação-problema, cenário, clímax, desfecho",
+    "habilidade_bncc": "EF35LP26",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
     "tema_id": "POR.LEI.CAUSA",
     "materia": "Portugues",
     "eixo": "Leitura",

@@ -1,6 +1,8 @@
 {
   "prova_id": "2026-09-HUGO-E1-Y5",
-  "filas_legadas": ["2026-09-HUGO-Y5"],
+  "filas_legadas": [
+    "2026-09-HUGO-Y5"
+  ],
   "titulo": "Hugo Cabret — encontro 1: aprender as pistas",
   "materia": "Português",
   "alunas": [
@@ -239,6 +241,129 @@
           ],
           "dica": "A pesquisa abre caminho para reencontrar as obras.",
           "explicacao": "A descoberta leva à exibição; depois, Georges consegue narrar seu passado."
+        }
+      ]
+    },
+    {
+      "missao_id": "estrutura-e1",
+      "icone": "🗺️",
+      "titulo": "O mapa da história",
+      "subtitulo": "Nomear os marcos da história",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.ESTR",
+      "subtema": "Estrutura narrativa: situação-problema, cenário, clímax, desfecho",
+      "habilidade_bncc": "EF35LP26",
+      "ferramenta": "investigar",
+      "regra": "<b>Situação-problema</b>: o que o personagem quer + o que impede.<br><b>Clímax</b>: o maior perigo. <b>Desfecho</b>: como termina.<br><b>Cenário</b>: onde e quando.",
+      "aula": {
+        "corpo": "<p>Toda história acontece em algum lugar e algum tempo. A de Hugo se passa em Paris, no inverno de 1931, dentro de uma estação cheia de relógios e passagens escondidas. Esse pano de fundo tem nome: <mark>cenário</mark>.</p><p>No começo, Hugo já mora escondido ali, dando corda nos relógios no lugar do tio Claude, que sumiu. Essa fotografia de como tudo está antes de qualquer problema aparecer é a <b>situação inicial</b>.</p><p>Hugo quer consertar o autômato do pai, mas faltam peças e o Inspetor pode descobrir o segredo. Um personagem querer algo e algo impedir é a <mark>situação-problema</mark>. Mais à frente vêm o <b>clímax</b>, o momento de maior perigo, e o <b>desfecho</b>, como tudo termina.</p><h3>Hora de decidir · Qual marco é qual?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Aplicação oral:</strong> conte em voz alta, na ordem, o cenário, a situação-problema, o clímax e o desfecho do livro.</div>"
+      },
+      "dados": {
+        "instrucao": "Leia a cena, escolha a resposta certa e confirme sua decisão.",
+        "exemplos": [
+          {
+            "contexto": "Três cenas do livro: o autômato desenha a Lua; Hugo cai nos trilhos e é trancado na cela; a plateia assiste a Viagem à Lua na homenagem a Méliès.",
+            "pergunta": "Qual dessas cenas é o clímax da história?",
+            "alternativas": [
+              "O autômato desenha a Lua e assina Georges Méliès.",
+              "Hugo cai nos trilhos e é trancado na cela do Inspetor.",
+              "A plateia assiste a Viagem à Lua na homenagem a Méliès."
+            ],
+            "correta": 1,
+            "explicacao": "É o momento de maior perigo: Hugo pode perder a liberdade, o autômato e a chance de uma família ao mesmo tempo."
+          },
+          {
+            "contexto": "Duas frases sobre Isabelle: uma junta o que ela quer com o que a impede; a outra é só algo que ela faz por causa disso.",
+            "pergunta": "Qual frase é a situação-problema, e não apenas uma consequência dela?",
+            "alternativas": [
+              "Isabelle abre a fechadura do quarto com um grampo de cabelo.",
+              "Isabelle quer entrar num cinema pela primeira vez, mas Georges nunca deixou.",
+              "Os pais de Isabelle morreram num acidente antes de a história começar."
+            ],
+            "correta": 1,
+            "explicacao": "Abrir a fechadura é uma ação que ela faz por outro motivo. A situação-problema junta o que ela quer com o que a impede."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.ESTR.Q101",
+          "enunciado": "Toda noite Hugo enche os bolsos de peças na loja de brinquedos e volta para o esconderijo nas paredes. Qual é a <mark>situação-problema</mark> dele nessa parte do livro?",
+          "figura": null,
+          "alternativas": [
+            "Ele quer consertar o autômato para ler uma mensagem do pai, mas faltam peças e ele precisa se esconder.",
+            "Ele rouba peças de brinquedos de corda na loja da estação para consertar o autômato escondido.",
+            "O tio Claude sumiu da estação faz tempo, e ninguém mais sabe o que aconteceu com ele.",
+            "Papa Georges confisca o caderno de desenhos do pai de Hugo assim que o flagra roubando."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Procure a frase que junta o que ele quer com o que atrapalha, não só uma ação dele.",
+          "explicacao": "A <b>situação-problema</b> reúne desejo e obstáculo. As outras frases são pedaços da história, não o problema inteiro que Hugo enfrenta."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q102",
+          "enunciado": "A história de Hugo se passa numa estação cheia de relógios e passagens escondidas, no inverno. Qual é o <mark>cenário</mark> — onde e quando ela acontece?",
+          "figura": null,
+          "alternativas": [
+            "Paris, 1931, na estação de trem.",
+            "Londres, 1931, num museu de relógios.",
+            "Paris, 1902, no estúdio de Georges Méliès.",
+            "Nova York, hoje, numa estação de trem."
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense na cidade e no ano em que Hugo mora escondido, não no ano do filme que o pai dele adorava.",
+          "explicacao": "O <b>cenário</b> é Paris em 1931, dentro da estação — não Londres, nem o ano de 1902 do filme Viagem à Lua."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q103",
+          "enunciado": "Na noite da perseguição, tudo acontece em sequência: Hugo sabe que o tio foi encontrado morto, volta à estação, o Inspetor o vê, ele cai nos trilhos, Georges chega. Qual desses momentos é o <mark>clímax</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Hugo cai nos trilhos com um trem chegando, fugindo do Inspetor.",
+            "Hugo descobre que o corpo do tio Claude foi encontrado no rio.",
+            "Hugo volta à estação à noite para buscar o autômato de Georges.",
+            "Georges chega ao escritório do Inspetor e tira Hugo da cela."
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Coloque os momentos na ordem e marque onde o perigo é maior.",
+            "Confira: nesse momento Hugo pode perder a liberdade, o autômato e a família ao mesmo tempo?"
+          ],
+          "dica": "Pergunte em qual momento Hugo pode perder tudo de uma vez, e não só levar um susto.",
+          "explicacao": "A notícia do tio e a volta à estação preparam o perigo; a chegada de Georges já é a saída dele. O <b>clímax</b> é o instante nos trilhos, com o trem chegando e a liberdade de Hugo em jogo."
+        },
+        {
+          "questao_id": "POR.LEI.ESTR.Q104",
+          "enunciado": "Hugo é tirado da cela por Georges e Isabelle logo depois do maior perigo da história. Qual alternativa conta o <mark>desfecho</mark> — como o problema termina?",
+          "figura": null,
+          "alternativas": [
+            "Hugo ganha uma família com Georges e Isabelle e constrói um novo autômato, que escreve o livro.",
+            "Hugo é tirado da cela por Georges e Isabelle, escapando assim por pouco de ser preso pelo Inspetor.",
+            "Hugo e Isabelle descobrem, na Academia de Cinema, quem realmente fez o desenho assinado do autômato.",
+            "Hugo finalmente consegue ler a mensagem que o pai havia deixado escondida só para ele."
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Separe o que aconteceu no fim do clímax (ser tirado da cela) do que vem depois disso.",
+            "Procure a alternativa que mostra a vida de Hugo mudada de forma duradoura, não só o resgate."
+          ],
+          "dica": "O desfecho vem depois do resgate: pense no que muda na vida de Hugo dali para frente.",
+          "explicacao": "Ser tirado da cela ainda é o fim do clímax. O <b>desfecho</b> é morar com a nova família e transformar a espera pela mensagem do pai num livro inteiro."
         }
       ]
     },
