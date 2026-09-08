@@ -927,8 +927,53 @@ const COLUNAS = ['evento_id','sessao_id','timestamp','aluna','materia','eixo','t
      página antiga continuam gravando por posição, e a célula nova sai vazia. */
   'capitulo_id'];
 
-function lerFila(){try{return JSON.parse(localStorage.getItem(FILA)||'[]');}catch(e){return [];}}
-function salvarFila(f){try{localStorage.setItem(FILA,JSON.stringify(f));}catch(e){}}
+function lerFila(){
+  let gravadas=[];
+  try{const f=JSON.parse(localStorage.getItem(FILA)||'[]');if(Array.isArray(f))gravadas=f;}catch(e){}
+  return unirLinhas(gravadas,filaMem).filter(r=>!filaConfirmada.has(r.evento_id||JSON.stringify(r)));
+}
+let filaMem=[];
+const filaConfirmada=new Set();
+let gravacaoFila=Promise.resolve();
+function unirLinhas(...listas){
+  const unicas=new Map();
+  for(const row of listas.flat())if(row&&typeof row==='object')unicas.set(row.evento_id||JSON.stringify(row),row);
+  return [...unicas.values()];
+}
+function salvarFila(f){
+  filaMem=f;
+  try{localStorage.setItem(FILA,JSON.stringify(f));return true;}catch(e){return false;}
+}
+async function persistirFila(f){
+  const local=salvarFila(f);
+  /* A escrita local é síncrona, antes da rede. A cascata também atende o
+     ambiente de artefatos, que oferece window.storage em vez de localStorage.
+     Serializar essa cópia impede uma gravação antiga de vencer a mais nova. */
+  const raw=JSON.stringify(f);
+  gravacaoFila=gravacaoFila.catch(()=>false).then(async()=>{
+    try{if(window.storage?.set){await window.storage.set(FILA,raw);return true;}}catch(e){}
+    return local;
+  });
+  return gravacaoFila;
+}
+let filaRestaurada=false;
+let restaurandoFila=null;
+function restaurarFila(){
+  if(filaRestaurada)return Promise.resolve(true);
+  if(restaurandoFila)return restaurandoFila;
+  /* online pode acontecer ainda na escolha de pessoa. Ler a união antes de
+     escrever na cascata, para não apagar respostas que só existem nela. */
+  restaurandoFila=(async()=>{
+    try{
+      const r=await window.storage?.get?.(FILA);
+      const f=r?.value?JSON.parse(r.value):[];
+      if(!Array.isArray(f))return false;
+      await persistirFila(unirLinhas(lerFila(),f));
+      filaRestaurada=true;return true;
+    }catch(e){return false;} // Falha de leitura não autoriza sobrescrever a origem.
+  })().finally(()=>{restaurandoFila=null;});
+  return restaurandoFila;
+}
 
 /* Uma URL pode passar a servir outro encontro. Resgata somente filas indicadas
    no JSON, nunca XP/medalhas nem o progresso antigo. Só remove a origem depois
@@ -954,18 +999,46 @@ function migrarFilasLegadas(){
 }
 
 async function enviarLinha(row){
-  linhas.push(row);
-  if(!TEM_URL){salvarFila([...lerFila(),row]);return;}
-  try{
-    await fetch(SHEET_URL,{method:'POST',mode:'no-cors',
-      headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(row)});
-  }catch(e){salvarFila([...lerFila(),row]);}   // sem internet? guarda e tenta na proxima abertura
+  linhas=unirLinhas(linhas,[row]);
+  salvarFila(unirLinhas(lerFila(),[row]));
+  if(await restaurarFila())await persistirFila(lerFila());
+  return esvaziarFila();
 }
-async function esvaziarFila(){
-  if(!TEM_URL)return;
-  const f=lerFila(); if(!f.length)return; salvarFila([]);
-  for(const r of f){await enviarLinha(r);}
+let envioEmCurso=null;
+let repetirEnvio=null;
+function esvaziarFila(){
+  if(!TEM_URL)return Promise.resolve();
+  if(envioEmCurso)return envioEmCurso;
+  if(repetirEnvio){clearTimeout(repetirEnvio);repetirEnvio=null;}
+  envioEmCurso=(async()=>{
+    if(!await restaurarFila())return;
+    /* Nunca limpar o lote antes de enviar. Uma resposta só sai da fila após
+       HTTP válido E confirmação JSON. Content-Type simples evita preflight;
+       no-cors devolvia opaque mesmo quando o receptor recusava a gravação. */
+    while(lerFila().length){
+      const row=lerFila()[0];
+      const controller=new AbortController();
+      const timeout=setTimeout(()=>controller.abort(),15000);
+      try{
+        const response=await fetch(SHEET_URL,{method:'POST',mode:'cors',keepalive:true,
+          signal:controller.signal,headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(row)});
+        if(!response.ok||(await response.json()).ok!==true)break;
+        linhas=unirLinhas(linhas,[row]);
+        filaConfirmada.add(row.evento_id||JSON.stringify(row));
+        await persistirFila(lerFila().filter(r=>(r.evento_id||JSON.stringify(r))!==(row.evento_id||JSON.stringify(row))));
+      }catch(e){break;} // Erro, resposta opaca ou timeout: a cópia continua guardada.
+      finally{clearTimeout(timeout);}
+    }
+  })().finally(()=>{
+    envioEmCurso=null;
+    if((!filaRestaurada||lerFila().length)&&!document.hidden&&navigator.onLine!==false){
+      repetirEnvio=setTimeout(()=>{repetirEnvio=null;esvaziarFila();},30000);
+    }
+  });
+  return envioEmCurso;
 }
+window.addEventListener('online',()=>esvaziarFila());
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)esvaziarFila();});
 function copiarResultados(){
   /* Sem SHEET_URL cada linha vai para os dois lugares: a fila do localStorage
      e a lista desta aba. Sem deduplicar, tudo que foi respondido depois da
@@ -1049,7 +1122,9 @@ function registrarQuestao(m,q,resultado){
   S.posicao=(S.posicao||0)+1;
   S.ultimoEvento=fim;          // base para decidir a rotação da próxima
   enviarLinha({
-    evento_id:`${sid}-${String(S.posicao).padStart(3,'0')}`,
+    /* Abas retomadas compartilham sessão/posição, mas cada resposta é um fato
+       diferente. O sufixo é criado uma vez; o reenvio conserva o mesmo ID. */
+    evento_id:`${sid}-${String(S.posicao).padStart(3,'0')}-${novoId()}`,
     sessao_id:sid,
     timestamp:new Date(fim).toISOString(),
     aluna:alunaAtual(),
@@ -1969,6 +2044,7 @@ async function carregarEEntrar(){
      Antes só esvaziava no começo do zero, e uma sessão retomada segurava as
      linhas indefinidamente. */
   migrarFilasLegadas();
+  await restaurarFila();
   esvaziarFila();
   entrarNoMapa(carregado);
 }

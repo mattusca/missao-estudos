@@ -130,7 +130,7 @@ test('o payload real de questão carrega capitulo_id e o contexto do capítulo d
   const c = {Date, S: {usedHint: false, posicao: 0}, relogio: {t0: Date.now() - 1000, primeiro: Date.now() - 700, saiu: false},
     PROVA: trilha, LIMITE_SEG: 180, stepsShown: 0,
     sessaoId: () => `${trilha.prova_id}:sessao-teste`, alunaAtual: () => 'Marco (teste)',
-    enviarLinha: d => { linha = d; }, dispositivo: () => 'desktop'};
+    enviarLinha: d => { linha = d; }, dispositivo: () => 'desktop', novoId: () => 'evento-unico'};
   c.missoes = trilha.missoes; // capituloDe(m) só precisa de PROVA.capitulos, mas missoesDoCapitulo lê `missoes`
   const inicio = motor.indexOf('function registrarQuestao');
   const fim = motor.indexOf('\n}\n', inicio) + 3;

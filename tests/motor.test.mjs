@@ -321,7 +321,7 @@ function logicaRegistro({missao,prova={}}){
     PROVA:{materia:'Português',escola:'PD',ano_aluna:'Y5',nivel_conteudo:'Y5',bimestre:'3',
       contexto:'prova',capitulos:CAPITULOS,...prova},
     missoes:[missao],S:{done:{}},relogio:null,stepsShown:0,LIMITE_SEG:180,
-    Date,enviarLinha:r=>enviadas.push(r),sessaoId:()=>'sessao-1',
+    Date,enviarLinha:r=>enviadas.push(r),sessaoId:()=>'sessao-1',novoId:()=>'evento-unico',
     alunaAtual:()=>'Marco (teste)',dispositivo:()=>'tablet'
   };
   vm.runInNewContext(`${helpers}\n${codigo};globalThis.api={registrarQuestao};`,contexto);

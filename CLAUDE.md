@@ -300,8 +300,14 @@ para a mais antiga (`garantirRecorte_`, criada na primeira gravação ou por `cr
 no editor). É essa aba que se lê para análise de sessão; Eventos continua sendo a
 fonte completa. Perfis `(teste)` aparecem nela e são filtrados por quem lê.
 
-Envio: `fetch` com `mode:'no-cors'` para o Apps Script. Falha ou ausência de URL → fila em
-`localStorage`, reenviada na próxima abertura. Sempre existe fallback manual de cópia.
+Envio: guardar o evento antes da rede e usar `fetch` com `mode:'cors'` e corpo
+`text/plain` para o Apps Script. Remover somente o evento confirmado por HTTP válido
+e JSON `ok: true` (inclusive reenvio já gravado). Resposta opaca não é confirmação.
+A fila persiste em `localStorage`, com cópia na cascata `window.storage` quando
+disponível e fallback em memória. Reenvio serial ao abrir, recuperar a conexão,
+voltar à página e, com pendências, após 30 segundos em primeiro plano. Sempre existe
+fallback manual de cópia. IDs de evento têm sufixo aleatório para duas abas na mesma
+sessão/posição não perderem respostas por falsa deduplicação; reenvios conservam o ID.
 
 ### Dashboard dos pais
 `apps-script/dashboard.html`, servido pelo `doGet` do mesmo projeto Apps Script em uma

@@ -1,7 +1,22 @@
 # Pendências
 
+## 2026-09-08 — Verificação e recuperação do envio de Hugo
+- [x] Conferir a origem por intervalo completo, testar o receptor e investigar envio/fila.
+- [x] Reproduzir perda por recarga e drenagem antecipada; persistir antes do envio,
+      exigir confirmação e testar recuperação sem duplicação.
+- [x] Preparar atualização do mesmo endereço: 42 testes, oito builds e recuperação
+      offline/fechar/reabrir conferida no navegador com o receptor real.
+- [ ] Confirmar o aparelho usado e inspecionar a fila/aba da sessão relatada;
+      ausência na planilha não prova ausência de respostas. Copiar resultados de
+      uma aba antiga ainda aberta antes de recarregar: ela pode ter dados só em RAM.
+- [ ] No próximo ajuste do receptor, isolar a criação de `Recentes` da gravação
+      principal: erro na aba auxiliar não deve impedir o append em `Eventos`.
+      Responsável: Codex; motor, testes e integração estritamente necessária.
+      Preservar dados locais e alterações existentes; não inserir dados pessoais
+      ou URL privada nos arquivos versionáveis.
+
 ## 2026-09-08 — Comparativo privado das duas sessões de Hugo
-- [ ] Transformar o comparativo em HTML independente com apresentação editorial,
+- [x] Transformar o comparativo em HTML independente com apresentação editorial,
       em pasta temporária externa ao repositório; conferir desktop e celular.
 - [x] Ler os registros de 07/09, separar sessões/pessoa e conferir métricas e versões.
 - [x] Criar dashboard comparativo privado, com resultados observados e limites da amostra.

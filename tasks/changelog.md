@@ -1,5 +1,27 @@
 # Changelog
 
+## 2026-09-08 — Envio persistente com confirmação de gravação
+
+- Diagnóstico: respostas online ficavam apenas em memória até uma falha de rede;
+  a fila era apagada antes de o lote terminar. O modo `no-cors` não permitia
+  distinguir gravação confirmada de erro do receptor. Falhas reproduzidas;
+  não atribuídas automaticamente à ausência de uma sessão específica.
+- Correção: salvar antes da rede, remover um evento por confirmação HTTP + JSON,
+  enviar em série e tentar novamente após reconexão, retorno à página ou 30 segundos.
+  Hidratar a união dos armazenamentos antes de sobrescrever a cascata; leitura
+  temporariamente indisponível preserva a origem e agenda nova tentativa.
+- IDs recebem sufixo aleatório para evitar falsa deduplicação entre abas;
+  reenvios mantêm ID, identidade e horário originais. Sem mudança pedagógica.
+- Verificação: 42 testes aprovados e oito páginas construídas. No Chrome,
+  resposta offline persistiu após fechar/reabrir e foi confirmada pelo receptor
+  real. Reenvio do mesmo evento de diagnóstico adulto foi deduplicado, sem linha
+  adicional. Sem erros de JavaScript ou overflow em 390 px.
+- Revisão independente de telemetria; dois ajustes na restauração/retry aplicados.
+  Publicação usa o fluxo existente e o mesmo endereço. O receptor atual já aceita
+  confirmação CORS; esta correção não depende de reimplantar o Apps Script.
+- Limite: dados apenas em RAM numa aba antiga fechada não são reconstruídos.
+  Confirmar uma sessão ainda não enviada exige acesso ao aparelho onde ocorreu.
+
 ## 2026-09-08 — Aba "Recentes": leitura do log sem limite de crescimento
 
 O leitor do Drive usado nas análises devolve ~33 mil caracteres da planilha a partir
@@ -19,6 +41,11 @@ no molde do comparativo de Language Arts.
 
 ## 2026-09-08 — Comparativo privado das sessões de Hugo
 
+- Exportação com apresentação editorial em HTML independente na pasta temporária
+  do sistema, fora do repositório. Sem bibliotecas ou requisições externas;
+  dados consultáveis em seção recolhida e ação de impressão/PDF.
+  Conferido no Chrome em 320, 390, 800 e 1280 px, incluindo legibilidade dos
+  gráficos, expansão de detalhes, impressão e preservação dos indicadores.
 - Leitura da planilha somente para consulta, com pessoa/data/sessão delimitadas,
   testes de adultos excluídos e conferência de unicidade dos eventos.
 - Dashboard na conversa, fora do repositório: resultados, apoios registrados,
