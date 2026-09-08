@@ -22,22 +22,17 @@
 - Limite: dados apenas em RAM numa aba antiga fechada não são reconstruídos.
   Confirmar uma sessão ainda não enviada exige acesso ao aparelho onde ocorreu.
 
-## 2026-09-08 — Aba "Recentes": leitura do log sem limite de crescimento
+## 2026-09-08 — Aba "Recentes" revertida
 
-O leitor do Drive usado nas análises devolve ~33 mil caracteres da planilha a partir
-da primeira aba e para; com 29 colunas isso dá uns 85 registros, e a segunda sessão
-da Alícia em Hugo ficou fora da leitura. Como Eventos é um log e só cresce, o Apps
-Script passa a manter a aba `Recentes` em primeiro lugar: fórmula QUERY sobre
-Eventos com os últimos 14 dias, no máximo 120 linhas e 20 colunas, da mais nova para
-a mais antiga. Nada é copiado; a fórmula se recalcula. `garantirRecorte_` roda a cada
-gravação e é idempotente; `criarRecorte` pode ser executada à mão no editor, sem
-reimplantar. Fórmula conferida por avaliação local do código; a sintaxe do QUERY
-(`where C >= date 'aaaa-mm-dd' order by C desc limit 120`) é a documentada pelo Sheets.
-CLAUDE.md e o guia do responsável passam a apontar a aba Recentes como fonte de análise.
+A aba de fórmula QUERY proposta para contornar o limite do leitor do Drive (~33 mil
+caracteres a partir da primeira aba) foi rejeitada por Marco como remendo no produto e
+revertida: `enviar.gs`, CLAUDE.md, guia e todo voltam ao estado anterior. O limite é do
+caminho de leitura, não da planilha; neste ambiente não há ferramenta de leitura por
+intervalo do Sheets (o Codex tem), nem navegador logado disponível. Enquanto isso, as
+análises usam linhas coladas por Marco ou leitura pelo Codex.
 
 Dashboard do dia: comparativo das duas sessões de 7/9 publicado como artefato privado,
 no molde do comparativo de Language Arts.
-
 
 ## 2026-09-08 — Comparativo privado das sessões de Hugo
 

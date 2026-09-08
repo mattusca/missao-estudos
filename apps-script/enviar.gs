@@ -49,49 +49,6 @@ var CAMPOS = [
   'capitulo_id'   // 29º campo (08/09): capítulo da trilha; vazio em eventos antigos
 ];
 
-/* ---------- Aba "Recentes": o recorte que cabe numa leitura ----------
-   A aba Eventos é um log e só cresce. Ferramentas que leem a planilha pelo
-   Drive devolvem um trecho limitado (hoje, ~33 mil caracteres, uns 85
-   registros completos) e param — e o trecho começa pela PRIMEIRA aba.
-   "Recentes" é uma fórmula QUERY sobre Eventos: últimos 14 dias, no máximo
-   120 linhas, só as colunas que a análise usa, ordenadas da mais nova para
-   a mais antiga, e fica na primeira posição. Nada é copiado: a fórmula se
-   recalcula sozinha. Perfis "(teste)" continuam lá; quem lê filtra. */
-var ABA_RECENTES = 'Recentes';
-var DIAS_RECENTES = 14;
-var LIMITE_RECENTES = 120;
-
-function formulaRecorte_() {
-  // B Sessão · C Data/hora · D Aluna · G Tema · I Questão · O Contexto · P Resultado
-  // Q Usou dica · R Usou andaime · S Dificuldade · T Tipo · U Seg 1º toque · V Seg total
-  // W Saiu da tela · X Tempo válido · Y Retomada · Z Posição · AA Modo foco · AB Dispositivo · AC Capítulo
-  var q = "'";   // aspas simples exigidas pelo QUERY em torno da data
-  return '=IFERROR(QUERY(' + ABA + '!A:AC, ' +
-    '"select B,C,D,G,I,O,P,Q,R,S,T,U,V,W,X,Y,Z,AA,AB,AC ' +
-    'where C >= date ' + q + '"&TEXT(TODAY()-' + DIAS_RECENTES + ',"yyyy-mm-dd")&"' + q + ' ' +
-    'order by C desc limit ' + LIMITE_RECENTES + '", 1), "sem eventos nos últimos ' + DIAS_RECENTES + ' dias")';
-}
-
-/** Cria (ou conserta) a aba Recentes e a deixa em primeiro. Idempotente.
- *  Pode ser executada à mão no editor do Apps Script: Run › criarRecorte. */
-function criarRecorte() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  garantirRecorte_(ss);
-  return ss.getSheetByName(ABA_RECENTES).getRange('A1').getFormula();
-}
-
-function garantirRecorte_(ss) {
-  var sh = ss.getSheetByName(ABA_RECENTES);
-  if (!sh) sh = ss.insertSheet(ABA_RECENTES, 0);
-  var formula = formulaRecorte_();
-  if (sh.getRange('A1').getFormula() !== formula) {
-    sh.clear();
-    sh.getRange('A1').setFormula(formula);
-    sh.setFrozenRows(1);
-  }
-  if (sh.getIndex() !== 1) { ss.setActiveSheet(sh); ss.moveActiveSheet(1); }
-}
-
 /** Cabeçalho de aba já existente: colunas novas entram à direita, sem tocar nas
  *  anteriores. Idempotente — chamar em toda gravação custa uma leitura de linha. */
 function garantirCabecalho_(sh) {
@@ -147,7 +104,6 @@ function doPost(e) {
     } else {
       garantirCabecalho_(sh);   // aba antiga: acrescenta só as colunas novas, à direita
     }
-    garantirRecorte_(ss);       // a aba de recorte nasce (ou volta) na primeira gravação
 
     // Mesma questão reenviada pela fila local não vira linha duplicada.
     if (d.evento_id && jaGravado_(sh, d.evento_id)) {

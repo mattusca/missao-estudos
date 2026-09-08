@@ -38,10 +38,6 @@
       legada após a primeira importação; barrar IDs duplicados dentro de missão emprestada.
 
 ## 2026-09-08 — Plano do painel infantil de evolução
-- [ ] **Marco: criar a aba Recentes** — no editor do Apps Script, colar o `enviar.gs`
-      atual, escolher a função `criarRecorte` e clicar em Run (sem reimplantar). Ou
-      reimplantar: a aba nasce sozinha na próxima gravação. Conferir que "Recentes" é a
-      primeira aba e mostra as sessões de 7/9.
 - [x] Plano revisado por Claude (08/09) e implementado no mesmo dia: trilha única em
       capítulos, cartão de recuperação opcional, "Minhas pistas", coluna 29, rotas.
 - [x] Apps Script reimplantado por Marco em 08/09 às 17:09 (versão 4, mesma URL do

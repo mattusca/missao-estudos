@@ -292,14 +292,6 @@ até a expiração. A coluna continua sendo um identificador opaco para o dashbo
 Primeiro toque inclui alternativa, dica ou andaime. O tempo total termina antes
 da leitura do feedback final; intervalos entre eventos não medem diretamente aula.
 
-**Aba "Recentes".** A aba Eventos é um log e só cresce; leitores que acessam a planilha
-pelo Drive devolvem um trecho limitado (~33 mil caracteres) a partir da PRIMEIRA aba.
-Por isso o Apps Script mantém a aba `Recentes` em primeiro lugar: uma fórmula QUERY
-sobre Eventos com os últimos 14 dias, no máximo 120 linhas, 20 colunas, da mais nova
-para a mais antiga (`garantirRecorte_`, criada na primeira gravação ou por `criarRecorte`
-no editor). É essa aba que se lê para análise de sessão; Eventos continua sendo a
-fonte completa. Perfis `(teste)` aparecem nela e são filtrados por quem lê.
-
 Envio: guardar o evento antes da rede e usar `fetch` com `mode:'cors'` e corpo
 `text/plain` para o Apps Script. Remover somente o evento confirmado por HTTP válido
 e JSON `ok: true` (inclusive reenvio já gravado). Resposta opaca não é confirmação.
