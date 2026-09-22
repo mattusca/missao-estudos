@@ -50,7 +50,7 @@
       "subtema": "Divisão de decimal por número natural",
       "habilidade_bncc": "EF05MA08",
       "ferramenta": "investigar",
-      "regra": "Divida como se não houvesse vírgula. Usou o <b>1º algarismo depois da vírgula</b>? Ponha a vírgula no resultado.<br>Não deu para dividir? Escreva <b>0</b> no resultado.<br>Sobrou resto e acabaram os algarismos? Acrescente um <b>0</b> ao resto e continue.<br>Confira com uma estimativa.",
+      "regra": "Divida como se não houvesse vírgula. Usou o <b>1º algarismo depois da vírgula</b>? Ponha a vírgula no resultado.<br>O divisor cabe zero vezes? Escreva <b>0</b> no resultado e baixe o próximo algarismo.<br>Sobrou resto e acabaram os algarismos? Acrescente um <b>0</b> ao resto e continue.<br>Confira com uma estimativa.",
       "aula": {
         "corpo": "<div class=\"lesson-box\"><strong>Lia, Theo e Nina dividem uma pipoca de R$ 7,50.</strong> Faça 7,5 ÷ 3 como se fosse inteiro:<br>7 ÷ 3 = 2 e sobra 1.<br>Agora vem o 5, <b>depois da vírgula</b>: ponha a vírgula no resultado.<br>O 1 que sobrou junta com o 5: 15 ÷ 3 = 5.<br>Cada um paga <b>R$ 2,50</b>.</div><div class=\"lesson-box\"><strong>Às vezes aparece um zero.</strong> Veja 4,08 ÷ 2:<br>4 ÷ 2 = 2, vírgula.<br>0 ÷ 2 = 0: esse zero fica no resultado.<br>8 ÷ 2 = 4.<br>Resultado: <b>2,04</b>.</div><div class=\"lesson-box\"><strong>Sobrou resto e acabaram os algarismos?</strong> Acrescente um zero ao resto e continue. Veja 5,4 ÷ 4:<br>5 ÷ 4 = 1 e sobra 1, vírgula.<br>14 ÷ 4 = 3 e sobram 2.<br>Ponha um zero: o 2 vira 20.<br>20 ÷ 4 = 5. Resultado: <b>1,35</b>.</div><p>Para conferir, estime com números redondos. 15,5 ÷ 5 fica perto de 15 ÷ 5 = 3. Deu 31 ou 0,31? A vírgula está no lugar errado.</p><h3>Hora de decidir · Onde fica a vírgula?</h3>",
         "fechamento": "<div class=\"lesson-box\"><strong>O que você descobriu:</strong> a divisão é a mesma de sempre. A vírgula entra no resultado quando você usa o primeiro algarismo depois dela. Se sobrar resto no fim, acrescente um zero e continue. E a estimativa mostra se o resultado faz sentido.</div>"
@@ -104,7 +104,7 @@
               "Não, faltou um zero: é 2,07"
             ],
             "correta": 1,
-            "explicacao": "8 ÷ 4 = 2, vírgula. Depois vem o 2, e 2 ÷ 4 não dá: escreva 0 no resultado. Com o 2 e o 8, temos 28, e 28 ÷ 4 = 7. Resultado: 2,07. Conferindo: 2,07 × 4 = 8,28. Já 2,7 × 4 = 10,8, que é outro número."
+            "explicacao": "8 ÷ 4 = 2, vírgula. Depois vem o 2: o 4 cabe zero vezes inteiras no 2. Escreva 0 nessa casa do resultado e baixe o próximo algarismo. Com o 2 e o 8, temos 28, e 28 ÷ 4 = 7. Resultado: 2,07. Conferindo: 2,07 × 4 = 8,28. Já 2,7 × 4 = 10,8, que é outro número."
           }
         ]
       },
@@ -163,7 +163,7 @@
           "dificuldade": 1,
           "tipo_raciocinio": "procedimental",
           "dica": "Dividir por 10 deixa o número 10 vezes menor. Quantas casas a vírgula anda?",
-          "explicacao": "2,5 ÷ 10 = 0,25: a vírgula anda uma casa para a esquerda. A conta de sempre dá o mesmo: 2 ÷ 10 não dá, então 0, vírgula. Com o 2 e o 5, temos 25, e 25 ÷ 10 = 2 e sobram 5. Acrescente um zero: 50 ÷ 10 = 5. Resultado: 0,25 kg. Em 0,025 a vírgula andou duas casas, o que seria dividir por 100. Em 25 ela andou para a direita, o que seria multiplicar."
+          "explicacao": "2,5 ÷ 10 = 0,25: a vírgula anda uma casa para a esquerda. A conta de sempre dá o mesmo: o 10 cabe zero vezes inteiras no 2, então 0, vírgula. Baixe o 5: com o 2 e o 5, temos 25, e 25 ÷ 10 = 2 e sobram 5. Acrescente um zero: 50 ÷ 10 = 5. Resultado: 0,25 kg. Em 0,025 a vírgula andou duas casas, o que seria dividir por 100. Em 25 ela andou para a direita, o que seria multiplicar."
         },
         {
           "questao_id": "MAT.NUM.DIVDEC.Q4",
@@ -195,7 +195,7 @@
           "dificuldade": 2,
           "tipo_raciocinio": "procedimental",
           "dica": "O número começa com 0 inteiros. Escreva 0 e a vírgula no resultado e continue com o 9.",
-          "explicacao": "0 ÷ 4 = 0, vírgula. 9 ÷ 4 = 2 e sobra 1. Com o 1 e o 6, temos 16, e 16 ÷ 4 = 4: 0,24 L. Conferindo: 0,24 × 4 = 0,96. O 2,4 L esquece o zero antes da vírgula: seria mais suco do que havia."
+          "explicacao": "0 ÷ 4 = 0, vírgula. 9 ÷ 4 = 2 e sobra 1. Com o 1 e o 6, temos 16, e 16 ÷ 4 = 4: 0,24 L. Conferindo: 0,24 × 4 = 0,96. Em 2,4 L, a vírgula ficou uma casa à direita: o valor ficou dez vezes maior, mais suco do que havia."
         },
         {
           "questao_id": "MAT.NUM.DIVDEC.Q6",
@@ -211,7 +211,7 @@
           "dificuldade": 2,
           "tipo_raciocinio": "procedimental",
           "dica": "Olhe para o 1 logo depois da vírgula. Dá para dividir 1 por 3? Se não der, o que vai no resultado?",
-          "explicacao": "6 ÷ 3 = 2, vírgula. 1 ÷ 3 não dá: escreva 0 no resultado e sobra 1. Com o 1 e o 8, temos 18, e 18 ÷ 3 = 6. Resultado: 2,06 kg. Quem escreve 2,6 kg pulou o zero: 2,6 × 3 = 7,8, e não 6,18."
+          "explicacao": "6 ÷ 3 = 2, vírgula. O 3 cabe zero vezes inteiras no 1: escreva 0 nessa casa do resultado e baixe o próximo algarismo. Com o 1 e o 8, temos 18, e 18 ÷ 3 = 6. Resultado: 2,06 kg. Quem escreve 2,6 kg pulou o zero: 2,6 × 3 = 7,8, e não 6,18."
         },
         {
           "questao_id": "MAT.NUM.DIVDEC.Q7",
@@ -282,7 +282,7 @@
           "passos": [
             "Descubra quanto de fita sobrou depois do laço.",
             "Divida o que sobrou por 4.",
-            "Sobrou resto? Ponha a vírgula no resultado, acrescente um zero ao resto e continue dividindo.",
+            "Acabaram os algarismos e sobrou resto? Ponha a vírgula no resultado, acrescente um zero ao resto e continue dividindo.",
             "Confira com uma estimativa se o resultado faz sentido."
           ],
           "dica": "Antes de dividir, tire da fita o pedaço usado no laço.",
@@ -301,9 +301,9 @@
       "subtema": "Divisão de naturais com quociente decimal",
       "habilidade_bncc": "EF05MA08",
       "ferramenta": "investigar",
-      "regra": "Sobrou resto? Ponha <b>vírgula no quociente</b> e um <b>zero ao lado do resto</b>, e siga dividindo.<br>Antes de responder, veja <b>o que</b> está sendo dividido: dá para partir em pedaços?",
+      "regra": "Acabaram os algarismos e sobrou resto? Ponha <b>vírgula no resultado</b> e um <b>zero ao lado do resto</b>, e siga dividindo.<br>Antes de responder, veja <b>o que</b> está sendo dividido: dá para partir em pedaços?",
       "aula": {
-        "corpo": "<div class=\"lesson-box\">Lia e o irmão ganharam R$ 5 para dividir igualmente. Cada um fica com R$ 2 e sobra R$ 1. Esse real pode ser repartido? Pode: ele vira 100 centavos. Cada um ganha mais 50 centavos: <b>R$ 2,50</b>.</div><div class=\"lesson-box\"><strong>Na conta 5 ÷ 2:</strong> o 2 cabe 2 vezes no 5 e sobra 1. Escreva a <b>vírgula</b> depois do 2 no quociente. Ponha um <b>zero</b> ao lado do resto: o 1 vira 10 décimos. 10 ÷ 2 = 5. Resultado: <b>2,5</b>.</div><div class=\"lesson-box\"><strong>Sobrou de novo?</strong> Ponha mais um zero e continue. Em 7 ÷ 4: dá 1 e sobram 3. Vírgula e zero: 30 ÷ 4 = 7, sobram 2. Mais um zero: 20 ÷ 4 = 5. Resultado: <b>1,75</b>.</div><p>Antes de continuar a conta, veja o que está sendo dividido. Meio real existe. Meio carro, não! Com pessoas e carros, o resto pede outra decisão.</p><h3>Hora de decidir · Continuar a conta ou parar?</h3>",
+        "corpo": "<div class=\"lesson-box\">Lia e o irmão ganharam R$ 5 para dividir igualmente. Cada um fica com R$ 2 e sobra R$ 1. Esse real pode ser repartido? Pode: ele vira 100 centavos. Cada um ganha mais 50 centavos: <b>R$ 2,50</b>.</div><div class=\"lesson-box\"><strong>Na conta 5 ÷ 2:</strong> o 2 cabe 2 vezes no 5 e sobra 1. Escreva a <b>vírgula</b> depois do 2 no quociente (o resultado da divisão). Ponha um <b>zero</b> ao lado do resto: o 1 vira 10 décimos. 10 ÷ 2 = 5. Resultado: <b>2,5</b>.</div><div class=\"lesson-box\"><strong>Sobrou de novo?</strong> Ponha mais um zero e continue. Em 7 ÷ 4: dá 1 e sobram 3. Vírgula e zero: 30 ÷ 4 = 7, sobram 2. Mais um zero: 20 ÷ 4 = 5. Resultado: <b>1,75</b>.</div><p>Antes de continuar a conta, veja o que está sendo dividido. Meio real existe. Meio carro, não! Com pessoas e carros, o resto pede outra decisão.</p><h3>Hora de decidir · Continuar a conta ou parar?</h3>",
         "fechamento": "<div class=\"lesson-box\"><strong>Para levar com você:</strong> sobrou resto em dinheiro ou medida? Vírgula no quociente, zero no resto, e continue. Sobrou resto com pessoas ou objetos inteiros? Pergunte o que a situação pede: precisa caber todo mundo, ou só contam os grupos completos?</div>"
       },
       "dados": {
@@ -548,7 +548,7 @@
           "passos": [
             "Some o preço da pizza e o do suco.",
             "Divida o total pelo número de amigos.",
-            "Sobrou resto? Continue a divisão com vírgula até o resto ser zero."
+            "Acabaram os algarismos e sobrou resto? Ponha a vírgula, acrescente um zero ao resto e continue até o resto ser zero."
           ],
           "explicacao": "A conta toda é 34 + 5 = 39 reais. 39 ÷ 4 dá 9 e sobram 3. Vírgula e zero: 30 ÷ 4 = 7 e sobram 2. Mais um zero: 20 ÷ 4 = 5. Cada um paga R$ 9,75. Confira: 4 × 9,75 = 39. A resposta R$ 8,50 divide só a pizza e esquece o suco."
         }
@@ -833,7 +833,7 @@
       "ferramenta": "investigar",
       "regra": "<b>10%</b> = dividir por 10 · <b>50%</b> = metade · <b>25%</b> = dividir por 4.<br><b>Desconto:</b> preço − desconto. <b>Acréscimo:</b> preço + acréscimo.",
       "aula": {
-        "corpo": "<p>O sinal % quer dizer \"em cada 100\". <b>10%</b> é a décima parte: divida por 10.<br>10% de 260 = 260 ÷ 10 = <b>26</b></p><p><b>50%</b> é a metade: divida por 2.<br><b>25%</b> é a quarta parte: divida por 4.<br>50% de 44 = 44 ÷ 2 = <b>22</b><br>25% de 44 = 44 ÷ 4 = <b>11</b></p><p>Com o 10%, você acha outras:<br>10% de 260 = 26<br>20% = 2 × 26 = <b>52</b><br>30% = 3 × 26 = <b>78</b><br>5% = metade de 26 = <b>13</b></p><p><b>Desconto</b> é tirar do preço.<br>Vestido de R$ 320 com 30% de desconto.<br>10% = 32. 30% = 3 × 32 = 96.<br>Luciana paga 320 − 96 = <b>R$ 224</b>.</p><h3>Hora de decidir · Qual conta resolve?</h3>",
+        "corpo": "<p>O sinal % quer dizer \"em cada 100\". <b>10%</b> é a décima parte: divida por 10.<br>10% de 260 = 260 ÷ 10 = <b>26</b></p><p><b>50%</b> é a metade: divida por 2.<br><b>25%</b> é a quarta parte: divida por 4.<br>50% de 44 = 44 ÷ 2 = <b>22</b><br>25% de 44 = 44 ÷ 4 = <b>11</b></p><p>Com o 10%, você acha outras:<br>10% de 260 = 26<br>20% de 260 = 2 × 26 = <b>52</b><br>30% de 260 = 3 × 26 = <b>78</b><br>5% de 260 = metade de 26 = <b>13</b></p><p><b>Desconto</b> é tirar do preço.<br>Vestido de R$ 320 com 30% de desconto.<br>10% de 320 = 32. 30% de 320 = 3 × 32 = 96.<br>Luciana paga 320 − 96 = <b>R$ 224</b>.</p><h3>Hora de decidir · Qual conta resolve?</h3>",
         "fechamento": "<div class=\"lesson-box\"><strong>Duas perguntas resolvem:</strong> 1) Quanto vale a porcentagem? 2) É desconto (tiro do preço) ou acréscimo (somo ao preço)?</div>"
       },
       "dados": {
@@ -1040,7 +1040,7 @@
             "Desconto é tirar: subtraia do preço."
           ],
           "dica": "30% são três vezes 10%. Depois, lembre que desconto diminui o preço.",
-          "explicacao": "10% de 180 = 18. 30% = 3 × 18 = R$ 54 de desconto. Preço final: 180 − 54 = R$ 126. R$ 54 é só o desconto. R$ 150 seria tirar 30 reais, e não 30%. R$ 234 somou em vez de tirar."
+          "explicacao": "10% de 180 = 18. 30% de 180 = 3 × 18 = R$ 54 de desconto. Preço final: 180 − 54 = R$ 126. R$ 54 é só o desconto. R$ 150 seria tirar 30 reais, e não 30%. R$ 234 somou em vez de tirar."
         },
         {
           "questao_id": "MAT.NUM.PORCVAL.Q9",
@@ -1082,7 +1082,7 @@
             "Acréscimo é somar: junte esse valor ao preço."
           ],
           "dica": "15% = 10% + 5%. E acréscimo aumenta o preço.",
-          "explicacao": "10% de 40 = 4. 5% = metade de 4 = 2. 15% = 4 + 2 = R$ 6 de acréscimo. No sábado: 40 + 6 = R$ 46. R$ 6 é só o acréscimo. R$ 34 tirou em vez de somar. R$ 55 somou 15 reais, e não 15%."
+          "explicacao": "10% de 40 = 4. 5% de 40 = metade de 4 = 2. 15% de 40 = 4 + 2 = R$ 6 de acréscimo. No sábado: 40 + 6 = R$ 46. R$ 6 é só o acréscimo. R$ 34 tirou em vez de somar. R$ 55 somou 15 reais, e não 15%."
         }
       ]
     },
@@ -1090,7 +1090,7 @@
       "missao_id": "volume",
       "capitulo_id": "cap-1",
       "icone": "📦",
-      "titulo": "Espaço dentro da caixa",
+      "titulo": "Espaço que a caixa ocupa",
       "subtitulo": "Volume com cubinhos e camadas",
       "eixo": "Grandezas e Medidas",
       "tema_id": "MAT.GEO.VOL",
@@ -1099,8 +1099,8 @@
       "ferramenta": "investigar",
       "regra": "<b>Volume</b> = cubinhos de 1 camada × número de camadas.<br>No bloco: <b>comprimento × largura × altura</b>.",
       "aula": {
-        "corpo": "<p>Numa caixa, dá para medir três coisas. O contorno da tampa é o <b>perímetro</b>, em cm. A superfície da tampa é a <b>área</b>, em cm². O espaço dentro é o <b>volume</b>, em cm³.</p><p>O volume se mede com cubinhos de <b>1 cm³</b>. Conte os cubinhos de uma camada e multiplique pelo número de camadas. Uma camada de 5 × 5 tem 25 cubinhos. Com 2 camadas, são 25 × 2 = <b>50 cm³</b>.</p><p>Existe um atalho: multiplique <b>comprimento × largura × altura</b>. Um bloco de 2 m por 3 m por 6 m tem 2 × 3 × 6 = <b>36 m³</b>. O ³ lembra que são <b>três</b> medidas.</p><p>O cubo tem as três medidas iguais. Cada uma se chama <b>aresta</b>. Um cubo com aresta de 5 cm tem 5 × 5 × 5 = <b>125 cm³</b>.</p><h3>Hora de decidir · Área, perímetro ou volume?</h3>",
-        "fechamento": "<div class=\"lesson-box\"><strong>Pergunta de conferência:</strong> estou medindo o contorno, a superfície ou o espaço dentro? Se for o espaço dentro, multiplique as três medidas e escreva a unidade com ³.</div>"
+        "corpo": "<p>Numa caixa, dá para medir três coisas. O contorno da tampa é o <b>perímetro</b>, em cm. A superfície da tampa é a <b>área</b>, em cm². O espaço que a caixa ocupa é o <b>volume</b>, em cm³.</p><p>O volume se mede com cubinhos de <b>1 cm³</b>. Conte os cubinhos de uma camada e multiplique pelo número de camadas. Uma camada de 5 × 5 tem 25 cubinhos. Com 2 camadas, são 25 × 2 = <b>50 cm³</b>.</p><p>Existe um atalho: multiplique <b>comprimento × largura × altura</b>. Um bloco de 2 m por 3 m por 6 m tem 2 × 3 × 6 = <b>36 m³</b>. O ³ lembra que são <b>três</b> medidas.</p><p><b>Aresta</b> é a linha onde duas faces se encontram. No cubo, todas as arestas têm o mesmo comprimento. Um cubo com aresta de 5 cm tem 5 × 5 × 5 = <b>125 cm³</b>.</p><h3>Hora de decidir · Área, perímetro ou volume?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Pergunta de conferência:</strong> estou medindo o contorno, a superfície ou o espaço ocupado? Se for o espaço ocupado, multiplique as três medidas e escreva a unidade com ³.</div>"
       },
       "dados": {
         "instrucao": "Leia a situação, escolha a resposta e confirme.",
@@ -1114,7 +1114,7 @@
               "O perímetro da tampa, em cm"
             ],
             "correta": 0,
-            "explicacao": "Papel cobre uma superfície: é área, em cm². O volume serviria para saber quanto cabe dentro, e o perímetro, para uma fita no contorno.",
+            "explicacao": "Papel cobre uma superfície: é área, em cm². O volume mede o espaço que a caixa ocupa, e o perímetro serve para uma fita no contorno.",
             "figura": null
           },
           {
@@ -1182,7 +1182,7 @@
           "dificuldade": 1,
           "tipo_raciocinio": "conceitual",
           "dica": "Pense no espaço: a areia fica só em cima do fundo ou enche a caixa?",
-          "explicacao": "O espaço dentro da caixa é o volume. A área do fundo mede só a superfície de baixo, sem contar a altura."
+          "explicacao": "Para saber quanto cabe dentro, usamos o volume interno da caixa: comprimento × largura × altura, medidos por dentro. A área do fundo mede só a superfície de baixo, sem contar a altura."
         },
         {
           "questao_id": "MAT.GEO.VOL.Q2",
@@ -1364,10 +1364,10 @@
       "subtema": "Volume e capacidade: cm³, dm³, m³, mL e L",
       "habilidade_bncc": "EF05MA19",
       "ferramenta": "investigar",
-      "regra": "<b>1 L = 1000 mL</b> · <b>1 cm³ = 1 mL</b> · <b>1 dm³ = 1 L</b> · <b>1 m³ = 1000 L</b><br>Caixa: multiplique as 3 medidas e depois troque a unidade.<br><b>L → mL:</b> × 1000 · <b>mL → L:</b> ÷ 1000",
+      "regra": "<b>1 L = 1000 mL</b> · <b>1 cm³ = 1 mL</b> · <b>1 dm³ = 1 L</b> · <b>1 m³ = 1000 L</b><br>Caixa: use as <b>medidas internas</b>, todas em cm. Multiplique as 3 e depois troque a unidade.<br><b>L → mL:</b> × 1000 · <b>mL → L:</b> ÷ 1000",
       "aula": {
-        "corpo": "<p>Lia vai encher o aquário novo. Quanta água cabe lá dentro? Essa medida se chama <b>capacidade</b>: quanto cabe dentro de uma coisa. Usamos <b>litros (L)</b> e <b>mililitros (mL)</b>. Em 1 L cabem 1000 mL.</p><p>Pense num cubinho com 1 cm em cada lado. O espaço que ele ocupa, o volume, é <b>1 cm³</b>. Dentro dele cabe <b>1 mL</b> de água.</p><p>Agora pense num cubo com 10 cm em cada lado. O volume é 10 × 10 × 10 = 1000 cm³. Esse cubo também se chama <b>1 dm³</b>. Dentro dele cabe <b>1 L</b>.</p><p>Para coisas bem grandes, como uma caixa-d'água ou uma piscina, usamos o metro cúbico. Em <b>1 m³</b> cabem <b>1000 L</b>.</p><h3>Hora de decidir · Quanto cabe aqui dentro?</h3>",
-        "fechamento": "<div class=\"lesson-box\"><strong>Caminho para repetir:</strong> 1) Multiplique as três medidas da caixa. 2) Troque cm³ por mL: o número fica igual. 3) Para ter litros, divida por 1000.</div>"
+        "corpo": "<p>Lia vai encher o aquário novo. Quanta água cabe lá dentro? Essa medida se chama <b>capacidade</b>: quanto cabe dentro de uma coisa. Usamos <b>litros (L)</b> e <b>mililitros (mL)</b>. Em 1 L cabem 1000 mL. Para descobrir quanto cabe num recipiente, usamos seu <b>volume interno</b>.</p><p>Pense num cubinho oco com 1 cm em cada lado, por dentro. Seu volume interno é <b>1 cm³</b>, e nele cabe <b>1 mL</b> de água.</p><p>Agora pense num cubo com 10 cm em cada lado. O volume é 10 × 10 × 10 = 1000 cm³. O volume desse cubo é 1 decímetro cúbico: <b>1 dm³</b>. Dentro dele cabe <b>1 L</b>.</p><p>Para coisas bem grandes, como uma caixa-d'água ou uma piscina, usamos o metro cúbico. Em <b>1 m³</b> cabem <b>1000 L</b>.</p><h3>Hora de decidir · Quanto cabe aqui dentro?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Caminho para repetir:</strong> 1) Use as medidas internas da caixa, todas em centímetros, e multiplique as três. 2) Troque cm³ por mL: o número fica igual. 3) Para ter litros, divida por 1000.</div>"
       },
       "dados": {
         "instrucao": "Leia a situação, escolha quanto cabe e confirme.",
@@ -1385,7 +1385,7 @@
             "figura": null
           },
           {
-            "contexto": "Uma caixa de presente tem 25 cm de comprimento, 8 cm de largura e 5 cm de altura. Nina vai enchê-la de água para um teste.",
+            "contexto": "Por dentro, uma caixa de presente tem 25 cm de comprimento, 8 cm de largura e 5 cm de altura. Nina vai enchê-la de água para um teste.",
             "pergunta": "Quanto de água cabe na caixa?",
             "alternativas": [
               "38 mL",
@@ -1517,7 +1517,7 @@
         },
         {
           "questao_id": "MAT.GEO.CAP.Q6",
-          "enunciado": "Uma caixa de suco tem 6 cm de comprimento, 10 cm de largura e 15 cm de altura. Quantos <mark>mililitros</mark> cabem nela?",
+          "enunciado": "Por dentro, uma caixa de suco tem 6 cm de comprimento, 10 cm de largura e 15 cm de altura. Quantos <mark>mililitros</mark> cabem nela?",
           "figura": {
             "tipo": "svg",
             "conteudo": "<svg viewBox='0 0 320 220' width='100%' role='img' aria-label='Caixa de suco: 6 cm de comprimento, 10 cm de largura e 15 cm de altura' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='320' height='220' fill='#ffffff'/><polygon points='134,56.7 160.7,30 206,30 179.3,56.7' fill='#ffffff' stroke='#2fae94' stroke-width='2'/><polygon points='179.3,56.7 206,30 206,143.3 179.3,170' fill='#ffffff' stroke='#2fae94' stroke-width='2'/><polygon points='134,56.7 179.3,56.7 179.3,170 134,170' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><text x='156.6' y='190' text-anchor='middle' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>6 cm</text><text x='126' y='118.4' text-anchor='end' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>15 cm</text><text x='200.7' y='166.6' text-anchor='start' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>10 cm</text></svg>",
@@ -1553,7 +1553,7 @@
         },
         {
           "questao_id": "MAT.GEO.CAP.Q8",
-          "enunciado": "O aquário do peixinho de Gabi tem 20 cm de comprimento, 10 cm de largura e 30 cm de altura. Quantos <mark>litros</mark> de água cabem nele quando está cheio?",
+          "enunciado": "Medido por dentro, o aquário do peixinho de Gabi tem 20 cm de comprimento, 10 cm de largura e 30 cm de altura. Quantos <mark>litros</mark> de água cabem nele quando está cheio?",
           "figura": {
             "tipo": "svg",
             "conteudo": "<svg viewBox='0 0 320 220' width='100%' role='img' aria-label='Aquário: 20 cm de comprimento, 10 cm de largura e 30 cm de altura' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='320' height='220' fill='#ffffff'/><polygon points='120.9,44.8 135.6,30 219.1,30 204.4,44.8' fill='#ffffff' stroke='#2fae94' stroke-width='2'/><polygon points='204.4,44.8 219.1,30 219.1,155.2 204.4,170' fill='#ffffff' stroke='#2fae94' stroke-width='2'/><polygon points='120.9,44.8 204.4,44.8 204.4,170 120.9,170' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><text x='162.6' y='190' text-anchor='middle' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>20 cm</text><text x='112.9' y='112.4' text-anchor='end' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>30 cm</text><text x='219.7' y='172.6' text-anchor='start' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>10 cm</text></svg>",
@@ -1569,7 +1569,7 @@
           "dificuldade": 3,
           "tipo_raciocinio": "multi-etapa",
           "passos": [
-            "Multiplique as três medidas para achar o volume em cm³.",
+            "Multiplique as três medidas internas para achar o volume em cm³.",
             "Troque cm³ por mL: o número continua o mesmo.",
             "Divida os mililitros por 1000 para chegar em litros."
           ],
@@ -1644,7 +1644,7 @@
         {
           "tema_id": "MAT.NUM.DIVDEC",
           "rotulo": "Dividir com vírgula",
-          "texto": "Divida como se fossem inteiros. Usou o primeiro algarismo depois da vírgula? Ponha a vírgula no resultado. Não deu para dividir? Escreva 0 e siga. Sobrou resto? Acrescente um zero e continue.<br>Antes de responder, pense no que está sendo dividido: dá para partir em pedaços?"
+          "texto": "Divida como se fossem inteiros.<br>Usou o 1º algarismo depois da vírgula? Ponha a vírgula no resultado.<br>O divisor cabe zero vezes? Escreva 0 e baixe o próximo algarismo.<br>Sobrou resto? Baixe o próximo algarismo. Acabaram os algarismos? Acrescente um zero ao resto e continue.<br>Antes de responder: o que está sendo dividido pode ser partido em pedaços?"
         },
         {
           "tema_id": "MAT.NUM.PORC",
@@ -1685,7 +1685,7 @@
         {
           "tema_id": "MAT.NUM.DIVDEC",
           "rotulo": "Dividir com vírgula",
-          "texto": "Divida como se fossem inteiros. Usou o primeiro algarismo depois da vírgula? Ponha a vírgula no resultado. Não deu para dividir? Escreva 0 e siga. Sobrou resto? Acrescente um zero e continue.<br>Antes de responder, pense no que está sendo dividido: dá para partir em pedaços?"
+          "texto": "Divida como se fossem inteiros.<br>Usou o 1º algarismo depois da vírgula? Ponha a vírgula no resultado.<br>O divisor cabe zero vezes? Escreva 0 e baixe o próximo algarismo.<br>Sobrou resto? Baixe o próximo algarismo. Acabaram os algarismos? Acrescente um zero ao resto e continue.<br>Antes de responder: o que está sendo dividido pode ser partido em pedaços?"
         },
         {
           "tema_id": "MAT.NUM.PORC",

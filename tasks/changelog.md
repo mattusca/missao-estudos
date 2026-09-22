@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-09-22 — Revisão do Codex aplicada à prova de Matemática 23/09
+
+- Regra de divisão completada (baixar o próximo algarismo antes de acrescentar zero) nas
+  colas, nos cartões das duas missões e nos passos de DIVDEC.Q10 e Q20; "não dá para
+  dividir" trocado por "cabe zero vezes inteiras" (Q3, Q6, exemplo 8,28 ÷ 4).
+- Aresta definida como linha entre duas faces; volume como espaço ocupado e capacidade
+  como volume interno; "O volume desse cubo é 1 dm³"; medidas internas, em cm, na regra,
+  no fechamento e nos enunciados de caixa de suco, aquário e caixa de presente.
+- Explicação do distrator 2,4 L (DIVDEC.Q5) corrigida; "quociente" explicado na 1ª
+  ocorrência; porcentagens escritas sempre "de" uma quantidade.
+- Gabaritos, alternativas e exemplos inalterados (conferido contra o commit anterior);
+  build OK, 42/42 testes; Jev: regra de divisão e aresta corretas (0,87 e 0,96).
+
 ## 2026-09-22 — Prova de Matemática 23/09: divisão, porcentagem e volume
 
 - Nova prova `2026-09-MAT-Y5` (`data/provas/2026-09-matematica-y5.json`), em dois capítulos:
