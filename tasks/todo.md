@@ -1,5 +1,17 @@
 # Pendências
 
+## 2026-09-22 — Prova de Matemática 23/09: divisão, porcentagem e volume
+- [x] Especificar a prova (post da professora + 8 vídeos) e montar temas no catálogo.
+- [x] Seis missões escritas por agentes independentes em paralelo (banco de 10 questões cada), com Jev.
+- [x] Análise do supervisor, montagem com capítulo de mistura, build e testes.
+- [x] Auditoria independente (conteúdo, pedagogia/acomodações, técnica/navegador) e correções.
+- [x] Publicar no Pages e conferir o link.
+      Responsável: Claude (supervisor) com subagentes. Arquivos: data/provas/2026-09-matematica-y5.json,
+      data/catalogo-temas.json. Livro (p. 111-115, 122-123, 335-341) não consultado.
+- [ ] Conferir com o livro/caderno se a divisão cobrada inclui divisor decimal (a prova segue
+      EF05MA08: divisor natural) e se volume/capacidade entram nesta avaliação.
+- [ ] Após ~3 sessões, calibrar pelos logs (acerto sem apoio por tema).
+
 ## 2026-09-08 — Verificação e recuperação do envio de Hugo
 - [x] Conferir a origem por intervalo completo, testar o receptor e investigar envio/fila.
 - [x] Reproduzir perda por recarga e drenagem antecipada; persistir antes do envio,

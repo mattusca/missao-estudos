@@ -208,5 +208,55 @@
     "habilidade_bncc": "EF15LP18",
     "nivel_conteudo": "Y5",
     "bncc_conferida": false
+  },
+  {
+    "tema_id": "MAT.NUM.DIVDEC",
+    "materia": "Matemática",
+    "eixo": "Números",
+    "tema": "Divisão com vírgula",
+    "subtema": "Divisão com decimais e quociente decimal",
+    "habilidade_bncc": "EF05MA08",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "MAT.NUM.PORC",
+    "materia": "Matemática",
+    "eixo": "Números",
+    "tema": "O que é porcentagem",
+    "subtema": "Porcentagem como parte de 100: fração, decimal e partes do inteiro",
+    "habilidade_bncc": "EF05MA06",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "MAT.NUM.PORCVAL",
+    "materia": "Matemática",
+    "eixo": "Números",
+    "tema": "Porcentagem de um valor",
+    "subtema": "Cálculo de porcentagem, desconto e acréscimo",
+    "habilidade_bncc": "EF05MA06",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "MAT.GEO.VOL",
+    "materia": "Matemática",
+    "eixo": "Grandezas e Medidas",
+    "tema": "Volume em cubinhos",
+    "subtema": "Volume de blocos retangulares por empilhamento de cubos",
+    "habilidade_bncc": "EF05MA21",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
+    "tema_id": "MAT.GEO.CAP",
+    "materia": "Matemática",
+    "eixo": "Grandezas e Medidas",
+    "tema": "Volume e capacidade",
+    "subtema": "Relação entre volume e capacidade: cm³, dm³, m³, mL e L",
+    "habilidade_bncc": "EF05MA19",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
   }
 ]

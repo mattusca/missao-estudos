@@ -1,0 +1,1712 @@
+{
+  "prova_id": "2026-09-MAT-Y5",
+  "titulo": "Missão Matemática — divisão, porcentagem e volume",
+  "materia": "Matemática",
+  "alunas": [
+    "Alicia",
+    "Marco (teste)",
+    "Fernanda (teste)"
+  ],
+  "escola": "PD",
+  "ano_aluna": "Y5",
+  "nivel_conteudo": "Y5",
+  "bimestre": "3",
+  "contexto": "prova",
+  "criado_em": "2026-09-22",
+  "origem": "Post da professora (atividade avaliada de 23/09: porcentagem e divisão de números decimais e números inteiros; livro p. 111-115, 122-123, 335-341, não consultadas) + vídeos indicados pelo responsável: https://www.youtube.com/watch?v=nnNU6DfOxfQ, https://www.youtube.com/watch?v=8ZSgvM24Yls, https://www.youtube.com/watch?v=YOv9gT61HZ4, https://www.youtube.com/watch?v=ZSg7J22y6lQ (porcentagem); https://www.youtube.com/watch?v=bz2KDvNziQc, https://www.youtube.com/watch?v=IKBk-Js_R6s, https://www.youtube.com/watch?v=3iWl-Liuw5s, https://www.youtube.com/watch?v=nDD9DVEzkZM (volume e capacidade). Divisão segue a BNCC EF05MA08 (divisor natural).",
+  "observacao": "Banco de 60 questões escritas à mão (10 por missão); cada sessão sorteia 4 por missão no capítulo 1 e mistura temas no capítulo 2. Refazer sorteia outras questões sem novo artefato. Volume e capacidade vieram dos vídeos, não do post da prova.",
+  "capitulos": [
+    {
+      "capitulo_id": "cap-1",
+      "titulo": "Aprender",
+      "funcao": "Aula, ferramenta e desafios de cada tema.",
+      "contexto": "prova",
+      "recuperacao": {
+        "pergunta": "Como você explicaria para um colega o que quer dizer 25%?",
+        "referencia": "25 em cada 100. É a quarta parte do inteiro: 25% de 80 é 80 ÷ 4 = 20."
+      }
+    },
+    {
+      "capitulo_id": "cap-2",
+      "titulo": "Misturar",
+      "funcao": "Recuperar as ideias com os temas misturados.",
+      "contexto": "revisao_espacada",
+      "recuperacao": {
+        "pergunta": "Como saber se a resposta de uma divisão pode ter vírgula?",
+        "referencia": "Dinheiro e medidas aceitam vírgula (R$ 3,75; 2,5 m). Pessoas, carros e caixas inteiras não: aí se pensa no que fazer com o resto."
+      }
+    }
+  ],
+  "missoes": [
+    {
+      "missao_id": "divisao-decimal",
+      "capitulo_id": "cap-1",
+      "icone": "➗",
+      "titulo": "Onde fica a vírgula?",
+      "subtitulo": "Dividir um decimal em partes iguais",
+      "eixo": "Números",
+      "tema_id": "MAT.NUM.DIVDEC",
+      "subtema": "Divisão de decimal por número natural",
+      "habilidade_bncc": "EF05MA08",
+      "ferramenta": "investigar",
+      "regra": "Divida como se não houvesse vírgula. Usou o <b>1º algarismo depois da vírgula</b>? Ponha a vírgula no resultado.<br>Não deu para dividir? Escreva <b>0</b> no resultado.<br>Sobrou resto e acabaram os algarismos? Acrescente um <b>0</b> ao resto e continue.<br>Confira com uma estimativa.",
+      "aula": {
+        "corpo": "<div class=\"lesson-box\"><strong>Lia, Theo e Nina dividem uma pipoca de R$ 7,50.</strong> Faça 7,5 ÷ 3 como se fosse inteiro:<br>7 ÷ 3 = 2 e sobra 1.<br>Agora vem o 5, <b>depois da vírgula</b>: ponha a vírgula no resultado.<br>O 1 que sobrou junta com o 5: 15 ÷ 3 = 5.<br>Cada um paga <b>R$ 2,50</b>.</div><div class=\"lesson-box\"><strong>Às vezes aparece um zero.</strong> Veja 4,08 ÷ 2:<br>4 ÷ 2 = 2, vírgula.<br>0 ÷ 2 = 0: esse zero fica no resultado.<br>8 ÷ 2 = 4.<br>Resultado: <b>2,04</b>.</div><div class=\"lesson-box\"><strong>Sobrou resto e acabaram os algarismos?</strong> Acrescente um zero ao resto e continue. Veja 5,4 ÷ 4:<br>5 ÷ 4 = 1 e sobra 1, vírgula.<br>14 ÷ 4 = 3 e sobram 2.<br>Ponha um zero: o 2 vira 20.<br>20 ÷ 4 = 5. Resultado: <b>1,35</b>.</div><p>Para conferir, estime com números redondos. 15,5 ÷ 5 fica perto de 15 ÷ 5 = 3. Deu 31 ou 0,31? A vírgula está no lugar errado.</p><h3>Hora de decidir · Onde fica a vírgula?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>O que você descobriu:</strong> a divisão é a mesma de sempre. A vírgula entra no resultado quando você usa o primeiro algarismo depois dela. Se sobrar resto no fim, acrescente um zero e continue. E a estimativa mostra se o resultado faz sentido.</div>"
+      },
+      "dados": {
+        "instrucao": "Leia a situação, escolha o resultado que faz sentido e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Gabi tem uma fita de <b>6,3 m</b>. Ela vai cortar em <b>3 pedaços iguais</b> para enfeitar presentes.",
+            "pergunta": "Quanto mede cada pedaço?",
+            "alternativas": [
+              "2,1 m",
+              "21 m",
+              "0,21 m"
+            ],
+            "correta": 0,
+            "explicacao": "6 ÷ 3 = 2, vírgula, depois 3 ÷ 3 = 1: 2,1 m. A estimativa confirma: 6 ÷ 3 = 2. Um pedaço de 21 m seria maior que a fita inteira!",
+            "figura": {
+              "tipo": "svg",
+              "conteudo": "<svg viewBox='0 0 360 110' width='100%' role='img' aria-label='Fita de 6,3 metros dividida em 3 pedaços iguais'><rect x='0' y='0' width='360' height='110' fill='#ffffff'/><line x1='20' y1='26' x2='340' y2='26' stroke='#4b6480' stroke-width='1.5'/><text x='180' y='20' text-anchor='middle' font-family='Nunito,sans-serif' font-size='15' fill='#4b6480'>6,3 m</text><rect x='20.0' y='40' width='106.7' height='34' fill='#2fae94' stroke='#4b6480' stroke-width='1.5'/><text x='73.3' y='96' text-anchor='middle' font-family='Nunito,sans-serif' font-size='15' fill='#f2604c' font-weight='700'>? m</text><rect x='126.7' y='40' width='106.7' height='34' fill='#e3f5f0' stroke='#4b6480' stroke-width='1.5'/><text x='180.0' y='96' text-anchor='middle' font-family='Nunito,sans-serif' font-size='15' fill='#f2604c' font-weight='700'>? m</text><rect x='233.3' y='40' width='106.7' height='34' fill='#2fae94' stroke='#4b6480' stroke-width='1.5'/><text x='286.7' y='96' text-anchor='middle' font-family='Nunito,sans-serif' font-size='15' fill='#f2604c' font-weight='700'>? m</text></svg>",
+              "legenda": "A fita de 6,3 m cortada em 3 pedaços iguais."
+            }
+          },
+          {
+            "contexto": "Davi tem <b>0,84 L</b> de suco. Ele vai dividir igualmente em <b>4 copos</b>.",
+            "pergunta": "Quanto suco vai em cada copo?",
+            "alternativas": [
+              "2,1 L",
+              "0,21 L",
+              "0,021 L"
+            ],
+            "correta": 1,
+            "explicacao": "0 ÷ 4 = 0, vírgula. Depois 8 ÷ 4 = 2 e 4 ÷ 4 = 1: 0,21 L. O suco todo é menos de 1 litro, então cada copo recebe bem menos que 1 litro."
+          },
+          {
+            "contexto": "Bia dividiu <b>12,6</b> por <b>4</b> e ficou em dúvida sobre o resultado.",
+            "pergunta": "Qual resultado combina com a estimativa 12 ÷ 4 = 3?",
+            "alternativas": [
+              "31,5",
+              "0,315",
+              "3,15"
+            ],
+            "correta": 2,
+            "explicacao": "12,6 é um pouco mais que 12, então o resultado é um pouco mais que 3: 3,15. A conta: 12 ÷ 4 = 3, vírgula, 6 ÷ 4 = 1 e sobram 2; com o 2 e um zero, 20 ÷ 4 = 5."
+          },
+          {
+            "contexto": "Theo fez 8,28 ÷ 4 e escreveu 2,7.",
+            "pergunta": "O resultado do Theo está certo?",
+            "alternativas": [
+              "Sim, 2,7 está certo",
+              "Não, faltou um zero: é 2,07"
+            ],
+            "correta": 1,
+            "explicacao": "8 ÷ 4 = 2, vírgula. Depois vem o 2, e 2 ÷ 4 não dá: escreva 0 no resultado. Com o 2 e o 8, temos 28, e 28 ÷ 4 = 7. Resultado: 2,07. Conferindo: 2,07 × 4 = 8,28. Já 2,7 × 4 = 10,8, que é outro número."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q1",
+          "enunciado": "Três amigos dividem igualmente um pacote de <b>9,6 kg</b> de ração para seus cachorros. Quanto fica para cada um? Calcule <mark>9,6 ÷ 3</mark>.",
+          "figura": null,
+          "alternativas": [
+            "32 kg",
+            "3,2 kg",
+            "0,32 kg",
+            "3,02 kg"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Divida o 9 primeiro. Quando for usar o algarismo depois da vírgula, ponha a vírgula no resultado.",
+          "explicacao": "9 ÷ 3 = 3. Vírgula. Depois, 6 ÷ 3 = 2. Resultado: 3,2 kg. Conferindo: 3,2 × 3 = 9,6. Escrever 32 kg é esquecer a vírgula: seria muito mais que o pacote inteiro."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q2",
+          "enunciado": "Bia tem um barbante de <b>8,4 m</b>. Ela corta em <b>2 pedaços iguais</b>. Quanto mede cada pedaço?",
+          "figura": null,
+          "alternativas": [
+            "42 m",
+            "0,42 m",
+            "16,8 m",
+            "4,2 m"
+          ],
+          "correta": 3,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Cada pedaço é a metade do barbante. Divida o 8 primeiro e lembre da vírgula.",
+          "explicacao": "8 ÷ 2 = 4, vírgula, 4 ÷ 2 = 2: 4,2 m. Conferindo: 4,2 + 4,2 = 8,4. O 16,8 m aparece quando se multiplica por 2 em vez de dividir."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q3",
+          "enunciado": "Um pacote de <b>2,5 kg</b> de arroz foi dividido igualmente em <b>10 potes</b>. Quanto arroz ficou em cada pote?",
+          "figura": null,
+          "alternativas": [
+            "0,25 kg",
+            "0,025 kg",
+            "25 kg",
+            "250 kg"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Dividir por 10 deixa o número 10 vezes menor. Quantas casas a vírgula anda?",
+          "explicacao": "2,5 ÷ 10 = 0,25: a vírgula anda uma casa para a esquerda. A conta de sempre dá o mesmo: 2 ÷ 10 não dá, então 0, vírgula. Com o 2 e o 5, temos 25, e 25 ÷ 10 = 2 e sobram 5. Acrescente um zero: 50 ÷ 10 = 5. Resultado: 0,25 kg. Em 0,025 a vírgula andou duas casas, o que seria dividir por 100. Em 25 ela andou para a direita, o que seria multiplicar."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q4",
+          "enunciado": "Uma fita de <b>14,6 m</b> vai ser cortada em <b>4 pedaços iguais</b>. Quanto mede cada pedaço?",
+          "figura": null,
+          "alternativas": [
+            "36,5 m",
+            "3,65 m",
+            "3,6 m",
+            "0,365 m"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Quando sobrar resto depois da vírgula, acrescente um zero e continue dividindo.",
+          "explicacao": "14 ÷ 4 = 3 e sobram 2. Vírgula. Com o 2 e o 6, temos 26, e 26 ÷ 4 = 6 e sobram 2. Com um zero, 20 ÷ 4 = 5. Resultado: 3,65 m. Conferindo: 3,65 × 4 = 14,6. Parar em 3,6 m deixa um pedaço de fita sem dividir."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q5",
+          "enunciado": "Nina tem <b>0,96 L</b> de suco e vai dividir igualmente em <b>4 copos</b>. Quanto suco vai em cada copo?",
+          "figura": null,
+          "alternativas": [
+            "2,4 L",
+            "0,024 L",
+            "0,24 L",
+            "24 L"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "O número começa com 0 inteiros. Escreva 0 e a vírgula no resultado e continue com o 9.",
+          "explicacao": "0 ÷ 4 = 0, vírgula. 9 ÷ 4 = 2 e sobra 1. Com o 1 e o 6, temos 16, e 16 ÷ 4 = 4: 0,24 L. Conferindo: 0,24 × 4 = 0,96. O 2,4 L esquece o zero antes da vírgula: seria mais suco do que havia."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q6",
+          "enunciado": "Três irmãos dividem igualmente <b>6,18 kg</b> de massinha para uma oficina. Quanto fica para cada um?",
+          "figura": null,
+          "alternativas": [
+            "2,06 kg",
+            "2,6 kg",
+            "20,6 kg",
+            "2,006 kg"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Olhe para o 1 logo depois da vírgula. Dá para dividir 1 por 3? Se não der, o que vai no resultado?",
+          "explicacao": "6 ÷ 3 = 2, vírgula. 1 ÷ 3 não dá: escreva 0 no resultado e sobra 1. Com o 1 e o 8, temos 18, e 18 ÷ 3 = 6. Resultado: 2,06 kg. Quem escreve 2,6 kg pulou o zero: 2,6 × 3 = 7,8, e não 6,18."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q7",
+          "enunciado": "Três amigos pediram uma pizza de <b>R$ 25,50</b> e vão dividir o valor igualmente. Quanto cada um paga?",
+          "figura": null,
+          "alternativas": [
+            "R$ 8,05",
+            "R$ 85,00",
+            "R$ 8,50",
+            "R$ 76,50"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Divida 25 por 3 e veja o que sobra. Depois continue com os centavos.",
+          "explicacao": "25 ÷ 3 = 8 e sobra 1. Vírgula. Com o 1 e o 5, temos 15, e 15 ÷ 3 = 5. Depois, 0 ÷ 3 = 0. Cada um paga R$ 8,50. Conferindo: 8,50 × 3 = 25,50. R$ 8,05 põe o zero no lugar errado; R$ 76,50 é multiplicar em vez de dividir."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q8",
+          "enunciado": "Davi calculou <mark>29,4 ÷ 7</mark> e escreveu <b>42</b>. O que você diria para ele?",
+          "figura": null,
+          "alternativas": [
+            "O certo é 0,42, porque dividir sempre dá um número menor que 1",
+            "O certo é 4,2, porque 28 ÷ 7 = 4 e o resultado deve ficar perto de 4",
+            "O certo é 4,02, porque falta um zero depois da vírgula",
+            "Está certo: 42 × 7 dá um número perto de 29,4"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Faça uma estimativa: que número redondo perto de 29,4 dá para dividir por 7?",
+          "explicacao": "29,4 fica perto de 28, e 28 ÷ 7 = 4. Então o resultado é perto de 4: 4,2. A conta confirma: 29 ÷ 7 = 4 e sobra 1; vírgula; 14 ÷ 7 = 2. E 4,2 × 7 = 29,4. Já 42 × 7 = 294, dez vezes mais. Dividir nem sempre dá menos que 1: aqui dá 4,2."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q9",
+          "enunciado": "Na papelaria, Bia pagou <b>R$ 19,50</b> por 3 cadernos iguais e <b>R$ 4,20</b> por 2 canetas iguais. Quanto custa <mark>1 caderno mais 1 caneta</mark>?",
+          "figura": null,
+          "alternativas": [
+            "R$ 23,70",
+            "R$ 4,74",
+            "R$ 8,15",
+            "R$ 8,60"
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Descubra o preço de 1 caderno.",
+            "Descubra o preço de 1 caneta.",
+            "Junte o preço de 1 caderno com o de 1 caneta."
+          ],
+          "dica": "Primeiro ache o preço de cada coisa sozinha. Só depois some.",
+          "explicacao": "1 caderno: 19,50 ÷ 3 = 6,50. 1 caneta: 4,20 ÷ 2 = 2,10. Juntos: 6,50 + 2,10 = R$ 8,60. R$ 23,70 é o total da compra, e não o preço de 1 caderno com 1 caneta. R$ 8,15 aparece quando se escreve 6,05 em vez de 6,50."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q10",
+          "enunciado": "Theo tinha uma fita de <b>10,5 m</b>. Usou <b>1,5 m</b> para fazer um laço. O que sobrou, ele cortou em <b>4 pedaços iguais</b>. Quanto mede cada pedaço?",
+          "figura": null,
+          "alternativas": [
+            "2,625 m",
+            "3 m",
+            "2,25 m",
+            "22,5 m"
+          ],
+          "correta": 2,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Descubra quanto de fita sobrou depois do laço.",
+            "Divida o que sobrou por 4.",
+            "Sobrou resto? Ponha a vírgula no resultado, acrescente um zero ao resto e continue dividindo.",
+            "Confira com uma estimativa se o resultado faz sentido."
+          ],
+          "dica": "Antes de dividir, tire da fita o pedaço usado no laço.",
+          "explicacao": "Sobrou 10,5 − 1,5 = 9 m. Depois, 9 ÷ 4 = 2 e sobra 1; vírgula; 10 ÷ 4 = 2 e sobram 2; 20 ÷ 4 = 5. Cada pedaço mede 2,25 m. Conferindo: 2,25 × 4 = 9. O 2,625 m divide a fita inteira sem tirar o laço; o 3 m soma o laço em vez de tirar."
+        }
+      ]
+    },
+    {
+      "missao_id": "divisao-resto",
+      "capitulo_id": "cap-1",
+      "icone": "🍕",
+      "titulo": "Sobrou resto?",
+      "subtitulo": "Continuar a divisão com vírgula",
+      "eixo": "Números",
+      "tema_id": "MAT.NUM.DIVDEC",
+      "subtema": "Divisão de naturais com quociente decimal",
+      "habilidade_bncc": "EF05MA08",
+      "ferramenta": "investigar",
+      "regra": "Sobrou resto? Ponha <b>vírgula no quociente</b> e um <b>zero ao lado do resto</b>, e siga dividindo.<br>Antes de responder, veja <b>o que</b> está sendo dividido: dá para partir em pedaços?",
+      "aula": {
+        "corpo": "<div class=\"lesson-box\">Lia e o irmão ganharam R$ 5 para dividir igualmente. Cada um fica com R$ 2 e sobra R$ 1. Esse real pode ser repartido? Pode: ele vira 100 centavos. Cada um ganha mais 50 centavos: <b>R$ 2,50</b>.</div><div class=\"lesson-box\"><strong>Na conta 5 ÷ 2:</strong> o 2 cabe 2 vezes no 5 e sobra 1. Escreva a <b>vírgula</b> depois do 2 no quociente. Ponha um <b>zero</b> ao lado do resto: o 1 vira 10 décimos. 10 ÷ 2 = 5. Resultado: <b>2,5</b>.</div><div class=\"lesson-box\"><strong>Sobrou de novo?</strong> Ponha mais um zero e continue. Em 7 ÷ 4: dá 1 e sobram 3. Vírgula e zero: 30 ÷ 4 = 7, sobram 2. Mais um zero: 20 ÷ 4 = 5. Resultado: <b>1,75</b>.</div><p>Antes de continuar a conta, veja o que está sendo dividido. Meio real existe. Meio carro, não! Com pessoas e carros, o resto pede outra decisão.</p><h3>Hora de decidir · Continuar a conta ou parar?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Para levar com você:</strong> sobrou resto em dinheiro ou medida? Vírgula no quociente, zero no resto, e continue. Sobrou resto com pessoas ou objetos inteiros? Pergunte o que a situação pede: precisa caber todo mundo, ou só contam os grupos completos?</div>"
+      },
+      "dados": {
+        "instrucao": "Leia a situação, escolha o que fazer com o resto e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Theo tem uma fita de <b>13 metros</b>. Ele vai cortar a fita inteira em <b>2 pedaços iguais</b>.",
+            "pergunta": "Quanto mede cada pedaço?",
+            "alternativas": [
+              "6,5 metros",
+              "6 metros",
+              "6,1 metros"
+            ],
+            "correta": 0,
+            "explicacao": "Fita pode ser cortada, então a conta continua. 13 ÷ 2 dá 6 e sobra 1. Vírgula e zero: 10 ÷ 2 = 5. Cada pedaço tem 6,5 metros. Com 6 metros, sobraria fita. O 6,1 escreve o resto sem dividir.",
+            "figura": null
+          },
+          {
+            "contexto": "Na conta <b>11 ÷ 4</b>, o 4 cabe 2 vezes no 11 e <b>sobram 3</b>.",
+            "pergunta": "Qual é o próximo passo para continuar a divisão?",
+            "alternativas": [
+              "Escrever o resto depois da vírgula: 2,3",
+              "Pôr vírgula no quociente e dividir 30 por 4",
+              "Parar, porque 3 é menor que 4"
+            ],
+            "correta": 1,
+            "explicacao": "O resto 3 vira 30 décimos. 30 ÷ 4 = 7 e sobram 2. Mais um zero: 20 ÷ 4 = 5. Resultado: 2,75. O resto não vai direto para depois da vírgula: ele ainda precisa ser dividido.",
+            "figura": null
+          },
+          {
+            "contexto": "<b>22 crianças</b> vão a uma festa. Cada carro leva <b>4 crianças</b>. A conta 22 ÷ 4 dá 5,5.",
+            "pergunta": "Quantos carros são necessários para levar todas as crianças?",
+            "alternativas": [
+              "5,5 carros",
+              "5 carros",
+              "6 carros"
+            ],
+            "correta": 2,
+            "explicacao": "Não existe meio carro. Cinco carros levam 20 crianças e sobram 2 sem lugar. Por isso é preciso mais um carro: 6 carros.",
+            "figura": null
+          },
+          {
+            "contexto": "Bia tem <b>R$ 2</b> para dividir igualmente entre <b>5 amigas</b>.",
+            "pergunta": "Quanto cada amiga recebe?",
+            "alternativas": [
+              "R$ 0,04",
+              "R$ 0,40",
+              "R$ 1,40"
+            ],
+            "correta": 1,
+            "explicacao": "O 5 não cabe no 2: escreva 0 no quociente, depois a vírgula. O 2 vira 20 décimos. 20 ÷ 5 = 4. Resultado: 0,4, ou seja, R$ 0,40 (40 centavos). Confira: 5 × 0,40 = 2.",
+            "figura": null
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q11",
+          "enunciado": "Theo vai dividir <b>7 litros</b> de suco igualmente em <b>2 jarras</b>. Quantos litros ficam em cada jarra?",
+          "figura": null,
+          "alternativas": [
+            "3,1 litros",
+            "3,5 litros",
+            "3,05 litros",
+            "35 litros"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "O 2 cabe 3 vezes no 7 e sobra 1. Suco pode ser repartido: continue a conta com vírgula.",
+          "explicacao": "7 ÷ 2 dá 3 e sobra 1. Vírgula no quociente e zero no resto: 10 ÷ 2 = 5. Cada jarra fica com 3,5 litros. Confira: 2 × 3,5 = 7. A resposta 3,1 escreve o resto como se fosse parte do resultado, e o resto ainda precisava ser dividido."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q12",
+          "enunciado": "Na conta <b>9 ÷ 4</b>, o 4 cabe 2 vezes no 9 e <b>sobra 1</b>. Continuando a divisão, qual é o <mark>primeiro algarismo depois da vírgula</mark> no resultado?",
+          "figura": null,
+          "alternativas": [
+            "1",
+            "5",
+            "2",
+            "0"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "O resto 1 vira 10 décimos, como 1 real vira 10 moedas de 10 centavos. Quantas vezes o 4 cabe nesse novo número?",
+          "explicacao": "Com a vírgula no quociente e um zero ao lado do resto, o 1 vira 10. O 4 cabe 2 vezes no 10: esse 2 é o primeiro algarismo depois da vírgula. Ainda sobram 2, e com mais um zero, 20 ÷ 4 = 5. O resultado é 2,25. O 1 é o resto, que ainda precisava ser dividido."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q13",
+          "enunciado": "Nina e a irmã vão dividir <b>R$ 9</b> igualmente, sem sobrar nenhum centavo. Quanto cada uma recebe?",
+          "figura": null,
+          "alternativas": [
+            "R$ 4,00",
+            "R$ 4,10",
+            "R$ 4,05",
+            "R$ 4,50"
+          ],
+          "correta": 3,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Cada uma fica com R$ 4 e sobra R$ 1. Esse real também pode ser dividido em centavos.",
+          "explicacao": "9 ÷ 2 dá 4 e sobra 1. Vírgula no quociente e zero no resto: 10 ÷ 2 = 5. Cada uma recebe R$ 4,50. Confira: 4,50 + 4,50 = 9. Com R$ 4,00 para cada uma, ainda sobraria R$ 1."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q14",
+          "enunciado": "Davi tem uma corda de <b>5 metros</b> e vai cortá-la inteira em <b>4 pedaços iguais</b>. Quanto mede cada pedaço?",
+          "figura": null,
+          "alternativas": [
+            "1,25 metros",
+            "1,1 metros",
+            "1,2 metros",
+            "1,5 metros"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Depois de pôr o primeiro zero no resto, confira se ainda sobra alguma coisa.",
+          "passos": [
+            "Divida 5 por 4 e veja quanto sobra.",
+            "Ponha a vírgula no quociente e um zero ao lado do resto. Divida de novo.",
+            "Sobrou outra vez? Ponha mais um zero e continue até o resto ser zero."
+          ],
+          "explicacao": "5 ÷ 4 dá 1 e sobra 1. Vírgula e zero: 10 ÷ 4 = 2 e sobram 2. Mais um zero: 20 ÷ 4 = 5. Cada pedaço mede 1,25 metro. Confira: 4 × 1,25 = 5. A resposta 1,2 parou a conta antes do fim: ainda sobravam 2 décimos. E 1,1 escreveu o resto depois da vírgula em vez de continuar dividindo."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q15",
+          "enunciado": "Gabi tem <b>3 kg</b> de massa de modelar e vai dividir tudo igualmente em <b>5 potes</b>. Quantos quilos vão em cada pote?",
+          "figura": null,
+          "alternativas": [
+            "0,06 kg",
+            "0,6 kg",
+            "6 kg",
+            "1,6 kg"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "O 5 não cabe no 3. O que se escreve no quociente antes da vírgula?",
+          "explicacao": "O 5 não cabe no 3, então o quociente começa com 0 e vírgula. O 3 vira 30 décimos: 30 ÷ 5 = 6. Cada pote recebe 0,6 kg. Confira: 5 × 0,6 = 3. A resposta 0,06 põe um zero a mais depois da vírgula."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q16",
+          "enunciado": "Quatro amigos compraram juntos um jogo de <b>R$ 15</b> e dividiram o preço igualmente. Quanto cada um pagou?",
+          "figura": null,
+          "alternativas": [
+            "R$ 3,30",
+            "R$ 3,70",
+            "R$ 3,57",
+            "R$ 3,75"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "O 4 cabe 3 vezes no 15 e sobram 3. Continue a divisão até o resto ser zero.",
+          "passos": [
+            "Divida 15 por 4 e veja o resto.",
+            "Ponha a vírgula no quociente e um zero ao lado do resto. Divida de novo.",
+            "Se ainda sobrar, ponha mais um zero e continue."
+          ],
+          "explicacao": "15 ÷ 4 dá 3 e sobram 3. Vírgula e zero: 30 ÷ 4 = 7 e sobram 2. Mais um zero: 20 ÷ 4 = 5. Cada um pagou R$ 3,75. Confira: 4 × 3,75 = 15. A resposta R$ 3,30 escreve o resto depois da vírgula, sem dividi-lo; R$ 3,70 para a conta antes do fim."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q17",
+          "enunciado": "Bia calculou <b>14 ÷ 4</b> e escreveu <b>35</b>. Os algarismos estão certos, mas faltou a vírgula. Qual é o resultado correto?",
+          "figura": null,
+          "alternativas": [
+            "3,05",
+            "0,35",
+            "3,5",
+            "35"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Estime: 4 × 3 = 12 e 4 × 4 = 16. Entre quais números inteiros fica o resultado?",
+          "explicacao": "4 × 3 = 12 e 4 × 4 = 16, então 14 ÷ 4 fica entre 3 e 4. Com os algarismos 3 e 5, o resultado é 3,5. Confira: 4 × 3,5 = 14. O 0,35 é pequeno demais: 4 × 0,35 = 1,4."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q18",
+          "enunciado": "<b>26 alunos</b> vão a um passeio. Cada van leva <b>8 alunos</b>. Quantas vans são necessárias para levar <mark>todos</mark> os alunos?",
+          "figura": null,
+          "alternativas": [
+            "3 vans",
+            "3,25 vans",
+            "4 vans",
+            "3,2 vans"
+          ],
+          "correta": 2,
+          "dificuldade": 3,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Veja quantos alunos cabem em 3 vans. Alguém ficou sem lugar?",
+          "passos": [
+            "Divida 26 por 8 e veja o resto.",
+            "Pense: dá para usar um pedaço de van?",
+            "Decida o que fazer com os alunos que sobraram."
+          ],
+          "explicacao": "26 ÷ 8 dá 3 e sobram 2 alunos. Três vans levam 24 alunos, e os 2 que sobraram também precisam ir. Não existe um pedaço de van, então são necessárias 4 vans. A conta com vírgula dá 3,25, mas aqui a resposta precisa ser um número inteiro."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q19",
+          "enunciado": "Lia tem <b>30 figurinhas</b>. Ela quer montar pacotes com <b>8 figurinhas</b> cada um para trocar. Quantos pacotes <mark>completos</mark> ela consegue montar?",
+          "figura": null,
+          "alternativas": [
+            "3,75 pacotes",
+            "3 pacotes",
+            "4 pacotes",
+            "3,6 pacotes"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Veja quantas figurinhas são necessárias para montar 4 pacotes. Ela tem tudo isso?",
+          "passos": [
+            "Divida 30 por 8 e veja o resto.",
+            "Pense: as figurinhas que sobraram formam um pacote completo?"
+          ],
+          "explicacao": "30 ÷ 8 dá 3 e sobram 6 figurinhas. Quatro pacotes precisariam de 32 figurinhas, e ela só tem 30. Então são 3 pacotes completos, e 6 figurinhas ficam de fora. A conta com vírgula dá 3,75, mas a pergunta pede só os pacotes completos."
+        },
+        {
+          "questao_id": "MAT.NUM.DIVDEC.Q20",
+          "enunciado": "Quatro amigos pediram uma pizza de <b>R$ 34</b> e um suco de <b>R$ 5</b>. Eles vão dividir a conta toda igualmente. Quanto cada um vai pagar?",
+          "figura": null,
+          "alternativas": [
+            "R$ 8,50",
+            "R$ 9,30",
+            "R$ 9,70",
+            "R$ 9,75"
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "dica": "Antes de dividir, descubra quanto custou a conta inteira.",
+          "passos": [
+            "Some o preço da pizza e o do suco.",
+            "Divida o total pelo número de amigos.",
+            "Sobrou resto? Continue a divisão com vírgula até o resto ser zero."
+          ],
+          "explicacao": "A conta toda é 34 + 5 = 39 reais. 39 ÷ 4 dá 9 e sobram 3. Vírgula e zero: 30 ÷ 4 = 7 e sobram 2. Mais um zero: 20 ÷ 4 = 5. Cada um paga R$ 9,75. Confira: 4 × 9,75 = 39. A resposta R$ 8,50 divide só a pizza e esquece o suco."
+        }
+      ]
+    },
+    {
+      "missao_id": "porcentagem-sentido",
+      "capitulo_id": "cap-1",
+      "icone": "💯",
+      "titulo": "Em cada 100",
+      "subtitulo": "O que a porcentagem quer dizer",
+      "eixo": "Números",
+      "tema_id": "MAT.NUM.PORC",
+      "subtema": "Porcentagem como parte de 100",
+      "habilidade_bncc": "EF05MA06",
+      "ferramenta": "investigar",
+      "regra": "<b>%</b> quer dizer <b>em cada 100</b>.<br>Leia 20% como <b>20 de 100</b> e compare com o inteiro.",
+      "aula": {
+        "corpo": "<p>Na cantina, um cartaz diz: <b>50% dos alunos preferem suco</b>. O símbolo <b>%</b> se lê “por cento”. Ele quer dizer <b>em cada 100</b>.</p><p>Numa grade de 100 quadradinhos, 63 pintados são <b>63%</b>. Dá para escrever de três jeitos: <b>63%</b> = <b>63/100</b> = <b>0,63</b>.</p><p>O inteiro é <b>100%</b>. Algumas partes dele têm nome:<br><b>50%</b> = metade<br><b>25%</b> = quarta parte<br><b>75%</b> = três quartos<br><b>10%</b> = décima parte</p><p>Cuidado com o zero: 6% é 6 de 100, então fica <b>0,06</b>. Já 0,6 é 60 de 100, ou 60%.</p><h3>Hora de decidir · Quantos de cada 100?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Para levar:</strong> porcentagem é uma fração com denominador 100. Diante de um %, pergunte: quantos de cada 100? E compare com o inteiro, que é 100%.</div>"
+      },
+      "dados": {
+        "instrucao": "Observe a situação, escolha uma resposta e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Nina pintou alguns quadradinhos desta grade de 100.",
+            "pergunta": "Quantos por cento da grade estão pintados?",
+            "alternativas": [
+              "30%",
+              "3%",
+              "70%"
+            ],
+            "correta": 0,
+            "explicacao": "São 30 quadradinhos pintados de 100, então 30%. O 70% é a parte que ficou sem pintar.",
+            "figura": {
+              "tipo": "svg",
+              "conteudo": "<svg viewBox='0 0 230 230' width='100%' style='max-width:260px' role='img' aria-label='Grade de 10 por 10 quadradinhos com 30 pintados de verde' xmlns='http://www.w3.org/2000/svg'><rect width='230' height='230' fill='#ffffff'/><rect x='6' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='72' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='72' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='72' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='72' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='72' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='72' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='72' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='72' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='72' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='72' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/></svg>",
+              "legenda": "Grade de 100 quadradinhos"
+            }
+          },
+          {
+            "contexto": "Theo pintou 50% de um cartaz para a feira de ciências.",
+            "pergunta": "Que fração do cartaz ele pintou?",
+            "alternativas": [
+              "1/50",
+              "1/2",
+              "1/5"
+            ],
+            "correta": 1,
+            "explicacao": "50% é 50 de 100. Dois grupos de 50 formam 100, então 50% é a metade: 1/2. Não é 1/50, porque o % fala de 100, não de 50.",
+            "figura": null
+          },
+          {
+            "contexto": "Na etiqueta de um suco está escrito: 9% de fruta.",
+            "pergunta": "Qual número decimal é igual a 9%?",
+            "alternativas": [
+              "0,9",
+              "0,09",
+              "9,0"
+            ],
+            "correta": 1,
+            "explicacao": "9% é 9/100, ou seja, 9 centésimos: 0,09. O 0,9 é 9 décimos, que seria 90%.",
+            "figura": null
+          },
+          {
+            "contexto": "No basquete da escola, Bia acertou 9/10 dos arremessos. Davi acertou 85% dos arremessos dele.",
+            "pergunta": "Quem acertou uma parte maior dos próprios arremessos?",
+            "alternativas": [
+              "Bia",
+              "Davi",
+              "Os dois acertaram a mesma parte"
+            ],
+            "correta": 0,
+            "explicacao": "9/10 = 90/100, ou seja, 90%. Como 90% é mais que 85%, Bia acertou uma parte maior.",
+            "figura": null
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.NUM.PORC.Q1",
+          "enunciado": "Lia pintou alguns quadradinhos desta grade de 100. Quantos <mark>por cento</mark> da grade estão pintados?",
+          "figura": {
+            "tipo": "svg",
+            "conteudo": "<svg viewBox='0 0 230 230' width='100%' style='max-width:260px' role='img' aria-label='Grade de 10 por 10 quadradinhos com 45 pintados de verde' xmlns='http://www.w3.org/2000/svg'><rect width='230' height='230' fill='#ffffff'/><rect x='6' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='94' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='116' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='138' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/></svg>",
+            "legenda": "Grade de 100 quadradinhos"
+          },
+          "alternativas": [
+            "55%",
+            "45%",
+            "4,5%",
+            "0,45%"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Conte as linhas inteiras pintadas (cada uma tem 10) e depois os quadradinhos que sobram.",
+          "explicacao": "São 4 linhas de 10 mais 5 quadradinhos: 45 de 100. Isso é 45%. O 55% é a parte sem pintar."
+        },
+        {
+          "questao_id": "MAT.NUM.PORC.Q2",
+          "enunciado": "A turma de Theo tem 28 alunos. <mark>100%</mark> da turma foi à festa junina. O que isso quer dizer?",
+          "figura": null,
+          "alternativas": [
+            "100 alunos foram à festa",
+            "Metade da turma foi, 14 alunos",
+            "Todos os 28 alunos foram",
+            "Faltou só 1 aluno"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "100 de cada 100 é quanto de um grupo?",
+          "explicacao": "100% é o inteiro: 100 de cada 100. Então a turma toda foi, os 28 alunos. Não quer dizer 100 alunos, porque a turma só tem 28."
+        },
+        {
+          "questao_id": "MAT.NUM.PORC.Q3",
+          "enunciado": "Numa pesquisa, <mark>37 de cada 100</mark> crianças escolheram o gato como bicho favorito. Como se escreve isso em porcentagem e em número decimal?",
+          "figura": null,
+          "alternativas": [
+            "37% e 3,7",
+            "37% e 0,037",
+            "3,7% e 0,37",
+            "37% e 0,37"
+          ],
+          "correta": 3,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Por cento quer dizer “em cada 100”. E os centésimos ocupam duas casas depois da vírgula.",
+          "explicacao": "37 de cada 100 é 37%. Como fração, 37/100, ou 37 centésimos: 0,37. O 3,7 seria 37 décimos, bem mais que o inteiro."
+        },
+        {
+          "questao_id": "MAT.NUM.PORC.Q4",
+          "enunciado": "Qual porcentagem é igual ao número decimal <mark>0,07</mark>?",
+          "figura": null,
+          "alternativas": [
+            "7%",
+            "70%",
+            "0,07%",
+            "700%"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "0,07 são 7 centésimos. Quantos são em cada 100?",
+          "explicacao": "0,07 = 7 centésimos = 7/100 = 7%. O 70% seria 0,70 (70 centésimos). O 0,07% esqueceu de passar para centésimos, e 700% seriam 7 inteiros."
+        },
+        {
+          "questao_id": "MAT.NUM.PORC.Q5",
+          "enunciado": "Gabi comeu <mark>25%</mark> de uma pizza. Que fração da pizza ela comeu?",
+          "figura": null,
+          "alternativas": [
+            "1/2",
+            "1/25",
+            "2/5",
+            "1/4"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Quantos grupos de 25 cabem em 100?",
+          "explicacao": "25% é 25 de 100. Cabem 4 grupos de 25 em 100, então 25% é a quarta parte: 1/4. Não é 1/25: o % sempre compara com 100."
+        },
+        {
+          "questao_id": "MAT.NUM.PORC.Q6",
+          "enunciado": "Davi guardou <mark>10%</mark> das suas figurinhas numa caixa separada. Que parte das figurinhas é isso?",
+          "figura": null,
+          "alternativas": [
+            "A décima parte",
+            "A metade",
+            "A quarta parte",
+            "A centésima parte"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Escreva 10% como fração com denominador 100. Depois simplifique.",
+          "explicacao": "10% é 10 de 100, ou 10/100 = 1/10. Isso é a décima parte. A centésima parte seria 1%."
+        },
+        {
+          "questao_id": "MAT.NUM.PORC.Q7",
+          "enunciado": "A parte pintada desta grade de 100 quadradinhos é igual a qual <mark>fração</mark> do inteiro?",
+          "figura": {
+            "tipo": "svg",
+            "conteudo": "<svg viewBox='0 0 230 230' width='100%' style='max-width:260px' role='img' aria-label='Grade de 10 por 10 quadradinhos com 75 pintados de verde' xmlns='http://www.w3.org/2000/svg'><rect width='230' height='230' fill='#ffffff'/><rect x='6' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='6' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='28' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='50' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='72' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='94' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='116' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='116' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='116' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='116' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='116' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='116' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='116' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='116' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='116' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='116' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='138' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='138' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='138' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='138' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='138' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='138' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='138' y='138' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='160' y='138' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='182' y='138' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='204' y='138' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='6' y='160' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='28' y='160' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='50' y='160' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='72' y='160' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='94' y='160' width='20' height='20' rx='3' fill='#2fae94' stroke='#2fae94' stroke-width='1'/><rect x='116' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='160' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='182' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='6' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='28' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='50' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='72' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='94' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='116' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='138' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='160' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='182' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/><rect x='204' y='204' width='20' height='20' rx='3' fill='#e3f5f0' stroke='#2fae94' stroke-width='1'/></svg>",
+            "legenda": "Grade de 100 quadradinhos"
+          },
+          "alternativas": [
+            "1/4",
+            "7/10",
+            "3/4",
+            "1/2"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Primeiro descubra quantos por cento estão pintados. Depois pense em grupos de 25.",
+          "explicacao": "Estão pintados 75 de 100, ou seja, 75%. São 3 grupos de 25, então 3/4. O 1/4 é a parte sem pintar, e 7/10 conta só as linhas inteiras."
+        },
+        {
+          "questao_id": "MAT.NUM.PORC.Q8",
+          "enunciado": "Na gincana, a equipe Azul acertou <mark>3/5</mark> das perguntas. A equipe Verde acertou <mark>55%</mark> das perguntas. Qual equipe acertou uma parte maior?",
+          "figura": null,
+          "alternativas": [
+            "A equipe Verde",
+            "A equipe Azul",
+            "As duas acertaram a mesma parte",
+            "Não dá para comparar fração com porcentagem"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Escreva 3/5 como uma fração com denominador 100.",
+            "Transforme essa fração em porcentagem.",
+            "Compare as duas porcentagens."
+          ],
+          "dica": "Por quanto você multiplica o 5 para chegar a 100?",
+          "explicacao": "5 × 20 = 100, então 3/5 = 60/100 = 60%. Como 60% é mais que 55%, a equipe Azul acertou uma parte maior. Dá para comparar, sim: basta escrever os dois como porcentagem."
+        },
+        {
+          "questao_id": "MAT.NUM.PORC.Q9",
+          "enunciado": "Numa caixa de lápis de cor, <mark>40%</mark> são azuis e <mark>35%</mark> são vermelhos. O resto é verde. Quantos por cento dos lápis são verdes?",
+          "figura": null,
+          "alternativas": [
+            "5%",
+            "35%",
+            "75%",
+            "25%"
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Some as porcentagens que já aparecem no problema.",
+            "Lembre quanto vale a caixa inteira em porcentagem.",
+            "Descubra quanto falta para completar a caixa inteira."
+          ],
+          "dica": "A caixa inteira é 100%.",
+          "explicacao": "Azuis e vermelhos: 40% + 35% = 75%. A caixa inteira é 100%, então os verdes são 100% − 75% = 25%. O 75% é a parte que não é verde."
+        },
+        {
+          "questao_id": "MAT.NUM.PORC.Q10",
+          "enunciado": "Qual lista está em ordem do <mark>menor para o maior</mark>?",
+          "figura": null,
+          "alternativas": [
+            "0,3 · 1/4 · 9% · 50%",
+            "9% · 0,3 · 1/4 · 50%",
+            "9% · 1/4 · 0,3 · 50%",
+            "1/4 · 9% · 0,3 · 50%"
+          ],
+          "correta": 2,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Escreva cada número como porcentagem.",
+            "Coloque as porcentagens em ordem, da menor para a maior."
+          ],
+          "dica": "Antes de comparar, transforme cada número em “quantos de cada 100”.",
+          "explicacao": "9% = 9%; 1/4 = 25%; 0,3 = 30/100 = 30%; 50% = 50%. A ordem é 9%, 1/4, 0,3, 50%. Cuidado: 1/4 é menor que 0,3, porque 25% é menos que 30%."
+        }
+      ]
+    },
+    {
+      "missao_id": "porcentagem-calculo",
+      "capitulo_id": "cap-1",
+      "icone": "🏷️",
+      "titulo": "Porcentagem na loja",
+      "subtitulo": "Quanto vale? Depois: tiro ou somo?",
+      "eixo": "Números",
+      "tema_id": "MAT.NUM.PORCVAL",
+      "subtema": "Porcentagem de um valor, desconto e acréscimo",
+      "habilidade_bncc": "EF05MA06",
+      "ferramenta": "investigar",
+      "regra": "<b>10%</b> = dividir por 10 · <b>50%</b> = metade · <b>25%</b> = dividir por 4.<br><b>Desconto:</b> preço − desconto. <b>Acréscimo:</b> preço + acréscimo.",
+      "aula": {
+        "corpo": "<p>O sinal % quer dizer \"em cada 100\". <b>10%</b> é a décima parte: divida por 10.<br>10% de 260 = 260 ÷ 10 = <b>26</b></p><p><b>50%</b> é a metade: divida por 2.<br><b>25%</b> é a quarta parte: divida por 4.<br>50% de 44 = 44 ÷ 2 = <b>22</b><br>25% de 44 = 44 ÷ 4 = <b>11</b></p><p>Com o 10%, você acha outras:<br>10% de 260 = 26<br>20% = 2 × 26 = <b>52</b><br>30% = 3 × 26 = <b>78</b><br>5% = metade de 26 = <b>13</b></p><p><b>Desconto</b> é tirar do preço.<br>Vestido de R$ 320 com 30% de desconto.<br>10% = 32. 30% = 3 × 32 = 96.<br>Luciana paga 320 − 96 = <b>R$ 224</b>.</p><h3>Hora de decidir · Qual conta resolve?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Duas perguntas resolvem:</strong> 1) Quanto vale a porcentagem? 2) É desconto (tiro do preço) ou acréscimo (somo ao preço)?</div>"
+      },
+      "dados": {
+        "instrucao": "Leia a situação, escolha a resposta e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Um livro custa <b>R$ 30</b>. Ele está com <b>10% de desconto</b>.",
+            "pergunta": "Qual conta mostra o valor do desconto?",
+            "alternativas": [
+              "30 ÷ 10",
+              "30 − 10",
+              "30 ÷ 100"
+            ],
+            "correta": 0,
+            "explicacao": "10% é a décima parte, então dividimos por 10: 30 ÷ 10 = 3. O desconto é de R$ 3. Tirar 10 reais não é o mesmo que tirar 10%.",
+            "figura": null
+          },
+          {
+            "contexto": "Bia tem <b>48 figurinhas</b>. <b>25%</b> delas são repetidas.",
+            "pergunta": "Quantas figurinhas são repetidas?",
+            "alternativas": [
+              "25",
+              "12",
+              "24"
+            ],
+            "correta": 1,
+            "explicacao": "25% é a quarta parte: 48 ÷ 4 = 12. O número 25 é a porcentagem, não a quantidade. E 24 é a metade, que seria 50%.",
+            "figura": {
+              "tipo": "svg",
+              "conteudo": "<svg viewBox='0 0 400 130' width='100%' role='img' aria-label='Barra com 48 figurinhas dividida em 4 partes iguais; uma parte destacada' style='background:#fff;font-family:Nunito,sans-serif'><rect x='0' y='0' width='400' height='130' fill='#fff'/><text x='200' y='25' text-anchor='middle' font-size='16' fill='#4b6480'>48 figurinhas = 100%</text><rect x='20' y='40' width='90' height='50' fill='#f2604c' stroke='#2fae94' stroke-width='2'/><text x='65' y='71' text-anchor='middle' font-size='16' fill='#fff'>25%</text><rect x='110' y='40' width='90' height='50' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><text x='155' y='71' text-anchor='middle' font-size='16' fill='#4b6480'>25%</text><rect x='200' y='40' width='90' height='50' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><text x='245' y='71' text-anchor='middle' font-size='16' fill='#4b6480'>25%</text><rect x='290' y='40' width='90' height='50' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><text x='335' y='71' text-anchor='middle' font-size='16' fill='#4b6480'>25%</text><text x='200' y='115' text-anchor='middle' font-size='14' fill='#4b6480'>4 partes iguais</text></svg>",
+              "legenda": "100% dividido em 4 partes iguais: cada parte é 25%."
+            }
+          },
+          {
+            "contexto": "Um jogo custa <b>R$ 300</b>. Ele está com <b>20% de desconto</b>. O desconto é de R$ 60.",
+            "pergunta": "Quanto Theo vai pagar pelo jogo?",
+            "alternativas": [
+              "R$ 60",
+              "R$ 280",
+              "R$ 240"
+            ],
+            "correta": 2,
+            "explicacao": "Desconto é tirar do preço: 300 − 60 = R$ 240. R$ 60 é só o desconto. R$ 280 seria tirar 20 reais, e não 20%.",
+            "figura": null
+          },
+          {
+            "contexto": "Uma pizza custa <b>R$ 20</b>. A entrega em casa tem <b>acréscimo de 10%</b>, que é R$ 2.",
+            "pergunta": "Qual é o preço da pizza com a entrega?",
+            "alternativas": [
+              "20 − 2 = R$ 18",
+              "20 + 2 = R$ 22"
+            ],
+            "correta": 1,
+            "explicacao": "Acréscimo é somar ao preço: 20 + 2 = R$ 22. Tirar seria o caso de um desconto.",
+            "figura": null
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.NUM.PORCVAL.Q1",
+          "enunciado": "A estante da sala tem <b>70 livros</b> de aventura. <mark>10%</mark> deles estão emprestados. Quantos livros estão emprestados?",
+          "figura": null,
+          "alternativas": [
+            "700",
+            "7",
+            "60",
+            "10"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "10% é a décima parte. Divida a quantidade de livros por 10.",
+          "explicacao": "10% de 70 = 70 ÷ 10 = 7 livros. Quem respondeu 60 tirou 10 livros; quem respondeu 700 multiplicou por 10 em vez de dividir."
+        },
+        {
+          "questao_id": "MAT.NUM.PORCVAL.Q2",
+          "enunciado": "Um estojo custa <b>R$ 36</b>. Na promoção, ele tem <mark>25% de desconto</mark>. Qual é o <b>valor do desconto</b>?",
+          "figura": null,
+          "alternativas": [
+            "R$ 3,60",
+            "R$ 27",
+            "R$ 9",
+            "R$ 18"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "25% é a quarta parte. Que conta encontra a quarta parte de um valor?",
+          "explicacao": "25% é a quarta parte: 36 ÷ 4 = R$ 9. R$ 27 é o preço depois do desconto (36 − 9), não o desconto. R$ 18 seria 50%, e R$ 3,60 seria 10%."
+        },
+        {
+          "questao_id": "MAT.NUM.PORCVAL.Q3",
+          "enunciado": "Qual conta calcula <mark>20% de 80</mark>?",
+          "figura": null,
+          "alternativas": [
+            "80 ÷ 20",
+            "2 × (80 ÷ 100)",
+            "20 × (80 ÷ 10)",
+            "2 × (80 ÷ 10)"
+          ],
+          "correta": 3,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Pense primeiro em 10% de 80. Quantas vezes 10% cabem em 20%?",
+          "explicacao": "10% de 80 = 80 ÷ 10 = 8. 20% = 2 × 10%, então 2 × 8 = 16. A conta 80 ÷ 20 usa o 20 como se fosse o número de partes (dá 4). 2 × (80 ÷ 100) usa 1% no lugar de 10% (dá 1,6). 20 × (80 ÷ 10) junta vinte vezes 10%, que seria 200% (dá 160)."
+        },
+        {
+          "questao_id": "MAT.NUM.PORCVAL.Q4",
+          "enunciado": "Um álbum tem <b>150 figurinhas</b>. Davi já colou <mark>20%</mark> delas. Quantas figurinhas ele colou?",
+          "figura": null,
+          "alternativas": [
+            "30",
+            "15",
+            "20",
+            "130"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Comece por 10% de 150. Quantas vezes 10% cabem em 20%?",
+          "explicacao": "10% de 150 = 15. 20% = 2 × 10%, então 2 × 15 = 30 figurinhas. O 15 é só 10%. O 20 é a porcentagem, não a quantidade."
+        },
+        {
+          "questao_id": "MAT.NUM.PORCVAL.Q5",
+          "enunciado": "Uma mochila custa <b>R$ 90</b> e está com <mark>10% de desconto</mark>. Quanto Lia vai <b>pagar</b> pela mochila?",
+          "figura": null,
+          "alternativas": [
+            "R$ 9",
+            "R$ 80",
+            "R$ 81",
+            "R$ 99"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Calcule quanto é 10% de R$ 90.",
+            "Desconto é tirar: subtraia esse valor do preço."
+          ],
+          "dica": "São duas contas: primeiro o valor do desconto, depois o preço que sobra.",
+          "explicacao": "10% de 90 = 90 ÷ 10 = R$ 9. Ela paga 90 − 9 = R$ 81. R$ 9 é só o desconto. R$ 80 seria tirar 10 reais, e não 10%."
+        },
+        {
+          "questao_id": "MAT.NUM.PORCVAL.Q6",
+          "enunciado": "Theo guardou <b>R$ 60</b>. Ele vai doar <mark>5%</mark> para a campanha da escola. Quanto ele vai doar?",
+          "figura": null,
+          "alternativas": [
+            "R$ 6",
+            "R$ 3",
+            "R$ 12",
+            "R$ 55"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "5% é a metade de 10%. Calcule 10% de 60 primeiro.",
+          "explicacao": "10% de 60 = 6. 5% é a metade: 6 ÷ 2 = R$ 3. R$ 6 seria 10%. R$ 12 é 60 ÷ 5, a quinta parte (que é 20%), e não 5%."
+        },
+        {
+          "questao_id": "MAT.NUM.PORCVAL.Q7",
+          "enunciado": "Uma bicicleta custa <b>R$ 200</b>. Pagando em várias vezes, o preço tem <mark>acréscimo de 10%</mark>. Qual é o preço <b>pagando em várias vezes</b>?",
+          "figura": null,
+          "alternativas": [
+            "R$ 180",
+            "R$ 20",
+            "R$ 210",
+            "R$ 220"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Calcule quanto é 10% de R$ 200.",
+            "Acréscimo é somar: junte esse valor ao preço."
+          ],
+          "dica": "Acréscimo aumenta o preço. Primeiro descubra quanto vale o acréscimo.",
+          "explicacao": "10% de 200 = 200 ÷ 10 = R$ 20. Pagando em várias vezes: 200 + 20 = R$ 220. R$ 180 tirou em vez de somar. R$ 210 somou 10 reais, e não 10%."
+        },
+        {
+          "questao_id": "MAT.NUM.PORCVAL.Q8",
+          "enunciado": "Um tênis custa <b>R$ 180</b> e está com <mark>30% de desconto</mark>. Qual é o <b>preço com desconto</b>?",
+          "figura": null,
+          "alternativas": [
+            "R$ 126",
+            "R$ 54",
+            "R$ 150",
+            "R$ 234"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Calcule 10% de R$ 180.",
+            "Use esse valor para achar 30% (3 × 10%).",
+            "Desconto é tirar: subtraia do preço."
+          ],
+          "dica": "30% são três vezes 10%. Depois, lembre que desconto diminui o preço.",
+          "explicacao": "10% de 180 = 18. 30% = 3 × 18 = R$ 54 de desconto. Preço final: 180 − 54 = R$ 126. R$ 54 é só o desconto. R$ 150 seria tirar 30 reais, e não 30%. R$ 234 somou em vez de tirar."
+        },
+        {
+          "questao_id": "MAT.NUM.PORCVAL.Q9",
+          "enunciado": "O mesmo jogo custa <b>R$ 120</b> em duas lojas. A loja Sol dá <mark>25% de desconto</mark>. A loja Lua dá <mark>R$ 25 de desconto</mark>. Onde o jogo sai <b>mais barato</b>?",
+          "figura": null,
+          "alternativas": [
+            "Na loja Lua, onde custa R$ 95",
+            "Nas duas lojas custa R$ 95",
+            "Na loja Sol, onde custa R$ 90",
+            "Na loja Sol, onde custa R$ 30"
+          ],
+          "correta": 2,
+          "dificuldade": 3,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Calcule 25% de R$ 120 para a loja Sol.",
+            "Descubra o preço final em cada loja.",
+            "Compare os dois preços finais."
+          ],
+          "dica": "25% e R$ 25 não são a mesma coisa. Calcule o preço final de cada loja antes de comparar.",
+          "explicacao": "Loja Sol: 25% de 120 = 120 ÷ 4 = R$ 30 de desconto, então 120 − 30 = R$ 90. Loja Lua: 120 − 25 = R$ 95. A loja Sol é mais barata. Achar que 25% é igual a R$ 25 leva ao engano de \"custa o mesmo\". R$ 30 é só o desconto da loja Sol."
+        },
+        {
+          "questao_id": "MAT.NUM.PORCVAL.Q10",
+          "enunciado": "O ingresso do cinema custa <b>R$ 40</b>. No sábado, o preço tem <mark>acréscimo de 15%</mark>. Quanto custa o ingresso no <b>sábado</b>?",
+          "figura": null,
+          "alternativas": [
+            "R$ 6",
+            "R$ 34",
+            "R$ 55",
+            "R$ 46"
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Calcule 10% de R$ 40.",
+            "Calcule 5% (metade de 10%) e junte os dois para ter 15%.",
+            "Acréscimo é somar: junte esse valor ao preço."
+          ],
+          "dica": "15% = 10% + 5%. E acréscimo aumenta o preço.",
+          "explicacao": "10% de 40 = 4. 5% = metade de 4 = 2. 15% = 4 + 2 = R$ 6 de acréscimo. No sábado: 40 + 6 = R$ 46. R$ 6 é só o acréscimo. R$ 34 tirou em vez de somar. R$ 55 somou 15 reais, e não 15%."
+        }
+      ]
+    },
+    {
+      "missao_id": "volume",
+      "capitulo_id": "cap-1",
+      "icone": "📦",
+      "titulo": "Espaço dentro da caixa",
+      "subtitulo": "Volume com cubinhos e camadas",
+      "eixo": "Grandezas e Medidas",
+      "tema_id": "MAT.GEO.VOL",
+      "subtema": "Volume de blocos retangulares com cubinhos",
+      "habilidade_bncc": "EF05MA21",
+      "ferramenta": "investigar",
+      "regra": "<b>Volume</b> = cubinhos de 1 camada × número de camadas.<br>No bloco: <b>comprimento × largura × altura</b>.",
+      "aula": {
+        "corpo": "<p>Numa caixa, dá para medir três coisas. O contorno da tampa é o <b>perímetro</b>, em cm. A superfície da tampa é a <b>área</b>, em cm². O espaço dentro é o <b>volume</b>, em cm³.</p><p>O volume se mede com cubinhos de <b>1 cm³</b>. Conte os cubinhos de uma camada e multiplique pelo número de camadas. Uma camada de 5 × 5 tem 25 cubinhos. Com 2 camadas, são 25 × 2 = <b>50 cm³</b>.</p><p>Existe um atalho: multiplique <b>comprimento × largura × altura</b>. Um bloco de 2 m por 3 m por 6 m tem 2 × 3 × 6 = <b>36 m³</b>. O ³ lembra que são <b>três</b> medidas.</p><p>O cubo tem as três medidas iguais. Cada uma se chama <b>aresta</b>. Um cubo com aresta de 5 cm tem 5 × 5 × 5 = <b>125 cm³</b>.</p><h3>Hora de decidir · Área, perímetro ou volume?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Pergunta de conferência:</strong> estou medindo o contorno, a superfície ou o espaço dentro? Se for o espaço dentro, multiplique as três medidas e escreva a unidade com ³.</div>"
+      },
+      "dados": {
+        "instrucao": "Leia a situação, escolha a resposta e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Nina vai forrar só a <b>tampa</b> de uma caixa com papel colorido.",
+            "pergunta": "Que medida diz quanto papel ela precisa?",
+            "alternativas": [
+              "A área da tampa, em cm²",
+              "O volume da caixa, em cm³",
+              "O perímetro da tampa, em cm"
+            ],
+            "correta": 0,
+            "explicacao": "Papel cobre uma superfície: é área, em cm². O volume serviria para saber quanto cabe dentro, e o perímetro, para uma fita no contorno.",
+            "figura": null
+          },
+          {
+            "contexto": "Davi montou um bloco com cubinhos de 1 cm³. Cada camada é igual à da figura.",
+            "pergunta": "Quantos cubinhos formam o bloco inteiro?",
+            "alternativas": [
+              "56 cubinhos",
+              "13 cubinhos",
+              "14 cubinhos"
+            ],
+            "correta": 0,
+            "explicacao": "Uma camada tem 7 × 2 = 14 cubinhos. São 4 camadas: 14 × 4 = 56. O 13 vem de somar 7 + 2 + 4; o 14 é só uma camada.",
+            "figura": {
+              "tipo": "svg",
+              "conteudo": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 394 130' width='100%' role='img' aria-label='Uma camada com 2 fileiras de 7 cubinhos vista de cima e, ao lado, o aviso: vezes 4 camadas iguais.' style='font-family:Nunito,sans-serif;background:#fff'><rect width='394' height='130' fill='#fff'/><text x='20' y='22' font-size='15' fill='#4b6480' font-weight='700'>1 camada (vista de cima)</text><rect x='20' y='34' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='54' y='34' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='88' y='34' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='122' y='34' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='156' y='34' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='190' y='34' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='224' y='34' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='20' y='68' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='54' y='68' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='88' y='68' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='122' y='68' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='156' y='68' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='190' y='68' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='224' y='68' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><text x='284' y='68' font-size='26' fill='#f2604c' font-weight='800'>× 4</text><text x='284' y='92' font-size='15' fill='#4b6480'>camadas iguais</text></svg>",
+              "legenda": "Cada quadradinho é o topo de um cubinho de 1 cm³."
+            }
+          },
+          {
+            "contexto": "Bia quer o volume de uma caixa de 7 cm de comprimento, 5 cm de largura e 2 cm de altura. Ela fez 7 + 5 + 2 = 14.",
+            "pergunta": "A conta de Bia dá o volume?",
+            "alternativas": [
+              "Não: o volume é 7 × 5 × 2 = 70 cm³",
+              "Sim: o volume é 14 cm³",
+              "Não: o volume é 7 × 5 = 35 cm³"
+            ],
+            "correta": 0,
+            "explicacao": "Volume multiplica as três medidas: 7 × 5 = 35 e 35 × 2 = 70 cm³. Somar não conta os cubinhos, e 7 × 5 mede só o fundo da caixa.",
+            "figura": null
+          },
+          {
+            "contexto": "Gabi tem uma caixa em forma de cubo, com 7 cm de aresta.",
+            "pergunta": "Qual é o volume da caixa?",
+            "alternativas": [
+              "21 cm³",
+              "49 cm³",
+              "343 cm³"
+            ],
+            "correta": 2,
+            "explicacao": "No cubo, multiplique a aresta três vezes: 7 × 7 = 49 e 49 × 7 = 343 cm³. O 21 vem de 7 × 3, e o 49 é só a área de uma face, 7 × 7.",
+            "figura": null
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.GEO.VOL.Q1",
+          "enunciado": "Lia quer saber quanta areia cabe <mark>dentro</mark> de uma caixa. Que medida ela precisa descobrir?",
+          "figura": null,
+          "alternativas": [
+            "O volume da caixa",
+            "A área do fundo da caixa",
+            "O perímetro da tampa",
+            "O comprimento da caixa"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Pense no espaço: a areia fica só em cima do fundo ou enche a caixa?",
+          "explicacao": "O espaço dentro da caixa é o volume. A área do fundo mede só a superfície de baixo, sem contar a altura."
+        },
+        {
+          "questao_id": "MAT.GEO.VOL.Q2",
+          "enunciado": "Theo montou um bloco com cubinhos de 1 cm³. Ele tem <b>3 camadas</b> iguais à da figura. Qual é o volume do bloco?",
+          "figura": {
+            "tipo": "svg",
+            "conteudo": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 346 130' width='100%' role='img' aria-label='Uma camada com 2 fileiras de 4 cubinhos vista de cima e, ao lado, o aviso: vezes 3 camadas iguais.' style='font-family:Nunito,sans-serif;background:#fff'><rect width='346' height='130' fill='#fff'/><text x='20' y='22' font-size='15' fill='#4b6480' font-weight='700'>1 camada (vista de cima)</text><rect x='20' y='34' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='54' y='34' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='88' y='34' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='122' y='34' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='20' y='68' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='54' y='68' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='88' y='68' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><rect x='122' y='68' width='34' height='34' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><text x='182' y='68' font-size='26' fill='#f2604c' font-weight='800'>× 3</text><text x='182' y='92' font-size='15' fill='#4b6480'>camadas iguais</text></svg>",
+            "legenda": "Cada quadradinho é o topo de um cubinho de 1 cm³."
+          },
+          "alternativas": [
+            "8 cm³",
+            "24 cm³",
+            "9 cm³",
+            "11 cm³"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Conte os cubinhos de uma camada. Depois pense: quantas vezes essa camada se repete?",
+          "explicacao": "Uma camada tem 4 × 2 = 8 cubinhos. São 3 camadas: 8 × 3 = 24 cm³. O 8 é só uma camada; o 9 vem de somar 4 + 2 + 3."
+        },
+        {
+          "questao_id": "MAT.GEO.VOL.Q3",
+          "enunciado": "Qual destas unidades serve para medir <mark>volume</mark>?",
+          "figura": null,
+          "alternativas": [
+            "cm²",
+            "cm",
+            "cm³",
+            "m²"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Quantas medidas entram na conta do volume? Olhe o número pequeno de cada unidade.",
+          "explicacao": "O ³ de cm³ indica três medidas multiplicadas: é unidade de volume. cm² e m² medem área (duas medidas), e cm mede comprimento."
+        },
+        {
+          "questao_id": "MAT.GEO.VOL.Q4",
+          "enunciado": "Uma caixa de presente mede <b>6 cm</b> de comprimento, <b>4 cm</b> de largura e <b>5 cm</b> de altura. Qual é o volume da caixa?",
+          "figura": null,
+          "alternativas": [
+            "15 cm³",
+            "24 cm³",
+            "30 cm³",
+            "120 cm³"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Use as três medidas, e não só duas. Que operação junta as três?",
+          "explicacao": "6 × 4 = 24 e 24 × 5 = 120 cm³. O 15 vem de somar 6 + 4 + 5; o 24 é só o fundo da caixa, sem a altura."
+        },
+        {
+          "questao_id": "MAT.GEO.VOL.Q5",
+          "enunciado": "Um cubo de madeira tem <b>4 cm</b> de aresta. Qual é o volume desse cubo?",
+          "figura": null,
+          "alternativas": [
+            "12 cm³",
+            "64 cm³",
+            "16 cm³",
+            "48 cm³"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "No cubo, comprimento, largura e altura têm a mesma medida.",
+          "explicacao": "4 × 4 = 16 e 16 × 4 = 64 cm³. O 12 vem de somar 4 + 4 + 4; o 16 é só a área de uma face (uma camada); o 48 aparece quando se multiplica por 3 em vez de 4 na altura."
+        },
+        {
+          "questao_id": "MAT.GEO.VOL.Q6",
+          "enunciado": "A caixa A mede 5 cm × 2 cm × 2 cm. A caixa B mede 3 cm × 3 cm × 3 cm. Em qual cabem <mark>mais cubinhos</mark> de 1 cm³?",
+          "figura": null,
+          "alternativas": [
+            "Na caixa A, porque o fundo dela é maior",
+            "Nas duas igualmente, porque as medidas somam 9",
+            "Na caixa B, porque o volume dela é maior",
+            "Na caixa A, porque ela tem a medida mais comprida"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Calcule o volume da caixa A.",
+            "Calcule o volume da caixa B.",
+            "Compare os dois volumes."
+          ],
+          "dica": "Somar as medidas não conta cubinhos. Calcule o volume de cada caixa.",
+          "explicacao": "Caixa A: 5 × 2 × 2 = 20 cm³. Caixa B: 3 × 3 × 3 = 27 cm³. Cabem mais cubinhos na B. O fundo de A (10 cm²) é maior que o de B (9 cm²), mas B é mais alta e, por isso, cabe mais."
+        },
+        {
+          "questao_id": "MAT.GEO.VOL.Q7",
+          "enunciado": "O depósito de brinquedos da escola tem forma de bloco: <b>5 m</b> de comprimento, <b>4 m</b> de largura e <b>2 m</b> de altura. Qual é o volume do depósito?",
+          "figura": null,
+          "alternativas": [
+            "11 m³",
+            "20 m³",
+            "40 m²",
+            "40 m³"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Confira duas coisas: a conta com as três medidas e a unidade de volume.",
+          "explicacao": "5 × 4 = 20 e 20 × 2 = 40 m³. O 20 é só o chão; o 11 vem de somar; e 40 m² tem a conta certa, mas com a unidade de área."
+        },
+        {
+          "questao_id": "MAT.GEO.VOL.Q8",
+          "enunciado": "Theo enche uma caixa com cubinhos de 1 cm³. Cada camada tem <b>5 fileiras de 4 cubinhos</b>. Na caixa cabem <b>6 camadas</b>, e ele já colocou 2. Quantos cubinhos <mark>ainda faltam</mark>?",
+          "figura": null,
+          "alternativas": [
+            "80 cubinhos",
+            "120 cubinhos",
+            "40 cubinhos",
+            "100 cubinhos"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Descubra quantos cubinhos há em uma camada.",
+            "Descubra quantas camadas ainda faltam.",
+            "Multiplique para achar os cubinhos que faltam."
+          ],
+          "dica": "A pergunta é sobre o que falta, não sobre a caixa cheia.",
+          "explicacao": "Uma camada tem 5 × 4 = 20 cubinhos. Faltam 6 − 2 = 4 camadas: 20 × 4 = 80. O 120 é a caixa cheia; o 40 é o que Theo já colocou."
+        },
+        {
+          "questao_id": "MAT.GEO.VOL.Q9",
+          "enunciado": "O fundo de uma caixa mede <b>5 cm por 3 cm</b>. Nina encheu a caixa com <b>45 cubinhos</b> de 1 cm³, sem sobrar espaço. Qual é a <mark>altura</mark> da caixa?",
+          "figura": null,
+          "alternativas": [
+            "9 cm",
+            "15 cm",
+            "3 cm",
+            "30 cm"
+          ],
+          "correta": 2,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Descubra quantos cubinhos cabem em uma camada do fundo.",
+            "Descubra quantas camadas formam 45 cubinhos."
+          ],
+          "dica": "Cada centímetro de altura é uma camada inteira de cubinhos. Quantos cubinhos tem uma camada?",
+          "explicacao": "Uma camada tem 5 × 3 = 15 cubinhos. 45 ÷ 15 = 3 camadas, então a altura é 3 cm. Confira: 5 × 3 × 3 = 45. O 9 vem de 45 ÷ 5, usando só uma medida do fundo."
+        },
+        {
+          "questao_id": "MAT.GEO.VOL.Q10",
+          "enunciado": "Bia montou um cubo com 3 cubinhos em cada aresta. Depois, ela tirou a <mark>camada de cima inteira</mark>. Quantos cubinhos ficaram?",
+          "figura": null,
+          "alternativas": [
+            "24 cubinhos",
+            "18 cubinhos",
+            "26 cubinhos",
+            "9 cubinhos"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Descubra quantos cubinhos o cubo tinha no começo.",
+            "Descubra quantos cubinhos há em uma camada.",
+            "Tire a camada de cima do total."
+          ],
+          "dica": "Imagine o cubo em camadas, como andares. Quantos cubinhos há em uma camada inteira?",
+          "explicacao": "O cubo tinha 3 × 3 × 3 = 27 cubinhos. Uma camada tem 3 × 3 = 9. Ficaram 27 − 9 = 18 (ou 2 camadas: 9 × 2 = 18). O 24 vem de tirar só 3 cubinhos; o 9 é a camada que saiu."
+        }
+      ]
+    },
+    {
+      "missao_id": "capacidade",
+      "capitulo_id": "cap-1",
+      "icone": "🫙",
+      "titulo": "Quanto cabe?",
+      "subtitulo": "Volume, litros e mililitros",
+      "eixo": "Grandezas e Medidas",
+      "tema_id": "MAT.GEO.CAP",
+      "subtema": "Volume e capacidade: cm³, dm³, m³, mL e L",
+      "habilidade_bncc": "EF05MA19",
+      "ferramenta": "investigar",
+      "regra": "<b>1 L = 1000 mL</b> · <b>1 cm³ = 1 mL</b> · <b>1 dm³ = 1 L</b> · <b>1 m³ = 1000 L</b><br>Caixa: multiplique as 3 medidas e depois troque a unidade.<br><b>L → mL:</b> × 1000 · <b>mL → L:</b> ÷ 1000",
+      "aula": {
+        "corpo": "<p>Lia vai encher o aquário novo. Quanta água cabe lá dentro? Essa medida se chama <b>capacidade</b>: quanto cabe dentro de uma coisa. Usamos <b>litros (L)</b> e <b>mililitros (mL)</b>. Em 1 L cabem 1000 mL.</p><p>Pense num cubinho com 1 cm em cada lado. O espaço que ele ocupa, o volume, é <b>1 cm³</b>. Dentro dele cabe <b>1 mL</b> de água.</p><p>Agora pense num cubo com 10 cm em cada lado. O volume é 10 × 10 × 10 = 1000 cm³. Esse cubo também se chama <b>1 dm³</b>. Dentro dele cabe <b>1 L</b>.</p><p>Para coisas bem grandes, como uma caixa-d'água ou uma piscina, usamos o metro cúbico. Em <b>1 m³</b> cabem <b>1000 L</b>.</p><h3>Hora de decidir · Quanto cabe aqui dentro?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>Caminho para repetir:</strong> 1) Multiplique as três medidas da caixa. 2) Troque cm³ por mL: o número fica igual. 3) Para ter litros, divida por 1000.</div>"
+      },
+      "dados": {
+        "instrucao": "Leia a situação, escolha quanto cabe e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Theo vai fazer suco para a festa. Ele quer saber <b>quanto suco cabe</b> na jarra.",
+            "pergunta": "Que medida Theo está procurando?",
+            "alternativas": [
+              "O perímetro da jarra, em centímetros",
+              "A capacidade da jarra, em litros ou mililitros",
+              "A área da mesa, em centímetros quadrados"
+            ],
+            "correta": 1,
+            "explicacao": "Quanto cabe dentro é capacidade, medida em L ou mL. Perímetro mede o contorno, e área mede uma superfície.",
+            "figura": null
+          },
+          {
+            "contexto": "Uma caixa de presente tem 25 cm de comprimento, 8 cm de largura e 5 cm de altura. Nina vai enchê-la de água para um teste.",
+            "pergunta": "Quanto de água cabe na caixa?",
+            "alternativas": [
+              "38 mL",
+              "200 mL",
+              "1 L"
+            ],
+            "correta": 2,
+            "explicacao": "Volume: 25 × 8 × 5 = 1000 cm³. Como 1 cm³ = 1 mL, cabem 1000 mL, que é 1 L. Somar 25 + 8 + 5 = 38 não mede o espaço de dentro, e 25 × 8 = 200 usa só duas medidas.",
+            "figura": {
+              "tipo": "svg",
+              "conteudo": "<svg viewBox='0 0 320 220' width='100%' role='img' aria-label='Caixa de presente: 25 cm de comprimento, 8 cm de largura e 5 cm de altura' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='320' height='220' fill='#ffffff'/><polygon points='85,93.4 102.3,76.1 255,76.1 237.7,93.4' fill='#ffffff' stroke='#2fae94' stroke-width='2'/><polygon points='237.7,93.4 255,76.1 255,106.6 237.7,123.9' fill='#ffffff' stroke='#2fae94' stroke-width='2'/><polygon points='85,93.4 237.7,93.4 237.7,123.9 85,123.9' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><text x='161.4' y='143.9' text-anchor='middle' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>25 cm</text><text x='77' y='113.6' text-anchor='end' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>5 cm</text><text x='254.4' y='125.3' text-anchor='start' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>8 cm</text></svg>",
+              "legenda": "Caixa de presente: 25 cm × 8 cm × 5 cm (desenho fora de escala)"
+            }
+          },
+          {
+            "contexto": "O copo grande de Davi tem <b>400 mL</b>.",
+            "pergunta": "Quanto isso dá em litros?",
+            "alternativas": [
+              "4 L",
+              "0,4 L",
+              "0,04 L"
+            ],
+            "correta": 1,
+            "explicacao": "Para passar de mL para L, dividimos por 1000: 400 ÷ 1000 = 0,4 L. É menos que 1 L, porque 400 mL não chega a 1000 mL. 4 L seria água demais para um copo.",
+            "figura": null
+          },
+          {
+            "contexto": "A piscina de plástico da casa de Bia tem volume de <b>4 m³</b>.",
+            "pergunta": "Quantos litros de água cabem nela?",
+            "alternativas": [
+              "400 L",
+              "4000 L",
+              "4 L"
+            ],
+            "correta": 1,
+            "explicacao": "Cada 1 m³ guarda 1000 L. Então 4 m³ guardam 4 × 1000 = 4000 L.",
+            "figura": null
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "questoes": [
+        {
+          "questao_id": "MAT.GEO.CAP.Q1",
+          "enunciado": "Nina quer saber <mark>quanto de água cabe</mark> na garrafinha dela. Qual unidade serve para dar essa resposta?",
+          "figura": null,
+          "alternativas": [
+            "Centímetro (cm)",
+            "Mililitro (mL)",
+            "Centímetro quadrado (cm²)",
+            "Metro (m)"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "A pergunta é sobre o que cabe dentro, não sobre o tamanho do contorno ou de uma superfície.",
+          "explicacao": "Quanto cabe dentro é capacidade, e capacidade se mede em mililitros ou litros. Centímetro e metro medem comprimento; cm² mede área."
+        },
+        {
+          "questao_id": "MAT.GEO.CAP.Q2",
+          "enunciado": "A jarra de suco da festa tem capacidade de <b>3 L</b>. Quantos <mark>mililitros</mark> cabem nela?",
+          "figura": null,
+          "alternativas": [
+            "300 mL",
+            "30 mL",
+            "3000 mL",
+            "3 mL"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Pense em quantos mililitros cabem em 1 litro. A jarra tem vários litros.",
+          "explicacao": "Cada litro tem 1000 mL. Então 3 L = 3 × 1000 = 3000 mL. Quem responde 300 mL usou 100 mL por litro, e não 1000."
+        },
+        {
+          "questao_id": "MAT.GEO.CAP.Q3",
+          "enunciado": "Uma caixinha de Bia tem volume interno de <b>500 cm³</b>. Ela enche a caixinha de água. Quanto de água cabe?",
+          "figura": null,
+          "alternativas": [
+            "50 mL",
+            "5 L",
+            "500 L",
+            "500 mL"
+          ],
+          "correta": 3,
+          "dificuldade": 1,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Pense num cubinho com 1 cm em cada lado. Quanta água cabe dentro dele?",
+          "explicacao": "Cada 1 cm³ guarda 1 mL. Então 500 cm³ guardam 500 mL, que é meio litro. Não são 500 L: isso encheria uma caixa-d'água pequena de casa, e não uma caixinha."
+        },
+        {
+          "questao_id": "MAT.GEO.CAP.Q4",
+          "enunciado": "Uma garrafa de suco tem <b>750 mL</b>. Quanto isso dá em <mark>litros</mark>?",
+          "figura": null,
+          "alternativas": [
+            "0,75 L",
+            "7,5 L",
+            "75 L",
+            "0,075 L"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "750 mL é menos do que 1000 mL. Então a resposta tem menos de 1 litro.",
+          "explicacao": "Para passar de mL para L, dividimos por 1000: 750 ÷ 1000 = 0,75 L. É menos que 1 L, porque 750 mL não chega a 1000 mL. Em 7,5 L a vírgula andou poucas casas."
+        },
+        {
+          "questao_id": "MAT.GEO.CAP.Q5",
+          "enunciado": "A garrafa de refrigerante da festa tem <b>2,5 L</b>. Quantos <mark>mililitros</mark> cabem nela?",
+          "figura": null,
+          "alternativas": [
+            "250 mL",
+            "2005 mL",
+            "2500 mL",
+            "25 mL"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Separe 2,5 L em 2 litros inteiros e meio litro. Quantos mL tem cada parte?",
+          "explicacao": "2,5 × 1000 = 2500 mL. Pensando em partes: 2 L = 2000 mL e meio litro = 500 mL; 2000 + 500 = 2500. O 2005 aparece quando se lê o 5 como 5 mL, mas ele é 5 décimos de litro."
+        },
+        {
+          "questao_id": "MAT.GEO.CAP.Q6",
+          "enunciado": "Uma caixa de suco tem 6 cm de comprimento, 10 cm de largura e 15 cm de altura. Quantos <mark>mililitros</mark> cabem nela?",
+          "figura": {
+            "tipo": "svg",
+            "conteudo": "<svg viewBox='0 0 320 220' width='100%' role='img' aria-label='Caixa de suco: 6 cm de comprimento, 10 cm de largura e 15 cm de altura' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='320' height='220' fill='#ffffff'/><polygon points='134,56.7 160.7,30 206,30 179.3,56.7' fill='#ffffff' stroke='#2fae94' stroke-width='2'/><polygon points='179.3,56.7 206,30 206,143.3 179.3,170' fill='#ffffff' stroke='#2fae94' stroke-width='2'/><polygon points='134,56.7 179.3,56.7 179.3,170 134,170' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><text x='156.6' y='190' text-anchor='middle' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>6 cm</text><text x='126' y='118.4' text-anchor='end' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>15 cm</text><text x='200.7' y='166.6' text-anchor='start' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>10 cm</text></svg>",
+            "legenda": "Caixa de suco: 6 cm × 10 cm × 15 cm (desenho fora de escala)"
+          },
+          "alternativas": [
+            "31 mL",
+            "150 mL",
+            "900 mL",
+            "9000 mL"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "procedimental",
+          "dica": "Volume de caixa usa as três medidas juntas. Depois, lembre que cada cm³ guarda 1 mL.",
+          "explicacao": "Volume: 6 × 10 × 15 = 900 cm³, e 900 cm³ = 900 mL. Somar 6 + 10 + 15 = 31 não dá o volume, e 10 × 15 = 150 usa só duas medidas."
+        },
+        {
+          "questao_id": "MAT.GEO.CAP.Q7",
+          "enunciado": "Qual destas garrafas guarda <mark>mais</mark> água?",
+          "figura": null,
+          "alternativas": [
+            "Garrafa de 950 mL",
+            "Garrafa de 1100 mL",
+            "Garrafa de 1,2 L",
+            "Garrafa de 999 mL"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Para comparar, coloque todas na mesma unidade. Quantos mL tem 1,2 L?",
+          "explicacao": "1,2 L = 1,2 × 1000 = 1200 mL. Em ordem: 1200 mL > 1100 mL > 999 mL > 950 mL. O número 1,2 parece pequeno, mas está em litros."
+        },
+        {
+          "questao_id": "MAT.GEO.CAP.Q8",
+          "enunciado": "O aquário do peixinho de Gabi tem 20 cm de comprimento, 10 cm de largura e 30 cm de altura. Quantos <mark>litros</mark> de água cabem nele quando está cheio?",
+          "figura": {
+            "tipo": "svg",
+            "conteudo": "<svg viewBox='0 0 320 220' width='100%' role='img' aria-label='Aquário: 20 cm de comprimento, 10 cm de largura e 30 cm de altura' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='320' height='220' fill='#ffffff'/><polygon points='120.9,44.8 135.6,30 219.1,30 204.4,44.8' fill='#ffffff' stroke='#2fae94' stroke-width='2'/><polygon points='204.4,44.8 219.1,30 219.1,155.2 204.4,170' fill='#ffffff' stroke='#2fae94' stroke-width='2'/><polygon points='120.9,44.8 204.4,44.8 204.4,170 120.9,170' fill='#e3f5f0' stroke='#2fae94' stroke-width='2'/><text x='162.6' y='190' text-anchor='middle' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>20 cm</text><text x='112.9' y='112.4' text-anchor='end' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>30 cm</text><text x='219.7' y='172.6' text-anchor='start' font-family='Nunito, sans-serif' font-size='15' font-weight='700' fill='#4b6480'>10 cm</text></svg>",
+            "legenda": "Aquário: 20 cm × 10 cm × 30 cm (desenho fora de escala)"
+          },
+          "alternativas": [
+            "60 L",
+            "6 L",
+            "600 L",
+            "0,6 L"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Multiplique as três medidas para achar o volume em cm³.",
+            "Troque cm³ por mL: o número continua o mesmo.",
+            "Divida os mililitros por 1000 para chegar em litros."
+          ],
+          "dica": "Comece pelo volume em cm³. Só no fim troque para litros.",
+          "explicacao": "Volume: 20 × 10 × 30 = 6000 cm³ = 6000 mL. Em litros: 6000 ÷ 1000 = 6 L. A resposta 60 L aparece quando se divide só por 100."
+        },
+        {
+          "questao_id": "MAT.GEO.CAP.Q9",
+          "enunciado": "Theo tem uma jarra com <b>2 L</b> de limonada. Ele vai servir copos de <b>250 mL</b>, todos cheios. Quantos copos ele consegue encher?",
+          "figura": null,
+          "alternativas": [
+            "4 copos",
+            "125 copos",
+            "80 copos",
+            "8 copos"
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Passe os 2 L da jarra para mililitros.",
+            "Descubra quantas vezes 250 mL cabe nesse total."
+          ],
+          "dica": "Jarra e copo estão em unidades diferentes. Coloque os dois em mL antes de dividir.",
+          "explicacao": "2 L = 2000 mL. Depois, 2000 ÷ 250 = 8 copos. Conferindo: 4 copos de 250 mL dão 1000 mL, só 1 L. Para 2 L, são 8 copos."
+        },
+        {
+          "questao_id": "MAT.GEO.CAP.Q10",
+          "enunciado": "A caixa-d'água da escola tem capacidade de <b>2 m³</b>. Agora ela está com <b>1500 L</b> de água. Quantos <mark>litros</mark> ainda cabem para ela ficar cheia?",
+          "figura": null,
+          "alternativas": [
+            "500 L",
+            "1498 L",
+            "3500 L",
+            "50 L"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Descubra quantos litros cabem na caixa inteira.",
+            "Tire o que já está dentro da caixa."
+          ],
+          "dica": "A capacidade está em m³ e a água está em litros. Coloque as duas na mesma unidade antes de fazer a conta.",
+          "explicacao": "Capacidade: 2 m³ = 2 × 1000 = 2000 L. Faltam 2000 − 1500 = 500 L. O 1498 aparece quando se faz 1500 − 2 sem trocar m³ por litros."
+        }
+      ]
+    },
+    {
+      "missao_id": "mistura-prova",
+      "capitulo_id": "cap-2",
+      "icone": "🔀",
+      "titulo": "Divisão ou porcentagem?",
+      "subtitulo": "Os temas da prova, misturados",
+      "intercalada": true,
+      "banco_de": {
+        "missoes": [
+          "divisao-decimal",
+          "divisao-resto",
+          "porcentagem-sentido",
+          "porcentagem-calculo"
+        ]
+      },
+      "sorteio": {
+        "por_tema": [
+          1,
+          2,
+          3
+        ]
+      },
+      "regras": [
+        {
+          "tema_id": "MAT.NUM.DIVDEC",
+          "rotulo": "Dividir com vírgula",
+          "texto": "Divida como se fossem inteiros. Usou o primeiro algarismo depois da vírgula? Ponha a vírgula no resultado. Não deu para dividir? Escreva 0 e siga. Sobrou resto? Acrescente um zero e continue.<br>Antes de responder, pense no que está sendo dividido: dá para partir em pedaços?"
+        },
+        {
+          "tema_id": "MAT.NUM.PORC",
+          "rotulo": "O que é %",
+          "texto": "<b>%</b> = em cada 100. Escreva como fração de denominador 100 ou em centésimos: 23% = 23/100 = 0,23."
+        },
+        {
+          "tema_id": "MAT.NUM.PORCVAL",
+          "rotulo": "% de um valor",
+          "texto": "10% = valor ÷ 10 · 50% = valor ÷ 2 · 25% = valor ÷ 4.<br><b>Desconto:</b> preço − desconto. <b>Acréscimo:</b> preço + acréscimo."
+        }
+      ]
+    },
+    {
+      "missao_id": "mistura-tudo",
+      "capitulo_id": "cap-2",
+      "icone": "🎯",
+      "titulo": "Tudo junto",
+      "subtitulo": "Divisão, porcentagem e volume",
+      "intercalada": true,
+      "banco_de": {
+        "missoes": [
+          "divisao-decimal",
+          "divisao-resto",
+          "porcentagem-sentido",
+          "porcentagem-calculo",
+          "volume",
+          "capacidade"
+        ]
+      },
+      "sorteio": {
+        "por_tema": [
+          1,
+          2
+        ]
+      },
+      "regras": [
+        {
+          "tema_id": "MAT.NUM.DIVDEC",
+          "rotulo": "Dividir com vírgula",
+          "texto": "Divida como se fossem inteiros. Usou o primeiro algarismo depois da vírgula? Ponha a vírgula no resultado. Não deu para dividir? Escreva 0 e siga. Sobrou resto? Acrescente um zero e continue.<br>Antes de responder, pense no que está sendo dividido: dá para partir em pedaços?"
+        },
+        {
+          "tema_id": "MAT.NUM.PORC",
+          "rotulo": "O que é %",
+          "texto": "<b>%</b> = em cada 100. Escreva como fração de denominador 100 ou em centésimos: 23% = 23/100 = 0,23."
+        },
+        {
+          "tema_id": "MAT.NUM.PORCVAL",
+          "rotulo": "% de um valor",
+          "texto": "10% = valor ÷ 10 · 50% = valor ÷ 2 · 25% = valor ÷ 4.<br><b>Desconto:</b> preço − desconto. <b>Acréscimo:</b> preço + acréscimo."
+        },
+        {
+          "tema_id": "MAT.GEO.VOL",
+          "rotulo": "Espaço ocupado",
+          "texto": "<b>Volume</b> = espaço ocupado: comprimento × largura × altura (três medidas).<br><b>Área</b> cobre uma superfície, como o fundo ou a tampa (duas medidas). <b>Perímetro</b> é o contorno."
+        },
+        {
+          "tema_id": "MAT.GEO.CAP",
+          "rotulo": "Quanto cabe",
+          "texto": "1 L = 1000 mL · 1 dm³ = 1 L · 1 cm³ = 1 mL · 1 m³ = 1000 L.<br>L → mL: × 1000 · mL → L: ÷ 1000."
+        }
+      ]
+    }
+  ]
+}

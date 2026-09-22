@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-09-22 — Prova de Matemática 23/09: divisão, porcentagem e volume
+
+- Nova prova `2026-09-MAT-Y5` (`data/provas/2026-09-matematica-y5.json`), em dois capítulos:
+  Aprender (6 missões com aula, ferramenta `investigar` e banco de 10 questões) e Misturar
+  (2 intercaladas com cola). 43 questões por sessão, sorteadas de 60 escritas à mão;
+  refazer sorteia outras sem novo artefato.
+- Temas novos no catálogo: MAT.NUM.DIVDEC, MAT.NUM.PORC, MAT.NUM.PORCVAL, MAT.GEO.VOL,
+  MAT.GEO.CAP (BNCC a conferir). Fontes: post da professora e 8 vídeos indicados por Marco
+  (transcrições lidas); divisão segue EF05MA08. Livro não consultado.
+- Processo: especificação do supervisor; seis redatores independentes em paralelo, com
+  validador de forma, recálculo por node e Jev (linguagem, dica, distrator, regra, tom);
+  auditoria independente com seis lentes (três de matemática, ambiguidade, pedagogia com
+  Jev, técnica); correções por seis agentes; auditoria final (matemática: zero achados;
+  pedagogia: colas, repetições e telas ajustadas pelo supervisor).
+- Verificação: build OK, 42/42 testes, sorteio simulado 100× por missão, navegação no
+  navegador (escolha de pessoa, aula fatiada, portão da ferramenta, dois toques, linha de
+  telemetria com 29 campos na fila local).
+
 ## 2026-09-08 — Envio persistente com confirmação de gravação
 
 - Diagnóstico: respostas online ficavam apenas em memória até uma falha de rede;
