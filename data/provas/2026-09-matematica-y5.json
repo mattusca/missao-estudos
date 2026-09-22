@@ -210,7 +210,7 @@
           "correta": 0,
           "dificuldade": 2,
           "tipo_raciocinio": "procedimental",
-          "dica": "Olhe para o 1 logo depois da vírgula. Dá para dividir 1 por 3? Se não der, o que vai no resultado?",
+          "dica": "Olhe para o 1 logo depois da vírgula. Quantas vezes inteiras o 3 cabe no 1? Que algarismo ocupa essa casa do resultado?",
           "explicacao": "6 ÷ 3 = 2, vírgula. O 3 cabe zero vezes inteiras no 1: escreva 0 nessa casa do resultado e baixe o próximo algarismo. Com o 1 e o 8, temos 18, e 18 ÷ 3 = 6. Resultado: 2,06 kg. Quem escreve 2,6 kg pulou o zero: 2,6 × 3 = 7,8, e não 6,18."
         },
         {
@@ -304,7 +304,7 @@
       "regra": "Acabaram os algarismos e sobrou resto? Ponha <b>vírgula no resultado</b> e um <b>zero ao lado do resto</b>, e siga dividindo.<br>Antes de responder, veja <b>o que</b> está sendo dividido: dá para partir em pedaços?",
       "aula": {
         "corpo": "<div class=\"lesson-box\">Lia e o irmão ganharam R$ 5 para dividir igualmente. Cada um fica com R$ 2 e sobra R$ 1. Esse real pode ser repartido? Pode: ele vira 100 centavos. Cada um ganha mais 50 centavos: <b>R$ 2,50</b>.</div><div class=\"lesson-box\"><strong>Na conta 5 ÷ 2:</strong> o 2 cabe 2 vezes no 5 e sobra 1. Escreva a <b>vírgula</b> depois do 2 no quociente (o resultado da divisão). Ponha um <b>zero</b> ao lado do resto: o 1 vira 10 décimos. 10 ÷ 2 = 5. Resultado: <b>2,5</b>.</div><div class=\"lesson-box\"><strong>Sobrou de novo?</strong> Ponha mais um zero e continue. Em 7 ÷ 4: dá 1 e sobram 3. Vírgula e zero: 30 ÷ 4 = 7, sobram 2. Mais um zero: 20 ÷ 4 = 5. Resultado: <b>1,75</b>.</div><p>Antes de continuar a conta, veja o que está sendo dividido. Meio real existe. Meio carro, não! Com pessoas e carros, o resto pede outra decisão.</p><h3>Hora de decidir · Continuar a conta ou parar?</h3>",
-        "fechamento": "<div class=\"lesson-box\"><strong>Para levar com você:</strong> sobrou resto em dinheiro ou medida? Vírgula no quociente, zero no resto, e continue. Sobrou resto com pessoas ou objetos inteiros? Pergunte o que a situação pede: precisa caber todo mundo, ou só contam os grupos completos?</div>"
+        "fechamento": "<div class=\"lesson-box\"><strong>Para levar com você:</strong> acabaram os algarismos e ainda sobrou resto? Se a situação permite continuar em partes menores, coloque a vírgula no resultado e acrescente um zero ao resto. Sobrou resto com pessoas ou objetos inteiros? Pergunte o que a situação pede: precisa caber todo mundo, ou só contam os grupos completos?</div>"
       },
       "dados": {
         "instrucao": "Leia a situação, escolha o que fazer com o resto e confirme.",
@@ -1644,7 +1644,7 @@
         {
           "tema_id": "MAT.NUM.DIVDEC",
           "rotulo": "Dividir com vírgula",
-          "texto": "Divida como se fossem inteiros.<br>Usou o 1º algarismo depois da vírgula? Ponha a vírgula no resultado.<br>O divisor cabe zero vezes? Escreva 0 e baixe o próximo algarismo.<br>Sobrou resto? Baixe o próximo algarismo. Acabaram os algarismos? Acrescente um zero ao resto e continue.<br>Antes de responder: o que está sendo dividido pode ser partido em pedaços?"
+          "texto": "Divida como se fossem inteiros.<br>Usou o 1º algarismo depois da vírgula? Ponha a vírgula no resultado.<br>O divisor cabe zero vezes? Escreva 0 e baixe o próximo algarismo.<br>Sobrou resto? Baixe o próximo algarismo.<br>Acabaram os algarismos e sobrou resto? Se ainda não colocou a vírgula no resultado, coloque agora. Acrescente um zero ao resto e continue.<br>Antes de responder: o que está sendo dividido pode ser partido em pedaços?"
         },
         {
           "tema_id": "MAT.NUM.PORC",
@@ -1685,7 +1685,7 @@
         {
           "tema_id": "MAT.NUM.DIVDEC",
           "rotulo": "Dividir com vírgula",
-          "texto": "Divida como se fossem inteiros.<br>Usou o 1º algarismo depois da vírgula? Ponha a vírgula no resultado.<br>O divisor cabe zero vezes? Escreva 0 e baixe o próximo algarismo.<br>Sobrou resto? Baixe o próximo algarismo. Acabaram os algarismos? Acrescente um zero ao resto e continue.<br>Antes de responder: o que está sendo dividido pode ser partido em pedaços?"
+          "texto": "Divida como se fossem inteiros.<br>Usou o 1º algarismo depois da vírgula? Ponha a vírgula no resultado.<br>O divisor cabe zero vezes? Escreva 0 e baixe o próximo algarismo.<br>Sobrou resto? Baixe o próximo algarismo.<br>Acabaram os algarismos e sobrou resto? Se ainda não colocou a vírgula no resultado, coloque agora. Acrescente um zero ao resto e continue.<br>Antes de responder: o que está sendo dividido pode ser partido em pedaços?"
         },
         {
           "tema_id": "MAT.NUM.PORC",

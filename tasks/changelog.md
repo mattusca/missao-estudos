@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-22 — Segunda revisão do Codex na divisão (prova de Matemática 23/09)
+
+- Colas das duas missões de mistura: acrescentado o caso 7 ÷ 2 (acabaram os algarismos e
+  sobrou resto: pôr a vírgula no resultado se ainda não foi posta, zero no resto, continuar).
+- Dica de DIVDEC.Q6 sem "dá para dividir"; fechamento de "Sobrou resto?" com a mesma condição
+  do cartão. Gabaritos inalterados; build OK, 42/42 testes; cola conferida à mão em
+  7 ÷ 2, 14,6 ÷ 4, 6,18 ÷ 3 e 3 ÷ 5 e no Jev (0,64 a 0,81 por caso).
+
 ## 2026-09-22 — Revisão do Codex aplicada à prova de Matemática 23/09
 
 - Regra de divisão completada (baixar o próximo algarismo antes de acrescentar zero) nas
