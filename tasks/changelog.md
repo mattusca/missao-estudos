@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-10-14 — Prova de leitura: A queda dos moais
+
+- Nova prova `2026-10-MOAIS-Y5` (`data/provas/2026-10-moais-y5.json`), curta, no formato da
+  última: capítulo Aprender (4 missões com aula, ferramenta `investigar` e 3 desafios sorteados
+  de 6) e capítulo Misturar (1 intercalada com cola, 8 questões). 20 questões por sessão, de 48.
+- Temas: POR.LEI.GEN (novo: gêneros e sua função), POR.LEI.PERS, POR.LEI.CAUSA e POR.LEI.VOCAB;
+  questões novas numeradas a partir de Q301 nos temas que já existiam.
+- Fontes: material digital de apoio ao professor (Brinque-Book/CEDAC, 2021), que reproduz o
+  folheto, a HQ e a notícia, e sinopses da editora. Livro e roteiro da professora não consultados;
+  o desfecho não é cobrado e as páginas não são citadas (a edição Escarlate pode diferir).
+- Verificação: validador 0 erros e 0 avisos; build OK; 42/42 testes; navegador em 375 px como
+  Marco (teste): mapa em dois capítulos, aula fatiada, portão da ferramenta, dois toques,
+  cartão de regra, +100 XP e linha de telemetria com 29 campos na fila local. Não publicado.
+
 ## 2026-09-22 — Segunda revisão do Codex na divisão (prova de Matemática 23/09)
 
 - Colas das duas missões de mistura: acrescentado o caso 7 ÷ 2 (acabaram os algarismos e

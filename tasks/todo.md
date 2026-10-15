@@ -1,5 +1,19 @@
 # Pendências
 
+## 2026-10-14 — Prova de leitura: A queda dos moais
+- [x] Pesquisar o livro (material de apoio ao professor Brinque-Book/CEDAC e sinopses da editora)
+      e escrever artefato curto em dois capítulos: 4 missões (gêneros, personagens, causa,
+      vocabulário) com 3 desafios cada, sorteados de bancos de 6, e uma mistura de 8.
+      Responsável: Claude. Arquivos: data/provas/2026-10-moais-y5.json, data/catalogo-temas.json
+      (tema novo POR.LEI.GEN, EF15LP01 a conferir).
+- [x] Validador (0 erros, 0 avisos), build, 42/42 testes e navegador em 375 px como Marco (teste).
+- [ ] Revisão factual por adulto que leu a edição Escarlate: falas da HQ, receita (sugerida
+      pela avó), parlenda da irmã, clube PaSNo e quem pertence a ele. O desfecho não é cobrado.
+- [ ] Conferir com o roteiro da professora: data da prova, tópicos cobrados e se gêneros
+      textuais entram. Sem roteiro, o escopo é provisório.
+- [ ] Revisão de outro agente (Codex) antes de a Alicia jogar, conforme o guia narrativo.
+- [x] Commit e push (publica no Pages) autorizados por Marco em 14/10, antes das revisões acima.
+
 ## 2026-09-22 — Prova de Matemática 23/09: divisão, porcentagem e volume
 - [x] Especificar a prova (post da professora + 8 vídeos) e montar temas no catálogo.
 - [x] Seis missões escritas por agentes independentes em paralelo (banco de 10 questões cada), com Jev.

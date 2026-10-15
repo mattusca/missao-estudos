@@ -1,0 +1,748 @@
+{
+  "prova_id": "2026-10-MOAIS-Y5",
+  "titulo": "A queda dos moais — missão de leitura",
+  "materia": "Português",
+  "alunas": [
+    "Alicia",
+    "Marco (teste)",
+    "Fernanda (teste)",
+    "Mrs Gonçalves (teste)"
+  ],
+  "escola": "PD",
+  "ano_aluna": "Y5",
+  "nivel_conteudo": "Y5",
+  "bimestre": "4",
+  "contexto": "prova",
+  "criado_em": "2026-10-14",
+  "origem": "Livro A queda dos moais (Blandina Franco e Patricia Auerbach, ilustrações de José Carlos Lollo; Escarlate, 2018, 11ª reimpressão), não consultado diretamente. Fatos conferidos no material digital de apoio ao professor (Brinque-Book/CEDAC, 2021: https://cdl-static.s3-sa-east-1.amazonaws.com/PNLD/2023/arquivos/manual_professor/ManualApoioProf_9786556540610.pdf), que reproduz o folheto, a HQ e a notícia, e nas sinopses da editora (https://www.companhiadasletras.com.br/livro/9788583820703/a-queda-dos-moais). Sem roteiro da professora: escopo provisório.",
+  "observacao": "Artefato curto: 4 missões de 3 desafios (sorteados de bancos de 6) e uma mistura de 8. Só usa fatos do começo da viagem e a função dos gêneros; o desfecho não é cobrado porque não foi verificado. Páginas não são citadas: a edição Escarlate pode ter paginação diferente da do material de apoio.",
+  "capitulos": [
+    {
+      "capitulo_id": "cap-1",
+      "titulo": "Aprender",
+      "funcao": "Aula, ferramenta e desafios de cada tema.",
+      "contexto": "prova",
+      "recuperacao": {
+        "pergunta": "Por que a viagem da família estava em promoção?",
+        "referencia": "Porque os moais tinham caído. O carimbo do folheto fala no ‘boléu dos moais’, e a notícia do jornal conta a queda."
+      }
+    },
+    {
+      "capitulo_id": "cap-2",
+      "titulo": "Misturar",
+      "funcao": "Recuperar as ideias com os temas misturados.",
+      "contexto": "revisao_espacada",
+      "recuperacao": {
+        "pergunta": "Escolha um tipo de texto do livro e diga para que ele serve na história.",
+        "referencia": "Exemplos: o folheto vende a viagem; a notícia informa sobre os moais caídos; o e-mail serve para Joaquim pedir ajuda à avó."
+      }
+    }
+  ],
+  "missoes": [
+    {
+      "missao_id": "generos-moais",
+      "capitulo_id": "cap-1",
+      "icone": "📰",
+      "titulo": "Cada página, um texto",
+      "subtitulo": "Gêneros e a função de cada um",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.GEN",
+      "subtema": "Gêneros textuais e sua função na narrativa",
+      "habilidade_bncc": "EF15LP01",
+      "ferramenta": "investigar",
+      "regra": "Cada tipo de texto tem uma <b>função</b>: vender, informar, pedir, ensinar, brincar.<br>Pergunte: <b>quem escreveu, para quem e para quê?</b>",
+      "aula": {
+        "corpo": "<p>Este livro não tem narrador. Quem conta a história são os próprios textos: um folheto, uma história em quadrinhos, uma notícia de jornal, e-mails, cartas, uma receita e muitos outros.</p><p>Cada tipo de texto é um <b>gênero</b>, e cada gênero tem uma função. O folheto da agência quer vender a viagem. A notícia do jornal informa o que aconteceu com os moais.</p><p>Para seguir a história, pergunte a cada página: quem escreveu, para quem e para quê?</p><h3>Hora de decidir · Para que serve este texto?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>O que você descobriu:</strong> no livro, cada gênero faz uma parte do trabalho de contar. Descobrir a função de um texto é descobrir o que ele acrescenta à história.</div>"
+      },
+      "dados": {
+        "instrucao": "Leia a situação, escolha a resposta e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Um folheto da <b>Alçaprema Turismo</b> oferece 15 dias em hotel 5 estrelas na Ilha de Páscoa, com descontos especiais.",
+            "pergunta": "Qual é a função desse folheto?",
+            "alternativas": [
+              "Convencer as pessoas a comprar a viagem",
+              "Contar a história dos moais em ordem",
+              "Ensinar o caminho até o aeroporto"
+            ],
+            "correta": 0,
+            "explicacao": "Folheto de agência de turismo é um texto publicitário: ele mostra as vantagens do lugar para vender o pacote."
+          },
+          {
+            "contexto": "Joaquim escreve um <b>e-mail</b> para a avó pedindo que ela o salve da viagem.",
+            "pergunta": "Para que Joaquim usa o e-mail?",
+            "alternativas": [
+              "Para avisar a cidade sobre os moais",
+              "Para pedir ajuda a alguém que está longe",
+              "Para vender lembranças da ilha"
+            ],
+            "correta": 1,
+            "explicacao": "O e-mail leva uma mensagem a uma pessoa que não está por perto. Joaquim usa esse gênero para pedir socorro à avó."
+          },
+          {
+            "contexto": "A irmã de Joaquim inventa versos com rima e ritmo, contente com os moais caídos.",
+            "pergunta": "Que gênero é esse?",
+            "alternativas": [
+              "Notícia",
+              "Diário de bordo",
+              "Parlenda"
+            ],
+            "correta": 2,
+            "explicacao": "Parlenda é um texto curto, com rima e ritmo, feito para brincar com as palavras. A notícia informa, e o diário de bordo registra uma viagem dia a dia."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [1, 2, 3]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.GEN.Q1",
+          "enunciado": "No começo do livro, um <mark>folheto</mark> mostra a Ilha de Páscoa com hotel, restaurantes e lojas. Qual é a intenção desse texto?",
+          "figura": null,
+          "alternativas": [
+            "Convencer as pessoas a comprar o pacote de viagem",
+            "Explicar aos leitores por que os moais caíram",
+            "Contar o que Joaquim sentiu ao chegar à ilha",
+            "Ensinar aos turistas o caminho até o aeroporto"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense em quem fez o folheto: uma agência de turismo. O que uma agência quer?",
+          "explicacao": "O folheto é publicitário: mostra só as vantagens do lugar para vender a viagem. Explicar a queda dos moais é tarefa da notícia de jornal."
+        },
+        {
+          "questao_id": "POR.LEI.GEN.Q2",
+          "enunciado": "Joaquim escreve à avó pedindo que ela o salve da viagem. <mark>Que gênero</mark> ele usa para isso?",
+          "figura": null,
+          "alternativas": [
+            "Notícia de jornal",
+            "E-mail",
+            "Parlenda",
+            "Folheto publicitário"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Qual desses textos serve para mandar uma mensagem a uma pessoa?",
+          "explicacao": "Joaquim usa o e-mail, que leva uma mensagem a alguém que está longe. A notícia, a parlenda e o folheto têm outras funções."
+        },
+        {
+          "questao_id": "POR.LEI.GEN.Q3",
+          "enunciado": "Por que podemos dizer que <mark>o livro não tem narrador</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Porque os moais contam tudo em primeira pessoa",
+            "Porque o livro só tem imagens, sem palavras",
+            "Porque a história é contada por vários textos",
+            "Porque Joaquim narra tudo num diário só seu"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Lembre como as páginas mostram a história: alguém conta, ou aparecem textos diferentes?",
+          "explicacao": "Nenhuma voz conta a história do começo ao fim. O leitor junta folheto, quadrinhos, notícia, e-mails e outros textos para entender o que aconteceu."
+        },
+        {
+          "questao_id": "POR.LEI.GEN.Q4",
+          "enunciado": "Uma notícia de jornal conta onde fica a ilha, sua história e o mistério dos moais caídos. Qual é a <mark>função</mark> dessa notícia no livro?",
+          "figura": null,
+          "alternativas": [
+            "Convencer Joaquim a gostar de passeios",
+            "Mostrar a conversa da família no celular",
+            "Ensinar a irmã a fazer versos com rima",
+            "Dar ao leitor informações sobre os moais"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Notícia serve para informar. Que informação essa notícia traz?",
+          "explicacao": "A notícia informa: onde fica a ilha, quem fez os moais e o mistério da queda. Com ela, o leitor entende o motivo da promoção."
+        },
+        {
+          "questao_id": "POR.LEI.GEN.Q5",
+          "enunciado": "Joaquim segue uma <mark>receita</mark> com os ‘ingredientes’ para se comportar bem em passeios muito chatos. Por que as autoras escolheram o gênero receita?",
+          "figura": null,
+          "alternativas": [
+            "Para fazer graça: o comportamento vira prato",
+            "Porque Joaquim aprende a cozinhar na viagem",
+            "Porque a receita conta a história dos moais",
+            "Porque a família abre um restaurante na ilha"
+          ],
+          "correta": 0,
+          "dificuldade": 3,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Lembre como é uma receita: ingredientes e modo de preparo.",
+            "Veja o que essa receita ‘prepara’: uma comida ou outra coisa?",
+            "Pense no efeito que isso causa em quem lê."
+          ],
+          "dica": "Uma receita costuma preparar comida. O que esta receita prepara?",
+          "explicacao": "A receita usa o jeito de uma receita de cozinha para falar de comportamento, e isso diverte o leitor. O humor está na troca: no lugar de um bolo, um menino bem-comportado."
+        },
+        {
+          "questao_id": "POR.LEI.GEN.Q6",
+          "enunciado": "O folheto promete fotos dos moais, mas a notícia mostra todos caídos. O que o leitor percebe ao <mark>comparar os dois textos</mark>?",
+          "figura": null,
+          "alternativas": [
+            "O jornal inventou a queda para assustar turistas",
+            "O folheto mostra o lado bom e esconde o problema",
+            "Os moais caíram por causa das fotos dos turistas",
+            "A família viajou antes de os moais caírem"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Lembre o que o folheto quer: vender a viagem.",
+            "Lembre o que a notícia faz: informar o que aconteceu.",
+            "Compare: o problema aparece com destaque nos dois textos?"
+          ],
+          "dica": "O problema aparece no folheto só num carimbo, com uma palavra difícil. Por que será?",
+          "explicacao": "O folheto quer vender, então destaca o que é bom e deixa a queda num carimbo com a palavra ‘boléu’. A notícia, que quer informar, conta a queda com todas as letras."
+        }
+      ]
+    },
+    {
+      "missao_id": "personagens-moais",
+      "capitulo_id": "cap-1",
+      "icone": "🧳",
+      "titulo": "Quem é quem na viagem",
+      "subtitulo": "Personagens: o que querem, fazem e dizem",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.PERS",
+      "subtema": "Personagens: ações, traços e relações",
+      "habilidade_bncc": "EF35LP29",
+      "ferramenta": "investigar",
+      "regra": "Para conhecer um personagem, junte <b>o que ele quer</b>, <b>o que ele faz</b> e <b>o que ele diz</b>.",
+      "aula": {
+        "corpo": "<p>Joaquim é o personagem principal. Ele queria passar as férias numa praia, com esportes radicais.</p><p>A família dele tem pai, mãe e irmã. Longe dali está a avó, a quem ele pede ajuda por e-mail.</p><p>As falas e as ações mostram como cada um é. Quando o pai anuncia a Ilha de Páscoa, Joaquim reclama: ‘Chato, chato, chato…’.</p><h3>Hora de decidir · O que a pista revela?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>O que você descobriu:</strong> ninguém precisa dizer ‘Joaquim estava chateado’. A reação dele já mostra. Junte o que o personagem quer, faz e diz, e você descobre como ele é.</div>"
+      },
+      "dados": {
+        "instrucao": "Leia a pista, escolha o que ela mostra e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Joaquim pede um resort na praia com esportes radicais. Quando o pai anuncia a Ilha de Páscoa, ele repete: ‘Chato, chato, chato…’.",
+            "pergunta": "O que essa reação mostra sobre Joaquim?",
+            "alternativas": [
+              "Ele não gostou nada do destino escolhido",
+              "Ele adorou a ideia da viagem",
+              "Ele já conhecia a Ilha de Páscoa"
+            ],
+            "correta": 0,
+            "explicacao": "Repetir ‘chato’ mostra o desânimo de Joaquim. Ele queria outro tipo de férias."
+          },
+          {
+            "contexto": "O pai diz: ‘Nada tão barato pode ser chato, meu filho. Faça sua mala já!’.",
+            "pergunta": "O que essa fala mostra sobre o pai?",
+            "alternativas": [
+              "Ele ouve o filho antes de decidir",
+              "Ele liga para o preço e já decidiu",
+              "Ele tem medo de viajar de avião"
+            ],
+            "correta": 1,
+            "explicacao": "O pai usa o preço como argumento e manda o filho fazer a mala: a decisão já está tomada."
+          },
+          {
+            "contexto": "Para escapar da viagem, Joaquim escreve à avó pedindo que ela o salve.",
+            "pergunta": "O que isso mostra sobre a avó, para Joaquim?",
+            "alternativas": [
+              "Ela é a dona da agência de turismo",
+              "Ela mora na Ilha de Páscoa",
+              "Ela é alguém em quem ele confia"
+            ],
+            "correta": 2,
+            "explicacao": "A gente pede socorro a quem confia. O pedido mostra que a avó é a aliada de Joaquim."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [1, 2, 3]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.PERS.Q301",
+          "enunciado": "Quem é o <mark>personagem principal</mark> de <i>A queda dos moais</i>?",
+          "figura": null,
+          "alternativas": [
+            "Um navegador que escreve um diário de bordo",
+            "Joaquim, um menino que não queria a viagem",
+            "A avó, que trabalha numa agência de turismo",
+            "A irmã, que organiza as férias da família"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Pense em quem aparece na capa e passa as férias reclamando.",
+          "explicacao": "Joaquim é o centro da história: tudo gira em torno das férias que ele não queria. O diário de bordo é um texto que ele encontra na viagem."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q302",
+          "enunciado": "Que tipo de férias Joaquim <mark>queria</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Num chalé nas montanhas",
+            "Na Ilha de Páscoa, vendo os moais",
+            "Em casa, sem sair para nada",
+            "Numa praia, com esportes radicais"
+          ],
+          "correta": 3,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Lembre o pedido de Joaquim nos quadrinhos, antes de o pai anunciar o destino.",
+          "explicacao": "Joaquim pediu um resort na praia com esportes radicais. O chalé foi ideia de outra pessoa da família, e a ilha foi a escolha do pai."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q303",
+          "enunciado": "Quando quer escapar da viagem, a quem Joaquim <mark>pede ajuda</mark>?",
+          "figura": null,
+          "alternativas": [
+            "À avó, por e-mail",
+            "Ao pai, por carta",
+            "À irmã, numa parlenda",
+            "Ao jornal, numa notícia"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "conceitual",
+          "dica": "Quem é a pessoa da família que não vai viajar com eles?",
+          "explicacao": "Joaquim escreve um e-mail para a avó pedindo que ela o salve. A parlenda é da irmã, e a notícia é do jornal."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q304",
+          "enunciado": "Depois de anunciar a viagem, o pai diz ao filho: ‘Faça sua mala já!’. O que essa fala <mark>mostra</mark> sobre o pai?",
+          "figura": null,
+          "alternativas": [
+            "Ele ficou com pena do filho e desistiu",
+            "Ele quer saber onde o filho prefere ir",
+            "Ele já decidiu e não vai mudar de ideia",
+            "Ele vai ficar em casa com Joaquim"
+          ],
+          "correta": 2,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "A fala é uma pergunta ou uma ordem?",
+          "explicacao": "‘Faça sua mala já!’ é uma ordem: o assunto está encerrado para o pai. Ele não pergunta nada ao filho."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q305",
+          "enunciado": "A irmã de Joaquim cria uma parlenda contente com os moais caídos, enquanto ele reclama. O que essa <mark>diferença</mark> revela?",
+          "figura": null,
+          "alternativas": [
+            "Os dois irmãos detestam a Ilha de Páscoa",
+            "Os irmãos veem a mesma viagem de jeitos opostos",
+            "A irmã derrubou os moais de propósito",
+            "Joaquim escreveu a parlenda no lugar dela"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Veja como a irmã reage aos moais caídos.",
+            "Compare com a reação de Joaquim.",
+            "Pense no que essa diferença mostra sobre os dois."
+          ],
+          "dica": "Os dois estão na mesma viagem. Eles se sentem do mesmo jeito?",
+          "explicacao": "A mesma situação deixa a irmã contente e Joaquim chateado. Comparar reações é uma ótima forma de conhecer personagens."
+        },
+        {
+          "questao_id": "POR.LEI.PERS.Q306",
+          "enunciado": "No livro aparece o clube PaSNo, dos ‘Pais Sem Noção’, que levam os filhos a viagens como esta. Do <mark>ponto de vista de Joaquim</mark>, o que esse nome critica?",
+          "figura": null,
+          "alternativas": [
+            "Pais que deixam os filhos escolher as férias",
+            "Pais que nunca saem de casa nas férias",
+            "Pais que trabalham numa agência de turismo",
+            "Pais que escolhem passeios chatos para os filhos"
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Lembre quem escolheu a Ilha de Páscoa.",
+            "Lembre o que Joaquim achou dessa escolha.",
+            "Junte as duas coisas e veja o que ‘sem noção’ quer criticar."
+          ],
+          "dica": "Quem escolheu a viagem, e o que Joaquim achou dela?",
+          "explicacao": "Para Joaquim, ‘sem noção’ são os pais que escolhem viagens que os filhos acham chatas, como a da ilha. O nome é uma brincadeira com esse jeito de ver."
+        }
+      ]
+    },
+    {
+      "missao_id": "causa-moais",
+      "capitulo_id": "cap-1",
+      "icone": "🔗",
+      "titulo": "Por que tão barato?",
+      "subtitulo": "Causa e consequência",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.CAUSA",
+      "subtema": "Causa e consequência, inferência sobre motivos",
+      "habilidade_bncc": "EF35LP04",
+      "ferramenta": "investigar",
+      "regra": "Causa responde <b>por quê?</b>. Consequência responde <b>o que aconteceu por causa disso?</b>. Procure a ligação no texto, não só a ordem.",
+      "aula": {
+        "corpo": "<p>O folheto da agência oferecia a viagem com descontos incríveis. O pai de Joaquim aceitou na hora.</p><p>Mas ele não procurou saber o motivo da promoção. O carimbo do folheto e a notícia do jornal dão a pista: os moais estavam caídos.</p><p>Causa e consequência formam uma corrente: uma coisa provoca a outra. Ligue os elos e veja a história andar.</p><h3>Hora de decidir · Qual é a ligação?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>O que você descobriu:</strong> moais caídos → viagem barata → família na ilha → Joaquim pedindo socorro. Para achar uma causa, pergunte ‘por quê?’. Para achar a consequência, pergunte ‘e então?’.</div>"
+      },
+      "dados": {
+        "instrucao": "Escolha a ligação apoiada pela história e confirme.",
+        "exemplos": [
+          {
+            "contexto": "A notícia do jornal conta que todos os moais apareceram caídos de cara no chão.",
+            "pergunta": "Que consequência isso teve para a agência de turismo?",
+            "alternativas": [
+              "Ela proibiu as fotos dos moais",
+              "Ela passou a vender a viagem com descontos",
+              "Ela fechou as portas para sempre"
+            ],
+            "correta": 1,
+            "explicacao": "Com a principal atração caída, a agência baixou o preço: o carimbo diz que os descontos são por causa do ‘boléu dos moais’."
+          },
+          {
+            "contexto": "A viagem estava em promoção, e o pai achou que nada tão barato podia ser chato.",
+            "pergunta": "Por que o pai escolheu a Ilha de Páscoa?",
+            "alternativas": [
+              "Porque o pacote estava barato",
+              "Porque Joaquim pediu muito",
+              "Porque a avó morava lá"
+            ],
+            "correta": 0,
+            "explicacao": "O motivo do pai foi o preço. Joaquim queria outra coisa: praia e esportes radicais."
+          },
+          {
+            "contexto": "Joaquim não queria passar as férias vendo estátuas caídas.",
+            "pergunta": "O que ele fez por causa disso?",
+            "alternativas": [
+              "Comprou outro pacote de viagem",
+              "Escondeu-se dentro de um moai",
+              "Escreveu à avó pedindo socorro"
+            ],
+            "correta": 2,
+            "explicacao": "Sem vontade de ir, Joaquim pede ajuda à avó por e-mail. A vontade dele é a causa; o pedido é a consequência."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [1, 2, 3]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.CAUSA.Q301",
+          "enunciado": "<mark>Por que</mark> o pai de Joaquim escolheu a Ilha de Páscoa?",
+          "figura": null,
+          "alternativas": [
+            "Porque Joaquim sonhava conhecer os moais",
+            "Porque o pacote de viagem estava em promoção",
+            "Porque a avó tinha uma casa na ilha",
+            "Porque a escola mandou visitar a ilha"
+          ],
+          "correta": 1,
+          "dificuldade": 1,
+          "tipo_raciocinio": "conceitual",
+          "dica": "O pai encontrou a viagem num folheto. O que o folheto oferecia?",
+          "explicacao": "O pai escolheu pelo preço: a viagem estava em promoção. Ele chega a dizer que nada tão barato pode ser chato."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q302",
+          "enunciado": "O carimbo do folheto diz: ‘Descontos especiais em virtude do boléu dos moais’. Qual era a <mark>causa</mark> dos descontos?",
+          "figura": null,
+          "alternativas": [
+            "A chegada do verão na ilha",
+            "A inauguração de um hotel novo",
+            "A queda dos moais",
+            "O aniversário da agência"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Olhe o título do livro. Ele dá uma pista do que é ‘boléu’.",
+          "explicacao": "‘Boléu’ é queda, tombo. Os descontos existiam porque a principal atração da ilha estava caída."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q303",
+          "enunciado": "O pai não procurou saber por que a viagem estava tão barata. Qual foi a <mark>consequência</mark> para a família?",
+          "figura": null,
+          "alternativas": [
+            "Viajar para ver uma atração que estava caída",
+            "Ir para a praia com esportes radicais",
+            "Ficar em casa durante todas as férias",
+            "Ganhar uma viagem de graça da agência"
+          ],
+          "correta": 0,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Qual era o grande atrativo da ilha, e como ele estava?",
+          "explicacao": "Sem conhecer o motivo da promoção, a família foi visitar os moais justamente quando eles estavam caídos. A praia era o desejo de Joaquim, não o destino."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q304",
+          "enunciado": "Joaquim pede que a avó o salve da viagem. O que <mark>causou</mark> esse pedido?",
+          "figura": null,
+          "alternativas": [
+            "Ele queria que a avó pagasse o hotel",
+            "Ele queria levar a avó para a ilha",
+            "Ele estava com medo dos moais",
+            "Ele achava a viagem chata e não queria ir"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Lembre a reação de Joaquim quando o pai anunciou o destino.",
+          "explicacao": "Joaquim achava a viagem chata e queria outras férias. Por isso pede socorro à avó."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q305",
+          "enunciado": "Joaquim usa uma ‘receita de comportamento ideal para passeios muito chatos’. Qual ligação de causa e consequência <mark>faz sentido</mark>?",
+          "figura": null,
+          "alternativas": [
+            "Receita boa → os moais voltam a ficar em pé",
+            "Passeios chatos → ele precisa de um jeito de aguentar",
+            "Comida da ilha → Joaquim aprende a cozinhar",
+            "Conselho da avó → a família cancela a viagem"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Leia o nome da receita: para que situação ela foi feita?",
+            "Pense no problema que Joaquim tem nessa situação.",
+            "Escolha a seta em que o primeiro fato provoca o segundo."
+          ],
+          "dica": "O nome da receita já diz para quando ela serve.",
+          "explicacao": "Os passeios eram chatos para Joaquim, e a receita é o jeito de se comportar bem mesmo assim. As outras setas ligam fatos que não se provocam."
+        },
+        {
+          "questao_id": "POR.LEI.CAUSA.Q306",
+          "enunciado": "Folheto com desconto → pai compra a viagem → Joaquim pede socorro. Se o <mark>primeiro elo</mark> não existisse, o que provavelmente mudaria?",
+          "figura": null,
+          "alternativas": [
+            "Os moais teriam caído do mesmo jeito",
+            "Joaquim escreveria à avó do mesmo jeito",
+            "A família talvez não fosse à Ilha de Páscoa",
+            "O jornal deixaria de publicar a notícia"
+          ],
+          "correta": 2,
+          "dificuldade": 3,
+          "tipo_raciocinio": "multi-etapa",
+          "passos": [
+            "Encontre o primeiro elo da corrente.",
+            "Veja o que ele provocou logo depois.",
+            "Pense no que acontece com o resto da corrente sem esse começo."
+          ],
+          "dica": "O que levou o pai a escolher a ilha?",
+          "explicacao": "Foi a promoção que levou o pai a escolher a ilha. Sem ela, a viagem talvez nem acontecesse, e Joaquim não precisaria pedir socorro."
+        }
+      ]
+    },
+    {
+      "missao_id": "vocabulario-moais",
+      "capitulo_id": "cap-1",
+      "icone": "🔍",
+      "titulo": "Palavras-mistério",
+      "subtitulo": "O sentido pelo contexto",
+      "eixo": "Leitura",
+      "tema_id": "POR.LEI.VOCAB",
+      "subtema": "Vocabulário inferido pelo contexto",
+      "habilidade_bncc": "EF35LP05",
+      "ferramenta": "investigar",
+      "regra": "Palavra desconhecida? Leia a <b>frase inteira</b>, procure <b>pistas</b> perto dela e <b>troque a palavra</b> para testar o sentido.",
+      "aula": {
+        "corpo": "<p>No folheto há um carimbo: ‘Descontos especiais em virtude do boléu dos moais’. Boléu é uma palavra pouco conhecida.</p><p>Logo depois, a notícia do jornal mostra os moais caídos de cara no chão. Junte as pistas: boléu quer dizer queda, tombo.</p><p>Teste trocando a palavra: ‘descontos por causa da queda dos moais’. Faz sentido? Então a pista estava certa.</p><h3>Hora de decidir · Qual sentido cabe aqui?</h3>",
+        "fechamento": "<div class=\"lesson-box\"><strong>O que você descobriu:</strong> você não precisa parar a leitura a cada palavra nova. Siga em frente, junte as pistas e teste o sentido trocando a palavra.</div>"
+      },
+      "dados": {
+        "instrucao": "Use as pistas, escolha o sentido e confirme.",
+        "exemplos": [
+          {
+            "contexto": "Carimbo do folheto: ‘Descontos especiais <b>em virtude do</b> boléu dos moais’.",
+            "pergunta": "‘Em virtude do’ quer dizer:",
+            "alternativas": [
+              "apesar do",
+              "por causa do",
+              "longe do"
+            ],
+            "correta": 1,
+            "explicacao": "Troque e teste: ‘descontos por causa do boléu dos moais’. A frase continua fazendo sentido."
+          },
+          {
+            "contexto": "O jornal da história se chama <b>O Coscuvilheiro</b>. Coscuvilheiro é quem gosta de saber e espalhar a vida dos outros.",
+            "pergunta": "Que palavra tem sentido parecido?",
+            "alternativas": [
+              "Corajoso",
+              "Esquecido",
+              "Fofoqueiro"
+            ],
+            "correta": 2,
+            "explicacao": "Quem espalha a vida dos outros é fofoqueiro. O nome do jornal é uma piada das autoras."
+          },
+          {
+            "contexto": "A manchete da notícia é ‘<b>Ascensão</b> e queda em Rapa Nui’. Ascensão é o contrário de queda.",
+            "pergunta": "O que quer dizer ascensão?",
+            "alternativas": [
+              "Subida",
+              "Tombo",
+              "Viagem"
+            ],
+            "correta": 0,
+            "explicacao": "Se queda é descer, o contrário é subir. A manchete fala do tempo em que a ilha cresceu e do tempo em que caiu."
+          }
+        ]
+      },
+      "sorteio": {
+        "dificuldades": [1, 2, 3]
+      },
+      "questoes": [
+        {
+          "questao_id": "POR.LEI.VOCAB.Q301",
+          "enunciado": "No carimbo ‘Descontos especiais em virtude do <mark>boléu</mark> dos moais’, o que quer dizer boléu?",
+          "figura": null,
+          "alternativas": [
+            "Festa, comemoração",
+            "Pintura, enfeite",
+            "Queda, tombo",
+            "Viagem, passeio"
+          ],
+          "correta": 2,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Lembre como os moais aparecem na notícia do jornal e no título do livro.",
+          "explicacao": "Os moais estavam caídos, e o livro se chama <i>A queda dos moais</i>: boléu é queda, tombo."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q302",
+          "enunciado": "‘Descontos especiais <mark>em virtude do</mark> boléu dos moais.’ Que expressão pode substituir a destacada sem mudar o sentido?",
+          "figura": null,
+          "alternativas": [
+            "por causa do",
+            "apesar do",
+            "antes do",
+            "longe do"
+          ],
+          "correta": 0,
+          "dificuldade": 1,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Troque cada opção na frase e veja qual mantém a ideia de motivo.",
+          "explicacao": "A queda é o motivo dos descontos, então ‘em virtude do’ = ‘por causa do’. ‘Apesar do’ diria o contrário."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q303",
+          "enunciado": "O folheto anuncia lojas de <mark>souvenirs</mark>. Pelo contexto de uma viagem, o que se vende nessas lojas?",
+          "figura": null,
+          "alternativas": [
+            "Remédios para quem passa mal no avião",
+            "Passagens de avião para outros países",
+            "Roupas de mergulho para esportes",
+            "Lembranças do lugar para levar para casa"
+          ],
+          "correta": 3,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "Pense no que os turistas costumam comprar para lembrar de um lugar.",
+          "explicacao": "Souvenir é uma lembrança de viagem, como um chaveiro ou uma miniatura de moai. A palavra vem do francês."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q304",
+          "enunciado": "A manchete do jornal é ‘<mark>Ascensão</mark> e queda em Rapa Nui’. Se queda é descer, o que é ascensão?",
+          "figura": null,
+          "alternativas": [
+            "Tombo, nova queda",
+            "Subida, crescimento",
+            "Parada, descanso",
+            "Sumiço, desaparecimento"
+          ],
+          "correta": 1,
+          "dificuldade": 2,
+          "tipo_raciocinio": "interpretacao",
+          "dica": "As duas palavras da manchete são opostas.",
+          "explicacao": "Ascensão é o contrário de queda: subida, crescimento. A manchete junta os dois momentos da história da ilha."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q305",
+          "enunciado": "A receita de comportamento sugere frases como ‘<mark>Mesmo com chuva</mark>, eu achei que valeu a pena…’. O que ‘mesmo com chuva’ ajuda a dizer?",
+          "figura": null,
+          "alternativas": [
+            "Que choveu e o passeio foi cancelado",
+            "Que houve um problema, mas a opinião é boa",
+            "Que ele adora passear debaixo de chuva",
+            "Que só vale a pena passear quando chove"
+          ],
+          "correta": 1,
+          "dificuldade": 3,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Pense: chuva num passeio é coisa boa ou ruim?",
+            "Veja a opinião que vem depois da vírgula.",
+            "Junte as duas partes: o que ‘mesmo’ faz entre elas?"
+          ],
+          "dica": "‘Mesmo’ liga duas ideias que parecem não combinar.",
+          "explicacao": "‘Mesmo com chuva’ admite um problema e, ainda assim, traz uma opinião boa. É um jeito educado de reclamar sem desagradar os pais."
+        },
+        {
+          "questao_id": "POR.LEI.VOCAB.Q306",
+          "enunciado": "Nos quadrinhos, Joaquim repete <mark>‘chato, chato, chato’</mark> várias vezes. Por que as autoras repetem a palavra?",
+          "figura": null,
+          "alternativas": [
+            "Porque o balão estava sem espaço",
+            "Para ensinar uma parlenda à irmã",
+            "Porque Joaquim esqueceu outras palavras",
+            "Para mostrar o tamanho do desânimo dele"
+          ],
+          "correta": 3,
+          "dificuldade": 3,
+          "tipo_raciocinio": "interpretacao",
+          "passos": [
+            "Lembre o que Joaquim acabou de ouvir do pai.",
+            "Pense em como ele se sente.",
+            "Veja o que a repetição faz com esse sentimento."
+          ],
+          "dica": "Quando alguém repete muito uma palavra, o sentimento fica maior ou menor?",
+          "explicacao": "Repetir aumenta a força da palavra: o leitor ‘ouve’ o resmungo de Joaquim. É um recurso de ênfase."
+        }
+      ]
+    },
+    {
+      "missao_id": "mistura-moais",
+      "capitulo_id": "cap-2",
+      "icone": "🗿",
+      "titulo": "Tudo junto na ilha",
+      "subtitulo": "Gêneros, personagens, causas e palavras",
+      "intercalada": true,
+      "banco_de": {
+        "missoes": [
+          "generos-moais",
+          "personagens-moais",
+          "causa-moais",
+          "vocabulario-moais"
+        ]
+      },
+      "sorteio": {
+        "por_tema": [1, 2]
+      },
+      "regras": [
+        {
+          "tema_id": "POR.LEI.GEN",
+          "rotulo": "Tipo de texto",
+          "texto": "Pergunte: <b>quem escreveu, para quem e para quê?</b> Vender, informar, pedir, ensinar, brincar."
+        },
+        {
+          "tema_id": "POR.LEI.PERS",
+          "rotulo": "Personagem",
+          "texto": "Junte o que o personagem <b>quer</b>, <b>faz</b> e <b>diz</b>."
+        },
+        {
+          "tema_id": "POR.LEI.CAUSA",
+          "rotulo": "Causa e consequência",
+          "texto": "<b>Por quê?</b> leva à causa. <b>E então?</b> leva à consequência. Confira se um fato provoca o outro."
+        },
+        {
+          "tema_id": "POR.LEI.VOCAB",
+          "rotulo": "Palavra nova",
+          "texto": "Leia a frase toda, procure pistas por perto e <b>troque a palavra</b> para testar."
+        }
+      ]
+    }
+  ]
+}

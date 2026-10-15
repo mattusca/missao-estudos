@@ -210,6 +210,16 @@
     "bncc_conferida": false
   },
   {
+    "tema_id": "POR.LEI.GEN",
+    "materia": "Portugues",
+    "eixo": "Leitura",
+    "tema": "Cada texto tem uma função",
+    "subtema": "Gêneros textuais e sua função na narrativa",
+    "habilidade_bncc": "EF15LP01",
+    "nivel_conteudo": "Y5",
+    "bncc_conferida": false
+  },
+  {
     "tema_id": "MAT.NUM.DIVDEC",
     "materia": "Matemática",
     "eixo": "Números",
